@@ -8,5 +8,5 @@
 
 body {
     padding: 64px 124px;
-    background-color: #FFFFF0;
+    background-color: var(--white-color);
 }

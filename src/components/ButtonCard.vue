@@ -25,7 +25,7 @@
         margin: 16px 16px 16px 0px;
         border: none;
         border-radius: 50px;
-        background-color: #D80A3D;
+        background-color: var(--red-color);
         transition: all 0.4s ease;
     }
 

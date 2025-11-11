@@ -49,7 +49,7 @@
         flex-direction: column;
         flex: 1;
         border-style: solid;
-        border-color: #D80A3D;
+        border-color: var(--red-color);
         border-width: 1px 3px 3px 1px;
     }
 
@@ -70,8 +70,8 @@
         align-items: center;
         justify-content: space-between;
         height: 100%;
-        border-top: 1px solid #D80A3D;
-        border-bottom: 1px solid #D80A3D;
+        border-top: 1px solid var(--red-color);
+        border-bottom: 1px solid var(--red-color);
     }
 
     .text-name-container {
@@ -85,7 +85,7 @@
 
 
     a {
-        color: #D80A3D;
+        color: var(--red-color);
         font-family: "Instrument Sans";
         font-size: 16px;
         font-style: normal;
@@ -95,7 +95,7 @@
     }
 
     h2 {
-        color: #D80A3D;
+        color: var(--red-color);
         font-family: "Instrument Sans";
         font-size: 24px;
         font-style: normal;

@@ -33,7 +33,7 @@
     }
 
     .info-block:not(:last-child) {
-        border-right: 1px solid #D80A3D;
+        border-right: 1px solid var(--red-color);
     }
 
     .info-block p {
@@ -41,7 +41,7 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        color: #D80A3D;
+        color: var(--red-color);
         text-align: center;
         font-family: "Instrument Sans";
         font-size: 16px;
@@ -51,7 +51,7 @@
     }
 
     .info-block span {
-        color: #D80A3D;
+        color: var(--red-color);
         text-align: center;
         font-family: "Instrument Sans";
         font-size: 16px;
