@@ -9,7 +9,7 @@
             Header
         },
         data() {
-            return {  
+            return {
                 coctails: []
             }
         },
@@ -26,6 +26,10 @@
 </script>
 
 <template>
+    <router-link to="/">Home</router-link>
+    <router-link to="/recipes">Recipes</router-link>
+<router-view></router-view>
+
     <Header/>
     <div class="cards-container">
         <Card
