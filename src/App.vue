@@ -2,11 +2,13 @@
     // import { RouterLink, RouterView } from 'vue-router'
     import Card from './components/Card.vue'
     import Header from './components/Header.vue'
+    import Button from './components/Button.vue'
 
     export default {
         components: {
             Card,
-            Header
+            Header,
+            Button
         },
         data() {
             return {
@@ -44,6 +46,10 @@
             :label="coctail.name"
         />
     </div>
+<div class="space">
+
+</div>
+    <Button btnText="Click" variant="filter" :showArrow="false"></Button>
 </template>
 
 <style scoped>
@@ -52,5 +58,10 @@
         grid-template-columns: auto auto auto;
         width: 100%;
         gap: 24px;
+    }
+
+    .space {
+        width: 100px;
+        height: 100px;
     }
 </style>
