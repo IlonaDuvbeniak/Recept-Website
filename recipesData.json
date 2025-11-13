@@ -1,10 +1,224 @@
 {
   "coctails": [
-    { "id": 0, "categori": "Post-Breakup Potions", "name": "Bye Bye Mary", "image": "/img/drinks/bloody-mary.png", "rating": 4.6, "ingridients": 5, "time": 15 },
-    { "id": 1, "categori": "Drunk in paradise", "name": "Out of office", "image": "/img/drinks/out-of-office.png", "rating": 4.9, "ingridients": 4, "time": 10 },
-    { "id": 2, "categori": "Party Like It’s Friday", "name": "Dancing on Tables", "image": "/img/drinks/dancing-on-tables.png", "rating": 4.8, "ingridients": 6, "time": 8 },
-    { "id": 3, "categori": "Boos & Brews", "name": "Witch, Please!", "image": "/img/drinks/witch-please.png", "rating": 4.8, "ingridients": 5, "time": 7 },
-    { "id": 4, "categori": "Sips of Christmas", "name": "Mistle-Toasted", "image": "/img/drinks/mistle-toast.png", "rating": 4.5, "ingridients": 6, "time": 9 },
-    { "id": 5, "categori": "Post-Breakup Potions", "name": "Exorcism", "image": "/img/drinks/exorcism.png", "rating": 5, "ingridients": 3, "time": 12 }
+    { 
+      "id": 0, 
+      "categori": "Post-Breakup Potions", 
+      "name": "Bye Bye Mary", 
+      "image": "/img/drinks/bloody-mary.png", 
+      "rating": 4.6, 
+      "ingridients": 6, 
+      "time": 10,
+      "description": "En djärv blandning av vodka och hetta, balanserad med syra, krydda och ren självrespekt. Det här är ingen vanlig Bloody Mary – det är ett farväl i flytande form. Citronens skarpa sting skär igenom gamla känslor, chilin påminner dig om att smärta också kan vara njutning, och varje klunk bränner bort ännu ett dåligt minne. Bäst serverad iskall, utan känslomässigt bagage och med en spellista full av hämndlåtar.",
+      "ingridients-list": [
+          "60 ml vodka",
+          "120 ml tomatjuice",
+          "1 tsk Worcestershiresås",
+          "Några droppar stark sås (efter smak)",
+          "Saften av 1/2 citron",
+          "Selleristjälk (för att röra bort ångesten)"
+      ],
+      "recept": [
+          "Fyll ett högt glas med is och häll i vodkan.",
+          "Tillsätt tomatjuice, citronsaft, Worcestershiresås och stark sås.",
+          "Rör långsamt – tänk på alla röda flaggor du ignorerade.",
+          "Garnera med selleri och skåla för din nyvunna frihet."
+      ],
+      "comments": [
+        {
+          "name": "Sara",
+          "date": "12 april 2025",
+          "rubrik": "Brände bort mitt ex 😅",
+          "comment": "Perfekt balans mellan hetta och syra! Kändes som terapi i glasform."
+        },
+        {
+          "name": "Jonas",
+          "date": "15 april 2025",
+          "comment": "Lite stark, men exakt vad man behöver efter ett dåligt beslut."
+        },
+        {
+          "name": "Emilia",
+          "date": "18 april 2025",
+          "rubrik": "Ny favorit!",
+          "comment": "Snygg twist på Bloody Mary. Älskar citronen och chilin!"
+        }
+      ]
+    },
+    { 
+      "id": 1, 
+      "categori": "Drunk in paradise", 
+      "name": "Out of office", 
+      "image": "/img/drinks/out-of-office.png", 
+      "rating": 4.9, 
+      "ingridients": 5, 
+      "time": 8,
+      "description": "Den automatiska semesterhälsningen i drinkform. En tropisk flykt där varje klunk smakar som att kasta mobilen i havet och glömma lösenordet till mejlen. Söt kokos, frisk lime och en skvätt rom gör jobbet du flydde från plötsligt helt oviktigt. Solen, saltet och friheten blandas till perfekt balans. Bäst serverad i skuggan av ett dåligt beslut – med sand mellan tårna och noll ansvar.", 
+      "ingridients-list": [
+        "50 ml ljus rom",
+        "100 ml kokosvatten",
+        "30 ml ananasjuice",
+        "Saften av 1/2 lime",
+        "Isbitar"
+      ],
+      "recept": [
+        "Fyll en shaker med is och häll i rom, kokosvatten, ananasjuice och limesaft.",
+        "Skaka lätt som om du just klickade 'skicka autosvar'.",
+        "Sila upp i ett kylt glas.",
+        "Garnera med en limeklyfta och känslan av att du inte svarar på några mejl förrän vidare."
+      ],
+      "comments": [
+        {
+          "name": "Linn",
+          "date": "2 maj 2025",
+          "rubrik": "Semester i ett glas 🌴",
+          "comment": "Smakar som att kasta mobilen i havet. Älskar den!"
+        },
+        {
+          "name": "Hanna",
+          "date": "5 maj 2025",
+          "rubrik": "Alltså wow!",
+          "comment": "Drack den på balkongen och glömde helt bort att jag bor i Sverige."
+        }
+      ]
+    },
+    { 
+      "id": 2, 
+      "categori": "Party Like It’s Friday", 
+      "name": "Dancing on Tables", 
+      "image": "/img/drinks/dancing-on-tables.png", 
+      "rating": 4.8, 
+      "ingridients": 6, 
+      "time": 8,
+      "description": "För när kvällen spårar ur – på bästa sätt. Den här drinken är flytande självförtroende, fylld med bubblor, glitter och dåliga idéer. Söt, syrlig och farligt lättdrucken. En klunk in och du är redan på dansgolvet; två, och borden börjar se ut som scenen du föddes för. Bäst serverad kall, med skratt som eko och en chatt full av meddelanden du borde ha låtit bli att skicka.", 
+      "ingridients-list": [
+        "40 ml gin",
+        "20 ml passionsfruktlikör",
+        "20 ml citronjuice",
+        "10 ml sockerlag",
+        "Toppa med mousserande vin",
+        "Isbitar"
+      ],
+      "recept": [
+        "Fyll en shaker med is och häll i gin, passionsfruktlikör, citronjuice och sockerlag.",
+        "Skaka energiskt – tänk på det där första basdroppet.",
+        "Sila upp i ett glas fyllt med is.",
+        "Toppa med mousserande vin och låt bubblorna göra resten.",
+        "Garnera med ett leende och din mest tveksamma dansrörelse."
+      ],
+      "comments": [
+        {
+          "name": "Niklas",
+          "date": "25 maj 2025",
+          "comment": "Syrlig och bubblig, precis som en bra kväll ute."
+        }
+      ]
+    },
+    { 
+      "id": 3, 
+      "categori": "Boos & Brews", 
+      "name": "Witch, Please!", 
+      "image": "/img/drinks/witch-please.png", 
+      "rating": 4.8, 
+      "ingridients": 5, 
+      "time": 7,
+      "description": "En trolsk blandning för alla moderna häxor med smak för dramatik och lite mörk humor. En nattlig elixir där svart vinbär möter citrus och ett stänk av magi. Frisk, fruktig och lite farlig – precis som du efter klockan tio. Den skimrar i glaset som en förbannelse du inte riktigt vill bryta. Bäst serverad under fullmånen, med glitter på kinderna och skratt som ekar mellan världarna.", 
+      "ingridients-list": [
+        "40 ml gin eller svartvinbärsrom",
+        "30 ml svartvinbärsjuice",
+        "15 ml citronjuice",
+        "10 ml honungssirap (1:1 honung och varmt vatten)",
+        "Isbitar"
+      ],
+      "recept": [
+        "Fyll en shaker med is och tillsätt gin, svartvinbärsjuice, citronjuice och honungssirap.",
+        "Skaka tills det känns som en trollformel på väg att slå in.",
+        "Sila upp i ett kylt glas.",
+        "Garnera med en citronskiva eller ätbart glitter.",
+        "Drick långsamt och låt magin kicka in."
+      ],
+      "comments": [
+      ]
+    },
+    { 
+      "id": 4, 
+      "categori": "Sips of Christmas", 
+      "name": "Mistle-Toasted", 
+      "image": "/img/drinks/mistle-toast.png", 
+      "rating": 4.5, 
+      "ingridients": 6, 
+      "time": 9,
+      "description": "Julen handlar om att hålla sig varm – inifrån. Den här drinken blandar len whisky, söt honung och kryddig kanel till en flytande julkram med attityd. Ett glas värme, ett stänk flört och en ursäkt att stå lite för länge under misteln. Doften av apelsin och kryddor känns som en julsång du faktiskt vill höra. Bäst serverad framför brasan, i fula jultröjor och med hjärtat lätt berusat av både glögg och kärlek.", 
+      "ingridients-list": [
+        "40 ml whisky",
+        "20 ml honungssirap (1:1 honung och varmt vatten)",
+        "60 ml varm äppelmust",
+        "Ett stänk kanel",
+        "Ett stänk apelsinjuice",
+        "Apelsinzest till garnering"
+      ],
+      "recept": [
+        "Värm äppelmusten försiktigt i en kastrull – den ska vara het men inte koka.",
+        "Tillsätt whisky, honungssirap, apelsinjuice och kanel.",
+        "Rör om och häll upp i ett värmetåligt glas.",
+        "Garnera med apelsinzest och ett leende som säger ‘jag har redan öppnat klapparna’.",
+        "Njut medan snön faller och alla problem känns minst 50 % mindre."
+      ],
+      "comments": [
+        {
+          "name": "Daniel",
+          "date": "20 december 2025",
+          "rubrik": "Jul i ett glas 🎄",
+          "comment": "Så mysig och varm! Smakar som julafton och whisky."
+        },
+        {
+          "name": "Elin",
+          "date": "22 december 2025",
+          "comment": "Drack den framför brasan, helt perfekt efter en kall dag."
+        },
+        {
+          "name": "Marcus",
+          "date": "24 december 2025",
+          "rubrik": "Min nya jultradition",
+          "comment": "Kanelen och honungen gör hela grejen. Kommer göra den varje år!"
+        }
+      ]
+    },
+    { 
+      "id": 5, 
+      "categori": "Post-Breakup Potions", 
+      "name": "Exorcism", 
+      "image": "/img/drinks/exorcism.png", 
+      "rating": 5, 
+      "ingridients": 3, 
+      "time": 12,
+      "description": "En djärv blandning av vodka och whiskey, balanserad med sötma och en touch av hetta. Kardemumma ger mystik, chilin står för elden, och tillsammans bränner de bort alla dåliga minnen. Bäst serverad iskall – helt fri från känslomässigt bagage.",
+      "ingridients-list": [
+        "1 dl vodka",
+        "2 msk vatten",
+        "2 msk sockerlag",
+        "1 krm kardemumma",
+        "1 msk wiskey",
+        "½ krm chili"
+      ],
+      "recept": [
+        "Blanda kardemumma och chili",
+        "Häll några droppar av vodkan och rör om med sked",
+        "Blanda i vodkan, wiskeyn och vattnet och skaka eller rör om",
+        "Blanda i sockerlaget lite i taget och smaka av"
+      ],
+      "comments": [
+        {
+          "name": "Amanda",
+          "date": "10 februari 2025",
+          "rubrik": "Utdrivning lyckades 😈",
+          "comment": "Drack en och kände mig som en ny människa. Exet? Försvann ur tankarna direkt."
+        },
+        {
+          "name": "Nora",
+          "date": "14 februari 2025",
+          "rubrik": "Bästa dejten på Alla hjärtans dag",
+          "comment": "Gjorde denna istället för att gå ut – bästa beslutet jag tagit i år."
+        }
+      ]
+    }
   ]
 }
