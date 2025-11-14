@@ -1,5 +1,6 @@
 <script>
     // import { RouterLink, RouterView } from 'vue-router'
+    import { getData} from './FetchData.vue'
     import Card from './components/Card.vue'
     import Header from './components/Header.vue'
     import Button from './components/Button.vue'
@@ -17,11 +18,10 @@
         },
         async mounted() {
             try {
-                const res = await fetch('./recipesData.json')
-                const data = await res.json()
+                const data = await getData()
                 this.coctails = data.coctails
             } catch (err) {
-                console.error(err)
+                console.log(err)
             }
         }
     }
@@ -48,7 +48,7 @@
     </div>
 
     <!-- EXAMPLE OF USING BUTTON.VUE -->
-    <Button btnText="Click" variant="filter" :showArrow="false" :disabled="false"></Button>
+    <Button btnText="Click" variant="primary" :showArrow="true" :disabled="false"></Button>
 </template>
 
 <style scoped>

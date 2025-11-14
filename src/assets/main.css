@@ -11,3 +11,7 @@ body {
     padding: 0px 124px;
     background-color: var(--white-color);
 }
+
+::selection {
+    background: var(--blue-color);
+}

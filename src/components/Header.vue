@@ -1,5 +1,5 @@
 <template>
-    <header :class="header">
+    <header class="header">
         <div :class="['container', {'container-shrink': hideText}]">
             <div :class="{ 'text-hide': hideText }">
                 <p>DRINKS</p>
@@ -13,7 +13,6 @@
     export default {
         data() {
             return {
-                header: 'header',
                 hideText: false
             }
         },
@@ -37,12 +36,12 @@
         display: inline-flex;
         align-items: center;
         justify-content: center;
+        width: fit-content;
         gap: 24px;
         padding: 12px 20px;
         background-color: var(--blue-color);
         border-radius: 50px;
         transition: all 1s ease;
-        width: fit-content;
     }
 
     .container-shrink {
@@ -57,17 +56,16 @@
         font-weight: 700;
         line-height: 32px; 
         text-transform: uppercase;
-        transition: transform 1s ease, opacity 1s ease;
+        transition: transform 6s ease;
         overflow: hidden;
     }
 
     .text-hide {
-        opacity: 0;
-        transform: translateX(100%);
+        transform: translateX(150%);
         width: 0;
         margin: 0;
         padding: 0;
-        transition: all 1s ease;
+        transition: all 2s ease;
     }
 
 </style>
