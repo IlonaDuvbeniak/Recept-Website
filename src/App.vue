@@ -46,10 +46,9 @@
             :label="coctail.name"
         />
     </div>
-<div class="space">
 
-</div>
-    <Button btnText="Click" variant="primary" :showArrow="true"></Button>
+    <!-- EXAMPLE OF USING BUTTON.VUE -->
+    <Button btnText="Click" variant="filter" :showArrow="false" :disabled="false"></Button>
 </template>
 
 <style scoped>
@@ -58,10 +57,5 @@
         grid-template-columns: auto auto auto;
         width: 100%;
         gap: 24px;
-    }
-
-    .space {
-        width: 100px;
-        height: 100px;
     }
 </style>
