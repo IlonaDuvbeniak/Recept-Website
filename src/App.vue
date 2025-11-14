@@ -49,7 +49,7 @@
 <div class="space">
 
 </div>
-    <Button btnText="Click" variant="filter" :showArrow="false"></Button>
+    <Button btnText="Click" variant="primary" :showArrow="true"></Button>
 </template>
 
 <style scoped>
