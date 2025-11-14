@@ -28,6 +28,7 @@
 <template>
     <router-link to="/">Home</router-link>
     <router-link to="/recipes">Recipes</router-link>
+    <router-link to="/recipe">Recepie</router-link>
 <router-view></router-view>
 
     <Header/>

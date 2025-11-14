@@ -1,6 +1,59 @@
+<script>
+    import CommentForm from '../components/CommentForm.vue';
+
+    export default {
+        name: "recipe",
+        components: {
+            CommentForm,
+        },
+        data() {
+            return {
+                recipe: "test recipe",
+            };
+        },
+    }
+
+</script>
+
 <template>
-    <h1>Recipe</h1>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+
+    <section>
+        <CommentForm />
+    </section>
+
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
 </template>
 
-<style>
+<style scoped>
 </style>
