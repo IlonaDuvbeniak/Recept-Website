@@ -11,8 +11,9 @@ export default {
             showText: "",
             buttonClicked: false,
             time: '',
-            id: 0
-            
+            id: 0,
+            // fetchedComments: data
+
         }
     },
     methods: {
@@ -39,18 +40,27 @@ export default {
                 name: this.id,
                 title: this.id,
                 writtenComment: this.writtenComment,
-                time: this.time 
+                time: this.time
             });
             console.log(commentObj);
             // return commentObj;
         },
 
         // Använd det här för att skapa nytt id nummer för varje kommentar.
-        // Tex från att hämtat data från api med fetch. 
+        // Tex från att hämtat data från api med fetch.
         createIdNumber () {
             this.id++;
             console.log (this.id);
+        },
+
+     
+        fetchifetch () {
+            fetch('src/API/placeholderCommentsAPI.json') // sen tror jag att man kan lägga till /comments och kanske till och med id när man har backend
+                .then(response => response.json())
+                .then(data => console.log(data)) // det här visas i konsollen.... jag vet inte hur jag får ut det vidare till nästa steg. Hur kan jag få in det i en annan funktion tex eller i en variabel? När jag försöker blir det massor av grejer i console.loggen istället för objekten.
+                .catch(err => console.error(err));
         }
+
     }
 }
 
@@ -61,7 +71,7 @@ export default {
     <label>
       <input v-model="name" placeholder="Namn"></input>
       <input v-model="title" placeholder="Rubrik"></input>
-      <textarea v-model="writtenComment" placeholder="Din kommentar!"></textarea> 
+      <textarea v-model="writtenComment" placeholder="Din kommentar!"></textarea>
       <button type="submit">Submit Comment</button>
     </label>
   </form>
@@ -76,7 +86,9 @@ export default {
   <button v-on:click="createIdNumber">Räkna - funktion att använda för varje nytt Id</button>
   <div>{{ id }}</div>
 
-  <p>Det här är från comment form</p>
+  <button v-on:click="fetchifetch">Fetch Comments</button>
+
+  {{ fetchedComments }}
 
 </template>
 
