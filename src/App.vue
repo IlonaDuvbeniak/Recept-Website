@@ -1,12 +1,15 @@
 <script>
-    // import { RouterLink, RouterView } from 'vue-router'
     import Card from './components/Card.vue'
     import Header from './components/Header.vue'
+    import BreadCrumbs from './components/BreadCrumbs.vue';
 
     export default {
         components: {
             Card,
-            Header
+            Header,
+            BreadCrumbs,
+
+
         },
         data() {
             return {
@@ -26,11 +29,11 @@
 </script>
 
 <template>
-    <router-link to="/">Home</router-link>
-    <router-link to="/recipes">Recipes</router-link>
-<router-view></router-view>
 
     <Header/>
+    <BreadCrumbs></BreadCrumbs>
+    <router-view></router-view>
+
     <div class="cards-container">
         <Card
             v-for="coctail in coctails"
