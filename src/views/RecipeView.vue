@@ -1,25 +1,39 @@
 <script>
 import data from '/recipesData.json';
-import BreadCrumbs from '@/components/BreadCrumbs.vue'
 
 export default {
     name: 'recipe',
-    components: { BreadCrumbs },
     data() {
         return {
             recipe: null
         }
     },
     created() {
-    const id = Number(this.$route.params.id)
-    this.recipe = data.coctails.find(drink => drink.id === id)
+    const slug = this.$route.params.slug
+    this.recipe = data.coctails.find(drink => drink.slug === slug)
   },
 
 }
 </script>
 
 <template>
+    <div v-if="recipe">
+  <!-- visa receptet -->
+</div>
+<div v-else>
+  <h2>Receptet hittades inte</h2>
+</div>
 </template>
 
 <style>
+h2 {
+    text-align: center;
+    margin-top: 50px;
+    color: var(--red-color);
+    font-family: "Instrument Sans";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px;
+}
 </style>
