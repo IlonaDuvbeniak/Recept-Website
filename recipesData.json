@@ -1,12 +1,13 @@
 {
   "coctails": [
-    { 
-      "id": 0, 
-      "categori": "Post-Breakup Potions", 
-      "name": "Bye Bye Mary", 
-      "image": "/img/drinks/bloody-mary.png", 
-      "rating": 4.6, 
-      "ingridients": 6, 
+    {
+      "id": 0,
+      "slug": "bye-bye-mary",
+      "categori": "Post-Breakup Potions",
+      "name": "Bye Bye Mary",
+      "image": "/img/drinks/bloody-mary.png",
+      "rating": 4.6,
+      "ingridients": 6,
       "time": 10,
       "description": "En djärv blandning av vodka och hetta, balanserad med syra, krydda och ren självrespekt. Det här är ingen vanlig Bloody Mary – det är ett farväl i flytande form. Citronens skarpa sting skär igenom gamla känslor, chilin påminner dig om att smärta också kan vara njutning, och varje klunk bränner bort ännu ett dåligt minne. Bäst serverad iskall, utan känslomässigt bagage och med en spellista full av hämndlåtar.",
       "ingridients-list": [
@@ -43,15 +44,16 @@
         }
       ]
     },
-    { 
-      "id": 1, 
-      "categori": "Drunk in paradise", 
-      "name": "Out of office", 
-      "image": "/img/drinks/out-of-office.png", 
-      "rating": 4.9, 
-      "ingridients": 5, 
+    {
+      "id": 1,
+      "slug": "out-of-office",
+      "categori": "Drunk in paradise",
+      "name": "Out of office",
+      "image": "/img/drinks/out-of-office.png",
+      "rating": 4.9,
+      "ingridients": 5,
       "time": 8,
-      "description": "Den automatiska semesterhälsningen i drinkform. En tropisk flykt där varje klunk smakar som att kasta mobilen i havet och glömma lösenordet till mejlen. Söt kokos, frisk lime och en skvätt rom gör jobbet du flydde från plötsligt helt oviktigt. Solen, saltet och friheten blandas till perfekt balans. Bäst serverad i skuggan av ett dåligt beslut – med sand mellan tårna och noll ansvar.", 
+      "description": "Den automatiska semesterhälsningen i drinkform. En tropisk flykt där varje klunk smakar som att kasta mobilen i havet och glömma lösenordet till mejlen. Söt kokos, frisk lime och en skvätt rom gör jobbet du flydde från plötsligt helt oviktigt. Solen, saltet och friheten blandas till perfekt balans. Bäst serverad i skuggan av ett dåligt beslut – med sand mellan tårna och noll ansvar.",
       "ingridients-list": [
         "50 ml ljus rom",
         "100 ml kokosvatten",
@@ -80,15 +82,16 @@
         }
       ]
     },
-    { 
-      "id": 2, 
-      "categori": "Party Like It’s Friday", 
-      "name": "Dancing on Tables", 
-      "image": "/img/drinks/dancing-on-tables.png", 
-      "rating": 4.8, 
-      "ingridients": 6, 
+    {
+      "id": 2,
+      "slug": "dancing-on-tables",
+      "categori": "Party Like It’s Friday",
+      "name": "Dancing on Tables",
+      "image": "/img/drinks/dancing-on-tables.png",
+      "rating": 4.8,
+      "ingridients": 6,
       "time": 8,
-      "description": "För när kvällen spårar ur – på bästa sätt. Den här drinken är flytande självförtroende, fylld med bubblor, glitter och dåliga idéer. Söt, syrlig och farligt lättdrucken. En klunk in och du är redan på dansgolvet; två, och borden börjar se ut som scenen du föddes för. Bäst serverad kall, med skratt som eko och en chatt full av meddelanden du borde ha låtit bli att skicka.", 
+      "description": "För när kvällen spårar ur – på bästa sätt. Den här drinken är flytande självförtroende, fylld med bubblor, glitter och dåliga idéer. Söt, syrlig och farligt lättdrucken. En klunk in och du är redan på dansgolvet; två, och borden börjar se ut som scenen du föddes för. Bäst serverad kall, med skratt som eko och en chatt full av meddelanden du borde ha låtit bli att skicka.",
       "ingridients-list": [
         "40 ml gin",
         "20 ml passionsfruktlikör",
@@ -112,15 +115,16 @@
         }
       ]
     },
-    { 
-      "id": 3, 
-      "categori": "Boos & Brews", 
-      "name": "Witch, Please!", 
-      "image": "/img/drinks/witch-please.png", 
-      "rating": 4.8, 
-      "ingridients": 5, 
+    {
+      "id": 3,
+      "slug": "witch-please",
+      "categori": "Boos & Brews",
+      "name": "Witch, Please!",
+      "image": "/img/drinks/witch-please.png",
+      "rating": 4.8,
+      "ingridients": 5,
       "time": 7,
-      "description": "En trolsk blandning för alla moderna häxor med smak för dramatik och lite mörk humor. En nattlig elixir där svart vinbär möter citrus och ett stänk av magi. Frisk, fruktig och lite farlig – precis som du efter klockan tio. Den skimrar i glaset som en förbannelse du inte riktigt vill bryta. Bäst serverad under fullmånen, med glitter på kinderna och skratt som ekar mellan världarna.", 
+      "description": "En trolsk blandning för alla moderna häxor med smak för dramatik och lite mörk humor. En nattlig elixir där svart vinbär möter citrus och ett stänk av magi. Frisk, fruktig och lite farlig – precis som du efter klockan tio. Den skimrar i glaset som en förbannelse du inte riktigt vill bryta. Bäst serverad under fullmånen, med glitter på kinderna och skratt som ekar mellan världarna.",
       "ingridients-list": [
         "40 ml gin eller svartvinbärsrom",
         "30 ml svartvinbärsjuice",
@@ -138,15 +142,16 @@
       "comments": [
       ]
     },
-    { 
-      "id": 4, 
-      "categori": "Sips of Christmas", 
-      "name": "Mistle-Toasted", 
-      "image": "/img/drinks/mistle-toast.png", 
-      "rating": 4.5, 
-      "ingridients": 6, 
+    {
+      "id": 4,
+      "slug": "mistle-toasted",
+      "categori": "Sips of Christmas",
+      "name": "Mistle-Toasted",
+      "image": "/img/drinks/mistle-toast.png",
+      "rating": 4.5,
+      "ingridients": 6,
       "time": 9,
-      "description": "Julen handlar om att hålla sig varm – inifrån. Den här drinken blandar len whisky, söt honung och kryddig kanel till en flytande julkram med attityd. Ett glas värme, ett stänk flört och en ursäkt att stå lite för länge under misteln. Doften av apelsin och kryddor känns som en julsång du faktiskt vill höra. Bäst serverad framför brasan, i fula jultröjor och med hjärtat lätt berusat av både glögg och kärlek.", 
+      "description": "Julen handlar om att hålla sig varm – inifrån. Den här drinken blandar len whisky, söt honung och kryddig kanel till en flytande julkram med attityd. Ett glas värme, ett stänk flört och en ursäkt att stå lite för länge under misteln. Doften av apelsin och kryddor känns som en julsång du faktiskt vill höra. Bäst serverad framför brasan, i fula jultröjor och med hjärtat lätt berusat av både glögg och kärlek.",
       "ingridients-list": [
         "40 ml whisky",
         "20 ml honungssirap (1:1 honung och varmt vatten)",
@@ -182,13 +187,14 @@
         }
       ]
     },
-    { 
-      "id": 5, 
-      "categori": "Post-Breakup Potions", 
-      "name": "Exorcism", 
-      "image": "/img/drinks/exorcism.png", 
-      "rating": 5, 
-      "ingridients": 3, 
+    {
+      "id": 5,
+      "slug": "exorcism",
+      "categori": "Post-Breakup Potions",
+      "name": "Exorcism",
+      "image": "/img/drinks/exorcism.png",
+      "rating": 5,
+      "ingridients": 3,
       "time": 12,
       "description": "En djärv blandning av vodka och whiskey, balanserad med sötma och en touch av hetta. Kardemumma ger mystik, chilin står för elden, och tillsammans bränner de bort alla dåliga minnen. Bäst serverad iskall – helt fri från känslomässigt bagage.",
       "ingridients-list": [

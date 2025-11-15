@@ -13,8 +13,8 @@ export default {
         BreadCrumbRecipeName() {
             if (!this.IsShowingRecipeView) return ''
 
-            const id = Number(this.$route.params.id)
-            const recipe = data.coctails.find(drink => drink.id === id)
+            const slug = this.$route.params.slug
+            const recipe = data.coctails.find(drink => drink.slug === slug)
             return recipe ? recipe.name : ''
         }
     }
