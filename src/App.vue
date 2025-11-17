@@ -10,7 +10,7 @@
             Header,
             BreadCrumbs,
             CardsGrid,
-           
+
         },
         data() {
             return {
@@ -39,7 +39,7 @@
 
 <!-- EXAMPLE OF USING BUTTON.VUE -->
     <Button btnText="Click" variant="primary" :showArrow="true" :disabled="false"></Button>
- 
+
 
 </template>
 
