@@ -21,7 +21,7 @@
     }
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
     .info-block {
         display: flex;
         flex-direction: column;

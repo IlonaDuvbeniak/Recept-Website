@@ -25,7 +25,7 @@ export default {
 </div>
 </template>
 
-<style>
+<style scoped>
 h2 {
     text-align: center;
     margin-top: 50px;
