@@ -23,6 +23,7 @@
 </script>
 
 <template>
+    <div class="page-container">
     <div class="cards-container">
         <Card
             v-for="coctail in coctails"
@@ -35,6 +36,7 @@
             :image="coctail.image"
             :label="coctail.name"
         />
+    </div>
     </div>
 </template>
 
