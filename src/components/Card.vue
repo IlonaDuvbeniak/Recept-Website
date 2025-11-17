@@ -30,7 +30,7 @@
                 <a href="#">{{ categori }}</a>
                 <h2>{{ name }}</h2>
             </div>
-            <ButtonCard><img src="/img/arrow-btn.svg"/></ButtonCard>
+            <ButtonCard/>
         </div>
 
         <div class="info-recipe-card">

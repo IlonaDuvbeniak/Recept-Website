@@ -1,15 +1,16 @@
 <script>
-    import Card from './components/Card.vue'
     import Header from './components/Header.vue'
     import BreadCrumbs from './components/BreadCrumbs.vue';
+    import CardsGrid from './components/CardsGrid.vue';
+    import Button from './components/Button.vue'
 
     export default {
         components: {
-            Card,
+            Button,
             Header,
             BreadCrumbs,
-
-
+            CardsGrid,
+           
         },
         data() {
             return {
@@ -34,19 +35,12 @@
     <BreadCrumbs></BreadCrumbs>
     <router-view></router-view>
 
-    <div class="cards-container">
-        <Card
-            v-for="coctail in coctails"
-            :key="coctail.id"
-            :categori="coctail.categori"
-            :name="coctail.name"
-            :rating="coctail.rating"
-            :ingridients="coctail.ingridients"
-            :time="coctail.time"
-            :image="coctail.image"
-            :label="coctail.name"
-        />
-    </div>
+    <CardsGrid/>
+
+<!-- EXAMPLE OF USING BUTTON.VUE -->
+    <Button btnText="Click" variant="primary" :showArrow="true" :disabled="false"></Button>
+ 
+
 </template>
 
 <style scoped>
