@@ -1,28 +1,46 @@
 <script>
-    // import { RouterLink, RouterView } from 'vue-router'
     import Header from './components/Header.vue'
+    import BreadCrumbs from './components/BreadCrumbs.vue';
     import CardsGrid from './components/CardsGrid.vue';
     import Button from './components/Button.vue'
 
     export default {
         components: {
-            CardsGrid,
+            Button,
             Header,
-            Button
+            BreadCrumbs,
+            CardsGrid,
+           
+        },
+        data() {
+            return {
+                coctails: []
+            }
+        },
+        async mounted() {
+            try {
+                const res = await fetch('./recipesData.json')
+                const data = await res.json()
+                this.coctails = data.coctails
+            } catch (err) {
+                console.error(err)
+            }
         }
     }
 </script>
 
 <template>
-    <router-link to="/">Home</router-link>
-    <router-link to="/recipes">Recipes</router-link>
-    <router-view></router-view>
 
     <Header/>
+    <BreadCrumbs></BreadCrumbs>
+    <router-view></router-view>
+
     <CardsGrid/>
 
-    <!-- EXAMPLE OF USING BUTTON.VUE -->
+<!-- EXAMPLE OF USING BUTTON.VUE -->
     <Button btnText="Click" variant="primary" :showArrow="true" :disabled="false"></Button>
+ 
+
 </template>
 
 <style scoped>
