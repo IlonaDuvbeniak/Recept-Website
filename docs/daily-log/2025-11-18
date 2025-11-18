@@ -1,0 +1,75 @@
+<!--
+Boiler Room Daily Log – mall för dokumentation
+Spara en kopia i mappen /docs/daily-log/ och döp filen till dagens datum, t.ex. 2025-10-21.md
+Skriv kort men tydligt vad ni gjorde, lärde er och vilka hinder som uppstod.
+En i teamet ansvarar för att loggen är uppdaterad innan dagens slut.
+-->
+
+# Boiler Room – Daily Log
+
+Datum: 2025-11-11
+
+## Team D
+
+- Siri Prydz
+- Natassja Berkan
+- Ilona Duvbeniak
+- Jia Sun
+
+---
+
+## 1. Planering (Stand-up)
+
+| Namn     | Vad gjorde jag senast?                                                                                | Vad ska jag göra idag?                             | Hinder?                                                                 |
+| -------- | ----------------------------------------------------------------------------------------------------- | -------------------------------------------------- | ----------------------------------------------------------------------- |
+| Siri     | Gjorde klar UI delen och är redo att börja koda. | Sätta upp ett projekt med Vite och Vue Routes. Börja applicera single file components på projektet och läsa på mer under tiden. |
+| Ilona    | Gjorde klar UI delen och är redo att börja koda. | Sätta upp ett projekt med Vite och Vue Routes. På börja componenter. |                                                                         
+| Natassja | Gjorde klar UI delen och är redo att börja koda. | Sätta upp ett projekt med Vite och Vue Routes. Börja applicera single file components på projektet och läsa på mer under tiden. | 
+| Jia      | - | - | Jia är bortrest                                                                     
+
+**Dagens gemensamma mål:**
+
+Ha ett uppstartsmöte och förväntansavstämning där vi går igenom:
+
+- Sätta upp ett projekt med Vite och Vue Routes
+- Börja applicera single file components
+
+---
+
+## 2. Under arbetet
+
+## **Vad vi fokuserade på:**
+
+- Installera npm vue@latest och vue-router i vår git repo och fixa de problem som dykte upp under installning
+- Läsa på mer om vue components och vue routes
+
+## **Beslut eller ändringar i planering:**
+
+- Ta upp tillgänlighet och diskutera mer om det på nästa mötet som är på torsdag den 13.11.25
+
+## **Nya insikter eller problem:**
+
+- Dykte upp ett problem med pull requests i GitHub men det löste sig under mötet
+
+## 3. Review & Reflektion
+
+**Reflektera gemensamt i slutet av dagen:**
+
+- Vad lärde vi oss? 
+Vi lärde oss mer om Vue och route.
+
+
+**Vad vill vi ta upp med utbildaren?**
+
+- 
+
+## 4. Övrigt / Anteckningar
+
+- 
+
+## 5. Check Point
+
+- Visa klarade UI design i Figma + componenter (UI Kit)
+- Uppdaterad Kanban boarden
+- Visa klara recept-kort genom att köra npm run dev
+
