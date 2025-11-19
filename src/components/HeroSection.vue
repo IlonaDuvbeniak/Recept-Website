@@ -12,8 +12,6 @@ export default {
 </script>
 <template>
     <div class="hero-section">
-        <Header class="header-component" />
-
         <video class="hero-movie" autoplay muted loop>
             <source src="/videos/HeroMovie.mp4" type="video/mp4" aria-label="Girl sipping on spooky drink" />
         </video>
@@ -36,14 +34,6 @@ export default {
     top: 0;
     width: 100%;
     height: auto;
-}
-
-.header-component {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1;
 }
 
 .swirl-text {
