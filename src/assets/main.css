@@ -11,9 +11,6 @@ body {
   background-color: var(--white-color);
   overflow-x: hidden;
 }
-.page-container {
- padding: 0px 124px;
-}
 
 ::selection {
   background: var(--blue-color);
