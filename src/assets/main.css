@@ -8,8 +8,8 @@
 }
 
 body {
-    padding: 0px 124px;
     background-color: var(--white-color);
+    overflow-x: hidden;
 }
 
 ::selection {

@@ -1,11 +1,14 @@
 <template>
     <header :class="header">
-        <div :class="['container', {'container-shrink': hideText}]">
-            <div :class="['text', { 'text-hide': hideText }]">
-                <p>DRINKS</p>
+        <router-link :to="to">
+            <div :class="['container', {'container-shrink': hideText}]">
+                <div :class="['text', { 'text-hide': hideText }]">
+                    <p>DRINKS</p>
+                </div>
+
+                <img src="/img/flower-logo.svg" alt="Logo">
             </div>
-            <img src="/img/flower-logo.svg" alt="Logo">
-        </div>
+        </router-link>
     </header>
 </template>
 
@@ -21,6 +24,12 @@
             setTimeout(() => {
                 this.hideText = true
             }, 2000) 
+        },
+        props: {
+            to: {
+                type: [String, Object],
+                default: '/'
+            }
         }
     }
 </script>
