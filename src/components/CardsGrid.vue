@@ -35,6 +35,7 @@
             :time="coctail.time"
             :image="coctail.image"
             :label="coctail.name"
+            :to="{ name: 'recipe', params: { slug: coctail.slug } }"
         />
     </div>
     </div>
@@ -46,5 +47,6 @@
         grid-template-columns: auto auto auto;
         width: 100%;
         gap: 24px;
+        padding: 0 120px;
     }
 </style>
