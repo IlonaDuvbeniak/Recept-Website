@@ -13,7 +13,6 @@
 <template>
     <Header :to="{ name: 'home' }"/>
     <BreadCrumbs></BreadCrumbs>
- 
     <router-view></router-view>
 </template>
 

@@ -23,6 +23,7 @@
 </script>
 
 <template>
+    <div class="page-container">
     <div class="cards-container">
         <Card
             v-for="coctail in coctails"
@@ -36,6 +37,7 @@
             :label="coctail.name"
             :to="{ name: 'recipe', params: { slug: coctail.slug } }"
         />
+    </div>
     </div>
 </template>
 

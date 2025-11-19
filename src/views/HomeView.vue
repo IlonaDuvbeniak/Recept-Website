@@ -1,16 +1,18 @@
 <script>
-    import CardsGrid from '@/components/CardsGrid.vue';
-    import Button from '@/components/Button.vue'
-
-    export default {
-        components: {
-            CardsGrid,
-            Button
-        }
-    }
+import HeroSection from '../components/HeroSection.vue';
+import CardsGrid from '@/components/CardsGrid.vue';
+import Button from '@/components/Button.vue'
+export default {
+  name: 'HomeView',
+  components: {
+    HeroSection,
+    CardsGrid,
+    Button
+  },
+}
 </script>
-
 <template>
+    <HeroSection/>
     <div class="container">
         <CardsGrid/>
         <Button :to="{ name: 'recepies' }" btnText="Visa fler" variant="primary" :showArrow="true" :disabled="false"></Button>
