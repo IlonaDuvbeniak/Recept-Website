@@ -17,11 +17,10 @@ export default {
         </video>
 
         <div class="title-and-button">
-            <h1>CHEERS <br></br>WITCHES!</h1>
+            <h1>CHEERS <br>WITCHES!</h1>
             <Button btnText="Boo season!" variant="primary" :showArrow="true" :disabled="false"></Button>
         </div>
-        <img class="swirl-text" src="/img/swirl-text.svg" alt="Banner saying Spooky season is here"></img>
-
+        <img class="swirl-text" src="/img/swirl-text.svg" alt="Banner saying Spooky season is here">
     </div>
 </template>
 <style scoped>
