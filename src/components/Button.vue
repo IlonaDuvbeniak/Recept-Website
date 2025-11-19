@@ -1,17 +1,25 @@
 <template>
-    <button  @click="addEvent" :class="['btn', variant, { 'disabled' : disabled }]" :disabled="disabled">
+    <component       
+        :is="componentType"
+        :to="to"
+        :class="['btn', variant, { 'disabled': disabled }]"
+        :disabled="!to && disabled"
+        @click="addEvent"
+    >
         <p class="btn-text">{{ btnText }}</p>
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" v-if="showArrow" class="btn-arrow">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"  v-if="showArrow" class="btn-arrow">
             <path d="M21.2475 12.8475C21.7163 12.3788 21.7163 11.6175 21.2475 11.1488L15.2475 5.14875C14.7788 4.68 14.0175 4.68 13.5488 5.14875C13.08 5.6175 13.08 6.37875 13.5488 6.8475L17.5013 10.8H3.60002C2.93627 10.8 2.40002 11.3363 2.40002 12C2.40002 12.6638 2.93627 13.2 3.60002 13.2H17.5013L13.5488 17.1525C13.08 17.6213 13.08 18.3825 13.5488 18.8513C14.0175 19.32 14.7788 19.32 15.2475 18.8513L21.2475 12.8513V12.8475Z"/>
         </svg>
-    </button>
+    </component>
 </template>
 
 <script>
     export default {
         methods: {
             addEvent() {
-                this.$emit('click')
+                if (!this.to) {
+                    this.$emit('event')
+                }
             }
         },
         props: {
@@ -19,6 +27,7 @@
                 type: String,
                 default: 'primary'
             },
+            to: [String, Object],
             btnText: String,
             showArrow: {
                 type: Boolean,
@@ -27,6 +36,11 @@
             disabled: {
                 type: Boolean,
                 default: false
+            }
+        },
+        computed: {
+            componentType() {
+                return this.to ? 'router-link' : 'button'
             }
         }
     }
@@ -44,6 +58,7 @@
         font-size: 20px;
         font-weight: 600;
         line-height: 24px; 
+        text-decoration: none;
         border-radius: 50px;
         cursor: pointer;
     }
@@ -76,7 +91,7 @@
     }
 
     .btn.primary:hover .btn-arrow {
-        transform: translateX(-125%); 
+        transform: translateX(-180%); 
         fill: var(--red-color);
     }
 

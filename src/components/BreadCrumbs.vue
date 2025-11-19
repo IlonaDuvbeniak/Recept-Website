@@ -50,7 +50,7 @@ export default {
         font-style: normal;
         font-weight: 500;
         text-decoration: none;
-        margin: 54px 0;
+        margin: 24px 0 52px 0;
     }
 
     .bread-crumbs ul {
@@ -59,8 +59,8 @@ export default {
         justify-content: center
     }
 
-    .bread-crumbs li {
-        margin-right: 8px;
+    .bread-crumbs li:not(:last-child) {
+        margin-right: 16px;
     }
 
     .bread-crumbs a {
@@ -69,7 +69,7 @@ export default {
     }
 
     .bread-crumbs span {
-        margin-right: 8px;
+        margin-right: 16px;
         color: var(--red-color);
     }
 </style>
