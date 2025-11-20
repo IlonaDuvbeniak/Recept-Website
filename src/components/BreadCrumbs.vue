@@ -7,11 +7,12 @@ export default {
         IsShowingRecipesView() {
             return this.$route.path.includes('recipes')
         },
-        IsShowingRecipeView() {
-            return this.$route.path.includes('recipes/')
-        },
         IsShowingCategoryView() {
             return this.$route.path.includes('recipes/category/')
+        },
+        IsShowingRecipeView() {
+            const parts = this.$route.path.split('/')
+            return parts[1] === 'recipes' && parts[2] !== 'category'
         },
         BreadCrumbRecipeName() {
             if (!this.IsShowingRecipeView) return ''
@@ -23,9 +24,9 @@ export default {
         BreadCrumbCategoryName() {
             if (!this.IsShowingCategoryView) return ''
 
-            const category = this.$route.params.category
-            const recipe = data.coctails.find(drink => drink.categori === category)
-            return recipe ? recipe.categori : ''
+            const categorySlug = this.$route.params.categorySlug
+            const category = data.coctails.find(drink => drink.categorySlug === categorySlug)
+            return category ? category.categori : ''
         }
     }
 }
@@ -42,17 +43,17 @@ export default {
                 </span>
                 <router-link to="/recipes">Recipes</router-link>
             </li>
+            <li v-if="IsShowingCategoryView">
+                <span>
+                    <img src="/img/arrow-bread-crumbs.svg" alt="arrow icon" />
+                </span>
+                <span>{{ BreadCrumbCategoryName }}</span>
+            </li>
             <li v-if="IsShowingRecipeView">
                 <span>
                     <img src="/img/arrow-bread-crumbs.svg" alt="arrow icon" />
                 </span>
                 <span>{{ BreadCrumbRecipeName }}</span>
-            </li>
-            <li v-if="IsShowingcategoryView">
-                <span>
-                    <img src="/img/arrow-bread-crumbs.svg" alt="arrow icon" />
-                </span>
-                <span>{{ BreadCrumbCategoryName }}</span>
             </li>
         </ul>
     </nav>
