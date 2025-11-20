@@ -11,7 +11,7 @@ export default {
 </script>
 
 <template>
-    <Header :to="{ name: 'home' }" class="header-component" />
+    <Header :to="{ name: 'home' }" />
     <BreadCrumbs></BreadCrumbs>
     <router-view></router-view>
 </template>
