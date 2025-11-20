@@ -1,14 +1,27 @@
 <script>
+import CardsGrid from '@/components/CardsGrid.vue';
+
 export default {
     name: "CategoryView",
-
+    components: {
+        CardsGrid
+    }
 }
 </script>
 
 <template>
-    <div>
-        <h1>CategoryView</h1>
+    <div class="container">
+        <CardsGrid :categorySlug="$route.params.categorySlug" />
     </div>
+
 </template>
 
-<style scoped></style>
+<style scoped>
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 52px;
+}
+</style>

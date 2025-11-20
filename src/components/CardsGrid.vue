@@ -6,6 +6,9 @@ export default {
     components: {
         Card
     },
+    props: {
+        categorySlug: String
+    },
     data() {
         return {
             coctails: []
@@ -18,6 +21,17 @@ export default {
         } catch (err) {
             console.log(err)
         }
+    },
+    computed: {
+        filteredCoctails() {
+            if (!this.categorySlug) {
+                // Om ingen kategori skickas (t.ex. på HomeView/RecipesView) → visa alla
+                return this.coctails
+            }
+            return this.coctails.filter(
+                (coctail) => coctail.categorySlug === this.categorySlug
+            )
+        }
     }
 }
 </script>
@@ -25,7 +39,7 @@ export default {
 <template>
     <div class="page-container">
         <div class="cards-container">
-            <Card v-for="coctail in coctails" :key="coctail.id" :categori="coctail.categori"
+            <Card v-for="coctail in filteredCoctails" :key="coctail.id" :categori="coctail.categori"
                 :categorySlug="coctail.categorySlug" :name="coctail.name" :rating="coctail.rating"
                 :ingridients="coctail.ingridients" :time="coctail.time" :image="coctail.image" :label="coctail.name"
                 :to="{ name: 'recipe', params: { slug: coctail.slug } }" />
