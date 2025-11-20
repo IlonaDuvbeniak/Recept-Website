@@ -10,6 +10,9 @@ export default {
         IsShowingRecipeView() {
             return this.$route.path.includes('recipes/')
         },
+        IsShowingCategoryView() {
+            return this.$route.path.includes('recipes/category/')
+        },
         BreadCrumbRecipeName() {
             if (!this.IsShowingRecipeView) return ''
 
