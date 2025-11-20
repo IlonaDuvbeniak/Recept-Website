@@ -1,57 +1,27 @@
 <script>
-    // import { RouterLink, RouterView } from 'vue-router'
-    import Card from './components/Card.vue'
     import Header from './components/Header.vue'
+    import BreadCrumbs from './components/BreadCrumbs.vue';
 
     export default {
         components: {
-            Card,
-            Header
-        },
-        data() {
-            return {
-                coctails: []
-            }
-        },
-        async mounted() {
-            try {
-                const res = await fetch('./recipesData.json')
-                const data = await res.json()
-                this.coctails = data.coctails
-            } catch (err) {
-                console.error(err)
-            }
+            Header,
+            BreadCrumbs
         }
     }
 </script>
 
 <template>
-    <router-link to="/">Home</router-link>
-    <router-link to="/recipes">Recipes</router-link>
-    <router-link to="/recipe">Recepie</router-link>
-<router-view></router-view>
-
-    <Header/>
-    <div class="cards-container">
-        <Card
-            v-for="coctail in coctails"
-            :key="coctail.id"
-            :categori="coctail.categori"
-            :name="coctail.name"
-            :rating="coctail.rating"
-            :ingridients="coctail.ingridients"
-            :time="coctail.time"
-            :image="coctail.image"
-            :label="coctail.name"
-        />
-    </div>
+    <Header :to="{ name: 'home' }" class="header-component"/>
+    <BreadCrumbs></BreadCrumbs>
+    <router-view></router-view>
 </template>
 
 <style scoped>
-    .cards-container {
-        display: grid;
-        grid-template-columns: auto auto auto;
+    .header-component {
+        position: absolute;
+        top: 0;
+        left: 0;
         width: 100%;
-        gap: 24px;
+        z-index: 1;
     }
 </style>

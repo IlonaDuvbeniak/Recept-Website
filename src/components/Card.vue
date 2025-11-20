@@ -14,7 +14,8 @@
             ingridients: Number,
             time: Number,
             image: String,
-            label: String
+            label: String,
+            to: [String, Object]
         }
     }
 </script>
@@ -30,7 +31,7 @@
                 <a href="#">{{ categori }}</a>
                 <h2>{{ name }}</h2>
             </div>
-            <ButtonCard><img src="/img/arrow-btn.svg"/></ButtonCard>
+            <ButtonCard :to="to"/>
         </div>
 
         <div class="info-recipe-card">
@@ -61,7 +62,6 @@
 
     .image-container img {
         width: 100%;
-        /* min-height: 269px; */
     }
     
 
