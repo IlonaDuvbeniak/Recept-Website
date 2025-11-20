@@ -11,6 +11,7 @@ export default {
 }
 </script>
 <template>
+    <Header class="header-component"></Header>
     <div class="hero-section">
         <video class="hero-movie" autoplay muted loop>
             <source src="/videos/HeroMovie.mp4" type="video/mp4" aria-label="Girl sipping on spooky drink" />
@@ -58,5 +59,13 @@ h1 {
 
 Button {
     margin-top: 42px;
+}
+
+.header-component {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1;
 }
 </style>

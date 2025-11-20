@@ -21,17 +21,16 @@ export default {
 }
 </script>
 <template>
-    <nav class="bread-crumbs"
-     v-if="IsShowingRecipesView || IsShowingRecipeView">
+    <nav class="bread-crumbs" v-if="IsShowingRecipesView || IsShowingRecipeView">
         <ul>
-            <li >
+            <li>
                 <router-link to="/">Home</router-link>
             </li>
             <li v-if="IsShowingRecipesView">
                 <span>
                     <img src="/img/arrow-bread-crumbs.svg" alt="arrow icon" />
                 </span>
-               <router-link to="/recipes">Recipes</router-link>
+                <router-link to="/recipes">Recipes</router-link>
             </li>
             <li v-if="IsShowingRecipeView">
                 <span>
@@ -44,32 +43,32 @@ export default {
     </nav>
 </template>
 <style scoped>
-    .bread-crumbs {
-        font-family: "Instrument Sans";
-        font-size: 16px;
-        font-style: normal;
-        font-weight: 500;
-        text-decoration: none;
-        margin: 24px 0 52px 0;
-    }
+.bread-crumbs {
+    font-family: "Instrument Sans";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    text-decoration: none;
+    margin: 24px 0 52px 0;
+}
 
-    .bread-crumbs ul {
-        list-style: none;
-        display: flex;
-        justify-content: center
-    }
+.bread-crumbs ul {
+    list-style: none;
+    display: flex;
+    justify-content: center
+}
 
-    .bread-crumbs li:not(:last-child) {
-        margin-right: 16px;
-    }
+.bread-crumbs li:not(:last-child) {
+    margin-right: 16px;
+}
 
-    .bread-crumbs a {
-        text-decoration: none;
-        color: var(--red-color);
-    }
+.bread-crumbs a {
+    text-decoration: none;
+    color: var(--red-color);
+}
 
-    .bread-crumbs span {
-        margin-right: 16px;
-        color: var(--red-color);
-    }
+.bread-crumbs span {
+    margin-right: 16px;
+    color: var(--red-color);
+}
 </style>
