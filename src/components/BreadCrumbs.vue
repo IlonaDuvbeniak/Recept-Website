@@ -19,6 +19,13 @@ export default {
             const slug = this.$route.params.slug
             const recipe = data.coctails.find(drink => drink.slug === slug)
             return recipe ? recipe.name : ''
+        },
+        BreadCrumbCategoryName() {
+            if (!this.IsShowingCategoryView) return ''
+
+            const category = this.$route.params.category
+            const recipe = data.coctails.find(drink => drink.categori === category)
+            return recipe ? recipe.categori : ''
         }
     }
 }
