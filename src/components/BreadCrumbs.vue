@@ -48,7 +48,12 @@ export default {
                 </span>
                 <span>{{ BreadCrumbRecipeName }}</span>
             </li>
-
+            <li v-if="IsShowingcategoryView">
+                <span>
+                    <img src="/img/arrow-bread-crumbs.svg" alt="arrow icon" />
+                </span>
+                <span>{{ BreadCrumbCategoryName }}</span>
+            </li>
         </ul>
     </nav>
 </template>
