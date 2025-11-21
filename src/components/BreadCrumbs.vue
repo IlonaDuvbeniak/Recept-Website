@@ -7,8 +7,12 @@ export default {
         IsShowingRecipesView() {
             return this.$route.path.includes('recipes')
         },
+        IsShowingCategoryView() {
+            return this.$route.path.includes('recipes/category/')
+        },
         IsShowingRecipeView() {
-            return this.$route.path.includes('recipes/')
+            const parts = this.$route.path.split('/')
+            return parts[1] === 'recipes' && parts[2] !== 'category'
         },
         BreadCrumbRecipeName() {
             if (!this.IsShowingRecipeView) return ''
@@ -16,6 +20,13 @@ export default {
             const slug = this.$route.params.slug
             const recipe = data.coctails.find(drink => drink.slug === slug)
             return recipe ? recipe.name : ''
+        },
+        BreadCrumbCategoryName() {
+            if (!this.IsShowingCategoryView) return ''
+
+            const categorySlug = this.$route.params.categorySlug
+            const category = data.coctails.find(drink => drink.categorySlug === categorySlug)
+            return category ? category.categori : ''
         }
     }
 }
@@ -32,13 +43,18 @@ export default {
                 </span>
                 <router-link to="/recipes">Recipes</router-link>
             </li>
+            <li v-if="IsShowingCategoryView">
+                <span>
+                    <img src="/img/arrow-bread-crumbs.svg" alt="arrow icon" />
+                </span>
+                <span>{{ BreadCrumbCategoryName }}</span>
+            </li>
             <li v-if="IsShowingRecipeView">
                 <span>
                     <img src="/img/arrow-bread-crumbs.svg" alt="arrow icon" />
                 </span>
                 <span>{{ BreadCrumbRecipeName }}</span>
             </li>
-
         </ul>
     </nav>
 </template>

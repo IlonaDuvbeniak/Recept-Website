@@ -19,7 +19,8 @@ export default {
 
         <div class="title-and-button">
             <h1>CHEERS <br>WITCHES!</h1>
-            <Button btnText="Boo season!" variant="primary" :showArrow="true" :disabled="false"></Button>
+            <Button to="/recipes/category/boos-and-brews" btnText="Boo season!" variant="primary" :showArrow="true"
+                :disabled="false"></Button>
         </div>
         <img class="swirl-text" src="/img/swirl-text.svg" alt="Banner saying Spooky season is here">
     </div>
