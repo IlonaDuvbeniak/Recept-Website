@@ -18,7 +18,7 @@
                 </div>
             </div>
             <div class="img-container">
-                <img :src="image" :alt="name">
+                <img :src="image" :alt="name">  
             </div>
         </div>
     </section>
@@ -58,15 +58,16 @@ export default {
     height: 100%;
 }
 
-.recept-card {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-top: 1px solid var(--red-color);
-    border-left: 1px solid var(--red-color);
-    border-right: 3px solid var(--red-color);
-    border-bottom: 3px solid var(--red-color);
-}
+    .recept-card {
+        display: flex;
+        align-items: stretch;
+        justify-content: center;
+        border-top: 1px solid var(--red-color);
+        border-left: 1px solid var(--red-color);
+        border-right: 3px solid var(--red-color);
+        border-bottom: 3px solid var(--red-color);
+        overflow: hidden;
+    }
 
 .info-container {
     display: flex;
@@ -116,13 +117,16 @@ export default {
     border-top: 1px solid var(--red-color);
 }
 
-.img-container {
-    padding: 24px;
-    width: 50%;
-    height: auto;
-}
+    .img-container {
+        padding: 24px;
+        width: 50%;
+        height: auto;
+        overflow: hidden;
+    }
 
-.img-container img {
-    width: 100%;
-}
+    .img-container img {
+        width: 100%;
+        height: 100%;
+    }
+
 </style>
