@@ -9,7 +9,7 @@ export default {
         <form class="search-bar-container">
             <img class="search-icon" src="/img/search-icon.svg">
             <label for="site-search"></label>
-            <input type="search" id="site-search" placeholder="Search by vibe, not ingredient" name="q"
+            <input type="search" id="site-search" placeholder="Search by vibe" name="q"
                 aria-label="Search through recipes" required minlength="1" maxlength="30">
             </input>
         </form>
@@ -75,5 +75,21 @@ input[type="search"]::-webkit-search-results-decoration {
 
 input:focus::placeholder {
     color: transparent;
+}
+
+@media (max-width: 767px) {
+
+    .search {
+        padding: 0 20px;
+    }
+
+    .search-bar-container {
+        padding: 0 0 0 45px;
+    }
+
+    .search-icon {
+        height: 30px;
+        margin: 5px;
+    }
 }
 </style>
