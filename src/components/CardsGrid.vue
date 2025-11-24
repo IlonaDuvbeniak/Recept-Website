@@ -50,7 +50,7 @@ export default {
 <style scoped>
 .cards-container {
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: repeat(3, 1fr);
     width: 100%;
     gap: 24px;
     padding: 0 120px;

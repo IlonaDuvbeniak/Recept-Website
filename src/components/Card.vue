@@ -50,7 +50,6 @@ export default {
 .card {
     display: flex;
     flex-direction: column;
-    flex: 1;
     border-style: solid;
     border-color: var(--red-color);
     border-width: 1px 3px 3px 1px;

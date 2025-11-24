@@ -55,10 +55,10 @@ export default {
         <div class="comment-form">
         <div class="comment-form-top">
             <h2 class="recept-name">Kommentar</h2>
-            <input v-model="newName" placeholder="Ditt namn"></input>
+            <input v-model="newName" placeholder="Ditt namn">
         </div>
         
-        <input v-model="newTitle" placeholder="Rubrik max 12 tecken"></input>
+        <input v-model="newTitle" placeholder="Rubrik max 12 tecken">
         <textarea v-model="newWrittenComment" placeholder="Skriv din kommentar"></textarea>
         <button class="btn-comment-form" type="submit">Skicka -></button>
         </div>

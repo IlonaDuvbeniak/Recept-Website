@@ -1,42 +1,42 @@
 <script>
 
-import { getData } from '../FetchData.vue'
-import ReceptCard from '@/components/RecipeComponents/ReceptCard.vue';
-import HowToDo from '@/components/RecipeComponents/HowToDo.vue';
-import RatingCard from '@/components/RecipeComponents/RatingCard.vue';
-import CommentForm from '../components/CommentForm.vue';
+  import { getData } from '../FetchData.vue'
+  import ReceptCard from '@/components/RecipeComponents/ReceptCard.vue';
+  import HowToDo from '@/components/RecipeComponents/HowToDo.vue';
+  import RatingCard from '@/components/RecipeComponents/RatingCard.vue';
+  import CommentForm from '../components/CommentForm.vue';
 
 
-export default {
-  name: 'recipe',
+  export default {
+    name: 'recipe',
 
-  components: {
-    ReceptCard,
-    HowToDo,
-    RatingCard,
-    CommentForm
-  },
+    components: {
+      ReceptCard,
+      HowToDo,
+      RatingCard,
+      CommentForm
+    },
 
-  props: ['slug'],
+    props: ['slug'],
 
-  data() {
-    return {
-      recipe: null,
-      coctails: []
-    }
-  },
+    data() {
+      return {
+        recipe: null,
+        coctails: []
+      }
+    },
 
-  async created() {
-    try {
-      const data = await getData()
-      this.coctails = data.coctails
+    async created() {
+      try {
+        const data = await getData()
+        this.coctails = data.coctails
 
-      this.recipe = this.coctails.find(c => c.slug === this.slug)
-    } catch (err) {
-      console.error(err)
+        this.recipe = this.coctails.find(c => c.slug === this.slug)
+      } catch (err) {
+        console.error(err)
+      }
     }
   }
-}
 
 </script>
 
@@ -70,11 +70,11 @@ export default {
 
 
 <style scoped>
-.element-header {
-  position: absolute;
-  overflow: hidden;
-  top: 0;
-  left: 0;
-  z-index: -1;
-}
+  .element-header {
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    left: -1.5%;
+    z-index: -1;
+  }
 </style>
