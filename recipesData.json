@@ -231,6 +231,303 @@
           "comment": "Gjorde denna istället för att gå ut – bästa beslutet jag tagit i år."
         }
       ]
+    },
+    {
+      "id": 6,
+      "slug": "ghosted-and-roasted",
+      "categori": "Post-Breakup Potions",
+      "categorySlug": "post-breakup-potions",
+      "name": "Ghosted & Roasted",
+      "image": "/img/drinks/ghosted-and-roasted.jpg",
+      "rating": 4.7,
+      "ingridients": 5,
+      "time": 8,
+      "description": "En varm men uppfriskande brygd för alla som blivit ghostade och sedan gått vidare med stil. Kaffelikör möter apelsin och chili i en blandning som säger ‘jag sörjer inte – jag blomstrar’. Smakar som ren självrespekt med en hint av hämnd.",
+      "ingridientslist": [
+        "40 ml kaffelikör",
+        "40 ml vodka",
+        "20 ml apelsinjuice",
+        "1 nypa chili",
+        "Isbitar"
+      ],
+      "recept": [
+        "Fyll ett glas med is.",
+        "Häll över kaffelikör, vodka och apelsinjuice.",
+        "Rör om och toppa med en nypa chili.",
+        "Drick och glöm deras namn direkt."
+      ],
+      "comments": [
+        {
+          "name": "Felicia",
+          "date": "5 mars 2025",
+          "comment": "Precis vad jag behövde efter den där dejten…"
+        },
+        {
+          "name": "Joel",
+          "date": "7 mars 2025",
+          "rubrik": "🔥",
+          "comment": "Stark men så jäkla god."
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "slug": "bitter-tears",
+      "categori": "Post-Breakup Potions",
+      "categorySlug": "post-breakup-potions",
+      "name": "Bitter Tears",
+      "image": "/img/drinks/bitter-tears.jpg",
+      "rating": 4.9,
+      "ingridients": 6,
+      "time": 10,
+      "description": "En sval, fruktig och tröstande cocktail som låter dig gråta färdigt – och sedan resa dig starkare. Blåbär, mynta och citron skapar en frisk smak som känns som att börja om. Perfekt för ‘nytt kapitel’-energi.",
+      "ingridientslist": [
+        "50 ml gin",
+        "40 ml blåbärsjuice",
+        "20 ml citronjuice",
+        "10 ml sockerlag",
+        "Några myntablad",
+        "Is"
+      ],
+      "recept": [
+        "Muddla myntan lätt i ett glas.",
+        "Tillsätt is, gin, blåbärsjuice och citronjuice.",
+        "Rör om och tillsätt sockerlag efter smak.",
+        "Andas ut och gå vidare."
+      ],
+      "comments": [
+        {
+          "name": "Klara",
+          "date": "19 april 2025",
+          "comment": "Smakar som terapi. Tack."
+        },
+        {
+          "name": "Martin",
+          "date": "22 april 2025",
+          "rubrik": "Frisk och bra!",
+          "comment": "Älskar blåbären i den här!"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "slug": "boozy-banshee-scream",
+      "categori": "Boos & Brews",
+      "categorySlug": "boos-and-brews",
+      "name": "Boozy Banshee Scream",
+      "image": "/img/drinks/boozy-banshee-scream.jpg",
+      "rating": 4.8,
+      "ingridients": 5,
+      "time": 6,
+      "description": "En isig, skrikande god drink med vanilj, kokos och ett eko av något övernaturligt. Lätt, krämig och farligt drickbar – ett spöklikt gott val för nattugglor och partyhäxor.",
+      "ingridientslist": [
+        "40 ml kokosrom",
+        "20 ml vaniljlikör",
+        "60 ml mjölk eller växtdryck",
+        "1 tsk socker",
+        "Isbitar"
+      ],
+      "recept": [
+        "Häll alla ingredienser i en shaker fylld med is.",
+        "Skaka tills det känns som en banshee som vrålar.",
+        "Sila upp i ett glas.",
+        "Garnera med lite riven kokos."
+      ],
+      "comments": [
+        {
+          "name": "Ellinor",
+          "date": "29 oktober 2025",
+          "comment": "Som en spöklik piña colada, jag dör."
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "slug": "potion-notions",
+      "categori": "Boos & Brews",
+      "categorySlug": "boos-and-brews",
+      "name": "Potion Notions",
+      "image": "/img/drinks/potion-notions.jpg",
+      "rating": 4.6,
+      "ingridients": 6,
+      "time": 9,
+      "description": "En bubblig, bärig och mystisk blandning som glittrar i glaset. Hallon, lime och tonic skapar en trolsk och uppfriskande dryck – perfekt för fullmånenätter och hemliga ritualer.",
+      "ingridientslist": [
+        "40 ml gin",
+        "20 ml hallonpuré",
+        "15 ml limejuice",
+        "Tonic water",
+        "Is",
+        "Färska hallon"
+      ],
+      "recept": [
+        "Fyll ett glas med is.",
+        "Tillsätt gin, hallonpuré och lime.",
+        "Rör om och toppa med tonic.",
+        "Garnera med färska hallon."
+      ],
+      "comments": [
+        {
+          "name": "Tanja",
+          "date": "1 november 2025",
+          "comment": "Fräsch och lite magisk!"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "slug": "jingle-juice",
+      "categori": "Sips of Christmas",
+      "categorySlug": "sips-of-christmas",
+      "name": "Jingle Juice",
+      "image": "/img/drinks/jingle-juice.jpg",
+      "rating": 4.7,
+      "ngridients": 5,
+      "time": 7,
+      "description": "En bubblig julcocktail som smakar som fest, glitter och snabba paketöppningar. Tranbär och apelsin möter mousserande vin i en lätt och lekfull blandning.",
+      "ingridientslist": [
+        "50 ml tranbärsjuice",
+        "20 ml apelsinlikör",
+        "Mousserande vin",
+        "Apelsinzest",
+        "Is"
+      ],
+      "recept": [
+        "Häll tranbärsjuice och apelsinlikör i ett glas med is.",
+        "Toppa med mousserande vin.",
+        "Garnera med apelsinzest."
+      ],
+      "comments": [
+        {
+          "name": "Julia",
+          "date": "10 december 2025",
+          "comment": "Julens bubbelfavorit!"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "slug": "santas-nightcap",
+      "categori": "Sips of Christmas",
+      "categorySlug": "sips-of-christmas",
+      "name": "Santa’s Nightcap",
+      "image": "/img/drinks/santas-nightcap.jpg",
+      "rating": 4.9,
+      "ingridients": 4,
+      "time": 5,
+      "description": "En len och julig avslutning på kvällen. Varm choklad, pepparmynta och en skvätt rom – som att ge tomten en godnattkram.",
+      "ingridientslist": [
+        "1 kopp varm choklad",
+        "30 ml mörk rom",
+        "Några droppar pepparmyntsolja",
+        "Vispad grädde"
+      ],
+      "recept": [
+        "Blanda varm choklad med rom.",
+        "Tillsätt lite pepparmynta.",
+        "Toppa med vispad grädde."
+      ],
+      "comments": [
+        {
+          "name": "Erik",
+          "date": "18 december 2025",
+          "comment": "Så mysig, perfekt innan läggdags!"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "slug": "ho-ho-hot-toddy",
+      "categori": "Sips of Christmas",
+      "categorySlug": "sips-of-christmas",
+      "name": "Ho-Ho-Hot Toddy",
+      "image": "/img/drinks/ho-ho-hot-toddy.jpg",
+      "rating": 4.8,
+      "ingridients": 5,
+      "time": 10,
+      "description": "En kryddig, värmande julklassiker med en busig twist. Honung, citron och kanel formar en kram i mugg-format – perfekt när snön faller.",
+      "ingridientslist": [
+        "40 ml whisky",
+        "1 msk honung",
+        "Saften av 1/2 citron",
+        "Varmt vatten",
+        "Kanelstång"
+      ],
+      "recept": [
+        "Häll whisky, honung och citron i en kopp.",
+        "Fyll på med varmt vatten.",
+        "Rör om och toppa med en kanelstång."
+      ],
+      "comments": [
+        {
+          "name": "Lina",
+          "date": "20 december 2025",
+          "comment": "Julstämning i ett glas!"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "slug": "island-bye-land",
+      "categori": "Drunk in paradise",
+      "categorySlug": "drunk-in-paradise",
+      "name": "Island Bye-Land",
+      "image": "/img/drinks/island-bye-land.jpg",
+      "rating": 4.8,
+      "ingridients": 4,
+      "time": 6,
+      "description": "Tropikerna i flytande form. Söt mango, rom och lime blandas till en semesterfläkt som får dig att glömma allt – inklusive ditt WiFi-lösenord.",
+      "ingridientslist": [
+        "60 ml ljus rom",
+        "80 ml mangopuré",
+        "20 ml limejuice",
+        "Is"
+      ],
+      "recept": [
+        "Combina alla ingredienser i en shaker med is.",
+        "Skaka kraftigt och sila upp i glas.",
+        "Garnera med lime."
+      ],
+      "comments": [
+        {
+          "name": "Ella",
+          "date": "5 juni 2025",
+          "comment": "Smakar solsemester!"
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "slug": "tgifizz",
+      "categori": "Party like it's Friday",
+      "categorySlug": "party-like-its-friday",
+      "name": "TGIFizz",
+      "image": "/img/drinks/tgifizz.jpg",
+      "rating": 4.7,
+      "ingridients": 5,
+      "time": 7,
+      "description": "En pigg och bubblig fredagshyllning. Hallon, citron och vodka möter sodavatten i en frisk och festlig blandning som garanterat sätter helgkänslan.",
+      "ingridientslist": [
+        "40 ml vodka",
+        "20 ml hallonlikör",
+        "20 ml citronjuice",
+        "Sodavatten",
+        "Is"
+      ],
+      "recept": [
+        "Fyll glaset med is.",
+        "Tillsätt vodka, hallonlikör och citron.",
+        "Toppa med sodavatten.",
+        "Rör om och dansa vidare."
+      ],
+      "comments": [
+        {
+          "name": "Patrik",
+          "date": "2 augusti 2025",
+          "comment": "Fredagens räddning!"
+        }
+      ]
     }
+
   ]
 }

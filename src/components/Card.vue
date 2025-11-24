@@ -29,8 +29,9 @@ export default {
 
         <div class="name-container">
             <div class="text-name-container">
-                <router-link :to="{ name: 'category', params: { categorySlug: categorySlug } }">{{ categori
-                }}</router-link>
+                <router-link :to="{ name: 'category', params: { categorySlug: categorySlug } }">
+                    {{ categori }}
+                </router-link>
                 <h2>{{ name }}</h2>
             </div>
             <ButtonCard :to="to" />
@@ -56,13 +57,14 @@ export default {
 }
 
 .image-container {
-    display: flex;
     width: 100%;
     padding: 16px;
 }
 
 .image-container img {
     width: 100%;
+    height: auto;
+    object-fit: cover; 
 }
 
 
