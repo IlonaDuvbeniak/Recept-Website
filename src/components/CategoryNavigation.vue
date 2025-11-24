@@ -30,4 +30,10 @@ export default {
     padding: 0 120px;
     flex-wrap: wrap;
 }
+
+@media (max-width: 767px) {
+    .category-navigation {
+        padding: 0 24px;
+    }
+}
 </style>
