@@ -16,9 +16,12 @@ export default {
             :disabled="false" class="category-button"></Button>
         <Button :to="{ name: 'recepies' }" btnText="Party Like It’s Friday" variant="filter"
             :showArrow="false"></Button>
-        <Button :to="{ name: 'recepies' }" btnText="Post-Breakup Potions" variant="filter" :showArrow="false"></Button>
-        <Button :to="{ name: 'recepies' }" btnText="Boos & Brews" variant="filter" :showArrow="false"></Button>
-        <Button :to="{ name: 'recepies' }" btnText="Sips of Christmas" variant="filter" :showArrow="false"></Button>
+        <Button to="/recipes/category/post-breakup-potions" btnText="Post-Breakup Potions" variant="filter"
+            :showArrow="false"></Button>
+        <Button to="/recipes/category/boos-and-brews" btnText="Boos & Brews" variant="filter"
+            :showArrow="false"></Button>
+        <Button to="/recipes/category/sips-of-christmas" btnText="Sips of Christmas" variant="filter"
+            :showArrow="false"></Button>
     </div>
 </template>
 
