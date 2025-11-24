@@ -39,7 +39,6 @@ export default {
 
 #site-search {
     padding-left: 10px;
-    ;
     border: none;
     color: var(--red-color);
     background-color: var(--white-color);
@@ -49,9 +48,7 @@ export default {
     line-height: 24px;
     letter-spacing: 1.28px;
     outline: none;
-    field-sizing: content;
     max-width: 100%;
-
 }
 
 input[type="search"]::-webkit-search-decoration,
@@ -70,7 +67,6 @@ input[type="search"]::-webkit-search-results-decoration {
 ::placeholder {
     color: var(--red-color);
     font-family: "Instrument Sans";
-    overflow: visible;
 }
 
 input:focus::placeholder {
@@ -80,16 +76,15 @@ input:focus::placeholder {
 @media (max-width: 767px) {
 
     .search {
-        padding: 0 20px;
+        padding: 0 24px;
     }
 
     .search-bar-container {
-        padding: 0 0 0 45px;
+        padding: 0 0 0 30px;
     }
 
     .search-icon {
         height: 30px;
-        margin: 5px;
     }
 }
 </style>
