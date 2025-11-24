@@ -63,7 +63,6 @@ export default {
 
 .image-container img {
     width: 100%;
-    height: auto;
     object-fit: cover; 
 }
 
@@ -80,10 +79,11 @@ export default {
 .text-name-container {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     gap: 8px;
     height: 100%;
     width: 66.666%;
-    padding: 16px 0px 16px 16px;
+    padding: 16px;
 }
 
 
