@@ -22,4 +22,13 @@ export default {
     </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.category-navigation {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    overflow-x: auto;
+    padding: 8px 120px;
+    flex-wrap: wrap;
+}
+</style>
