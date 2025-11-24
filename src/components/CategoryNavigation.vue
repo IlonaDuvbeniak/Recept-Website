@@ -1,12 +1,24 @@
 <script>
+import Button from '@/components/Button.vue';
 export default {
-    name: "CategoryNavigation"
+    name: "CategoryNavigation",
+    components: {
+        Button
+    }
 }
 </script>
 
 <template>
-    <div>
-
+    <div class="category-navigation">
+        <Button :to="{ name: 'recepies' }" btnText="Alla" variant="filter" :showArrow="false" :disabled="false"
+            class="category-button"></Button>
+        <Button :to="{ name: 'recepies' }" btnText="Drunk in paradise" variant="filter" :showArrow="false"
+            :disabled="false" class="category-button"></Button>
+        <Button :to="{ name: 'recepies' }" btnText="Party Like It’s Friday" variant="filter"
+            :showArrow="false"></Button>
+        <Button :to="{ name: 'recepies' }" btnText="Post-Breakup Potions" variant="filter" :showArrow="false"></Button>
+        <Button :to="{ name: 'recepies' }" btnText="Boos & Brews" variant="filter" :showArrow="false"></Button>
+        <Button :to="{ name: 'recepies' }" btnText="Sips of Christmas" variant="filter" :showArrow="false"></Button>
     </div>
 </template>
 
