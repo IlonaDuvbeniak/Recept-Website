@@ -27,8 +27,7 @@ export default {
     display: flex;
     flex-direction: row;
     gap: 16px;
-    overflow-x: auto;
-    padding: 8px 120px;
+    padding: 0 120px;
     flex-wrap: wrap;
 }
 </style>
