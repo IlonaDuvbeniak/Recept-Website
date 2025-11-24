@@ -1,10 +1,12 @@
 <script>
 import CardsGrid from '@/components/CardsGrid.vue';
+import CategoryNavigation from '@/components/CategoryNavigation.vue';
 
 export default {
     name: "CategoryView",
     components: {
-        CardsGrid
+        CardsGrid,
+        CategoryNavigation,
     }
 }
 </script>
@@ -12,6 +14,7 @@ export default {
 <template>
     <div class="container">
         <CardsGrid :categorySlug="$route.params.categorySlug" />
+        <CategoryNavigation></CategoryNavigation>
     </div>
 
 </template>
