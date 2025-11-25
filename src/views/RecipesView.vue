@@ -1,7 +1,6 @@
 <script>
 import CardsGrid from '@/components/CardsGrid.vue';
 import Button from '@/components/Button.vue'
-import SearchBar from '@/components/SearchBar.vue';
 import CategoryNavigation from '@/components/CategoryNavigation.vue';
 
 export default {
@@ -9,7 +8,6 @@ export default {
     components: {
         CardsGrid,
         Button,
-        SearchBar,
         CategoryNavigation
     }
 }
@@ -17,7 +15,6 @@ export default {
 
 <template>
     <div class="container">
-        <SearchBar></SearchBar>
         <CategoryNavigation></CategoryNavigation>
         <CardsGrid />
         <Button btnText="Visa fler" variant="primary" :showArrow="true" :disabled="false" @event="showMore"></Button>

@@ -1,17 +1,20 @@
 <script>
 import { getData } from '../FetchData.vue'
 import Card from '../components/Card.vue'
+import SearchBar from '@/components/SearchBar.vue';
 
 export default {
     components: {
-        Card
+        Card,
+        SearchBar,
     },
     props: {
         categorySlug: String
     },
     data() {
         return {
-            coctails: []
+            coctails: [],
+            searchTerm: ""
         }
     },
     async mounted() {
@@ -24,13 +27,21 @@ export default {
     },
     computed: {
         filteredCoctails() {
-            if (!this.categorySlug) {
-                // Om ingen kategori skickas (t.ex. på HomeView/RecipesView) → visa alla
-                return this.coctails
+            let result = this.coctails
+
+            if (this.categorySlug) {
+                result = result.filter(
+                    (coctail) => coctail.categorySlug === this.categorySlug
+                )
             }
-            return this.coctails.filter(
-                (coctail) => coctail.categorySlug === this.categorySlug
-            )
+
+            if (this.searchTerm) {
+                const term = this.searchTerm.toLowerCase()
+                result = result.filter((coctail) =>
+                    coctail.name.toLowerCase().includes(term)
+                )
+            }
+            return result
         }
     }
 }
@@ -38,6 +49,8 @@ export default {
 
 <template>
     <div class="page-container">
+        <SearchBar :value="searchTerm" @input="searchTerm = $event" />
+
         <div class="cards-container">
             <Card v-for="coctail in filteredCoctails" :key="coctail.id" :categori="coctail.categori"
                 :categorySlug="coctail.categorySlug" :name="coctail.name" :rating="coctail.rating"
