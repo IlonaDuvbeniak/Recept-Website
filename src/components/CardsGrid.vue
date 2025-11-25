@@ -13,7 +13,8 @@ export default {
     },
     data() {
         return {
-            coctails: []
+            coctails: [],
+            searchTerm: ""
         }
     },
     async mounted() {
@@ -40,7 +41,7 @@ export default {
 
 <template>
     <div class="page-container">
-        <SearchBar></SearchBar>
+        <SearchBar :value="searchTerm" @input="searchTerm = $event" />
         <div class="cards-container">
             <Card v-for="coctail in filteredCoctails" :key="coctail.id" :categori="coctail.categori"
                 :categorySlug="coctail.categorySlug" :name="coctail.name" :rating="coctail.rating"
