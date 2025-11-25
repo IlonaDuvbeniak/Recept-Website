@@ -27,13 +27,21 @@ export default {
     },
     computed: {
         filteredCoctails() {
-            if (!this.categorySlug) {
-                // Om ingen kategori skickas (t.ex. på HomeView/RecipesView) → visa alla
-                return this.coctails
+            let result = this.coctails
+
+            if (this.categorySlug) {
+                result = result.filter(
+                    (coctail) => coctail.categorySlug === this.categorySlug
+                )
             }
-            return this.coctails.filter(
-                (coctail) => coctail.categorySlug === this.categorySlug
-            )
+
+            if (this.searchTerm) {
+                const term = this.searchTerm.toLowerCase()
+                result = result.filter((coctail) =>
+                    coctail.name.toLowerCase().includes(term)
+                )
+            }
+            return result
         }
     }
 }
@@ -42,7 +50,6 @@ export default {
 <template>
     <div class="page-container">
         <SearchBar :value="searchTerm" @input="searchTerm = $event" />
-        <p>{{ searchTerm }}</p>
 
         <div class="cards-container">
             <Card v-for="coctail in filteredCoctails" :key="coctail.id" :categori="coctail.categori"
