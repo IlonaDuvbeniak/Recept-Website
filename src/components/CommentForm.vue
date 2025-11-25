@@ -16,6 +16,8 @@ export default {
                 { id: 2, name: "Moa", title: "Glassigt", writtenComment: "Rolig att ha till festen. De andra blev väldigt nyfikna så nästa gång ska jag nog bjuda på den till alla", time: "18 Nov 2025" },
                 { id: 3, name: "Alva", title: "Gott Recept", writtenComment: "Jag älskar detta recept, tack för att du delade!", time: "19 Nov 2025" },
              ],
+
+            message: '',
         }
 
     },
@@ -47,14 +49,39 @@ export default {
         return this.newTime;
         },
 
+        handleClick() {
+            if (this.newName.length < 2) {
+                this.message = 'Namnet är för kort!'                
+            } 
+            else if (this.newName.length > 20) {
+                this.message = 'Namnet är för långt!'                
+            }
+            else if (this.newTitle.length < 2) {
+                this.message = 'Rubriken är för kort!'
+            }
+            else if (this.newTitle.length > 20) {
+                this.message = 'Rubriken är för lång!'
+            }
+            else if (this.newWrittenComment.length < 10) {
+                this.message = 'Kommentaren är för kort!'
+            }
+            else if (this.newWrittenComment.length > 200) {
+                this.message = 'Kommentaren är för lång!'
+            }
+            else {
+                this.message = 'Din kommentar är skickad!'
         
+                console.log('Knappen fungerar som vanligt');
+                this.submitAll ();
+            }
+        }
     }
 }
 
 </script>
 
 <template>
-  <form @submit.prevent="submitAll">
+  <form @submit.prevent="handleClick">
     <label>
         <div class="comment-form">
         <div class="comment-form-top">
@@ -64,11 +91,14 @@ export default {
         
         <input v-model="newTitle" placeholder="Rubrik max 12 tecken"></input>
         <textarea v-model="newWrittenComment" placeholder="Skriv din kommentar"></textarea>
+        <p>{{ message }}</p>
         <button class="btn-comment-form" type="submit">Skicka -></button>
+        
         </div>
     </label>
   </form>
-   
+
+ 
 
 
 
