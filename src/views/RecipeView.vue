@@ -35,9 +35,9 @@ export default {
       this.recipe = this.coctails.find(c => c.slug === this.slug)
     } catch (err) {
       console.error(err)
-
     }
   }
+}
 
 </script>
 
