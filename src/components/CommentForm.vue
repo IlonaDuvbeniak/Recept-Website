@@ -10,11 +10,7 @@ export default {
             newWrittenComment: '',
             newTime: '',  
             id: 0,
-            submittedId: "",
-            submittedName: "",
-            submittedTitle: "",
-            submittedWrittenComment: "",
-            submittedTime: "",
+            
             commentsArray: [    
                 { id: 1, name: "Anna", title: "Hej!", writtenComment: "Detta är en testkommentar", time: "17 Nov 2025" },
                 { id: 2, name: "Moa", title: "Glassigt", writtenComment: "Rolig att ha till festen. De andra blev väldigt nyfikna så nästa gång ska jag nog bjuda på den till alla", time: "18 Nov 2025" },
@@ -27,7 +23,12 @@ export default {
         submitAll () {
             this.commentTime();
 
-            this.commentsArray.push({id: this.commentsArray.length + 1, name: this.newName, title: this.newTitle, writtenComment: this.newWrittenComment, time: this.newTime});
+            this.commentsArray.push(
+                {id: this.commentsArray.length + 1, 
+                name: this.newName, 
+                title: this.newTitle, 
+                writtenComment: this.newWrittenComment, 
+                time: this.newTime});
 
             this.newName = "";
             this.newTitle = "";
@@ -38,12 +39,15 @@ export default {
                 
         commentTime() {
         const dateOfComment = Date();
+        console.log(dateOfComment);
         const splittedDate = dateOfComment.split(" ");
-        console.log(splittedDate[0], splittedDate[2], splittedDate[1], splittedDate[4].slice(0,5));
+        console.log(splittedDate[2], splittedDate[1], splittedDate[3]);
         
-        this.newTime = `${splittedDate[0]} ${splittedDate[2]} ${splittedDate[1]} ${splittedDate[4].slice(0,5)}`;        
+        this.newTime = `${splittedDate[2]} ${splittedDate[1]} ${splittedDate[3]}`;        
         return this.newTime;
         },
+
+        
     }
 }
 
@@ -66,7 +70,7 @@ export default {
   </form>
    
 
-  <!-- <button v-on:click="commentTime">tid</button> -->
+
 
   
 

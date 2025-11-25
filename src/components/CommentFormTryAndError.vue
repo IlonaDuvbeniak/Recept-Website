@@ -26,17 +26,15 @@ export default {
      
         trySubmit (){
             console.log ("Tell me, is this the right way to China?");
-            this.name = this.newName
+                this.name = this.newName;
+                this.newName = "";
+                this.title = this.newTitle;
+                this.newTitle = "";
+                this.writtenComment = this.newWrittenComment;
+                this.newWrittenComment = "";
 
         },
 
-        checkIsInvalid () {
-            if (this.isInvalid === true) {
-                this.helpMessagePart1 = "Testa igen! Tänk på att:";
-                this.helpMessegePart2 = "Namn och titel behöver vara mellan 5 till 12 tecken.";
-                this.helpMessegePart3 = "Kommentaren behöver vara mellan 10 till 200 tecken.";
-           
-            }
             
         },
         
@@ -63,12 +61,7 @@ export default {
                 this.message = 'Bra längt på allt'
         
                 console.log('Knappen fungerar som vanligt');
-                this.name = this.newName;
-                this.newName = "";
-                this.title = this.newTitle;
-                this.newTitle = "";
-                this.writtenComment = this.newWrittenComment;
-                this.newWrittenComment = ""
+                this.trySubmit ();
             }
         }
 
