@@ -4,77 +4,78 @@ export default {
     name: 'CommentFormTryAndError',
     data() {
         return {
-            testNamn: '',
-
-
-
 
             newName: '',
+            name: "",
             newTitle: '',
-            newWrittenComment: '',
+            title: '',
+            newWrittenComment:'',
+            writtenComment: '',
+
             
-            showErrorMsg: false,
-            errorMessage: "",
-            isReady: false,
+            helpMessage: "",
+            invalid: null,
+
+            message: 'nothing to say',
+            showMessage: false, 
         }
     },
 
     methods: {
             //när man cklickar så aktiveras den här funktionen, som en aktiverar submitAll.
-        trySubmit () {
-            const testValidaty = this.isInvalid();
-            this.showErrorCode();        
-            },
+     
+        trySubmit (){
+            console.log ("Tell me, is this the right way to China?");
+            this.name = this.newName
 
-        isInvalid() {
-            console.log ("under getErrorCode ()")
-            if (this.newName.length < 5) return 1;
-            if (this.newName.length > 20) return 2;
-            if (this.newTitle.length < 5) return 3;
-            if (this.newTitle.length > 20) return 4;
-            if (this.writtenComment.length < 10) return 5;
-            if (this.writtenComment.length > 200) return 6;
-            return 0; // allt okej
         },
 
-        showErrorCode() {
-            switch (testValidaty) {
-                case 1:
-                    this.errorMessage = "Namn behöver vara längre än 5 tecken";
-                    showErrorMsg = true;
-                break;
-
-                case 2:
-                    this.errorMessage = "Namn behöver vara kortare än 20 tecken";
-                    showErrorMsg = true;
-                break;
-
-                case 3:
-                    this.errorMessage = "Rubriken behöver vara längre än 5 tecken";
-                    showErrorMsg = true;
-                break;
-                
-                case 4:
-                    this.errorMessage = "Rubriken behöver vara kortare än 20 tecken";
-                    showErrorMsg = true;
-                break;
-
-                case 5:
-                    this.errorMessage = "Kommentaren behöver vara längre än 10 tecken";
-                    showErrorMsg = true;
-                break;
-
-                case 6:
-                    this.errorMessage = "Kommentaren behöver vara kortare än 200 tecken";
-                    showErrorMsg = true;
-                break;
-
-                default:
-                    showErrorMsg = false;
-                    this.submitAll();
-                return;
+        checkIsInvalid () {
+            if (this.isInvalid === true) {
+                this.helpMessagePart1 = "Testa igen! Tänk på att:";
+                this.helpMessegePart2 = "Namn och titel behöver vara mellan 5 till 12 tecken.";
+                this.helpMessegePart3 = "Kommentaren behöver vara mellan 10 till 200 tecken.";
+           
+            }
+            
+        },
+        
+        handleClick() {
+            if (this.newName.length < 2) {
+                this.message = 'Namnet är för kort!'                
+            } 
+            else if (this.newName.length > 20) {
+                this.message = 'Namnet är för långt!'                
+            }
+            else if (this.newTitle.length < 2) {
+                this.message = 'Rubriken är för kort!'
+            }
+            else if (this.newTitle.length > 20) {
+                this.message = 'Rubriken är för lång!'
+            }
+            else if (this.newWrittenComment.length < 10) {
+                this.message = 'Kommentaren är för kort!'
+            }
+            else if (this.newWrittenComment.length > 200) {
+                this.message = 'Kommentaren är för lång!'
+            }
+            else {
+                this.message = 'Bra längt på allt'
+        
+                console.log('Knappen fungerar som vanligt');
+                this.name = this.newName;
+                this.newName = "";
+                this.title = this.newTitle;
+                this.newTitle = "";
+                this.writtenComment = this.newWrittenComment;
+                this.newWrittenComment = ""
             }
         }
+
+
+       
+
+        
     }
 
 }
@@ -91,12 +92,19 @@ export default {
 <br/>
 
 
- <form @submit.prevent="trySubmit">
+ <form @submit.prevent="handleClick">
     <label>
-        <input v-model="testNamn">Namn</input>
-        <button> trySubmit</button>
+        <input v-model="newName">Namn</input>
+        <input v-model="newTitle">Rubrik</input>
+        <input v-model="newWrittenComment">Kommentar</input>
+        <button > trySubmit</button>
     </label>
   </form>
+
+  <h2>{{ name }}</h2>
+  <h2>{{ title }}</h2>
+  <h2>{{ writtenComment }}</h2>
+  <p>{{ message }}</p>
 
   <br/>
   <br/>
@@ -108,3 +116,11 @@ export default {
   <br/>
 
  </template>
+
+ <style scoped>
+
+button:disabled { 
+    cursor: not-allowed; 
+    opacity: 0.6;
+}
+</style>
