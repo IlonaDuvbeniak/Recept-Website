@@ -4,7 +4,7 @@ import CardsGrid from '@/components/CardsGrid.vue';
 export default {
     name: "CategoryView",
     components: {
-        CardsGrid
+        CardsGrid,
     }
 }
 </script>

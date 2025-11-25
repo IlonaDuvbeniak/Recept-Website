@@ -1,46 +1,48 @@
 <script>
+import { getData } from '../FetchData.vue'
+import ReceptCard from '@/components/RecipeComponents/ReceptCard.vue';
+import HowToDo from '@/components/RecipeComponents/HowToDo.vue';
+import RatingCard from '@/components/RecipeComponents/RatingCard.vue';
+import CommentForm from '../components/CommentForm.vue';
+import CommentFormTryAndError from '../components/CommentFormTryAndError.vue'; //Ta bort sen, bara för byggprocessen
 
-  import { getData } from '../FetchData.vue'
-  import ReceptCard from '@/components/RecipeComponents/ReceptCard.vue';
-  import HowToDo from '@/components/RecipeComponents/HowToDo.vue';
-  import RatingCard from '@/components/RecipeComponents/RatingCard.vue';
-  import CommentForm from '../components/CommentForm.vue';
 
+export default {
+  name: 'recipe',
 
-  export default {
-    name: 'recipe',
+  components: {
+    ReceptCard,
+    HowToDo,
+    RatingCard,
+    CommentForm,
+    CommentFormTryAndError
+  },
 
-    components: {
-      ReceptCard,
-      HowToDo,
-      RatingCard,
-      CommentForm
-    },
+  props: ['slug'],
 
-    props: ['slug'],
+  data() {
+    return {
+      recipe: null,
+      coctails: []
+    }
+  },
 
-    data() {
-      return {
-        recipe: null,
-        coctails: []
-      }
-    },
+  async created() {
+    try {
+      const data = await getData()
+      this.coctails = data.coctails
 
-    async created() {
-      try {
-        const data = await getData()
-        this.coctails = data.coctails
+      this.recipe = this.coctails.find(c => c.slug === this.slug)
+    } catch (err) {
+      console.error(err)
 
-        this.recipe = this.coctails.find(c => c.slug === this.slug)
-      } catch (err) {
-        console.error(err)
-      }
     }
   }
 
 </script>
 
 <template>
+
 
   <svg xmlns="http://www.w3.org/2000/svg" width="1440" height="129" viewBox="0 0 1440 129" fill="none"
     class="element-header">
@@ -64,6 +66,10 @@
 
   <section>
     <CommentForm />
+  </section>
+  <section>
+        <CommentFormTryAndError /> 
+        <!-- //Ta bort sen, bara för byggprocessen -->
   </section>
 
 </template>

@@ -1,21 +1,18 @@
 <script>
 import CardsGrid from '@/components/CardsGrid.vue';
 import Button from '@/components/Button.vue'
-import SearchBar from '@/components/SearchBar.vue';
 
 export default {
     name: 'RecipesView',
     components: {
         CardsGrid,
-        Button,
-        SearchBar
+        Button
     }
 }
 </script>
 
 <template>
     <div class="container">
-        <SearchBar></SearchBar>
         <CardsGrid />
         <Button btnText="Visa fler" variant="primary" :showArrow="true" :disabled="false" @event="showMore"></Button>
     </div>

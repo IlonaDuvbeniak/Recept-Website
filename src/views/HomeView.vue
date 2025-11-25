@@ -2,21 +2,18 @@
 import HeroSection from '../components/HeroSection.vue';
 import CardsGrid from '@/components/CardsGrid.vue';
 import Button from '@/components/Button.vue'
-import SearchBar from '@/components/SearchBar.vue';
 export default {
   name: 'HomeView',
   components: {
     HeroSection,
     CardsGrid,
-    Button,
-    SearchBar
+    Button
   },
 }
 </script>
 <template>
   <HeroSection />
   <div class="container">
-    <SearchBar></SearchBar>
     <CardsGrid />
     <Button :to="{ name: 'recepies' }" btnText="Visa fler" variant="primary" :showArrow="true"
       :disabled="false"></Button>
