@@ -4,6 +4,10 @@ export default {
     name: "CategoryNavigation",
     components: {
         Button
+    },
+    computed: {
+        NumberOfRecipesInCategory() {
+        }
     }
 }
 </script>
