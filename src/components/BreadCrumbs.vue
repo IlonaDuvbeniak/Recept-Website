@@ -7,8 +7,12 @@ export default {
         IsShowingRecipesView() {
             return this.$route.path.includes('recipes')
         },
+        IsShowingCategoryView() {
+            return this.$route.path.includes('recipes/category/')
+        },
         IsShowingRecipeView() {
-            return this.$route.path.includes('recipes/')
+            const parts = this.$route.path.split('/')
+            return parts[1] === 'recipes' && parts[2] !== 'category'
         },
         BreadCrumbRecipeName() {
             if (!this.IsShowingRecipeView) return ''
@@ -16,22 +20,34 @@ export default {
             const slug = this.$route.params.slug
             const recipe = data.coctails.find(drink => drink.slug === slug)
             return recipe ? recipe.name : ''
+        },
+        BreadCrumbCategoryName() {
+            if (!this.IsShowingCategoryView) return ''
+
+            const categorySlug = this.$route.params.categorySlug
+            const category = data.coctails.find(drink => drink.categorySlug === categorySlug)
+            return category ? category.categori : ''
         }
     }
 }
 </script>
 <template>
-    <nav class="bread-crumbs"
-     v-if="IsShowingRecipesView || IsShowingRecipeView">
+    <nav class="bread-crumbs" v-if="IsShowingRecipesView || IsShowingRecipeView">
         <ul>
-            <li >
+            <li>
                 <router-link to="/">Home</router-link>
             </li>
             <li v-if="IsShowingRecipesView">
                 <span>
                     <img src="/img/arrow-bread-crumbs.svg" alt="arrow icon" />
                 </span>
-               <router-link to="/recipes">Recipes</router-link>
+                <router-link to="/recipes">Recipes</router-link>
+            </li>
+            <li v-if="IsShowingCategoryView">
+                <span>
+                    <img src="/img/arrow-bread-crumbs.svg" alt="arrow icon" />
+                </span>
+                <span>{{ BreadCrumbCategoryName }}</span>
             </li>
             <li v-if="IsShowingRecipeView">
                 <span>
@@ -39,37 +55,36 @@ export default {
                 </span>
                 <span>{{ BreadCrumbRecipeName }}</span>
             </li>
-
         </ul>
     </nav>
 </template>
 <style scoped>
-    .bread-crumbs {
-        font-family: "Instrument Sans";
-        font-size: 16px;
-        font-style: normal;
-        font-weight: 500;
-        text-decoration: none;
-        margin: 24px 0 52px 0;
-    }
+.bread-crumbs {
+    font-family: "Instrument Sans";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    text-decoration: none;
+    margin: 24px 0 52px 0;
+}
 
-    .bread-crumbs ul {
-        list-style: none;
-        display: flex;
-        justify-content: center
-    }
+.bread-crumbs ul {
+    list-style: none;
+    display: flex;
+    justify-content: center
+}
 
-    .bread-crumbs li:not(:last-child) {
-        margin-right: 16px;
-    }
+.bread-crumbs li:not(:last-child) {
+    margin-right: 16px;
+}
 
-    .bread-crumbs a {
-        text-decoration: none;
-        color: var(--red-color);
-    }
+.bread-crumbs a {
+    text-decoration: none;
+    color: var(--red-color);
+}
 
-    .bread-crumbs span {
-        margin-right: 16px;
-        color: var(--red-color);
-    }
+.bread-crumbs span {
+    margin-right: 16px;
+    color: var(--red-color);
+}
 </style>

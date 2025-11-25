@@ -11,6 +11,7 @@ export default {
 }
 </script>
 <template>
+    <Header class="header-component"></Header>
     <div class="hero-section">
         <video class="hero-movie" autoplay muted loop>
             <source src="/videos/HeroMovie.mp4" type="video/mp4" aria-label="Girl sipping on spooky drink" />
@@ -18,7 +19,8 @@ export default {
 
         <div class="title-and-button">
             <h1>CHEERS <br>WITCHES!</h1>
-            <Button btnText="Boo season!" variant="primary" :showArrow="true" :disabled="false"></Button>
+            <Button to="/recipes/category/boos-and-brews" btnText="Boo season!" variant="primary" :showArrow="true"
+                :disabled="false"></Button>
         </div>
         <img class="swirl-text" src="/img/swirl-text.svg" alt="Banner saying Spooky season is here">
     </div>
@@ -58,5 +60,13 @@ h1 {
 
 Button {
     margin-top: 42px;
+}
+
+.header-component {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1;
 }
 </style>
