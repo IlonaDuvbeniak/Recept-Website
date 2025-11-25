@@ -1,6 +1,13 @@
 <script>
 export default {
-    name: "SearchBar"
+    name: "SearchBar",
+    props: {
+        value: {
+            type: String,
+            default: ""
+        }
+    },
+    emits: ["input"]
 }
 </script>
 
