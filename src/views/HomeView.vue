@@ -3,13 +3,15 @@ import HeroSection from '../components/HeroSection.vue';
 import CardsGrid from '@/components/CardsGrid.vue';
 import Button from '@/components/Button.vue'
 import SearchBar from '@/components/SearchBar.vue';
+import CategoryNavigation from '@/components/CategoryNavigation.vue';
 export default {
   name: 'HomeView',
   components: {
     HeroSection,
     CardsGrid,
     Button,
-    SearchBar
+    SearchBar,
+    CategoryNavigation
   },
 }
 </script>
@@ -17,6 +19,7 @@ export default {
   <HeroSection />
   <div class="container">
     <SearchBar></SearchBar>
+    <CategoryNavigation></CategoryNavigation>
     <CardsGrid />
     <Button :to="{ name: 'recepies' }" btnText="Visa fler" variant="primary" :showArrow="true"
       :disabled="false"></Button>
