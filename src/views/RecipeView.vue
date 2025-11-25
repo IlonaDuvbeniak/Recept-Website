@@ -1,10 +1,10 @@
 <script>
-
 import { getData } from '../FetchData.vue'
 import ReceptCard from '@/components/RecipeComponents/ReceptCard.vue';
 import HowToDo from '@/components/RecipeComponents/HowToDo.vue';
 import RatingCard from '@/components/RecipeComponents/RatingCard.vue';
 import CommentForm from '../components/CommentForm.vue';
+import CommentFormTryAndError from '../components/CommentFormTryAndError.vue'; //Ta bort sen, bara för byggprocessen
 
 
 export default {
@@ -14,7 +14,8 @@ export default {
     ReceptCard,
     HowToDo,
     RatingCard,
-    CommentForm
+    CommentForm,
+    CommentFormTryAndError
   },
 
   props: ['slug'],
@@ -42,6 +43,7 @@ export default {
 
 <template>
 
+
   <svg xmlns="http://www.w3.org/2000/svg" width="1440" height="129" viewBox="0 0 1440 129" fill="none"
     class="element-header">
     <path
@@ -64,6 +66,10 @@ export default {
 
   <section>
     <CommentForm />
+  </section>
+  <section>
+        <CommentFormTryAndError /> 
+        <!-- //Ta bort sen, bara för byggprocessen -->
   </section>
 
 </template>

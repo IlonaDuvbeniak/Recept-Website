@@ -10,16 +10,14 @@ export default {
             newWrittenComment: '',
             newTime: '',  
             id: 0,
-            submittedId: "",
-            submittedName: "",
-            submittedTitle: "",
-            submittedWrittenComment: "",
-            submittedTime: "",
+            
             commentsArray: [    
                 { id: 1, name: "Anna", title: "Hej!", writtenComment: "Detta är en testkommentar", time: "17 Nov 2025" },
                 { id: 2, name: "Moa", title: "Glassigt", writtenComment: "Rolig att ha till festen. De andra blev väldigt nyfikna så nästa gång ska jag nog bjuda på den till alla", time: "18 Nov 2025" },
                 { id: 3, name: "Alva", title: "Gott Recept", writtenComment: "Jag älskar detta recept, tack för att du delade!", time: "19 Nov 2025" },
              ],
+
+            message: '',
         }
 
     },
@@ -27,7 +25,12 @@ export default {
         submitAll () {
             this.commentTime();
 
-            this.commentsArray.push({id: this.commentsArray.length + 1, name: this.newName, title: this.newTitle, writtenComment: this.newWrittenComment, time: this.newTime});
+            this.commentsArray.push(
+                {id: this.commentsArray.length + 1, 
+                name: this.newName, 
+                title: this.newTitle, 
+                writtenComment: this.newWrittenComment, 
+                time: this.newTime});
 
             this.newName = "";
             this.newTitle = "";
@@ -38,19 +41,47 @@ export default {
                 
         commentTime() {
         const dateOfComment = Date();
+        console.log(dateOfComment);
         const splittedDate = dateOfComment.split(" ");
-        console.log(splittedDate[0], splittedDate[2], splittedDate[1], splittedDate[4].slice(0,5));
+        console.log(splittedDate[2], splittedDate[1], splittedDate[3]);
         
-        this.newTime = `${splittedDate[0]} ${splittedDate[2]} ${splittedDate[1]} ${splittedDate[4].slice(0,5)}`;        
+        this.newTime = `${splittedDate[2]} ${splittedDate[1]} ${splittedDate[3]}`;        
         return this.newTime;
         },
+
+        handleClick() {
+            if (this.newName.length < 2) {
+                this.message = 'Namnet är för kort!'                
+            } 
+            else if (this.newName.length > 30) {
+                this.message = 'Namnet är för långt!'                
+            }
+            else if (this.newTitle.length < 2) {
+                this.message = 'Rubriken är för kort!'
+            }
+            else if (this.newTitle.length > 25) {
+                this.message = 'Rubriken är för lång!'
+            }
+            else if (this.newWrittenComment.length < 10) {
+                this.message = 'Kommentaren är för kort!'
+            }
+            else if (this.newWrittenComment.length > 200) {
+                this.message = 'Kommentaren är för lång!'
+            }
+            else {
+                this.message = 'Din kommentar är skickad!'
+        
+                console.log('Knappen fungerar som vanligt');
+                this.submitAll ();
+            }
+        }
     }
 }
 
 </script>
 
 <template>
-  <form @submit.prevent="submitAll">
+  <form @submit.prevent="handleClick">
     <label>
         <div class="comment-form">
         <div class="comment-form-top">
@@ -60,13 +91,16 @@ export default {
         
         <input v-model="newTitle" placeholder="Rubrik max 12 tecken"></input>
         <textarea v-model="newWrittenComment" placeholder="Skriv din kommentar"></textarea>
+        <p class="helpMsg">{{ message }}</p>
         <button class="btn-comment-form" type="submit">Skicka -></button>
+        
         </div>
     </label>
   </form>
-   
 
-  <!-- <button v-on:click="commentTime">tid</button> -->
+ 
+
+
 
   
 
@@ -87,7 +121,13 @@ export default {
 
 <style scoped>
 
-
+.helpMsg {
+    /* background: var(--baby-pink-color); */
+    align-self: center;
+    padding-left: 100px;
+    padding-right: 100px;
+    
+}
 
 button {
     background-color: var(--red-color);
