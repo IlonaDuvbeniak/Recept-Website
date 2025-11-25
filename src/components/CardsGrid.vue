@@ -80,6 +80,7 @@ export default {
 
     @media (max-width: 767px) {
         .cards-container {
+            gap: 20px;
             padding: 0 52px;
         }
     }
