@@ -36,7 +36,7 @@ export default {
         },
 
             
-        },
+        
         
         handleClick() {
             if (this.newName.length < 2) {
