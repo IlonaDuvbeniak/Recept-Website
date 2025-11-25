@@ -1,10 +1,12 @@
 <script>
 import { getData } from '../FetchData.vue'
 import Card from '../components/Card.vue'
+import SearchBar from '@/components/SearchBar.vue';
 
 export default {
     components: {
-        Card
+        Card,
+        SearchBar,
     },
     props: {
         categorySlug: String
@@ -38,6 +40,7 @@ export default {
 
 <template>
     <div class="page-container">
+        <SearchBar></SearchBar>
         <div class="cards-container">
             <Card v-for="coctail in filteredCoctails" :key="coctail.id" :categori="coctail.categori"
                 :categorySlug="coctail.categorySlug" :name="coctail.name" :rating="coctail.rating"
