@@ -53,13 +53,13 @@ export default {
             if (this.newName.length < 2) {
                 this.message = 'Namnet är för kort!'                
             } 
-            else if (this.newName.length > 20) {
+            else if (this.newName.length > 30) {
                 this.message = 'Namnet är för långt!'                
             }
             else if (this.newTitle.length < 2) {
                 this.message = 'Rubriken är för kort!'
             }
-            else if (this.newTitle.length > 20) {
+            else if (this.newTitle.length > 25) {
                 this.message = 'Rubriken är för lång!'
             }
             else if (this.newWrittenComment.length < 10) {
@@ -91,7 +91,7 @@ export default {
         
         <input v-model="newTitle" placeholder="Rubrik max 12 tecken"></input>
         <textarea v-model="newWrittenComment" placeholder="Skriv din kommentar"></textarea>
-        <p>{{ message }}</p>
+        <p class="helpMsg">{{ message }}</p>
         <button class="btn-comment-form" type="submit">Skicka -></button>
         
         </div>
@@ -121,7 +121,13 @@ export default {
 
 <style scoped>
 
-
+.helpMsg {
+    /* background: var(--baby-pink-color); */
+    align-self: center;
+    padding-left: 100px;
+    padding-right: 100px;
+    
+}
 
 button {
     background-color: var(--red-color);
