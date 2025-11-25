@@ -2,11 +2,13 @@
 import { getData } from '../FetchData.vue'
 import Card from '../components/Card.vue'
 import SearchBar from '@/components/SearchBar.vue';
+import CategoryNavigation from './CategoryNavigation.vue';
 
 export default {
     components: {
         Card,
         SearchBar,
+        CategoryNavigation
     },
     props: {
         categorySlug: String
@@ -50,7 +52,7 @@ export default {
 <template>
     <div class="page-container">
         <SearchBar :value="searchTerm" @input="searchTerm = $event" />
-
+        <CategoryNavigation></CategoryNavigation>
         <div class="cards-container">
             <Card v-for="coctail in filteredCoctails" :key="coctail.id" :categori="coctail.categori"
                 :categorySlug="coctail.categorySlug" :name="coctail.name" :rating="coctail.rating"
