@@ -48,11 +48,31 @@ export default {
 </template>
 
 <style scoped>
-.cards-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    width: 100%;
-    gap: 24px;
-    padding: 0 120px;
-}
+    .cards-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        width: 100%;
+        gap: 24px;
+        padding: 0 120px;
+    }
+
+    @media (max-width: 991px) {
+        .cards-container {
+            grid-template-columns: repeat(2, 1fr);
+            padding: 0 72px;
+        }
+    }
+
+    @media (max-width: 767px) {
+        .cards-container {
+            padding: 0 52px;
+        }
+    }
+
+    @media (max-width: 575px) {
+        .cards-container {
+            grid-template-columns: 1fr;
+            padding: 0 24px;
+        }
+    }
 </style>
