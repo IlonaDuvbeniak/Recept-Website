@@ -91,7 +91,7 @@
     }
 
     .btn.primary:hover .btn-arrow {
-        transform: translateX(-180%); 
+        transform: translateX(50%); 
         fill: var(--red-color);
     }
 

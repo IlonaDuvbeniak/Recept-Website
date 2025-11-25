@@ -35,9 +35,9 @@ export default {
       this.recipe = this.coctails.find(c => c.slug === this.slug)
     } catch (err) {
       console.error(err)
+
     }
   }
-}
 
 </script>
 
@@ -76,11 +76,11 @@ export default {
 
 
 <style scoped>
-.element-header {
-  position: absolute;
-  overflow: hidden;
-  top: 0;
-  left: 0;
-  z-index: -1;
-}
+  .element-header {
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    left: -1.5%;
+    z-index: -1;
+  }
 </style>

@@ -10,7 +10,7 @@
       "rating": 4.6,
       "ingridients": 6,
       "time": 10,
-      "description": "En djärv blandning av vodka och hetta, balanserad med syra, krydda och ren självrespekt. Det här är ingen vanlig Bloody Mary – det är ett farväl i flytande form. Citronens skarpa sting skär igenom gamla känslor, chilin påminner dig om att smärta också kan vara njutning, och varje klunk bränner bort ännu ett dåligt minne. Bäst serverad iskall, utan känslomässigt bagage och med en spellista full av hämndlåtar.",
+      "description": "En djärv blandning av vodka och hetta, balanserad med syra, krydda och ren självrespekt. Citronens skarpa sting skär igenom gamla känslor, chilin påminner dig om att smärta också kan vara njutning, och varje klunk bränner bort ännu ett dåligt minne. Bäst serverad iskall, utan känslomässigt bagage och med en spellista full av hämndlåtar.",
       "ingridientslist": [
           "60 ml vodka",
           "120 ml tomatjuice",
@@ -55,7 +55,7 @@
       "rating": 4.9,
       "ingridients": 5,
       "time": 8,
-      "description": "Den automatiska semesterhälsningen i drinkform. En tropisk flykt där varje klunk smakar som att kasta mobilen i havet och glömma lösenordet till mejlen. Söt kokos, frisk lime och en skvätt rom gör jobbet du flydde från plötsligt helt oviktigt. Solen, saltet och friheten blandas till perfekt balans. Bäst serverad i skuggan av ett dåligt beslut – med sand mellan tårna och noll ansvar.",
+      "description": "En tropisk flykt där varje klunk smakar som att kasta mobilen i havet och glömma lösenordet till mejlen. Söt kokos, frisk lime och en skvätt rom gör jobbet du flydde från plötsligt helt oviktigt. Solen, saltet och friheten blandas till perfekt balans. Bäst serverad i skuggan av ett dåligt beslut – med sand mellan tårna och noll ansvar.",
       "ingridientslist": [
         "50 ml ljus rom",
         "100 ml kokosvatten",
@@ -94,7 +94,7 @@
       "rating": 4.8,
       "ingridients": 6,
       "time": 8,
-      "description": "För när kvällen spårar ur – på bästa sätt. Den här drinken är flytande självförtroende, fylld med bubblor, glitter och dåliga idéer. Söt, syrlig och farligt lättdrucken. En klunk in och du är redan på dansgolvet; två, och borden börjar se ut som scenen du föddes för. Bäst serverad kall, med skratt som eko och en chatt full av meddelanden du borde ha låtit bli att skicka.",
+      "description": "Den här drinken är flytande självförtroende, fylld med bubblor, glitter och dåliga idéer. Söt, syrlig och farligt lättdrucken. En klunk in och du är redan på dansgolvet; två, och borden börjar se ut som scenen du föddes för. Bäst serverad kall, med skratt som eko och en chatt full av meddelanden du borde ha låtit bli att skicka.",
       "ingridientslist": [
         "40 ml gin",
         "20 ml passionsfruktlikör",
@@ -128,7 +128,7 @@
       "rating": 4.8,
       "ingridients": 5,
       "time": 7,
-      "description": "En trolsk blandning för alla moderna häxor med smak för dramatik och lite mörk humor. En nattlig elixir där svart vinbär möter citrus och ett stänk av magi. Frisk, fruktig och lite farlig – precis som du efter klockan tio. Den skimrar i glaset som en förbannelse du inte riktigt vill bryta. Bäst serverad under fullmånen, med glitter på kinderna och skratt som ekar mellan världarna.",
+      "description": "En trolsk blandning för alla moderna häxor med smak för dramatik och lite mörk humor. En nattlig elixir där svart vinbär möter citrus och ett stänk av magi. Den skimrar i glaset som en förbannelse du inte riktigt vill bryta. Bäst serverad under fullmånen, med glitter på kinderna och skratt som ekar mellan världarna.",
       "ingridientslist": [
         "40 ml gin eller svartvinbärsrom",
         "30 ml svartvinbärsjuice",
@@ -156,7 +156,7 @@
       "rating": 4.5,
       "ingridients": 6,
       "time": 9,
-      "description": "Julen handlar om att hålla sig varm – inifrån. Den här drinken blandar len whisky, söt honung och kryddig kanel till en flytande julkram med attityd. Ett glas värme, ett stänk flört och en ursäkt att stå lite för länge under misteln. Doften av apelsin och kryddor känns som en julsång du faktiskt vill höra. Bäst serverad framför brasan, i fula jultröjor och med hjärtat lätt berusat av både glögg och kärlek.",
+      "description": "Julen handlar om att hålla sig varm – inifrån. Den här drinken blandar len whisky, söt honung och kryddig kanel till en flytande julkram med attityd. Doften av apelsin och kryddor känns som en julsång du faktiskt vill höra. Bäst serverad framför brasan, i fula jultröjor och med hjärtat lätt berusat av både glögg och kärlek.",
       "ingridientslist": [
         "40 ml whisky",
         "20 ml honungssirap (1:1 honung och varmt vatten)",
@@ -231,6 +231,303 @@
           "comment": "Gjorde denna istället för att gå ut – bästa beslutet jag tagit i år."
         }
       ]
+    },
+    {
+      "id": 6,
+      "slug": "ghosted-and-roasted",
+      "categori": "Post-Breakup Potions",
+      "categorySlug": "post-breakup-potions",
+      "name": "Ghosted & Roasted",
+      "image": "/img/drinks/ghosted-and-roasted.png",
+      "rating": 4.7,
+      "ingridients": 5,
+      "time": 8,
+      "description": "En tröstande energikick för alla som blivit ghostade och vägrat låta det förstöra dagen. Kaffelikören värmer, vodkan skärper till och apelsinen ger ett litet ljus i tunneln – medan chilin påminner dig om att du fortfarande har eld kvar. Bäst serverad medan du blockar dem i lugn och ro.",
+      "ingridientslist": [
+        "40 ml kaffelikör",
+        "40 ml vodka",
+        "20 ml apelsinjuice",
+        "1 nypa chili",
+        "Isbitar"
+      ],
+      "recept": [
+        "Fyll ett glas med is.",
+        "Häll över kaffelikör, vodka och apelsinjuice.",
+        "Rör om och toppa med en nypa chili.",
+        "Drick och glöm deras namn direkt."
+      ],
+      "comments": [
+        {
+          "name": "Felicia",
+          "date": "5 mars 2025",
+          "comment": "Precis vad jag behövde efter den där dejten…"
+        },
+        {
+          "name": "Joel",
+          "date": "7 mars 2025",
+          "rubrik": "🔥",
+          "comment": "Stark men så jäkla god."
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "slug": "bitter-tears",
+      "categori": "Post-Breakup Potions",
+      "categorySlug": "post-breakup-potions",
+      "name": "Bitter Tears",
+      "image": "/img/drinks/bitter-tears.png",
+      "rating": 4.9,
+      "ingridients": 6,
+      "time": 10,
+      "description": "En frisk, blåbärsblå reboot av både smaklökar och känsloliv. Den syrliga citronen väcker dig på rätt sätt, myntan lugnar själen och blåbären smakar som nytt hopp. En drink som låter dig gråta färdigt, torka tårarna och plötsligt inse hur mycket bättre du mår. Perfekt för kapitel där du skriver om dig själv som huvudperson.",
+      "ingridientslist": [
+        "50 ml gin",
+        "40 ml blåbärsjuice",
+        "20 ml citronjuice",
+        "10 ml sockerlag",
+        "Några myntablad",
+        "Is"
+      ],
+      "recept": [
+        "Muddla myntan lätt i ett glas.",
+        "Tillsätt is, gin, blåbärsjuice och citronjuice.",
+        "Rör om och tillsätt sockerlag efter smak.",
+        "Andas ut och gå vidare."
+      ],
+      "comments": [
+        {
+          "name": "Klara",
+          "date": "19 april 2025",
+          "comment": "Smakar som terapi. Tack."
+        },
+        {
+          "name": "Martin",
+          "date": "22 april 2025",
+          "rubrik": "Frisk och bra!",
+          "comment": "Älskar blåbären i den här!"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "slug": "boozy-banshee-scream",
+      "categori": "Boos & Brews",
+      "categorySlug": "boos-and-brews",
+      "name": "Boozy Banshee Scream",
+      "image": "/img/drinks/boozy-banshee-scream.png",
+      "rating": 4.8,
+      "ingridients": 5,
+      "time": 6,
+      "description": "Kokos, vanilj och mjuk sötma gör den löjligt lätt att dricka, medan den isiga känslan får det att pirra längs ryggraden. Det är som en spöklikt fluffig dessert i glasform. Perfekt när du vill mysa, busa eller bara spöka runt lite.",
+      "ingridientslist": [
+        "40 ml kokosrom",
+        "20 ml vaniljlikör",
+        "60 ml mjölk eller växtdryck",
+        "1 tsk socker",
+        "Isbitar"
+      ],
+      "recept": [
+        "Häll alla ingredienser i en shaker fylld med is.",
+        "Skaka tills det känns som en banshee som vrålar.",
+        "Sila upp i ett glas.",
+        "Garnera med lite riven kokos."
+      ],
+      "comments": [
+        {
+          "name": "Ellinor",
+          "date": "29 oktober 2025",
+          "comment": "Som en spöklik piña colada, jag dör."
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "slug": "potion-notions",
+      "categori": "Boos & Brews",
+      "categorySlug": "boos-and-brews",
+      "name": "Potion Notions",
+      "image": "/img/drinks/potion-notions.png",
+      "rating": 4.6,
+      "ingridients": 6,
+      "time": 9,
+      "description": "En gnistrande, trolsk cocktail som känns som en hemlig liten ritual i varje klunk. Hallonpurén ger djup, lime ger fräschör och tonicvattnet bubblar fram en slags spelglad energi. Resultatet? En drink som ser magisk ut, smakar ännu bättre och får varje kväll att kännas som ett eget midsommarnattsäventyr.",
+      "ingridientslist": [
+        "40 ml gin",
+        "20 ml hallonpuré",
+        "15 ml limejuice",
+        "Tonic water",
+        "Is",
+        "Färska hallon"
+      ],
+      "recept": [
+        "Fyll ett glas med is.",
+        "Tillsätt gin, hallonpuré och lime.",
+        "Rör om och toppa med tonic.",
+        "Garnera med färska hallon."
+      ],
+      "comments": [
+        {
+          "name": "Tanja",
+          "date": "1 november 2025",
+          "comment": "Fräsch och lite magisk!"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "slug": "jingle-juice",
+      "categori": "Sips of Christmas",
+      "categorySlug": "sips-of-christmas",
+      "name": "Jingle Juice",
+      "image": "/img/drinks/jingle-juice.png",
+      "rating": 4.7,
+      "ingridients": 5,
+      "time": 7,
+      "description": "En lekfull och glittrig juldryck som smakar som att slå in paket i sista minuten men ändå känna sig som en ikon. Friska tranbär, solig apelsin och bubblor blandas till ren julpepp på flaska. Lätt, fruktig och perfekt när du vill känna feststämning utan att behöva lyssna på ännu en dålig julskiva.",
+      "ingridientslist": [
+        "50 ml tranbärsjuice",
+        "20 ml apelsinlikör",
+        "Mousserande vin",
+        "Apelsinzest",
+        "Is"
+      ],
+      "recept": [
+        "Häll tranbärsjuice och apelsinlikör i ett glas med is.",
+        "Toppa med mousserande vin.",
+        "Garnera med apelsinzest."
+      ],
+      "comments": [
+        {
+          "name": "Julia",
+          "date": "10 december 2025",
+          "comment": "Julens bubbelfavorit!"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "slug": "santas-nightcap",
+      "categori": "Sips of Christmas",
+      "categorySlug": "sips-of-christmas",
+      "name": "Santa’s Nightcap",
+      "image": "/img/drinks/santas-nightcap.png",
+      "rating": 4.9,
+      "ingridients": 4,
+      "time": 5,
+      "description": "En mjuk, varm och mintig kvällströst som smakar som en paus mitt i decemberkaoset. Den fylliga chokladen lugnar systemet, romen värmer kinderna och pepparmyntan ger en frisk, snöig känsla. Perfekt för kvällar när man vill somna innan man hinner fundera på fler klappar.",
+      "ingridientslist": [
+        "1 kopp varm choklad",
+        "30 ml mörk rom",
+        "Några droppar pepparmyntsolja",
+        "Vispad grädde"
+      ],
+      "recept": [
+        "Blanda varm choklad med rom.",
+        "Tillsätt lite pepparmynta.",
+        "Toppa med vispad grädde."
+      ],
+      "comments": [
+        {
+          "name": "Erik",
+          "date": "18 december 2025",
+          "comment": "Så mysig, perfekt innan läggdags!"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "slug": "ho-ho-hot-toddy",
+      "categori": "Sips of Christmas",
+      "categorySlug": "sips-of-christmas",
+      "name": "Ho-Ho-Hot Toddy",
+      "image": "/img/drinks/ho-ho-hot-toddy.png",
+      "rating": 4.8,
+      "ingridients": 5,
+      "time": 10,
+      "description": "Honungen smeker halsen, citronen piggar upp och whiskyn ger dig modet att överleva ännu en familjediskussion vid julbordet. Resultatet är en varm, kryddig och bekvämt bedövande drink som kramar dig inifrån.",
+      "ingridientslist": [
+        "40 ml whisky",
+        "1 msk honung",
+        "Saften av 1/2 citron",
+        "Varmt vatten",
+        "Kanelstång"
+      ],
+      "recept": [
+        "Häll whisky, honung och citron i en kopp.",
+        "Fyll på med varmt vatten.",
+        "Rör om och toppa med en kanelstång."
+      ],
+      "comments": [
+        {
+          "name": "Lina",
+          "date": "20 december 2025",
+          "comment": "Julstämning i ett glas!"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "slug": "island-bye-land",
+      "categori": "Drunk in paradise",
+      "categorySlug": "drunk-in-paradise",
+      "name": "Island Bye-Land",
+      "image": "/img/drinks/island-bye-land.png",
+      "rating": 4.8,
+      "ingridients": 4,
+      "time": 6,
+      "description": "En solig, söt och total eskapist-cocktail som smakar som att logga ut från livet i 20 minuter. Mangon ger semesterkänsla, limen lättar upp och romen gör allt lite roligare. Drick, slappna av och låt allt annat vänta.",
+      "ingridientslist": [
+        "60 ml ljus rom",
+        "80 ml mangopuré",
+        "20 ml limejuice",
+        "Is"
+      ],
+      "recept": [
+        "Combina alla ingredienser i en shaker med is.",
+        "Skaka kraftigt och sila upp i glas.",
+        "Garnera med lime."
+      ],
+      "comments": [
+        {
+          "name": "Ella",
+          "date": "5 juni 2025",
+          "comment": "Smakar solsemester!"
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "slug": "tgifizz",
+      "categori": "Party like it's Friday",
+      "categorySlug": "party-like-its-friday",
+      "name": "TGIFizz",
+      "image": "/img/drinks/tgifizz.png",
+      "rating": 4.7,
+      "ingridients": 5,
+      "time": 7,
+      "description": "En sprudlande liten helgstarter som exploderar av hallon, citron och härlig energi. Lätt, frisk och bubblig – som första steget ut från jobbet en fredag eftermiddag. Varje klunk smakar frihet, bra beslut och dansgolv. Perfekt för att kicka igång allt som inte är måndag.",
+      "ingridientslist": [
+        "40 ml vodka",
+        "20 ml hallonlikör",
+        "20 ml citronjuice",
+        "Sodavatten",
+        "Is"
+      ],
+      "recept": [
+        "Fyll glaset med is.",
+        "Tillsätt vodka, hallonlikör och citron.",
+        "Toppa med sodavatten.",
+        "Rör om och dansa vidare."
+      ],
+      "comments": [
+        {
+          "name": "Patrik",
+          "date": "2 augusti 2025",
+          "comment": "Fredagens räddning!"
+        }
+      ]
     }
+
   ]
 }
