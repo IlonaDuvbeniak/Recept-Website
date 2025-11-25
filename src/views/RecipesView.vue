@@ -1,21 +1,18 @@
 <script>
 import CardsGrid from '@/components/CardsGrid.vue';
 import Button from '@/components/Button.vue'
-import CategoryNavigation from '@/components/CategoryNavigation.vue';
 
 export default {
     name: 'RecipesView',
     components: {
         CardsGrid,
-        Button,
-        CategoryNavigation
+        Button
     }
 }
 </script>
 
 <template>
     <div class="container">
-        <CategoryNavigation></CategoryNavigation>
         <CardsGrid />
         <Button btnText="Visa fler" variant="primary" :showArrow="true" :disabled="false" @event="showMore"></Button>
     </div>
