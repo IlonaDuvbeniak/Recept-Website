@@ -42,6 +42,8 @@ export default {
 <template>
     <div class="page-container">
         <SearchBar :value="searchTerm" @input="searchTerm = $event" />
+        <p>{{ searchTerm }}</p>
+
         <div class="cards-container">
             <Card v-for="coctail in filteredCoctails" :key="coctail.id" :categori="coctail.categori"
                 :categorySlug="coctail.categorySlug" :name="coctail.name" :rating="coctail.rating"

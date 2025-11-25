@@ -17,7 +17,8 @@ export default {
             <img class="search-icon" src="/img/search-icon.svg">
             <label for="site-search"></label>
             <input type="search" id="site-search" placeholder="Search by vibe" name="q"
-                aria-label="Search through recipes" required minlength="1" maxlength="30">
+                aria-label="Search through recipes" required minlength="1" maxlength="30" :value="value"
+                @input="$emit('input', $event.target.value)">
             </input>
         </form>
     </div>
