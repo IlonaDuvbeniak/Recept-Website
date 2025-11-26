@@ -23,7 +23,7 @@ const router = createRouter({
       path: "/recipes/category/:categorySlug",
       name: "category",
       component: CategoryView,
-      meta: { title: 'All Recipes - category' }
+      meta: { title: 'Category' }
     },
     {
       path: "/recipes/:slug",
@@ -38,8 +38,9 @@ const router = createRouter({
   }
 });
 
-router.beforeEach((to, from) => {
-  document.title = to.meta?.title ?? 'Drinks';
+router.beforeEach((to, from, next) => {
+  document.title = to.meta?.title;
+  next();
 });
 
 export default router;

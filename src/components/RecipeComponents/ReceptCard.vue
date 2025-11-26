@@ -11,9 +11,9 @@
                 </div>
 
                 <div class="info-recipe-card">
-                    <InfoBlockCard icon="/img/star-rating.svg" :value="rating" label="Rating" />
-                    <InfoBlockCard icon="/img/grocery.svg" :value="ingridients" label="Ingridients" />
-                    <InfoBlockCard icon="/img/timer.svg" :value="time" label="Minutes" />
+                    <InfoBlockCard icon="/img/star-rating.svg" :value="rating" label="Poäng" />
+                    <InfoBlockCard icon="/img/grocery.svg" :value="ingridients" label="Ingredienser" />
+                    <InfoBlockCard icon="/img/timer.svg" :value="time" label="Minuter" />
                 </div>
             </div>
             <div class="img-container">

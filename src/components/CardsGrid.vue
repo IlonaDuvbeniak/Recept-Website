@@ -16,7 +16,8 @@ export default {
     data() {
         return {
             coctails: [],
-            searchTerm: ""
+            searchTerm: "",
+            categoryTitle: ""
         }
     },
     async mounted() {
@@ -25,6 +26,24 @@ export default {
             this.coctails = data.coctails
         } catch (err) {
             console.log(err)
+        }
+    },
+    watch: {
+        categorySlug: {
+            handler(title) {
+                if (title) {
+                    const newTitle = title
+                        .replace(/-/g, ' ')
+                        .split(' ')
+                        .map(word => word[0].toUpperCase() + word.slice(1))
+                        .join(' ')
+                    this.categoryTitle = newTitle
+                    document.title = `${this.categoryTitle} - Drinks`
+                } else {
+                    document.title = "Alla Recept - Drinks"
+                }
+            },
+            immediate: true  
         }
     },
     computed: {

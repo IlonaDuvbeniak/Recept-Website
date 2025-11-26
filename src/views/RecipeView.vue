@@ -32,9 +32,27 @@ export default {
       const data = await getData()
       this.coctails = data.coctails
 
-      this.recipe = this.coctails.find(c => c.slug === this.slug)
+      this.updateRecipeSlug()
     } catch (err) {
       console.error(err)
+    }
+  },
+
+  watch: {
+    slug: {
+        immediate: true,
+        handler() {
+          this.updateRecipeSlug()
+        }
+      }
+  },
+
+  methods: {
+    updateRecipeSlug() {
+      this.recipe = this.coctails.find(c => c.slug === this.slug)
+      if (this.recipe) {
+        document.title = `${this.recipe.name} - Drinks`
+      }
     }
   }
 }
