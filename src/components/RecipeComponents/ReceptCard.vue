@@ -88,6 +88,10 @@ export default {
         text-decoration: none;
     }
 
+    .categori:hover {
+        text-decoration: underline;
+    }
+
     .recept-name {
         font-family: Kalnia;
         font-size: 56px;

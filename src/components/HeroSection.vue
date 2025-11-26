@@ -49,17 +49,14 @@ h1 {
     color: var(--red-color);
     font-family: "Kalnia";
     font-size: 88px;
-    line-height: 1
+    line-height: 1;
+    margin-bottom: 32px;
 }
 
 .title-and-button {
     position: relative;
     left: 60%;
     margin-top: 200px;
-}
-
-Button {
-    margin-top: 42px;
 }
 
 .header-component {
