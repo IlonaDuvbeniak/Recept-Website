@@ -33,6 +33,9 @@ const router = createRouter({
       meta: { title: 'Recipe' }
     },
   ],
+  scrollBehavior() {
+    return { top: 0 };
+  }
 });
 
 router.beforeEach((to, from) => {
