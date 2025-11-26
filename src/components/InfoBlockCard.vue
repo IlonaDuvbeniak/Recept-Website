@@ -47,7 +47,7 @@
         font-size: 16px;
         font-style: normal;
         font-weight: 500;
-        line-height: 16px;
+        line-height: 20px;
     }
 
     .info-block span {
