@@ -5,6 +5,7 @@ import HowToDo from '@/components/RecipeComponents/HowToDo.vue';
 import RatingCard from '@/components/RecipeComponents/RatingCard.vue';
 import CommentForm from '../components/CommentForm.vue';
 import CommentFormTryAndError from '../components/CommentFormTryAndError.vue'; //Ta bort sen, bara för byggprocessen
+import ArrowButton from '@/components/ArrowButton.vue';
 
 
 export default {
@@ -15,7 +16,8 @@ export default {
     HowToDo,
     RatingCard,
     CommentForm,
-    CommentFormTryAndError
+    CommentFormTryAndError,
+    ArrowButton
   },
 
   props: ['slug'],
@@ -61,6 +63,7 @@ export default {
 
 <template>
 
+  <ArrowButton/>
 
   <svg xmlns="http://www.w3.org/2000/svg" width="1440" height="129" viewBox="0 0 1440 129" fill="none"
     class="element-header">

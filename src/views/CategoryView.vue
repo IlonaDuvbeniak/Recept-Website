@@ -1,15 +1,18 @@
 <script>
 import CardsGrid from '@/components/CardsGrid.vue';
+import ArrowButton from '@/components/ArrowButton.vue';
 
 export default {
     name: "CategoryView",
     components: {
         CardsGrid,
+        ArrowButton
     }
 }
 </script>
 
 <template>
+    <ArrowButton/>
     <div class="container">
         <CardsGrid :categorySlug="$route.params.categorySlug" />
     </div>
