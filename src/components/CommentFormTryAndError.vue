@@ -35,7 +35,7 @@ export default {
             this.commentsArray.push(
                 {id: this.commentsArray.length + 1, 
                 name: this.newName, 
-                title: this.newTitle, 
+                title: this.newTitle,
                 writtenComment: this.newWrittenComment, 
                 });
 
@@ -43,15 +43,27 @@ export default {
             this.newTitle = "";
             this.newWrittenComment = "";
         },
+
+
                 
         showCommentsRight () {
-            this.showComStart +=1;
-            this.showComEnd +=1;
+            if (this.showComEnd === this.commentsArray.length) {
+                // avaktivera knapp.
+                // byt färg på knapp.
+            } else {
+                this.showComStart +=1;
+                this.showComEnd +=1;
+            }
         },
         
         showCommentsLeft () {
-            this.showComStart -=1;
-            this.showComEnd -=1;
+            if (this.showComStart === 0) {
+                // avaktivera knapp.
+                // byt färg på knapp.
+            } else {
+                this.showComStart -=1;
+                this.showComEnd -=1;
+            }
         }
     }
 }
