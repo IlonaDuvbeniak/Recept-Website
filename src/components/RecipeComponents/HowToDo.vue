@@ -61,8 +61,7 @@
         justify-content: center;
         height: 100%;
         flex: 1;
-        padding: 48px 64px;
-        
+        padding: 48px 64px; 
     }
 
     .steps-container {
@@ -76,6 +75,10 @@
 
     ul {
         list-style: none;
+    }
+
+    ol {
+        list-style-position: inside;
     }
 
     li {
@@ -104,5 +107,64 @@
         position: absolute;
         left: 32.5%;
         bottom: -10%;
+    }
+
+    @media (max-width: 991px) {
+        .container {
+            padding: 72px;
+        }
+    }
+
+    @media (max-width: 767px) {
+        .container {
+            padding: 52px;
+        }
+
+        .card {
+            flex-direction: column;
+        }
+
+        .steps-container {
+            border-left: none;
+            border-top: 1px solid var(--red-color);
+        }
+
+        .ingridient-container, .steps-container {
+            padding: 40px;
+        }
+
+        img {
+            left: 85%;
+            bottom: 38.5%;
+        }
+    }
+
+    @media (max-width: 575px) {
+        .container {
+            padding: 40px 24px;
+        }
+
+        .ingridient-container {
+            padding: 28px;
+        }
+
+        li {
+            font-size: 14px;
+            line-height: 20px;
+        }
+
+        li:not(:last-child) {
+            margin-bottom: 16px;
+        }
+
+        .steps-container {
+            padding: 28px;
+        }
+
+        img {
+            left: 84%;
+            bottom: 45%;
+            max-width: 66px;
+        }
     }
 </style>
