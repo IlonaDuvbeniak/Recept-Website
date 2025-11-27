@@ -12,12 +12,21 @@ export default {
             id: 0,
             
             commentsArray: [    
-                { id: 1, name: "Anna", title: "Hej!", writtenComment: "Detta är en testkommentar", time: "17 Nov 2025" },
+                { id: 1, name: "Julia", title: "Kors i taket!", writtenComment: "Sablar var rolig sida! Den här ska jag testa!", time: "17 Nov 2025" },
                 { id: 2, name: "Moa", title: "Glassigt", writtenComment: "Rolig att ha till festen. De andra blev väldigt nyfikna så nästa gång ska jag nog bjuda på den till alla", time: "18 Nov 2025" },
-                { id: 3, name: "Alva", title: "Gott Recept", writtenComment: "Jag älskar detta recept, tack för att du delade!", time: "19 Nov 2025" },
-             ],
+                { id: 3, name: "Alva", title: "Lägga till krisp?", writtenComment: "Väldigt god, men hade det inte varit kul med lite krisp i den? :D", time: "19 Nov 2025" },
+                { id: 4, name: "Måsen från Sigtuna", title: "Tjusigt!", writtenComment: "Amazing, just amzing, ni har lyckats igen!", time: "19 Nov 2025" },
+                { id: 5, name: "Johanna", title: "Jodå", writtenComment: "Rolig att ha till festen. De andra blev väldigt nyfikna så nästa gång ska jag nog bjuda på den till alla", time: "20 Nov 2025" },
+                { id: 6, name: "E. Jonsson", title: "Allmänt gott", writtenComment: "Jag gillar drinken, tack.", time: "21 Nov 2025" },
+            ],
 
             message: '',
+
+            showComStart: 0,
+            showComEnd: 3,
+
+            disableRightButton: false,
+            disableLeftButton: true,
         }
 
     },
@@ -36,6 +45,11 @@ export default {
             this.newTitle = "";
             this.newWrittenComment = "";
             this.newTime = "";
+            
+            this.showComStart = this.commentsArray.length -3
+            this.showComEnd = this.commentsArray.length
+            this.disableRightButton = true;
+            this.disableLeftButton= false;
 
         },
                 
@@ -74,7 +88,29 @@ export default {
                 console.log('Knappen fungerar som vanligt');
                 this.submitAll ();
             }
+        },
+
+        showCommentsRight () {
+            if (this.showComEnd === this.commentsArray.length) {
+                this.disableRightButton = true;
+            } else {
+                this.showComStart +=1;
+                this.showComEnd +=1;
+                this.disableLeftButton = false;
+            }
+        },
+        
+        showCommentsLeft () {
+            if (this.showComStart === 0) {
+                this.disableLeftButton = true;
+            } else {
+                this.showComStart -=1;
+                this.showComEnd -=1;
+                this.disableRightButton = false;
+                
+            }
         }
+
     }
 }
 
@@ -105,16 +141,38 @@ export default {
   
 
 <div class="comment-cards-container">
-    <div v-for="comment in commentsArray" :key="comment.id" class="comment-card">
+    <div 
+        v-for="comment in commentsArray.slice(showComStart, showComEnd)" 
+        :key="comment.id" 
+        class="comment-card">
         
         <div class="comment-cards-top">
             <p class="cocktail-name"><strong>{{ comment.name }}</strong></p>
             <p class="p-time">{{ comment.time }}</p>
         </div>
         <h3 class="title-comment-cards">{{ comment.title }}</h3>
-        <p class="main-text">{{ comment.writtenComment }}</p>
+        <p class="main-comment-text">{{ comment.writtenComment }}</p>
         
     </div> 
+    <div class="carousel-btn-container">
+    <button 
+            class="btn-comment-form" 
+            @click="showCommentsLeft"
+            v-bind:class="{'disabled-btn': disableLeftButton}"
+            v-bind:disabled="disableLeftButton"
+            >
+            <-
+        </button>
+
+        <button 
+            class="btn-comment-form" 
+            @click="showCommentsRight"
+            v-bind:class="{'disabled-btn': disableRightButton}"
+            :disabled="disableRightButton"
+            >
+            ->
+        </button>
+    </div>
 </div> 
 
 </template>
@@ -153,6 +211,25 @@ button {
     background-color: var(--white-color);
     border: 3px solid var(--red-color);
     color: var(--red-color)
+}
+
+.disabled-btn {
+    background-color: rgb(214, 214, 214);
+    color: rgb(132, 132, 132);
+    cursor: not-allowed;
+    border: 3px solid  rgb(214, 214, 214);
+}
+.disabled-btn:hover {
+         background-color: rgb(214, 214, 214);
+         border: 3px solid  rgb(214, 214, 214);
+    }
+
+.carousel-btn-container {
+    display: flex;
+    
+    gap: 20px;
+
+    margin: 0 auto;
 }
 
 .recept-name {
@@ -196,7 +273,7 @@ p {
     font-weight: 600px;;
 }
 
-.main-text {
+.main-comment-text {
     font-size: 16px;
 
 }
@@ -245,8 +322,7 @@ input, textarea {
     align-items: space-between;
     margin: 0 auto;
     gap: 20px;
-    width: 97%;
-    
+    width: 97%;   
 }
 
 .comment-cards-top {
@@ -269,7 +345,8 @@ input, textarea {
     gap: 16px;
     width: 792px;
     margin: 0 auto;
-    margin-bottom: 126px;
+    margin-bottom: 60px;
+    margin-top: 100px;
    
 }
 
