@@ -20,6 +20,9 @@ export default {
 
             showComStart: 0,
             showComEnd: 3,
+
+            disableRightButton: false,
+            disableLeftButton: true,
         }
 
     },
@@ -48,21 +51,22 @@ export default {
 
         showCommentsRight () {
             if (this.showComEnd === this.commentsArray.length) {
-                // avaktivera knapp.
-                // byt färg på knapp.
+                this.disableRightButton = true;
             } else {
                 this.showComStart +=1;
                 this.showComEnd +=1;
+                this.disableLeftButton = false;
             }
         },
         
         showCommentsLeft () {
             if (this.showComStart === 0) {
-                // avaktivera knapp.
-                // byt färg på knapp.
+                this.disableLeftButton = true;
             } else {
                 this.showComStart -=1;
                 this.showComEnd -=1;
+                this.disableRightButton = false;
+                
             }
         }
     }
@@ -111,8 +115,24 @@ export default {
             <p class="main-text">{{ comment.writtenComment }}</p>
             
         </div> 
-        <button class="btn-comment-form" @click="showCommentsLeft"><-</button>
-        <button class="btn-comment-form" @click="showCommentsRight">-></button>
+        <!-- v-bind = Bind HTML-attributet till ett värde från Vue-komponenten. -->
+        <button 
+            class="btn-comment-form" 
+            @click="showCommentsLeft"
+            v-bind:class="{'disabled-btn': disableLeftButton}"
+            v-bind:disabled="disableLeftButton"
+            >
+            <-
+        </button>
+
+        <button 
+            class="btn-comment-form" 
+            @click="showCommentsRight"
+            v-bind:class="{'disabled-btn': disableRightButton}"
+            :disabled="disableRightButton"
+            >
+            ->
+        </button>
         
         
     </div> 
@@ -183,6 +203,17 @@ button {
     border: 3px solid  rgb(153, 105, 199);
     color:  rgb(153, 105, 199);
 }
+
+.disabled-btn {
+    background-color: rgb(214, 214, 214);
+    color: rgb(132, 132, 132);
+    cursor: not-allowed;
+    border: 3px solid  rgb(214, 214, 214);
+}
+.disabled-btn:hover {
+         background-color: rgb(214, 214, 214);
+         border: 3px solid  rgb(214, 214, 214);
+    }
 
 .recept-name {
     color:  rgb(153, 105, 199);
