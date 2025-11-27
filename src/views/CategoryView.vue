@@ -13,7 +13,6 @@ export default {
     <div class="container">
         <CardsGrid :categorySlug="$route.params.categorySlug" />
     </div>
-
 </template>
 
 <style scoped>
