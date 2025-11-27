@@ -44,8 +44,8 @@ export default {
             this.newWrittenComment = "";
         },
 
-
                 
+
         showCommentsRight () {
             if (this.showComEnd === this.commentsArray.length) {
                 // avaktivera knapp.
