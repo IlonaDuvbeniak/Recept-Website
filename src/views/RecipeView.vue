@@ -99,9 +99,17 @@ export default {
 <style scoped>
   .element-header {
     position: absolute;
-    overflow: hidden;
     top: 0;
-    left: -1.5%;
+    left: 50%;                    
+    transform: translateX(-50%);                  
     z-index: -1;
+    overflow: visible;           
+    pointer-events: none;
+  }
+
+  @media (max-width: 575px) {
+      .element-header {
+          display: none;
+      }
   }
 </style>
