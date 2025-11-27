@@ -14,7 +14,7 @@ export default {
             commentsArray: [    
                 { id: 1, name: "Julia", title: "Kors i taket!", writtenComment: "Sablar var rolig sida! Den här ska jag testa!", time: "17 Nov 2025" },
                 { id: 2, name: "Moa", title: "Glassigt", writtenComment: "Rolig att ha till festen. De andra blev väldigt nyfikna så nästa gång ska jag nog bjuda på den till alla", time: "18 Nov 2025" },
-                { id: 3, name: "Alva", title: "Lägga till krisp?", writtenComment: "Väldigt god, men hade det inte varit kul med lite krisp i den? :D", time: "19 Nov 2025" },
+                { id: 3, name: "Alva", title: "Mer krisp?", writtenComment: "Väldigt god, men hade det inte varit kul med lite krisp i den? :D", time: "19 Nov 2025" },
                 { id: 4, name: "Måsen från Sigtuna", title: "Tjusigt!", writtenComment: "Amazing, just amzing, ni har lyckats igen!", time: "19 Nov 2025" },
                 { id: 5, name: "Johanna", title: "Jodå", writtenComment: "Rolig att ha till festen. De andra blev väldigt nyfikna så nästa gång ska jag nog bjuda på den till alla", time: "20 Nov 2025" },
                 { id: 6, name: "E. Jonsson", title: "Allmänt gott", writtenComment: "Jag gillar drinken, tack.", time: "21 Nov 2025" },
@@ -152,11 +152,9 @@ export default {
         </div>
         <h3 class="title-comment-cards">{{ comment.title }}</h3>
         <p class="main-comment-text">{{ comment.writtenComment }}</p>
-        
-    </div> 
-    <div class="carousel-btn-container">
-    <button 
-            class="btn-comment-form" 
+        <button 
+            class="btn-carousel" 
+            id="btn-l-carousel"
             @click="showCommentsLeft"
             v-bind:class="{'disabled-btn': disableLeftButton}"
             v-bind:disabled="disableLeftButton"
@@ -165,14 +163,15 @@ export default {
         </button>
 
         <button 
-            class="btn-comment-form" 
+            class="btn-carousel" 
+            id="btn-r-carousel"
             @click="showCommentsRight"
             v-bind:class="{'disabled-btn': disableRightButton}"
             :disabled="disableRightButton"
             >
             ->
         </button>
-    </div>
+    </div> 
 </div> 
 
 </template>
@@ -201,36 +200,68 @@ button {
     font-size: 20px;
     font-weight: 600px;
     width: 200px;
+    
 }
 
-.btn-comment-form {
+.btn-carousel {
     align-self: center;
     margin-bottom: 20px;
+    width: 80px;
+    height: 80px;
+    border-radius: 100px;
+    position: absolute;
+    top: 40%;
+    /* right: 45px; */
+    border: 1px solid var(--red-color);
+    
+
+    transition: transform 0.2s ease;
+    transform: scale(1);
+    
+        
 }
-.btn-comment-form:hover {
-    background-color: var(--white-color);
+.btn-carousel:hover {
+    background-color: var(--red-color);
     border: 3px solid var(--red-color);
-    color: var(--red-color)
+
+    color: var(--white-color);
+
+
+   transform: scale(1.8);
+    
 }
+
+@keyframes gradientShift {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+#btn-r-carousel {
+    right: -45px; 
+}
+
+#btn-l-carousel {
+    left: -45px;
+}
+
+
 
 .disabled-btn {
-    background-color: rgb(214, 214, 214);
-    color: rgb(132, 132, 132);
+    background-color: #00000000;
+    color: var(--red-color);
     cursor: not-allowed;
-    border: 3px solid  rgb(214, 214, 214);
+    border: 1px solid  var(--red-color);
+
+    border-radius: 50%;
 }
 .disabled-btn:hover {
-         background-color: rgb(214, 214, 214);
-         border: 3px solid  rgb(214, 214, 214);
+         background-color: #00000000;
+         border: 1px solid  var(--red-color);
+         transform: scale(1);
+         color: var(--red-color);
     }
 
-.carousel-btn-container {
-    display: flex;
-    
-    gap: 20px;
-
-    margin: 0 auto;
-}
 
 .recept-name {
     color: var(--red-color);
@@ -310,8 +341,10 @@ input, textarea {
 .comment-card {
     background-color: var(--baby-pink-color);
     padding: 22px;
-    width: 32%;
+    width: 30%;
     padding-bottom: 60px;
+    margin: 0 auto;
+    aspect-ratio: 7 / 6;
     
 }
 
@@ -321,8 +354,10 @@ input, textarea {
     justify-content: left;
     align-items: space-between;
     margin: 0 auto;
-    gap: 20px;
-    width: 97%;   
+    /* gap: 20px; */
+    width: 86%;   
+    position: relative;
+
 }
 
 .comment-cards-top {
