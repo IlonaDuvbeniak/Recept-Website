@@ -58,9 +58,10 @@
         display: flex;
         flex-direction: column;
         align-items: stretch;
+        justify-content: center;
         height: 100%;
         flex: 1;
-        padding: 48px 64px 48px 120px;
+        padding: 48px 64px;
         
     }
 
@@ -101,7 +102,7 @@
 
     img {
         position: absolute;
-        left: 35.8%;
+        left: 32.5%;
         bottom: -10%;
     }
 </style>

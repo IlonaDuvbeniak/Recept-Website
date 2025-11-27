@@ -44,6 +44,7 @@
 
     .container {
         display: inline-flex;
+        align-items: center;
         position: relative;
         overflow: hidden;
         width: 220px;
@@ -76,5 +77,29 @@
         font-weight: 700;
         line-height: 32px; 
         text-transform: uppercase;
+    }
+
+    @media (max-width: 575px) {
+        .header {
+            padding: 32px 24px 16px 24px;
+        }
+
+        .container {
+            width: 159px;
+            padding: 12px 16px;
+        }
+
+        .container-shrink {
+            width: 52px;
+        }
+
+        p {
+            font-size: 20px;
+            line-height: 20px; 
+        }
+
+        img { 
+            width: 22px;
+        }
     }
 </style>

@@ -130,4 +130,10 @@ export default {
         object-position: center;
     }
 
+    @media (max-width: 1199px) {
+        .recept-card {
+            flex-direction: column;
+        }
+    }
+
 </style>
