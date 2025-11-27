@@ -23,14 +23,14 @@ const router = createRouter({
       path: "/recipes/category/:categorySlug",
       name: "category",
       component: CategoryView,
-      meta: { title: 'Category' }
+      meta: { title: 'Kategory' }
     },
     {
       path: "/recipes/:slug",
       name: "recipe",
       component: RecipeView,
       props: true,
-      meta: { title: 'Recipe' }
+      meta: { title: 'Recept' }
     },
   ],
   scrollBehavior() {
