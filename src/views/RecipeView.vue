@@ -79,19 +79,12 @@ export default {
 
     <HowToDo :items="recipe.ingridientslist" :steps="recipe.recept" />
     <RatingCard />
+    <CommentForm />
   </div>
 
   <div v-else>
     <h2>Receptet hittades inte</h2>
   </div>
-
-  <section>
-    <CommentForm />
-  </section>
-  <section>
-        <CommentFormTryAndError /> 
-        <!-- //Ta bort sen, bara för byggprocessen -->
-  </section>
 
 </template>
 
