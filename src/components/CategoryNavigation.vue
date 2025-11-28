@@ -36,9 +36,22 @@ export default {
     gap: 16px;
     padding: 0 120px;
     flex-wrap: wrap;
+    margin-bottom: 53px;
+}
+
+@media (max-width: 991px) {
+    .category-navigation {
+        padding: 0 72px;
+    }
 }
 
 @media (max-width: 767px) {
+    .category-navigation {
+        padding: 0 52px;
+    }
+}
+
+@media (max-width: 575px) {
     .category-navigation {
         padding: 0 24px;
     }
