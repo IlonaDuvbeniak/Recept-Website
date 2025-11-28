@@ -113,7 +113,7 @@ h1 {
     }
 
     .swirl-text {
-        margin-top: -10px;
+        margin-top: -0px;
     }
 }
 
@@ -125,7 +125,7 @@ h1 {
     }
 
     .swirl-text {
-        margin-top: -100px;
+        margin-top: -60px;
         width: 200%
     }
 
