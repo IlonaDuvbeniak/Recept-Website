@@ -28,6 +28,7 @@ export default {
 .search {
     width: 100%;
     padding: 0 120px;
+    margin-bottom: 32px;
 }
 
 .search-bar-container {
@@ -81,18 +82,26 @@ input:focus::placeholder {
     color: transparent;
 }
 
+@media (max-width: 991px) {
+    .search {
+        padding: 0 72px;
+    }
+}
+
 @media (max-width: 767px) {
 
     .search {
-        padding: 0 24px;
-    }
-
-    .search-bar-container {
-        padding: 0 0 0 30px;
+        padding: 0 52px;
     }
 
     .search-icon {
         height: 30px;
+    }
+}
+
+@media (max-width: 575px) {
+    .search {
+        padding: 0 24px;
     }
 }
 </style>
