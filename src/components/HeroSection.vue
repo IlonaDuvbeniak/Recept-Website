@@ -13,7 +13,7 @@ export default {
 <template>
     <Header class="header-component"></Header>
     <div class="hero-section">
-        <video class="hero-movie" controls autoplay muted loop>
+        <video class="hero-movie" autoplay muted loop>
             <source src="/videos/HeroMovie_desktop.mp4" type="video/mp4" aria-label="Girl sipping on spooky drink" />
         </video>
 
