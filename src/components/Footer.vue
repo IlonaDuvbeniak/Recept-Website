@@ -167,6 +167,7 @@
         height: 1.7rem;
         margin-right: 0.5rem;
         vertical-align: middle;
+        filter: brightness(0) saturate(100%) invert(16%) sepia(47%) saturate(800%) hue-rotate(300deg);
     }
 
     .copyright-text {
