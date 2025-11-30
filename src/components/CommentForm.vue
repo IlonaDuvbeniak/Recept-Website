@@ -25,8 +25,11 @@ export default {
             showComStart: 0,
             showComEnd: 3,
 
+
             disableRightButton: false,
             disableLeftButton: true,
+
+            x: window.matchMedia("(max-width: 393px)"),
         }
 
     },
@@ -109,9 +112,28 @@ export default {
                 this.disableRightButton = false;
                 
             }
+        },
+        
+       
+        sizeDependentSlice(x) {
+            if (this.x.matches) {
+                this.showComEnd = this.showComStart +1;
+            } else {
+                this.showComEnd = this.showComStart +3;
+            }
         }
+},
+   
 
-    }
+
+    mounted() {
+ 
+    this.sizeDependentSlice(this.x);
+
+    this.x.addEventListener("change", () => {
+        this.sizeDependentSlice(this.x);
+    });
+}
 }
 
 </script>
