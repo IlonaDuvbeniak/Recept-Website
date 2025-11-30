@@ -113,6 +113,7 @@
         height: 3rem;
         object-fit:contain;
         display:block;
+        transform: translateY(-3rem);
     }
 
     .team-members {
@@ -196,6 +197,7 @@
         }
         .flower-logo{
             height: 2rem;
+            transform: translateY(-1.8rem);
         }
         .team-member {
             padding-right: 0.3rem;
@@ -211,6 +213,7 @@
         }
         .flower-logo{
             height: 1.8rem;
+            transform: translateY(-1.8rem);
         }
         .team-members {
             flex-direction: column;
