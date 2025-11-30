@@ -25,8 +25,11 @@ export default {
             showComStart: 0,
             showComEnd: 3,
 
+
             disableRightButton: false,
             disableLeftButton: true,
+
+            x: window.matchMedia("(max-width: 600px)"),
         }
 
     },
@@ -109,9 +112,28 @@ export default {
                 this.disableRightButton = false;
                 
             }
+        },
+        
+       
+        sizeDependentSlice(x) {
+            if (this.x.matches) {
+                this.showComEnd = this.showComStart +1;
+            } else {
+                this.showComEnd = this.showComStart +3;
+            }
         }
+},
+   
 
-    }
+
+    mounted() {
+ 
+    this.sizeDependentSlice(this.x);
+
+    this.x.addEventListener("change", () => {
+        this.sizeDependentSlice(this.x);
+    });
+}
 }
 
 </script>
@@ -120,17 +142,17 @@ export default {
   <form @submit.prevent="handleClick">
     <label>
         <div class="comment-form">
-        <div class="comment-form-top">
-            <h2 class="recept-name">Kommentar</h2>
-            <input v-model="newName" placeholder="Ditt namn">
+            <div class="comment-form-top">
+                <h2 class="recept-name">Kommentar</h2>
+                <input v-model="newName" autocomplete="given-name" placeholder="Ditt namn">
+            </div>
+        
+            <input v-model="newTitle" placeholder="Rubrik max 12 tecken" class="input-form-end">
+            <textarea v-model="newWrittenComment" placeholder="Skriv din kommentar" class="input-form-end"></textarea>
+            <p class="help-msg">{{ message }}</p>
+            <button class="btn-comment-form" type="submit">Skicka -></button>
         </div>
         
-        <input v-model="newTitle" placeholder="Rubrik max 12 tecken">
-        <textarea v-model="newWrittenComment" placeholder="Skriv din kommentar"></textarea>
-        <p class="helpMsg">{{ message }}</p>
-        <button class="btn-comment-form" type="submit">Skicka -></button>
-        
-        </div>
     </label>
   </form>
 
@@ -147,7 +169,7 @@ export default {
         class="comment-card">
         
         <div class="comment-cards-top">
-            <p class="cocktail-name"><strong>{{ comment.name }}</strong></p>
+            <p class="commenter-name"><strong>{{ comment.name }}</strong></p>
             <p class="p-time">{{ comment.time }}</p>
         </div>
         <h3 class="title-comment-cards">{{ comment.title }}</h3>
@@ -177,14 +199,16 @@ export default {
 </template>
 
 <style scoped>
-
-.helpMsg {
+.help-msg {
     /* background: var(--baby-pink-color); */
     align-self: center;
     padding-left: 100px;
-    padding-right: 100px;
-    
+    padding-right: 100px;    
 }
+
+
+
+
 
 button {
     background-color: var(--red-color);
@@ -222,19 +246,9 @@ button {
 }
 .btn-carousel:hover {
     background-color: var(--red-color);
-    border: 3px solid var(--red-color);
-
     color: var(--white-color);
-
-
-   transform: scale(1.8);
     
-}
-
-@keyframes gradientShift {
-    0%   { background-position: 0% 50%; }
-    50%  { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+    transform: scale(1.8);  
 }
 
 #btn-r-carousel {
@@ -244,6 +258,8 @@ button {
 #btn-l-carousel {
     left: -45px;
 }
+
+
 
 
 
@@ -263,6 +279,12 @@ button {
     }
 
 
+.btn-comment-form {
+    margin: 0 auto;
+    font-size: 20px;
+}
+
+
 .recept-name {
     color: var(--red-color);
     font-family: Kalnia;
@@ -274,17 +296,16 @@ button {
     overflow: hidden;
 }
 
+
 .title-comment-cards {
     color: var(--red-color);
     font-family: Kalnia;
     font-size: 36px;
     font-weight: 700;
     line-height: 40px; 
-    padding-bottom: 7px;
 
     transition: transform 1s ease, opacity 1s ease;
     padding-bottom: 30px;
-   
 }
 
 p {
@@ -295,10 +316,9 @@ p {
         font-weight: 400;
         line-height: 24px; 
         text-decoration: none;
-
 }
 
-.cocktail-name {
+.commenter-name {
     font-size: 24px;
     line-height: 24px;
     font-weight: 600px;;
@@ -306,12 +326,13 @@ p {
 
 .main-comment-text {
     font-size: 16px;
-
 }
 
 .p-time {
     font-size: 14;
 }
+
+
 
 input, textarea {
     
@@ -322,13 +343,13 @@ input, textarea {
 
     font-style: normal;
     font-weight: 400;
-    line-height: 24px; 
-    padding: 8px 35px 8px 35px;
+    padding: 8px 0px 8px 35px;
     height: 50px;
     border-radius: 100px;
     border: 2px solid var(--red-color);
     background-color: var(--white-color);
     resize: none;
+    box-sizing: border-box;
     }
 
     input:hover, textarea:hover {
@@ -336,7 +357,9 @@ input, textarea {
     color: var(--dark-red-color);
     -webkit-text-fill-color: var(--dark-red-color);
 }
-   
+
+
+
 
 .comment-card {
     background-color: var(--baby-pink-color);
@@ -345,8 +368,8 @@ input, textarea {
     padding-bottom: 60px;
     margin: 0 auto;
     aspect-ratio: 7 / 6;
-    
 }
+
 
 .comment-cards-container {
     display: flex;
@@ -357,8 +380,8 @@ input, textarea {
     /* gap: 20px; */
     width: 86%;   
     position: relative;
-
 }
+
 
 .comment-cards-top {
     display: flex;
@@ -366,23 +389,204 @@ input, textarea {
     justify-content: space-between;
     padding-bottom: 35px;
     padding-top: 25px;
-}
-
-.comment-form-top {
-    display: flex;
-    justify-content: space-between;
-    gap: 24px;
+    margin: none;
 }
 
 .comment-form {
     display: flex;
     flex-direction: column;
     gap: 16px;
-    width: 792px;
+    max-width: 792px;
     margin: 0 auto;
     margin-bottom: 60px;
     margin-top: 100px;
-   
 }
+
+
+.comment-form-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+    width: 100%;
+}
+
+.comment-form-top input {
+    width: 70%;
+    align-self: flex-end;
+}
+
+.comment-form h2 {
+    width: 500px;
+}
+
+
+
+.input-form-end {
+    width: 100%;
+}
+
+@media (max-width: 780px) {
+    .recept-name {
+        font-size: clamp(47px, 7vw, 56px);
+        margin: 0 auto;
+        /* margin-bottom: 10px; */
+    }
+    
+    .title-comment-cards {
+        font-size: 30px; 
+    }    
+    p {
+        font-size: 14px;
+    }
+    .commenter-name {
+        font-size: 20px;
+        order: 2;
+    }
+    .main-comment-text {
+        font-size: 16px;
+    }
+    .p-time {
+        order: 1;
+    }
+    .comment-cards-top {
+        flex-direction: column;
+
+}
+    
+}
+
+@media (max-width: 600px) {
+    #btn-r-carousel {
+        right: -20px; 
+    }
+    #btn-l-carousel {
+        left: -20px; 
+    }
+    .comment-card {
+        width: 80%;
+    }
+    .commenter-name {
+        font-size: 20px;
+        order: 1;
+    }
+    .main-comment-text {
+        font-size: 16px;
+    }
+    .p-time {
+        order: 2;
+    }
+    .comment-cards-top {
+        flex-direction: row;
+    }
+    .btn-carousel {
+        top: 96%;
+    }
+       #btn-r-carousel {
+        right: 30%;
+    }
+
+    #btn-l-carousel {
+        left: 30%;
+    }
+    .recept-name {
+        font-size: clamp(41px, 7vw, 47px);
+}
+}
+
+@media (max-width: 480px) {
+    .help-msg {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    
+    #btn-r-carousel {
+        right: 27%;
+    }
+
+    #btn-l-carousel {
+        left: 27%;
+    }
+
+    .btn-carousel {
+        top: 97%;
+        width: 70px;
+        height: 70px;
+    }
+    .btn-carousel:hover {
+        transform: none;
+    }
+    .btn-carousel:active {
+        transform: scale(1.2);
+    }
+
+    .btn-comment-form {
+    width: 100%;
+    margin-top: -15px;
+}
+
+    .recept-name {
+        font-size: 40px;
+        margin: 0 auto;
+        margin-bottom: 10px;
+    }
+    
+    .title-comment-cards {
+        font-size: 30px; 
+    }    
+    p {
+        font-size: 14px;
+    }
+    .commenter-name {
+    font-size: 20px;
+    }
+    .main-comment-text {
+    font-size: 16px;
+    }
+    .p-time {
+        font-size: 14px;
+    }
+
+    input, textarea {
+         
+         padding: 8px 0px 8px 35px;
+         width: 100%;
+    }
+
+    .comment-card {
+        width: 100%;
+    }
+
+    .comment-cards-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .comment-form {
+        width: 90%;
+    }
+
+    .comment-form-top {
+        justify-content: center;
+        gap: 0px;
+        flex-direction: column;
+    }
+    .comment-form-top input {
+        width: 100%;
+    }
+    .comment-form h2 {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media (max-width: 393px) {
+       #btn-r-carousel {
+        right: 24%;
+    }
+
+    #btn-l-carousel {
+        left: 24%;
+    }
+} 
 
 </style>
