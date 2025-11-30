@@ -29,7 +29,7 @@ export default {
             disableRightButton: false,
             disableLeftButton: true,
 
-            x: window.matchMedia("(max-width: 393px)"),
+            x: window.matchMedia("(max-width: 600px)"),
         }
 
     },
@@ -142,17 +142,17 @@ export default {
   <form @submit.prevent="handleClick">
     <label>
         <div class="comment-form">
-        <div class="comment-form-top">
-            <h2 class="recept-name">Kommentar</h2>
-            <input v-model="newName" autocomplete="given-name" placeholder="Ditt namn">
+            <div class="comment-form-top">
+                <h2 class="recept-name">Kommentar</h2>
+                <input v-model="newName" autocomplete="given-name" placeholder="Ditt namn">
+            </div>
+        
+            <input v-model="newTitle" placeholder="Rubrik max 12 tecken" class="input-form-end">
+            <textarea v-model="newWrittenComment" placeholder="Skriv din kommentar" class="input-form-end"></textarea>
+            <p class="help-msg">{{ message }}</p>
+            <button class="btn-comment-form" type="submit">Skicka -></button>
         </div>
         
-        <input v-model="newTitle" placeholder="Rubrik max 12 tecken">
-        <textarea v-model="newWrittenComment" placeholder="Skriv din kommentar"></textarea>
-        <p class="help-msg">{{ message }}</p>
-        <button class="btn-comment-form" type="submit">Skicka -></button>
-        
-        </div>
     </label>
   </form>
 
@@ -169,7 +169,7 @@ export default {
         class="comment-card">
         
         <div class="comment-cards-top">
-            <p class="cocktail-name"><strong>{{ comment.name }}</strong></p>
+            <p class="commenter-name"><strong>{{ comment.name }}</strong></p>
             <p class="p-time">{{ comment.time }}</p>
         </div>
         <h3 class="title-comment-cards">{{ comment.title }}</h3>
@@ -199,22 +199,15 @@ export default {
 </template>
 
 <style scoped>
-* {
-  margin: 0 auto;
-}
-
 .help-msg {
     /* background: var(--baby-pink-color); */
     align-self: center;
     padding-left: 100px;
     padding-right: 100px;    
 }
-@media (max-width: 392px) {
-    .help-msg {
-        padding-left: 0px;
-        padding-right: 0px;
-    }
-}
+
+
+
 
 
 button {
@@ -267,28 +260,7 @@ button {
 }
 
 
-@media (max-width: 393px) {
-    #btn-r-carousel {
-        right: 27%;
-    }
 
-    #btn-l-carousel {
-        left: 27%;
-    }
-
-    .btn-carousel {
-        border: 1px solid pink;
-        top: 97%;
-        width: 70px;
-        height: 70px;
-    }
-    .btn-carousel:hover {
-        transform: none;
-    }
-    .btn-carousel:active {
-        transform: scale(1.2);
-    }
-}
 
 
 .disabled-btn {
@@ -311,12 +283,7 @@ button {
     margin: 0 auto;
     font-size: 20px;
 }
-@media (max-width: 393px) {
-    .btn-comment-form {
-    width: 100%;
-    margin-top: -15px;
-}
-}
+
 
 .recept-name {
     color: var(--red-color);
@@ -328,14 +295,7 @@ button {
     transition: transform 1s ease, opacity 1s ease;
     overflow: hidden;
 }
-@media (max-width: 393px) {
-    .recept-name {
-        font-size: 40px;
-        margin: 0 auto;
-        margin-bottom: 10px;
-    }
-    
-}
+
 
 .title-comment-cards {
     color: var(--red-color);
@@ -358,7 +318,7 @@ p {
         text-decoration: none;
 }
 
-.cocktail-name {
+.commenter-name {
     font-size: 24px;
     line-height: 24px;
     font-weight: 600px;;
@@ -372,20 +332,7 @@ p {
     font-size: 14;
 }
 
-@media (max-width: 393px){
-    .title-comment-cards {
-        font-size: 30px; 
-    }    
-    p {
-        font-size: 14px;
-    }
-    .cocktail-name {
-    font-size: 20px;
-    }
-    .main-comment-text {
-    font-size: 14px;
-    }
-}
+
 
 input, textarea {
     
@@ -396,13 +343,13 @@ input, textarea {
 
     font-style: normal;
     font-weight: 400;
-    line-height: 24px; 
-    padding: 8px 35px 8px 35px;
+    padding: 8px 0px 8px 35px;
     height: 50px;
     border-radius: 100px;
     border: 2px solid var(--red-color);
     background-color: var(--white-color);
     resize: none;
+    box-sizing: border-box;
     }
 
     input:hover, textarea:hover {
@@ -411,13 +358,7 @@ input, textarea {
     -webkit-text-fill-color: var(--dark-red-color);
 }
 
-@media (max-width: 393px) {
-    input, textarea {
-         
-         padding: 8px 35px 8px 35px;
-         width: 100%;
-    }
-}
+
 
 
 .comment-card {
@@ -428,11 +369,7 @@ input, textarea {
     margin: 0 auto;
     aspect-ratio: 7 / 6;
 }
-@media (max-width: 393px) {
-    .comment-card {
-        width: 90%;
-    }
-}
+
 
 .comment-cards-container {
     display: flex;
@@ -444,13 +381,7 @@ input, textarea {
     width: 86%;   
     position: relative;
 }
-@media (max-width: 393px) {
-    .comment-cards-container {
-        flex-direction: column;
-        gap: 20px;
-    }
-     
-}
+
 
 .comment-cards-top {
     display: flex;
@@ -458,26 +389,7 @@ input, textarea {
     justify-content: space-between;
     padding-bottom: 35px;
     padding-top: 25px;
-}
-/* @media (max-width: 393px) {
-    .comment-cards-top {
-        flex-direction: column;
-
-    }
-     
-} */
-
-.comment-form-top {
-    display: flex;
-    justify-content: space-between;
-    gap: 24px;
-}
-@media (max-width: 393px) {
-    .comment-form-top {
-        justify-content: center;
-        gap: 0px;
-        flex-direction: column;
-    }
+    margin: none;
 }
 
 .comment-form {
@@ -489,9 +401,177 @@ input, textarea {
     margin-bottom: 60px;
     margin-top: 100px;
 }
-@media (max-width: 393px) {
+
+
+.comment-form-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+    width: 100%;
+}
+
+.comment-form-top input {
+    width: 70%;
+    align-self: flex-end;
+}
+
+.comment-form h2 {
+    width: 500px;
+}
+
+
+
+.input-form-end {
+    width: 100%;
+}
+
+@media (max-width: 780px) {
+    .recept-name {
+        font-size: 40px;
+        margin: 0 auto;
+        margin-bottom: 10px;
+    }
+    
+    .title-comment-cards {
+        font-size: 30px; 
+    }    
+    p {
+        font-size: 14px;
+    }
+    .commenter-name {
+        font-size: 20px;
+        order: 2;
+    }
+    .main-comment-text {
+        font-size: 16px;
+    }
+    .p-time {
+        order: 1;
+    }
+    .comment-cards-top {
+        flex-direction: column;
+
+}
+    
+}
+
+@media (max-width: 600px) {
+    #btn-r-carousel {
+        right: -20px; 
+    }
+    #btn-l-carousel {
+        left: -20px; 
+    }
+    .comment-card {
+        width: 80%;
+    }
+    .commenter-name {
+        font-size: 20px;
+        order: 1;
+    }
+    .main-comment-text {
+        font-size: 16px;
+    }
+    .p-time {
+        order: 2;
+    }
+}
+
+
+@media (max-width: 480px) {
+    .help-msg {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    
+    #btn-r-carousel {
+        right: 27%;
+    }
+
+    #btn-l-carousel {
+        left: 27%;
+    }
+
+    .btn-carousel {
+        top: 97%;
+        width: 70px;
+        height: 70px;
+    }
+    .btn-carousel:hover {
+        transform: none;
+    }
+    .btn-carousel:active {
+        transform: scale(1.2);
+    }
+
+    .btn-comment-form {
+    width: 100%;
+    margin-top: -15px;
+}
+
+    .recept-name {
+        font-size: 40px;
+        margin: 0 auto;
+        margin-bottom: 10px;
+    }
+    
+    .title-comment-cards {
+        font-size: 30px; 
+    }    
+    p {
+        font-size: 14px;
+    }
+    .commenter-name {
+    font-size: 20px;
+    }
+    .main-comment-text {
+    font-size: 16px;
+    }
+    .p-time {
+        font-size: 14px;
+    }
+
+    input, textarea {
+         
+         padding: 8px 0px 8px 35px;
+         width: 100%;
+    }
+
+    .comment-card {
+        width: 100%;
+    }
+
+    .comment-cards-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
     .comment-form {
         width: 90%;
     }
+
+    .comment-form-top {
+        justify-content: center;
+        gap: 0px;
+        flex-direction: column;
+    }
+    .comment-form-top input {
+        width: 100%;
+    }
+    .comment-form h2 {
+        width: 100%;
+        text-align: center;
+    }
 }
+
+@media (max-width: 393px) {
+       #btn-r-carousel {
+        right: 24%;
+    }
+
+    #btn-l-carousel {
+        left: 24%;
+    }
+} 
+
 </style>
