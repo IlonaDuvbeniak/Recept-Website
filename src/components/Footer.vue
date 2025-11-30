@@ -103,7 +103,7 @@
         display:flex;
         align-items:center;
         justify-content:center;
-        font-size: 10rem;
+        font-size: 15rem;
         line-height:1;
         gap:1rem;
     }
@@ -124,6 +124,11 @@
         font-weight: 500;
         margin-top: 1.5rem;
         margin-bottom: 2rem;
+    }
+
+    .team-member {
+        padding-right:2.5rem;
+        padding-left:2.5rem;
     }
 
     .team-member a {
@@ -158,8 +163,8 @@
     }
 
     .linkedin-icon {
-        width: 1.25rem;
-        height: 1.25rem;
+        width: 1.7rem;
+        height: 1.7rem;
         margin-right: 0.5rem;
         vertical-align: middle;
     }
@@ -175,12 +180,25 @@
 
     }
 
+    @media (max-width: 991px) {
+        .logo-row{
+            font-size: 12rem;
+        }
+        .flower-logo{
+            height: 2.5rem;
+        }
+    }
+
     @media (max-width: 767px) {
         .logo-row{
             font-size: 9rem;
         }
         .flower-logo{
             height: 2rem;
+        }
+        .team-member {
+            padding-right: 0.3rem;
+            padding-left: 0.3rem;
         }
     }
 
@@ -191,7 +209,7 @@
             gap:0.5rem;
         }
         .flower-logo{
-            height: 1.5rem;
+            height: 1.8rem;
         }
         .team-members {
             flex-direction: column;
@@ -199,11 +217,9 @@
             padding-left:3rem;
             font-size:1rem;
         }
-
         .text{
             text-align:left;
         }
-
         .team-member {
             padding-bottom: 1.2rem;
         }
