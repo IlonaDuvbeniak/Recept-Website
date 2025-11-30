@@ -396,7 +396,7 @@ input, textarea {
     display: flex;
     flex-direction: column;
     gap: 16px;
-    width: 792px;
+    max-width: 792px;
     margin: 0 auto;
     margin-bottom: 60px;
     margin-top: 100px;
@@ -427,9 +427,9 @@ input, textarea {
 
 @media (max-width: 780px) {
     .recept-name {
-        font-size: 40px;
+        font-size: clamp(47px, 7vw, 56px);
         margin: 0 auto;
-        margin-bottom: 10px;
+        /* margin-bottom: 10px; */
     }
     
     .title-comment-cards {
@@ -475,8 +475,23 @@ input, textarea {
     .p-time {
         order: 2;
     }
-}
+    .comment-cards-top {
+        flex-direction: row;
+    }
+    .btn-carousel {
+        top: 96%;
+    }
+       #btn-r-carousel {
+        right: 30%;
+    }
 
+    #btn-l-carousel {
+        left: 30%;
+    }
+    .recept-name {
+        font-size: clamp(41px, 7vw, 47px);
+}
+}
 
 @media (max-width: 480px) {
     .help-msg {
