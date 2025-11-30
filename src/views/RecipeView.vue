@@ -5,6 +5,7 @@ import HowToDo from '@/components/RecipeComponents/HowToDo.vue';
 import RatingCard from '@/components/RecipeComponents/RatingCard.vue';
 import CommentForm from '../components/CommentForm.vue';
 import CommentFormTryAndError from '../components/CommentFormTryAndError.vue'; //Ta bort sen, bara för byggprocessen
+import Footer from '@/components/Footer.vue';
 
 
 export default {
@@ -15,7 +16,8 @@ export default {
     HowToDo,
     RatingCard,
     CommentForm,
-    CommentFormTryAndError
+    CommentFormTryAndError,
+    Footer
   },
 
   props: ['slug'],
@@ -89,6 +91,7 @@ export default {
         <CommentFormTryAndError /> 
         <!-- //Ta bort sen, bara för byggprocessen -->
   </section>
+  <Footer />
 
 </template>
 

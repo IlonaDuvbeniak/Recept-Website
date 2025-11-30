@@ -1,10 +1,12 @@
 <script>
 import CardsGrid from '@/components/CardsGrid.vue';
+import Footer from '@/components/Footer.vue';
 
 export default {
     name: "CategoryView",
     components: {
         CardsGrid,
+        Footer
     }
 }
 </script>
@@ -13,6 +15,7 @@ export default {
     <div class="container">
         <CardsGrid :categorySlug="$route.params.categorySlug" />
     </div>
+    <Footer />
 </template>
 
 <style scoped>

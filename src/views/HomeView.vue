@@ -1,13 +1,17 @@
 <script>
 import HeroSection from '../components/HeroSection.vue';
 import CardsGrid from '@/components/CardsGrid.vue';
-import Button from '@/components/Button.vue'
+import Button from '@/components/Button.vue';
+import Footer from '@/components/Footer.vue';
+
+
 export default {
   name: 'HomeView',
   components: {
     HeroSection,
     CardsGrid,
-    Button
+    Button,
+    Footer
   },
 }
 </script>
@@ -18,6 +22,7 @@ export default {
     <Button :to="{ name: 'recepies' }" btnText="Visa fler" variant="primary" :showArrow="true"
       :disabled="false"></Button>
   </div>
+  <Footer />
 </template>
 
 <style scoped>
