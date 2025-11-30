@@ -5,20 +5,64 @@
                 <p>Skapad av:</p>
             </div>
             <div class="team-members">
-                           <!-- <link rel="linkedin-icon" href="/img/linkedin-icon.svg"> -->
-                            Ilona Duvebniak
-                            Jia Sun
-                            Siri Prydz
-                            Natassja Berkan
+                            <div class="team-member">
+                                <a href="https://www.linkedin.com/in/ilona-duvbeniak?" target="_blank">
+                                    <img class="linkedin-icon" src="/img/linkedin-icon.svg" alt="LinkedIn Icon"></img>
+                                    Ilona Duvebniak
+                                </a>
+                            </div>
+                            <div class="team-member">
+                                <a href="https://www.linkedin.com/in/jia-sun-0b816b387/" target="_blank">
+                                    <img class="linkedin-icon" src="/img/linkedin-icon.svg" alt="LinkedIn Icon"></img>
+                                    Jia Sun
+                                </a>
+                            </div>
+                            <div class="team-member">
+                                <a href="https://www.linkedin.com/in/siriprydz" target="_blank">
+                                    <img class="linkedin-icon" src="/img/linkedin-icon.svg" alt="LinkedIn Icon"></img>
+                                    Siri Prydz
+                                </a>
+                            </div>
+                            <div class="team-member">
+                                <a href="https://www.linkedin.com/in/natassja-berkan/" target="_blank">
+                                    <img class="linkedin-icon" src="/img/linkedin-icon.svg" alt="LinkedIn Icon"></img>
+                                    Natassja Berkan
+                                </a>
+                            </div>
             </div>
             <div class="footer-logo">
-                <p>
-                    <img src="/img/flower-logo.svg" alt="Logo">
-                    DRINKS
-                    <img src="/img/flower-logo.svg" alt="Logo">
-                </p>
+                    <div class="logo-row">
+                        <img class="flower-logo" src="/img/flower-logo.svg" alt="Logo" />
+                        <span class="drinks-text">DRINKS</span>
+                        <img class="flower-logo" src="/img/flower-logo.svg" alt="Logo" />
+                    </div>
             </div>
-            
+
+           
+        </div>
+
+        <div class="line-container">
+            <div class="line blue"></div>
+            <div class="line white"></div>
+            <div class="line blue"></div>
+            <div class="line white"></div>
+            <div class="line blue"></div>
+            <div class="line white"></div>
+            <div class="line blue"></div>
+            <div class="line white">
+                 <p class="copyright-text">@Copyright 2025</p>
+            </div>
+            <div class="line white"></div>
+            <div class="line white"></div>
+            <div class="line white"></div>
+            <div class="line blue"></div>
+            <div class="line white"></div>
+            <div class="line blue"></div>
+            <div class="line white"></div>
+            <div class="line blue"></div>
+            <div class="line white"></div>
+            <div class="line blue"></div>
+
         </div>
     </footer>
 </template>
@@ -32,30 +76,105 @@
 <style scoped>
     footer {
         background-color: var(--baby-pink-color);
-        padding: 20px 0;
+        padding-top:10px;
         margin-top: 40px;
     }
     .container {
         text-align: center;
-        font-size: 18px;
         margin-bottom: 10px;
     }
 
     .text {
-        font-size: 24px;
+        font-size: 1.2rem;
         font-weight: bold;
-        margin-bottom: 18px;
+        margin: 1.5rem;
         color: var(--red-color);
         
     }
 
     .footer-logo {
         font-family: "Kalnia";
-        font-size: 18rem;
         color: var(--red-color);
-        margin-top: 18px;
         font-weight: bold;
 
     }
+
+    .logo-row{
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        font-size: 10rem;
+        line-height:1;
+        gap:1rem;
+    }
+
+    .flower-logo {
+        width: auto;
+        height: 3rem;
+        object-fit:contain;
+        display:block;
+    }
+
+    .team-members {
+        display: flex;
+        justify-content: center;
+        gap: 4rem;
+        font-size: 0.9rem;
+        color: var(--dark-red-color);
+        font-weight: 500;
+        margin-top: 1.5rem;
+        margin-bottom: 2rem;
+    }
+    .team-member a {
+        text-decoration:none;
+        color:inherit;
+        display:flex;
+        align-items:center;
+    }
+    .team-member:hover {
+            transform: translateY(-3px);
+        }
+
+     .line-container {
+        position: relative;
+        display: flex;
+        width: 100%;
+        height: 3rem;
+    }
+
+    .line {
+        flex: 1;
+        align-self: stretch;
+    }
+
+    .line.blue {
+        background-color: var(--blue-color);
+    }
+
+    .line.white {
+        background-color: var(--white-color);
+    }
+
+    .linkedin-icon {
+        width: 1.25rem;
+        height: 1.25rem;
+        margin-right: 0.5rem;
+        vertical-align: middle;
+    }
+
+   
+
+    .copyright-text {
+        position: absolute;
+        top:50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index:5;
+        color:var(--dark-red-color);
+        white-space:nowrap;
+
+    }
+
+   
 
 </style>
