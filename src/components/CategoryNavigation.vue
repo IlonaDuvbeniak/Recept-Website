@@ -14,7 +14,7 @@ export default {
 
 <template>
     <div class="category-navigation">
-        <Button :to="{ name: 'recepies' }" btnText="Alla" variant="filter" :showArrow="false" :disabled="false"
+        <Button :to="{ name: 'recepies' }" btnText="Alla" variant="filter" :pressed="true" :showArrow="false" :disabled="false"
             class="category-button"></Button>
         <Button to="/recipes/category/drunk-in-paradise" btnText="Drunk in paradise" variant="filter" :showArrow="false"
             :disabled="false" class="category-button"></Button>

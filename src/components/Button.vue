@@ -2,7 +2,7 @@
     <component       
         :is="componentType"
         :to="to"
-        :class="['btn', variant, { 'disabled': disabled }]"
+        :class="['btn', variant, { 'pressed': pressed }, { 'disabled': disabled }]"
         :disabled="!to && disabled"
         @click="addEvent"
     >
@@ -34,6 +34,10 @@
                 default: true
             },
             disabled: {
+                type: Boolean,
+                default: false
+            },
+            pressed: {
                 type: Boolean,
                 default: false
             }
@@ -157,5 +161,13 @@
     .btn.filter.disabled:hover,
     .btn.filter:disabled:hover {
         background-color: var(--white-color);
+    }
+
+
+     /* ACTIVETED */
+    .btn.filter.pressed {
+        background-color: var(--blue-color);
+        color: var(--red-color);
+        border: 1px solid var(--blue-color);
     }
 </style>
