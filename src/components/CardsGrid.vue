@@ -86,9 +86,25 @@ export default {
         limitedCoctails() {
             if (!this.limit) return this.filteredCoctails;
             return this.filteredCoctails.slice(0, this.limit);
-        }
+        },
+
+      
+        coctailsWithAverage() {
+            return this.limitedCoctails.map(c => {
+                const list = Array.isArray(c.ratings) ? c.ratings : [];
+                const avg = list.length
+                    ? list.reduce((a, b) => a + b, 0) / list.length
+                    : 0;
+
+                return {
+                    ...c,
+                    averageRating: Math.round(avg * 10) / 10
+                };
+            });
+         }
     }
 }
+
 </script>
 
 
@@ -100,10 +116,20 @@ export default {
             <Loading />
         </div>
         <div v-else class="cards-container">
-            <Card v-for="coctail in limitedCoctails" :key="coctail.id" :categori="coctail.categories[0]"
-                :categorySlug="coctail.slug" :name="coctail.title" :rating="coctail.ratings[0]"
-                :ingridients="coctail.ingredients.length" :time="coctail.timeInMins" :image="coctail.imageUrl"
-                :label="coctail.title" :to="{ name: 'recipe', params: { slug: coctail.slug } }" />
+            <Card 
+                v-for="coctail in coctailsWithAverage"
+                :key="coctail.id"
+                :categori="coctail.categories[0]"
+                :categorySlug="coctail.slug"
+                :name="coctail.title"
+                :rating="coctail.averageRating"
+                :ingridients="coctail.ingredients"
+                :time="coctail.timeInMins"
+                :image="coctail.imageUrl"
+                :label="coctail.title"
+                :to="{ name: 'recipe', params: { slug: coctail.slug } }"
+            />
+
         </div>
     </div>
 </template>

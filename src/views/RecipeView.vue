@@ -61,20 +61,43 @@ export default {
   },
 
   methods: {
-    updateRecipeSlug() {
-      this.recipe = this.coctails.find(c => c.slug === this.slug)
-      if (this.recipe) {
-        document.title = `${this.recipe.title} - Drinks`
+      updateRecipeSlug() {
+        this.recipe = this.coctails.find(c => c.slug === this.slug)
+        if (this.recipe) {
+          document.title = `${this.recipe.title} - Drinks`;
+
+          if(Array.isArray(this.recipe.ratings) && this.recipe.ratings.length > 0) {
+            const values = this.recipe.ratings.filter(n => typeof n === "number");
+            const avg = values.reduce((a, b) => a + b, 0) / values.length;
+            this.recipe.rating = Math.round(avg * 10) / 10;
+          } else {
+            this.recipe.rating = 0;
+          }
+        }
+      },
+
+      updateRating(newAverage) {
+          if (!this.recipe) return;
+
+          if (isNaN(newAverage) || newAverage == null) {
+            console.warn("Invalid average rating detected:", newAverage);
+            this.recipe.rating = 0;
+            return;
+          }
+
+          this.recipe.rating = Math.round(newAverage * 10) / 10;
+          },
+        
+        scrollToTop() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       }
     }
-  }
-}
+};
 
 </script>
 
 <template>
-
-  <ArrowButton />
+  <ArrowButton variant="to-top" @click="scrollToTop"/>
 
   <svg xmlns="http://www.w3.org/2000/svg" width="1440" height="129" viewBox="0 0 1440 129" fill="none"
     class="element-header">
@@ -88,21 +111,27 @@ export default {
   </div>
 
   <div v-else-if="recipe">
-      <ReceptCard  
-        :name="recipe.title"
-        :categori="recipe.categories[0]"
-        :categorySlug="recipe.categorySlug"
-        :description="recipe.description" 
-        :rating="recipe.ratings" 
-        :ingridients="recipe.ingredients.length" 
-        :time="recipe.timeInMins"
-        :image="recipe.imageUrl" 
-      />
 
-      <HowToDo 
-        :items="recipe.ingredients"
-        :steps="recipe.instructions" />
-      <RatingCard />
+    <ReceptCard 
+    :name="recipe.title"
+    :categori="recipe.categories?.[0] || 'Uncategorized'"
+    :categorySlug="recipe.categories?.[0] || ''"
+    :description="recipe.description"
+    :rating="recipe.rating"
+    :ingridients="recipe.ingredients.length"
+    :time="recipe.timeInMins"
+    :image="recipe.imageUrl"
+  />
+
+  <HowToDo 
+    :items="recipe.ingredients"
+    :steps="recipe.instructions"
+  />
+
+  <RatingCard 
+    :recipeId="String(recipe.id || '')"
+    @rating-updated="updateRating"
+  />
       <CommentForm />
       <CommentFormTryAndError />
       <Footer />
