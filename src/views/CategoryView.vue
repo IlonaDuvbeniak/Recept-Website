@@ -1,17 +1,27 @@
 <script>
 import CardsGrid from '@/components/CardsGrid.vue';
+import ArrowButton from '@/components/ArrowButton.vue';
 import Footer from '@/components/Footer.vue';
 
 export default {
     name: "CategoryView",
     components: {
         CardsGrid,
+        ArrowButton,
         Footer
+    },
+    methods: {
+        scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        
     }
 }
 </script>
 
 <template>
+    <ArrowButton variant="to-top" @click="scrollToTop"/>
     <div class="container">
         <CardsGrid :categorySlug="$route.params.categorySlug" />
     </div>

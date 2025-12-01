@@ -48,66 +48,66 @@ export default {
 
 
 <style scoped>
-.card {
-    display: flex;
-    flex-direction: column;
-    border-style: solid;
-    border-color: var(--red-color);
-    border-width: 1px 3px 3px 1px;
-}
+    .card {
+        display: flex;
+        flex-direction: column;
+        border-style: solid;
+        border-color: var(--red-color);
+        border-width: 1px 3px 3px 1px;
+    }
 
-.image-container {
-    width: 100%;
-    padding: 16px;
-}
+    .image-container {
+        width: 100%;
+        padding: 16px;
+    }
 
-.image-container img {
-    width: 100%;
-    object-fit: cover; 
-}
-
-
-.name-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 100%;
-    border-top: 1px solid var(--red-color);
-    border-bottom: 1px solid var(--red-color);
-}
-
-.text-name-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 8px;
-    height: 100%;
-    width: 66.666%;
-    padding: 16px;
-}
+    .image-container img {
+        width: 100%;
+        object-fit: cover; 
+    }
 
 
-a {
-    color: var(--red-color);
-    font-family: "Instrument Sans";
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 16px;
-    text-decoration: none;
-}
+    .name-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 100%;
+        border-top: 1px solid var(--red-color);
+        border-bottom: 1px solid var(--red-color);
+    }
 
-h2 {
-    color: var(--red-color);
-    font-family: "Instrument Sans";
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 24px;
-}
+    .text-name-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 8px;
+        height: 100%;
+        width: 66.666%;
+        padding: 16px;
+    }
 
-.info-recipe-card {
-    display: flex;
-    align-items: center;
-}
+
+    a {
+        color: var(--red-color);
+        font-family: "Instrument Sans";
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 16px;
+        text-decoration: none;
+    }
+
+    h2 {
+        color: var(--red-color);
+        font-family: "Instrument Sans";
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 24px;
+    }
+
+    .info-recipe-card {
+        display: flex;
+        align-items: center;
+    }
 </style>

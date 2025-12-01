@@ -5,7 +5,9 @@ import HowToDo from '@/components/RecipeComponents/HowToDo.vue';
 import RatingCard from '@/components/RecipeComponents/RatingCard.vue';
 import CommentForm from '../components/CommentForm.vue';
 import CommentFormTryAndError from '../components/CommentFormTryAndError.vue'; //Ta bort sen, bara för byggprocessen
+import ArrowButton from '@/components/ArrowButton.vue';
 import Footer from '@/components/Footer.vue';
+
 
 
 export default {
@@ -17,6 +19,7 @@ export default {
     RatingCard,
     CommentForm,
     CommentFormTryAndError,
+    ArrowButton,
     Footer
   },
 
@@ -55,6 +58,9 @@ export default {
       if (this.recipe) {
         document.title = `${this.recipe.name} - Drinks`
       }
+    },
+    scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   }
 }
@@ -63,6 +69,7 @@ export default {
 
 <template>
 
+  <ArrowButton variant="to-top" @click="scrollToTop"/>
 
   <svg xmlns="http://www.w3.org/2000/svg" width="1440" height="129" viewBox="0 0 1440 129" fill="none"
     class="element-header">
@@ -78,20 +85,12 @@ export default {
 
     <HowToDo :items="recipe.ingridientslist" :steps="recipe.recept" />
     <RatingCard />
+    <CommentForm />
   </div>
 
   <div v-else>
     <h2>Receptet hittades inte</h2>
   </div>
-
-  <section>
-    <CommentForm />
-  </section>
-  <section>
-        <CommentFormTryAndError /> 
-        <!-- //Ta bort sen, bara för byggprocessen -->
-  </section>
-  <Footer />
 
 </template>
 
@@ -99,9 +98,17 @@ export default {
 <style scoped>
   .element-header {
     position: absolute;
-    overflow: hidden;
     top: 0;
-    left: -1.5%;
+    left: 50%;                    
+    transform: translateX(-50%);                  
     z-index: -1;
+    overflow: visible;           
+    pointer-events: none;
+  }
+
+  @media (max-width: 575px) {
+      .element-header {
+          display: none;
+      }
   }
 </style>

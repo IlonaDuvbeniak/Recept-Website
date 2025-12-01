@@ -99,4 +99,40 @@
         font-weight: 400;
         line-height: 24px; 
     }
+
+    @media (max-width: 991px) {
+        .wrapper {
+            padding: 80px 72px 40px 72px;
+            position: relative;
+            align-items: normal;
+        }
+
+        .rating-card {
+            flex-direction: column;
+        }
+
+        .info-container {
+            width: 100%;
+            border-right: none;
+            order: 2;
+            height: 50%;
+            justify-content: center;
+        }
+
+        .img-container {
+            width: 100%;
+            height: 50%;
+            order: 1;
+            border-bottom: 1px solid var(--red-color);
+        }
+
+        .rating-image {
+            right: 33%;
+            max-width: 300px;
+        }
+    }
+
+    @media (max-width: 767px) {
+        
+    }
 </style>

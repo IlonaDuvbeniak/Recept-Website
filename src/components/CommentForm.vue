@@ -1,8 +1,11 @@
 <script>
+import Button from '@/components/Button.vue';
 
 export default {
-
     name: 'CommentForm',
+    components: {
+        Button
+    },
     data() {
         return {
             newName: '',
@@ -150,7 +153,8 @@ export default {
             <input v-model="newTitle" placeholder="Rubrik max 12 tecken" class="input-form-end">
             <textarea v-model="newWrittenComment" placeholder="Skriv din kommentar" class="input-form-end"></textarea>
             <p class="help-msg">{{ message }}</p>
-            <button class="btn-comment-form" type="submit">Skicka -></button>
+            <Button btnText="Submit" variant="primary" :showArrow="true" :disabled="false"></Button>
+            
         </div>
         
     </label>
@@ -174,6 +178,7 @@ export default {
         </div>
         <h3 class="title-comment-cards">{{ comment.title }}</h3>
         <p class="main-comment-text">{{ comment.writtenComment }}</p>
+        
         <button 
             class="btn-carousel" 
             id="btn-l-carousel"
@@ -181,7 +186,6 @@ export default {
             v-bind:class="{'disabled-btn': disableLeftButton}"
             v-bind:disabled="disableLeftButton"
             >
-            <-
         </button>
 
         <button 
@@ -191,7 +195,6 @@ export default {
             v-bind:class="{'disabled-btn': disableRightButton}"
             :disabled="disableRightButton"
             >
-            ->
         </button>
     </div> 
 </div> 

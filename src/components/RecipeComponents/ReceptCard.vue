@@ -130,4 +130,80 @@ export default {
         object-position: center;
     }
 
+    @media (max-width: 991px) {
+        .wrapper {
+            padding: 0 72px 52px 72px;
+        }
+
+        .recept-card {
+            flex-direction: column;
+        }
+
+        .img-container, .info-container {
+            width: 100%;
+            height: 50%;
+        }
+
+        .info-container {
+            order: 2;
+            border-right: none;
+        }
+     
+        .text-wrapper {
+            padding: 44px;
+        }
+
+        .img-container {
+            order: 1;
+            border-bottom: 1px solid var(--red-color);
+        }
+    }
+
+    @media (max-width: 767px) {
+        .wrapper {
+            padding: 0 52px 52px 52px;
+        }
+
+        .img-container {
+            padding: 20px;
+        }
+
+        .text-wrapper {
+            padding: 20px;
+        }
+
+        .recept-name {
+            font-size: 48px;
+            line-height: 56px;
+            margin-top: 12px;
+            margin-bottom: 24px;
+        }
+    }
+
+    @media (max-width: 575px) {
+        .wrapper {
+            padding: 0 24px 24px 24px;
+        }
+
+        .img-container {
+            padding: 16px;
+        }
+
+        .text-wrapper {
+            padding: 16px;
+        }
+
+        .recept-name {
+            font-size: 40px;
+            line-height: 48px;
+            margin-top: 8px;
+            margin-bottom: 20px;
+        }
+
+        .description {
+            font-size: 14px;
+            line-height: 20px;
+        }
+    }
+
 </style>
