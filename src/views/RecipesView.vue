@@ -9,12 +9,17 @@ export default {
         CardsGrid,
         Button,
         ArrowButton
+    },
+    methods: {
+        scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
     }
 }
 </script>
 
 <template>
-    <ArrowButton/>
+    <ArrowButton variant="to-top" @click="scrollToTop"/>
     <div class="container">
         <CardsGrid />
         <Button btnText="Visa fler" variant="primary" :showArrow="true" :disabled="false" @event="showMore"></Button>

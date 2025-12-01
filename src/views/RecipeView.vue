@@ -55,6 +55,9 @@ export default {
       if (this.recipe) {
         document.title = `${this.recipe.name} - Drinks`
       }
+    },
+    scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   }
 }
@@ -63,7 +66,7 @@ export default {
 
 <template>
 
-  <ArrowButton/>
+  <ArrowButton variant="to-top" @click="scrollToTop"/>
 
   <svg xmlns="http://www.w3.org/2000/svg" width="1440" height="129" viewBox="0 0 1440 129" fill="none"
     class="element-header">

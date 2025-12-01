@@ -7,12 +7,17 @@ export default {
     components: {
         CardsGrid,
         ArrowButton
+    },
+    methods: {
+        scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
     }
 }
 </script>
 
 <template>
-    <ArrowButton/>
+    <ArrowButton variant="to-top" @click="scrollToTop"/>
     <div class="container">
         <CardsGrid :categorySlug="$route.params.categorySlug" />
     </div>

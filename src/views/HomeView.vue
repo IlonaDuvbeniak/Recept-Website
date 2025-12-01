@@ -12,11 +12,16 @@
       Button,
       ArrowButton
     },
+    methods: {
+        scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    }
   }
 </script>
 
 <template>
-  <ArrowButton/>
+  <ArrowButton variant="to-top" @click="scrollToTop"/>
   <HeroSection />
   <div class="container">
     <CardsGrid />
