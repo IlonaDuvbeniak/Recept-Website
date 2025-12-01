@@ -86,6 +86,7 @@ export default {
     <HowToDo :items="recipe.ingridientslist" :steps="recipe.recept" />
     <RatingCard />
     <CommentForm />
+    <Footer />
   </div>
 
   <div v-else>
