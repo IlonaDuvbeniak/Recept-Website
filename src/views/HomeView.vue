@@ -3,6 +3,7 @@
   import CardsGrid from '@/components/CardsGrid.vue';
   import Button from '@/components/Button.vue'
   import ArrowButton from '@/components/ArrowButton.vue';
+  import Footer from '@/components/Footer.vue';
 
   export default {
     name: 'HomeView',
@@ -10,7 +11,8 @@
       HeroSection,
       CardsGrid,
       Button,
-      ArrowButton
+      ArrowButton,
+      Footer
     },
     methods: {
         scrollToTop() {
@@ -18,6 +20,7 @@
         }
     }
   }
+
 </script>
 
 <template>
@@ -28,6 +31,7 @@
     <Button :to="{ name: 'recepies' }" btnText="Visa fler" variant="primary" :showArrow="true"
       :disabled="false"></Button>
   </div>
+  <Footer />
 </template>
 
 <style scoped>

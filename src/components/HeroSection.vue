@@ -14,10 +14,10 @@ export default {
     <Header class="header-component"></Header>
     <div class="hero-section">
         <video class="hero-movie" autoplay muted loop>
-            <source src="/videos/HeroMovie.mp4" type="video/mp4" aria-label="Girl sipping on spooky drink" />
+            <source src="/videos/HeroMovie_desktop.mp4" type="video/mp4" aria-label="Girl sipping on spooky drink" />
         </video>
 
-        <div class="title-and-button">
+        <div class=" title-and-button">
             <h1>CHEERS <br>WITCHES!</h1>
             <Button to="/recipes/category/boos-and-brews" btnText="Boo season!" variant="primary" :showArrow="true"
                 :disabled="false"></Button>
@@ -65,5 +65,72 @@ h1 {
     left: 0;
     width: 100%;
     z-index: 1;
+}
+
+@media (max-width: 1399px) {
+    .title-and-button {
+        left: 50%;
+        margin-top: 80px;
+        ;
+    }
+
+    .swirl-text {
+        margin-top: -50px;
+    }
+}
+
+@media (max-width: 1199px) {
+    .title-and-button {
+        left: 40%;
+    }
+}
+
+@media (max-width: 991px) {
+    .title-and-button {
+        left: 50%;
+        margin-top: 35px;
+    }
+
+    .swirl-text {
+        margin-top: -60px;
+    }
+
+    h1 {
+        font-size: 51px;
+    }
+}
+
+@media (max-width: 767px) {
+
+
+    .hero-movie {
+        margin-top: 100px;
+
+    }
+
+    .title-and-button {
+        left: 50%;
+    }
+
+    .swirl-text {
+        margin-top: -0px;
+    }
+}
+
+@media (max-width: 575px) {
+
+    .title-and-button {
+        left: 0%;
+        padding: 24px;
+    }
+
+    .swirl-text {
+        margin-top: -80px;
+        width: 200%
+    }
+
+    .hero-movie {
+        width: 170%
+    }
 }
 </style>

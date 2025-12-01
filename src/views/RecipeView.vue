@@ -6,6 +6,8 @@ import RatingCard from '@/components/RecipeComponents/RatingCard.vue';
 import CommentForm from '../components/CommentForm.vue';
 import CommentFormTryAndError from '../components/CommentFormTryAndError.vue'; //Ta bort sen, bara för byggprocessen
 import ArrowButton from '@/components/ArrowButton.vue';
+import Footer from '@/components/Footer.vue';
+
 
 
 export default {
@@ -17,7 +19,8 @@ export default {
     RatingCard,
     CommentForm,
     CommentFormTryAndError,
-    ArrowButton
+    ArrowButton,
+    Footer
   },
 
   props: ['slug'],
