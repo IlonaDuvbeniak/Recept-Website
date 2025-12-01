@@ -5,8 +5,35 @@ export default {
     components: {
         Button
     },
+    data() {
+        return { categories: [] }
+    },
+    methods: {
+        async fetchCategories() {
+            try {
+                console.log("Hämtar kategorier från API");
+                const response = await fetch('https://recipes.bocs.se/api/v1/d4e5f6a7-b8c9-4d0e-1f2a-3b4c5d6e7f8a/categories');
+                const data = await response.json();
+                console.log(data)
+                console.log(typeof data)
+                console.log(Array.isArray(data))
+                console.log(data[0]);
+
+                this.categories = data;
+            } catch (error) {
+                console.error('Error fetching categories:', error);
+            }
+        }
+    },
+    mounted() {
+        this.fetchCategories();
+    },
+
     computed: {
+        GetAllcategoriesFromAPI() { },
+
         NumberOfRecipesInCategory() {
+            return this.categories.length;
         }
     }
 }
@@ -14,7 +41,11 @@ export default {
 
 <template>
     <div class="category-navigation">
-        <Button :to="{ name: 'recepies' }" btnText="Alla" variant="filter" :showArrow="false" :disabled="false"
+        <Button v-for="category in categories" :key="category.id" :to="`/recipes/category/${category.slug}`"
+            :btnText="`${category.name} (${NumberOfRecipesInCategory})`" variant="filter" :showArrow="false"></Button>
+
+
+        <!-- <Button :to="{ name: 'recepies' }" btnText="Alla" variant="filter" :showArrow="false" :disabled="false"
             class="category-button"></Button>
         <Button to="/recipes/category/drunk-in-paradise" btnText="Drunk in paradise" variant="filter" :showArrow="false"
             :disabled="false" class="category-button"></Button>
@@ -25,7 +56,7 @@ export default {
         <Button to="/recipes/category/boos-and-brews" btnText="Boos & Brews" variant="filter"
             :showArrow="false"></Button>
         <Button to="/recipes/category/sips-of-christmas" btnText="Sips of Christmas" variant="filter"
-            :showArrow="false"></Button>
+            :showArrow="false"></Button> -->
     </div>
 </template>
 
