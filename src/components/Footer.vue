@@ -7,25 +7,25 @@
             <div class="team-members">
                             <div class="team-member">
                                 <a href="https://www.linkedin.com/in/ilona-duvbeniak?" target="_blank">
-                                    <img class="linkedin-icon" src="/img/linkedin-icon.svg" alt="LinkedIn Icon"></img>
+                                    <img class="linkedin-icon" src="/img/linkedin-icon.svg" alt="LinkedIn Icon">
                                     Ilona Duvebniak
                                 </a>
                             </div>
                             <div class="team-member">
                                 <a href="https://www.linkedin.com/in/jia-sun-0b816b387/" target="_blank">
-                                    <img class="linkedin-icon" src="/img/linkedin-icon.svg" alt="LinkedIn Icon"></img>
+                                    <img class="linkedin-icon" src="/img/linkedin-icon.svg" alt="LinkedIn Icon">
                                     Jia Sun
                                 </a>
                             </div>
                             <div class="team-member">
                                 <a href="https://www.linkedin.com/in/siriprydz" target="_blank">
-                                    <img class="linkedin-icon" src="/img/linkedin-icon.svg" alt="LinkedIn Icon"></img>
+                                    <img class="linkedin-icon" src="/img/linkedin-icon.svg" alt="LinkedIn Icon">
                                     Siri Prydz
                                 </a>
                             </div>
                             <div class="team-member">
                                 <a href="https://www.linkedin.com/in/natassja-berkan/" target="_blank">
-                                    <img class="linkedin-icon" src="/img/linkedin-icon.svg" alt="LinkedIn Icon"></img>
+                                    <img class="linkedin-icon" src="/img/linkedin-icon.svg" alt="LinkedIn Icon">
                                     Natassja Berkan
                                 </a>
                             </div>
@@ -77,7 +77,7 @@
     footer {
         background-color: var(--baby-pink-color);
         padding-top:10px;
-        margin-top: 40px;
+        margin-top: 152px;
     }
     .container {
         text-align: center;
@@ -85,11 +85,12 @@
     }
 
     .text {
-        font-size: 1.2rem;
-        font-weight: bold;
-        margin: 1.5rem;
         color: var(--red-color);
-        
+        font-family: "Instrument Sans";
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 700;
+        margin: 2rem;
     }
 
     .footer-logo {
@@ -128,15 +129,21 @@
     }
 
     .team-member {
-        padding-right:2.5rem;
-        padding-left:2.5rem;
+        padding-right: 2.5rem;
+        padding-left: 2.5rem;
     }
 
     .team-member a {
-        text-decoration:none;
-        color:inherit;
+        color: var(--dark-red-color);
+        font-family: "Instrument Sans";
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 24px;
+        text-decoration: none;
         display:flex;
         align-items:center;
+        margin-bottom: 1rem;
     }
 
     .team-member:hover {
@@ -179,6 +186,11 @@
         z-index:5;
         color:var(--dark-red-color);
         white-space:nowrap;
+        font-family: "Instrument Sans";
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 16px; 
 
     }
 
