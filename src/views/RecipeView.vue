@@ -1,10 +1,9 @@
 <script>
-import { getData } from '../FetchData.vue'
+import { fetchData } from '@/FetchData.vue';
 import ReceptCard from '@/components/RecipeComponents/ReceptCard.vue';
 import HowToDo from '@/components/RecipeComponents/HowToDo.vue';
 import RatingCard from '@/components/RecipeComponents/RatingCard.vue';
 import CommentForm from '../components/CommentForm.vue';
-import CommentFormTryAndError from '../components/CommentFormTryAndError.vue'; //Ta bort sen, bara för byggprocessen
 import ArrowButton from '@/components/ArrowButton.vue';
 import Footer from '@/components/Footer.vue';
 
@@ -18,7 +17,6 @@ export default {
     HowToDo,
     RatingCard,
     CommentForm,
-    CommentFormTryAndError,
     ArrowButton,
     Footer
   },
@@ -33,15 +31,10 @@ export default {
   },
 
   async created() {
-    try {
-      const data = await getData()
-      this.coctails = data.coctails
-
-      this.updateRecipeSlug()
-    } catch (err) {
-      console.error(err)
-    }
+      this.coctails = await fetchData();
+      this.updateRecipeSlug();
   },
+
 
   watch: {
     slug: {
@@ -56,7 +49,7 @@ export default {
     updateRecipeSlug() {
       this.recipe = this.coctails.find(c => c.slug === this.slug)
       if (this.recipe) {
-        document.title = `${this.recipe.name} - Drinks`
+        document.title = `${this.recipe.title} - Drinks`
       }
     },
     scrollToTop() {
@@ -79,11 +72,16 @@ export default {
   </svg>
 
   <div v-if="recipe">
-    <ReceptCard :categori="recipe.categori" :categorySlug="recipe.categorySlug" :name="recipe.name"
-      :description="recipe.description" :rating="recipe.rating" :ingridients="recipe.ingridients" :time="recipe.time"
-      :image="recipe.image" />
+    <ReceptCard  
+      :name="recipe.title"
+      :description="recipe.description" 
+      :rating="recipe.ratings" 
+      :ingridients="recipe.ingredients" 
+      :time="recipe.timeInMins"
+      :image="recipe.imageUrl" 
+    />
 
-    <HowToDo :items="recipe.ingridientslist" :steps="recipe.recept" />
+    <HowToDo :items="recipe.ingredients" :steps="recipe.instructions" />
     <RatingCard />
     <CommentForm />
     <Footer />
