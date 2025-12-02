@@ -26,31 +26,38 @@ export default {
             }
 
         },
-        mounted() {
-            this.fetchCategories();
-            this.loadRecipes();
+        async loadRecipes() {
+            this.recipes = await fetchData()
+            console.log("Recipes loaded in CategoryNavigation:", this.recipes);
         },
+        numberOfRecipesInCategory(categoryName) {
+            return this.recipes.filter(
+                recipe => recipe.categories.includes(categoryName)
+            ).length;
+        }
+    },
+    mounted() {
+        this.fetchCategories();
+        this.loadRecipes();
+    },
 
-        computed: {
-            GetAllcategoriesFromAPI() { },
-
-            NumberOfRecipesInCategory() {
-                {
-                    const newList = this.recipes.filter(recipe => recipe.categories === category.name);
-                    console.log(newList);
-                    return newList.length
-                }
+    computed: {
+        allRecipes() {
+            {
+                return this.recipes;
             }
         }
     }
+}
 </script>
 
 <template>
     <div class="category-navigation">
-        <Button :to="{ name: 'recepies' }" btnText="Alla" variant="filter" :showArrow="false" :disabled="false"
-            class="category-button"></Button>
+        <Button :to="{ name: 'recepies' }" :btnText="`Alla (${allRecipes.length})`" variant="filter" :showArrow="false"
+            :disabled="false" class="category-button"></Button>
         <Button v-for="category in categories" :key="category.id" :to="`/recipes/category/${category.slug}`"
-            :btnText="`${category.name} (${NumberOfRecipesInCategory})`" variant="filter" :showArrow="false"></Button>
+            :btnText="`${category.name} (${numberOfRecipesInCategory(category.name)})`" variant="filter"
+            :showArrow="false"></Button>
 
 
         <!-- <Button :to="{ name: 'recepies' }" btnText="Alla" variant="filter" :showArrow="false" :disabled="false"
