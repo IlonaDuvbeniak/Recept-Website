@@ -34,6 +34,12 @@ export default {
             return this.recipes.filter(
                 recipe => recipe.categories.includes(categoryName)
             ).length;
+        },
+        categorySlug(categoryName) {
+
+            let categorySlug = categoryName.toLowerCase().replace(/&/g, 'and').replace(/ /g, '-').replace(/[^\w-]+/g, '')
+            console.log('slug for category', categoryName, '→', categorySlug);
+            return categorySlug
         }
     },
     mounted() {
@@ -55,7 +61,8 @@ export default {
     <div class="category-navigation">
         <Button :to="{ name: 'recepies' }" :btnText="`Alla (${allRecipes.length})`" variant="filter" :showArrow="false"
             :disabled="false" class="category-button"></Button>
-        <Button v-for="category in categories" :key="category.id" :to="`/recipes/category/${category.slug}`"
+        <Button v-for="category in categories" :key="category.id"
+            :to="`/recipes/category/${categorySlug(category.name)}`"
             :btnText="`${category.name} (${numberOfRecipesInCategory(category.name)})`" variant="filter"
             :showArrow="false"></Button>
 
