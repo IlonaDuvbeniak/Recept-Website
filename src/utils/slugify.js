@@ -1,9 +1,15 @@
-export function slugify(str) {}
+export function slugify(str) {
+  console.log("slugify called with:", str);
 
-return str
-  .toLowerCase()
-  .replace(/&/g, "and")
-  .replace(/[^\w\s-]/g, "")
-  .replace(/\s+/g, "-")
-  .replace(/-+/g, "-")
-  .trim();
+  if (!str) {
+    return "";
+  }
+
+  return str
+    .toLowerCase()
+    .replace(/&/g, "and")
+    .replace(/[^\w\s-]/g, "")
+    .replace(/\s+/g, "-")
+    .replace(/-+/g, "-")
+    .trim();
+}
