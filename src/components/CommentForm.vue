@@ -126,6 +126,19 @@ export default {
             }
         }
 },
+
+    computed: {
+        characterCountName(){
+            return this.newName.length;
+        },
+        characterCountTitle() {
+             return this.newTitle.length;   
+        },
+        characterCountWrittenCom(){
+            return this.newWrittenComment.length;   
+        }
+
+    },
    
 
 
@@ -147,11 +160,14 @@ export default {
         <div class="comment-form">
             <div class="comment-form-top">
                 <h2 class="recept-name">Kommentar</h2>
-                <input v-model="newName" autocomplete="given-name" placeholder="Ditt namn">
+                <input v-model="newName" autocomplete="given-name" placeholder="Ditt namn" maxlength="25"> 
             </div>
-        
-            <input v-model="newTitle" placeholder="Rubrik max 12 tecken" class="input-form-end">
-            <textarea v-model="newWrittenComment" placeholder="Skriv din kommentar" class="input-form-end"></textarea>
+                <p class="counter">{{ characterCountName }}/25</p>
+
+            <input v-model="newTitle" placeholder="Rubrik max 12 tecken" class="input-form-end" maxlength="25">
+                <p class="counter">{{ characterCountTitle }}/25</p>
+            <textarea v-model="newWrittenComment" placeholder="Skriv din kommentar" class="input-form-end" maxlength="200"></textarea>
+                <p class="counter">{{ characterCountWrittenCom }}/200</p>
             <p class="help-msg">{{ message }}</p>
             <Button btnText="Submit" variant="primary" :showArrow="true" :disabled="false"></Button>
             
