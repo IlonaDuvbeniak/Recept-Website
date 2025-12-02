@@ -1,5 +1,5 @@
 <script>
-import { getData } from '../FetchData.vue'
+import { fetchData } from '@/FetchData.vue';
 import Card from '../components/Card.vue'
 import SearchBar from '@/components/SearchBar.vue';
 import CategoryNavigation from './CategoryNavigation.vue';
@@ -20,14 +20,10 @@ export default {
             categoryTitle: ""
         }
     },
-    async mounted() {
-        try {
-            const data = await getData()
-            this.coctails = data.coctails
-        } catch (err) {
-            console.log(err)
-        }
+    async created() {
+        this.coctails = await fetchData();
     },
+
     watch: {
         categorySlug: {
             handler(title) {
@@ -68,15 +64,17 @@ export default {
 }
 </script>
 
+
 <template>
     <div class="page-container">
         <SearchBar :value="searchTerm" @input="searchTerm = $event" />
         <CategoryNavigation></CategoryNavigation>
         <div class="cards-container">
-            <Card v-for="coctail in filteredCoctails" :key="coctail.id" :categori="coctail.categori"
-                :categorySlug="coctail.categorySlug" :name="coctail.name" :rating="coctail.rating"
-                :ingridients="coctail.ingridients" :time="coctail.time" :image="coctail.image" :label="coctail.name"
-                :to="{ name: 'recipe', params: { slug: coctail.slug } }" />
+            <Card v-for="coctail in filteredCoctails" :key="coctail.id" :categori="coctail.categories[1]"
+                :categorySlug="coctail.slug" :name="coctail.title" :rating="coctail.ratings[1]"
+                :ingridients="coctail.ingredients" :time="coctail.timeInMins" :image="coctail.imageUrl" :label="coctail.title"
+                :to="{ name: 'recipe', params: { slug: coctail.slug } }"
+            />
         </div>
     </div>
 </template>
