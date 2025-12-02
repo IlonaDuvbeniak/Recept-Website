@@ -59,7 +59,8 @@ export default {
 
 <template>
     <div class="category-navigation">
-        <Button :to="{ name: 'recepies' }" :btnText="`Alla (${allRecipes.length})`" variant="filter" :showArrow="false"
+
+        <Button :to="{ name: 'recepies' }" :btnText="`Alla (${allRecipes.length})`" :pressed="true" variant="filter" :showArrow="false"
             :disabled="false" class="category-button"></Button>
         <Button v-for="category in categories" :key="category.id"
             :to="`/recipes/category/${categorySlug(category.name)}`"
