@@ -1,5 +1,6 @@
 <script>
 import Button from '@/components/Button.vue';
+import { fetchData } from '@/FetchData.vue';
 export default {
     name: "CategoryNavigation",
     components: {
@@ -23,41 +24,25 @@ export default {
             } catch (error) {
                 console.error('Error fetching categories:', error);
             }
+
         },
-        async fetchRecipes() {
-            try {
-                console.log("Gets recipes from API");
-                const response = await fetch('https://recipes.bocs.se/api/v1/d4e5f6a7-b8c9-4d0e-1f2a-3b4c5d6e7f8a/recipes');
-                const data = await response.json();
-                console.log(data)
-                console.log(typeof data)
-                console.log(Array.isArray(data))
-                console.log(data[0]);
+        mounted() {
+            this.fetchCategories();
+            this.loadRecipes();
+        },
 
-                this.recipes = data;
-            } catch (error) {
-                console.error('Error fetching categories:', error);
-            }
-        }
-    },
-    mounted() {
-        this.fetchCategories();
-        this.fetchRecipes()
+        computed: {
+            GetAllcategoriesFromAPI() { },
 
-    },
-
-    computed: {
-        GetAllcategoriesFromAPI() { },
-
-        NumberOfRecipesInCategory() {
-            {
-                const newList = this.recipes.filter(recipe => recipe.categories === category.name);
-                console.log(newList);
-                return newList.length
+            NumberOfRecipesInCategory() {
+                {
+                    const newList = this.recipes.filter(recipe => recipe.categories === category.name);
+                    console.log(newList);
+                    return newList.length
+                }
             }
         }
     }
-}
 </script>
 
 <template>
