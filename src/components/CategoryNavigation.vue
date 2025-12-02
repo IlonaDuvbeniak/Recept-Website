@@ -6,12 +6,12 @@ export default {
         Button
     },
     data() {
-        return { categories: [] }
+        return { categories: [], recipes: [] };
     },
     methods: {
         async fetchCategories() {
             try {
-                console.log("Hämtar kategorier från API");
+                console.log("Gets categories from API");
                 const response = await fetch('https://recipes.bocs.se/api/v1/d4e5f6a7-b8c9-4d0e-1f2a-3b4c5d6e7f8a/categories');
                 const data = await response.json();
                 console.log(data)
@@ -23,17 +23,38 @@ export default {
             } catch (error) {
                 console.error('Error fetching categories:', error);
             }
+        },
+        async fetchRecipes() {
+            try {
+                console.log("Gets recipes from API");
+                const response = await fetch('https://recipes.bocs.se/api/v1/d4e5f6a7-b8c9-4d0e-1f2a-3b4c5d6e7f8a/recipes');
+                const data = await response.json();
+                console.log(data)
+                console.log(typeof data)
+                console.log(Array.isArray(data))
+                console.log(data[0]);
+
+                this.recipes = data;
+            } catch (error) {
+                console.error('Error fetching categories:', error);
+            }
         }
     },
     mounted() {
         this.fetchCategories();
+        this.fetchRecipes()
+
     },
 
     computed: {
         GetAllcategoriesFromAPI() { },
 
         NumberOfRecipesInCategory() {
-            return this.categories.length;
+            {
+                const newList = this.recipes.filter(recipe => recipe.categories === category.name);
+                console.log(newList);
+                return newList.length
+            }
         }
     }
 }
@@ -41,6 +62,8 @@ export default {
 
 <template>
     <div class="category-navigation">
+        <Button :to="{ name: 'recepies' }" btnText="Alla" variant="filter" :showArrow="false" :disabled="false"
+            class="category-button"></Button>
         <Button v-for="category in categories" :key="category.id" :to="`/recipes/category/${category.slug}`"
             :btnText="`${category.name} (${NumberOfRecipesInCategory})`" variant="filter" :showArrow="false"></Button>
 
