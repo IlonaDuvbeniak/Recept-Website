@@ -4,6 +4,7 @@ import ReceptCard from '@/components/RecipeComponents/ReceptCard.vue';
 import HowToDo from '@/components/RecipeComponents/HowToDo.vue';
 import RatingCard from '@/components/RecipeComponents/RatingCard.vue';
 import CommentForm from '../components/CommentForm.vue';
+import CommentFormTryAndError from '../components/CommentFormTryAndError.vue';
 import ArrowButton from '@/components/ArrowButton.vue';
 import Footer from '@/components/Footer.vue';
 
@@ -17,6 +18,7 @@ export default {
     HowToDo,
     RatingCard,
     CommentForm,
+    CommentFormTryAndError,
     ArrowButton,
     Footer
   },
@@ -84,6 +86,7 @@ export default {
     <HowToDo :items="recipe.ingredients" :steps="recipe.instructions" />
     <RatingCard />
     <CommentForm />
+    <CommentFormTryAndError />
     <Footer />
   </div>
 
