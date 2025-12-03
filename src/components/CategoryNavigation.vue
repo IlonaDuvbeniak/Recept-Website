@@ -40,7 +40,11 @@ export default {
             let categorySlug = categoryName.toLowerCase().replace(/&/g, 'and').replace(/ /g, '-').replace(/[^\w-]+/g, '')
             console.log('slug for category', categoryName, '→', categorySlug);
             return categorySlug
-        }
+        },
+        isCurrentCategory(categoryName) {
+            const slug = this.categorySlug(categoryName);
+            return slug === this.$route.params.categorySlug;
+        },
     },
     mounted() {
         this.fetchCategories();
@@ -52,6 +56,13 @@ export default {
             {
                 return this.recipes;
             }
+        },
+        isShowingAllRecipes() {
+            if (!this.$route.params.categorySlug) {
+                console.log(this.$route.params.categorySlug)
+                return true;
+            }
+            return false;
         }
     }
 }
@@ -59,27 +70,12 @@ export default {
 
 <template>
     <div class="category-navigation">
-
-        <Button :to="{ name: 'recepies' }" :btnText="`Alla (${allRecipes.length})`" :pressed="true" variant="filter" :showArrow="false"
-            :disabled="false" class="category-button"></Button>
+        <Button :to="{ name: 'recepies' }" :btnText="`Alla (${allRecipes.length})`" variant="filter" :showArrow="false"
+            :disabled="false" class="category-button" :pressed="isShowingAllRecipes"></Button>
         <Button v-for="category in categories" :key="category.id"
             :to="`/recipes/category/${categorySlug(category.name)}`"
             :btnText="`${category.name} (${numberOfRecipesInCategory(category.name)})`" variant="filter"
-            :showArrow="false"></Button>
-
-
-        <!-- <Button :to="{ name: 'recepies' }" btnText="Alla" variant="filter" :showArrow="false" :disabled="false"
-            class="category-button"></Button>
-        <Button to="/recipes/category/drunk-in-paradise" btnText="Drunk in paradise" variant="filter" :showArrow="false"
-            :disabled="false" class="category-button"></Button>
-        <Button to="/recipes/category/party-like-its-friday" btnText="Party Like It’s Friday" variant="filter"
-            :showArrow="false"></Button>
-        <Button to="/recipes/category/post-breakup-potions" btnText="Post-Breakup Potions" variant="filter"
-            :showArrow="false"></Button>
-        <Button to="/recipes/category/boos-and-brews" btnText="Boos & Brews" variant="filter"
-            :showArrow="false"></Button>
-        <Button to="/recipes/category/sips-of-christmas" btnText="Sips of Christmas" variant="filter"
-            :showArrow="false"></Button> -->
+            :showArrow="false" :pressed="isCurrentCategory(category.name)"></Button>
     </div>
 </template>
 
