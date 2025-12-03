@@ -1,168 +1,126 @@
- <script>
+<script>
+import axios from "axios";
+
 export default {
+  data() {
+    return {
+        allComments: [],   // här sparas datan från API
+        loading: true,   
+        error: null,      
+        commentsArray: [], // återkopplar till hur jag gjorde innan, men får tänka om på den behövs
+        name: "",
+        title: "",
+        writtenComment: "", 
 
-    name: 'CommentFormTryAndError',
-    data() {
-        return {
-            newName: '',
-            newTitle: '',
-            newWrittenComment: '', 
-            id: 0,
-            
-            commentsArray: [    
-                { id: 1, name: "Anna", title: "Hej!", writtenComment: "Detta är en testkommentar", time: "17 Nov 2025" },
-                { id: 2, name: "Moa", title: "Glassigt", writtenComment: "Rolig att ha till festen. De andra blev väldigt nyfikna så nästa gång ska jag nog bjuda på den till alla", time: "18 Nov 2025" },
-                { id: 3, name: "Alva", title: "Gott Recept", writtenComment: "Jag älskar detta recept, tack för att du delade!", time: "19 Nov 2025" },
-                { id: 4, name: "Ida", title: "Tjusigt!", writtenComment: "Amazing, just amzing, ni har lyckats igen!", time: "19 Nov 2025" },
-                { id: 5, name: "Johanna", title: "Jodå", writtenComment: "Rolig att ha till festen. De andra blev väldigt nyfikna så nästa gång ska jag nog bjuda på den till alla", time: "20 Nov 2025" },
-                { id: 6, name: "Emma", title: "Allmänt gott", writtenComment: "Jag gillar drinken, tack!", time: "21 Nov 2025" },
-            ],
 
-            showComStart: 0,
-            showComEnd: 3,
+      
+    };
+  },
 
-            disableRightButton: false,
-            disableLeftButton: true,
-        }
+  async mounted() {
+    // körs automatiskt när komponenten laddas
+    await this.fetchData();
+  },
 
+  methods: {
+    async fetchData() {
+      try {
+        const response = await axios.get   
+        ("https://recipes.bocs.se/api/v1/d4e5f6a7-b8c9-4d0e-1f2a-3b4c5d6e7f8a/recipes/79ace022-5a42-42a3-afac-094621ac6e7d/comments");
+        this.allComments = response.data; 
+      } catch (err) {
+        this.error = "Kunde inte hämta data";
+        console.error(err);
+      } finally {
+        this.loading = false;
+      }
     },
-    methods: {
-        handleClick () {
 
-            this.submitAll ();
-        },
+    logDescription() {
+        for (const eachComment of this.allComments) {
 
-        submitAll () {
+
+            // Jag behöver lägga in något som kollar vilken sida man är inne på och visar kommentarer baserat på det. 
+            // Kolla vilket recept id och matcha med recept id. 
             
+            const titleAndComment = eachComment.comment.split("*-+!");
+
+        console.log(
+            "id: ", eachComment.id, 
+            "namn: ", eachComment.name, 
+            "rubrik: ", titleAndComment[0],
+            "kommentaren: ", titleAndComment[1]
+            );
+        
+            this.id = eachComment.id;
+            this.name = eachComment.name;
+            this.title = splitString[0];
+            this.writtenComment = splitString[1]
 
             this.commentsArray.push(
-                {id: this.commentsArray.length + 1, 
-                name: this.newName, 
-                title: this.newTitle,
-                writtenComment: this.newWrittenComment, 
-                });
+                {id: eachComment.id, 
+                name: eachComment.name, 
+                title: titleAndComment[0], 
+                writtenComment: titleAndComment[1], 
+                time: eachComment.createdAt});
+            
 
-            this.newName = "";
-            this.newTitle = "";
-            this.newWrittenComment = "";
-        },
-
-                
-
-        showCommentsRight () {
-            if (this.showComEnd === this.commentsArray.length) {
-                this.disableRightButton = true;
-            } else {
-                this.showComStart +=1;
-                this.showComEnd +=1;
-                this.disableLeftButton = false;
-            }
-        },
-        
-        showCommentsLeft () {
-            if (this.showComStart === 0) {
-                this.disableLeftButton = true;
-            } else {
-                this.showComStart -=1;
-                this.showComEnd -=1;
-                this.disableRightButton = false;
-                
-            }
         }
+
+        
     }
-}
+  }
+};
 
  </script>
- 
- 
  
  <template>
 <br/>
 <br/>
 <br/>
-<br/><br/>
-<br/><br/>
-<br/><br/>
 <br/>
 
-<h1>Här kommer en Karusell</h1>
-
-    <form @submit.prevent="handleClick">
-        <label>
-            <div class="comment-form">
-            <div class="comment-form-top">
-                <h2 class="recept-name">Kommentar</h2>
-                <input v-model="newName" placeholder="Ditt namn"></input>
-            </div>
-            
-            <input v-model="newTitle" placeholder="Rubrik max 12 tecken"></input>
-            <textarea v-model="newWrittenComment" placeholder="Skriv din kommentar"></textarea>
-            <button class="btn-comment-form" type="submit">Skicka -></button>
-            
-            
-            </div>
-        </label>
-    </form>
-
-    <div class="comment-cards-container">
-        <div v-for="comment in commentsArray.slice(showComStart, showComEnd)" :key="comment.id" class="comment-card">
-            
-            <div class="comment-cards-top">
-                <p class="cocktail-name"><strong>{{ comment.name }}</strong></p>
-                <p class="p-time">{{ comment.time }}</p>
-            </div>
-            <h3 class="title-comment-cards">{{ comment.title }}</h3>
-            <p class="main-text">{{ comment.writtenComment }}</p>
-            
-        </div> 
-        <!-- v-bind = Bind HTML-attributet till ett värde från Vue-komponenten. -->
-        <button 
-            class="btn-comment-form" 
-            @click="showCommentsLeft"
-            v-bind:class="{'disabled-btn': disableLeftButton}"
-            v-bind:disabled="disableLeftButton"
-            >
-            <-
-        </button>
-
-        <button 
-            class="btn-comment-form" 
-            @click="showCommentsRight"
-            v-bind:class="{'disabled-btn': disableRightButton}"
-            :disabled="disableRightButton"
-            >
-            ->
-        </button>
-        
-        
-    </div> 
+<h1>Här kommer fetch från API</h1>
 
 
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
+<div>
+    <div v-if="loading">Laddar...</div>
+
+    <div v-if="error">{{ error }}</div>
+
+    <ul v-if="!loading && !error">
+      <li v-for="eachComment in allComments" :key="eachComment.id">
+        <strong>{{ eachComment.name }}</strong><br>
+        {{ eachComment.comment }}
+  
+      </li>
+    </ul>
+  </div>
+
+  <button @click="logDescription"></button>
+  
+    <h1>Now now...</h1>
+    <p>{{ commentsArray }} </p>
+    <p> {{ name }} </p>
+    <p> {{ title }} </p>
+    <p>{{ writtenComment }} </p>
+
+
+    <h1>Annan variant</h1>
+    <ul v-if="!loading && !error">
+   <li v-for="showCom in commentsArray" :key="showCom.id">
+   <strong>{{ showCom.name }}</strong><br>
+        {{ showCom.title }}
+         {{ showCom.writtenComment }}
+          {{ showCom.time }}
+   </li>
+   </ul>
+
   <br/>
   <br/>
   <br/>
 
  </template>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
