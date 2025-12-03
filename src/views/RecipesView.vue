@@ -15,6 +15,15 @@ export default {
     methods: {
         scrollToTop() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
+        },
+        showMore() {
+            this.visibleCount += 6;
+        }
+    },
+    data() {
+        return {
+            visibleCount: 6,
+            total: 0
         }
     }
 }
@@ -23,8 +32,8 @@ export default {
 <template>
     <ArrowButton variant="to-top" @click="scrollToTop"/>
     <div class="container">
-        <CardsGrid />
-        <Button btnText="Visa fler" variant="primary" :showArrow="true" :disabled="false" @event="showMore"></Button>
+        <CardsGrid :limit="visibleCount" @update:total="total = $event"/>
+        <Button v-if="visibleCount < total" btnText="Visa fler" variant="primary" :showArrow="true" :disabled="false" @event="showMore"></Button>
     </div>
     <Footer />
 </template>

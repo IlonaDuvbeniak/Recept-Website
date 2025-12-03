@@ -24,7 +24,7 @@ export default {
 <template>
     <div class="card">
         <div class="image-container">
-            <img :src="image" :alt="label">
+            <img :src="image" :alt="label" loading="lazy">
         </div>
 
         <div class="name-container">

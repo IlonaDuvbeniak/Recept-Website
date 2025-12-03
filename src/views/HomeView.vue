@@ -27,7 +27,7 @@
   <ArrowButton variant="to-top" @click="scrollToTop"/>
   <HeroSection />
   <div class="container">
-    <CardsGrid />
+    <CardsGrid :limit="6"/>
     <Button :to="{ name: 'recepies' }" btnText="Visa fler" variant="primary" :showArrow="true"
       :disabled="false"></Button>
   </div>

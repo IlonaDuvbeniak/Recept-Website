@@ -11,7 +11,11 @@ export default {
         CategoryNavigation
     },
     props: {
-        categorySlug: String
+        categorySlug: String,
+        limit: {
+            type: Number,
+            default: null
+        }
     },
     data() {
         return {
@@ -40,6 +44,12 @@ export default {
                 }
             },
             immediate: true  
+        },
+        filteredCoctails: {
+            handler(val) {
+                this.$emit('update:total', val.length);
+            },
+            immediate: true
         }
     },
     computed: {
@@ -59,6 +69,10 @@ export default {
                 )
             }
             return result
+        },
+        limitedCoctails() {
+            if (!this.limit) return this.filteredCoctails;
+            return this.filteredCoctails.slice(0, this.limit);
         }
     }
 }
@@ -70,7 +84,7 @@ export default {
         <SearchBar :value="searchTerm" @input="searchTerm = $event" />
         <CategoryNavigation></CategoryNavigation>
         <div class="cards-container">
-            <Card v-for="coctail in filteredCoctails" :key="coctail.id" :categori="coctail.categories[1]"
+            <Card v-for="coctail in limitedCoctails" :key="coctail.id" :categori="coctail.categories[1]"
                 :categorySlug="coctail.slug" :name="coctail.title" :rating="coctail.ratings[1]"
                 :ingridients="coctail.ingredients" :time="coctail.timeInMins" :image="coctail.imageUrl" :label="coctail.title"
                 :to="{ name: 'recipe', params: { slug: coctail.slug } }"
