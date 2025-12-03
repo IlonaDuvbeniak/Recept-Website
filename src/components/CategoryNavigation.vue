@@ -44,7 +44,7 @@ export default {
         isCurrentCategory(categoryName) {
             const slug = this.categorySlug(categoryName);
             return slug === this.$route.params.categorySlug;
-        }
+        },
     },
     mounted() {
         this.fetchCategories();
@@ -56,6 +56,13 @@ export default {
             {
                 return this.recipes;
             }
+        },
+        isShowingAllRecipes() {
+            if (!this.$route.params.categorySlug) {
+                console.log(this.$route.params.categorySlug)
+                return true;
+            }
+            return false;
         }
     }
 }
@@ -64,7 +71,7 @@ export default {
 <template>
     <div class="category-navigation">
         <Button :to="{ name: 'recepies' }" :btnText="`Alla (${allRecipes.length})`" variant="filter" :showArrow="false"
-            :disabled="false" class="category-button" :pressed="false"></Button>
+            :disabled="false" class="category-button" :pressed="isShowingAllRecipes"></Button>
         <Button v-for="category in categories" :key="category.id"
             :to="`/recipes/category/${categorySlug(category.name)}`"
             :btnText="`${category.name} (${numberOfRecipesInCategory(category.name)})`" variant="filter"
