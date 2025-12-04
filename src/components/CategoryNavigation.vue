@@ -71,11 +71,13 @@ export default {
 <template>
     <div class="category-navigation">
         <Button :to="{ name: 'recepies' }" :btnText="`Alla (${allRecipes.length})`" variant="filter" :showArrow="false"
-            :disabled="false" class="category-button" :pressed="isShowingAllRecipes"></Button>
+            :disabled="false" class="category-button" :pressed="isShowingAllRecipes"
+            :aria-current="isShowingAllRecipes ? 'page' : null"></Button>
         <Button v-for="category in categories" :key="category.id"
             :to="`/recipes/category/${categorySlug(category.name)}`"
             :btnText="`${category.name} (${numberOfRecipesInCategory(category.name)})`" variant="filter"
-            :showArrow="false" :pressed="isCurrentCategory(category.name)"></Button>
+            :showArrow="false" :pressed="isCurrentCategory(category.name)"
+            :aria-current="isCurrentCategory(category.name) ? 'page' : null"></Button>
     </div>
 </template>
 
