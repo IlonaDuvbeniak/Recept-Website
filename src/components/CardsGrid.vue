@@ -3,13 +3,16 @@ import { fetchData } from '@/FetchData.vue';
 import Card from '../components/Card.vue'
 import SearchBar from '@/components/SearchBar.vue';
 import CategoryNavigation from './CategoryNavigation.vue';
+import Loading from '@/components/Loading.vue';
 
 export default {
     components: {
         Card,
         SearchBar,
-        CategoryNavigation
+        CategoryNavigation,
+        Loading
     },
+    
     props: {
         categorySlug: String,
         limit: {
@@ -17,15 +20,24 @@ export default {
             default: null
         }
     },
+
     data() {
         return {
             coctails: [],
             searchTerm: "",
-            categoryTitle: ""
+            categoryTitle: "",
+            loading: false
         }
     },
+
     async created() {
-        this.coctails = await fetchData();
+        this.loading = true;
+
+        try {
+            this.coctails = await fetchData();
+        } finally {
+            this.loading = false;
+        }  
     },
 
     watch: {
@@ -52,6 +64,7 @@ export default {
             immediate: true
         }
     },
+
     computed: {
         filteredCoctails() {
             let result = this.coctails
@@ -83,7 +96,10 @@ export default {
     <div class="page-container">
         <SearchBar :value="searchTerm" @input="searchTerm = $event" />
         <CategoryNavigation></CategoryNavigation>
-        <div class="cards-container">
+        <div v-if="loading">
+            <Loading />
+        </div>
+        <div v-else class="cards-container">
             <Card v-for="coctail in limitedCoctails" :key="coctail.id" :categori="coctail.categories[0]"
                 :categorySlug="coctail.slug" :name="coctail.title" :rating="coctail.ratings[0]"
                 :ingridients="coctail.ingredients" :time="coctail.timeInMins" :image="coctail.imageUrl" :label="coctail.title"
