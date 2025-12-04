@@ -1,7 +1,19 @@
 <script>
 import axios from "axios";
+// import { fetchData } from '@/FetchData.vue';
+// import CategoryNavigation from '@/components/CategoryNavigation.vue';
+// import Button from '@/components/Button.vue';
 
 export default {
+   name: "TryAndError",
+    components: {
+        // CategoryNavigation,
+        // Button
+    },
+    props: {
+    message: String,       // enkel typkontroll
+    count: Number
+  },
   data() {
     return {
         allComments: [],   // här sparas datan från API
@@ -11,7 +23,15 @@ export default {
         name: "",
         title: "",
         writtenComment: "", 
-
+        recipes: [],
+        // activeRecipePage: this.$route.params.slug, // Funkar inte med slug för är inte samma som i API. Behöver sifferkombon. Den innan slug.
+        
+        // activeRecipeOnPage: "79ace022-5a42-42a3-afac-094621ac6e7d",
+        activeRecipe: "",
+        slugToRecipeIdInCommentsAPI: 
+            [{slugName: "boozy-banshee-scream", recipeId: "79ace022-5a42-42a3-afac-094621ac6e7d"},
+            {}
+        ] //inte samma som id i Recept APIet. 
 
       
     };
@@ -19,11 +39,33 @@ export default {
 
   async mounted() {
     // körs automatiskt när komponenten laddas
-    await this.fetchData();
+    await this.fetchComments();
+    // await this.loadRecipes();
   },
 
+
+  
+
   methods: {
-    async fetchData() {
+
+      hej () {
+        console.log("hej");
+      },
+    
+       getRecipeId() {
+           console.log(this.$route.params.slug) // slug ska sen jämföras mot lista med slug vs recept id. 
+           this.activeRecipe = this.$route.params.slug;
+           return activeRecipe;
+   },
+
+
+    //  async loadRecipes() {
+    //         this.recipes = await fetchData()
+    //         console.log("Recipes loaded in CommentSection:", this.recipes);
+    //     },
+
+
+    async fetchComments() {
       try {
         const response = await axios.get   
         ("https://recipes.bocs.se/api/v1/d4e5f6a7-b8c9-4d0e-1f2a-3b4c5d6e7f8a/recipes/79ace022-5a42-42a3-afac-094621ac6e7d/comments");
@@ -36,40 +78,45 @@ export default {
       }
     },
 
+
+
     logDescription() {
+      console.log("logDescription aktiverad");
         for (const eachComment of this.allComments) {
+          console.log(eachComment); 
+         }  
 
+            // if (this.activeRecipeOnPage === eachComment.recipeId) {
+            //   console.log ("hit kom jag");
+            //   console.log (eachComment.name, eachComment.comment);
+            // } else {console.log("Nah...")}
+    
+        //     const titleAndComment = eachComment.comment.split("*-+!");
 
-            // Jag behöver lägga in något som kollar vilken sida man är inne på och visar kommentarer baserat på det. 
-            // Kolla vilket recept id och matcha med recept id. 
-            
-            const titleAndComment = eachComment.comment.split("*-+!");
-
-        console.log(
-            "id: ", eachComment.id, 
-            "namn: ", eachComment.name, 
-            "rubrik: ", titleAndComment[0],
-            "kommentaren: ", titleAndComment[1]
-            );
+        // console.log(
+        //     "id: ", eachComment.id, 
+        //     "namn: ", eachComment.name, 
+        //     "rubrik: ", titleAndComment[0],
+        //     "kommentaren: ", titleAndComment[1]
+        //     );
         
-            this.id = eachComment.id;
-            this.name = eachComment.name;
-            this.title = splitString[0];
-            this.writtenComment = splitString[1]
+        //     this.id = eachComment.id;
+        //     this.name = eachComment.name;
+        //     this.title = splitString[0];
+        //     this.writtenComment = splitString[1]
 
-            this.commentsArray.push(
-                {id: eachComment.id, 
-                name: eachComment.name, 
-                title: titleAndComment[0], 
-                writtenComment: titleAndComment[1], 
-                time: eachComment.createdAt});
+        //     this.commentsArray.push(
+        //         {id: eachComment.id, 
+        //         name: eachComment.name, 
+        //         title: titleAndComment[0], 
+        //         writtenComment: titleAndComment[1], 
+        //         time: eachComment.createdAt});
             
-
-        }
 
         
     }
-  }
+  },
+
 };
 
  </script>
@@ -97,7 +144,9 @@ export default {
     </ul>
   </div>
 
-  <button @click="logDescription"></button>
+  <button @click="logDescription">här</button>
+
+  <button @click="hej">hej</button>
   
     <h1>Now now...</h1>
     <p>{{ commentsArray }} </p>
@@ -116,7 +165,29 @@ export default {
    </li>
    </ul>
 
+
+
+      <!-- <p>Här är recept-id: {{ recipes }}</p> -->
+
+
+
+      
   <br/>
+
+
+      <div>
+        <h1>Hej</h1>
+        <p>{{ message }}</p>
+        <p>Antal: {{ count }}</p>
+      </div>
+
+      <button @click="getRecipeId">get recepiID</button>
+      {{ activeRecipe }}
+
+    
+
+
+
   <br/>
   <br/>
 
