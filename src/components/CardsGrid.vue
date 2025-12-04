@@ -43,7 +43,7 @@ export default {
                     document.title = "Alla Recept - Drinks"
                 }
             },
-            immediate: true  
+            immediate: true
         },
         filteredCoctails: {
             handler(val) {
@@ -65,7 +65,7 @@ export default {
             if (this.searchTerm) {
                 const term = this.searchTerm.toLowerCase()
                 result = result.filter((coctail) =>
-                    coctail.name.toLowerCase().includes(term)
+                    coctail.title.toLowerCase().includes(term)
                 )
             }
             return result
@@ -86,40 +86,39 @@ export default {
         <div class="cards-container">
             <Card v-for="coctail in limitedCoctails" :key="coctail.id" :categori="coctail.categories[0]"
                 :categorySlug="coctail.slug" :name="coctail.title" :rating="coctail.ratings[0]"
-                :ingridients="coctail.ingredients" :time="coctail.timeInMins" :image="coctail.imageUrl" :label="coctail.title"
-                :to="{ name: 'recipe', params: { slug: coctail.slug } }"
-            />
+                :ingridients="coctail.ingredients" :time="coctail.timeInMins" :image="coctail.imageUrl"
+                :label="coctail.title" :to="{ name: 'recipe', params: { slug: coctail.slug } }" />
         </div>
     </div>
 </template>
 
 <style scoped>
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+    gap: 24px;
+    padding: 0 120px;
+}
+
+@media (max-width: 991px) {
     .cards-container {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        width: 100%;
-        gap: 24px;
-        padding: 0 120px;
+        grid-template-columns: repeat(2, 1fr);
+        padding: 0 72px;
     }
+}
 
-    @media (max-width: 991px) {
-        .cards-container {
-            grid-template-columns: repeat(2, 1fr);
-            padding: 0 72px;
-        }
+@media (max-width: 767px) {
+    .cards-container {
+        gap: 20px;
+        padding: 0 52px;
     }
+}
 
-    @media (max-width: 767px) {
-        .cards-container {
-            gap: 20px;
-            padding: 0 52px;
-        }
+@media (max-width: 575px) {
+    .cards-container {
+        grid-template-columns: 1fr;
+        padding: 0 24px;
     }
-
-    @media (max-width: 575px) {
-        .cards-container {
-            grid-template-columns: 1fr;
-            padding: 0 24px;
-        }
-    }
+}
 </style>
