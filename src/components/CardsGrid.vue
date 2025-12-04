@@ -84,8 +84,8 @@ export default {
         <SearchBar :value="searchTerm" @input="searchTerm = $event" />
         <CategoryNavigation></CategoryNavigation>
         <div class="cards-container">
-            <Card v-for="coctail in limitedCoctails" :key="coctail.id" :categori="coctail.categories[1]"
-                :categorySlug="coctail.slug" :name="coctail.title" :rating="coctail.ratings[1]"
+            <Card v-for="coctail in limitedCoctails" :key="coctail.id" :categori="coctail.categories[0]"
+                :categorySlug="coctail.slug" :name="coctail.title" :rating="coctail.ratings[0]"
                 :ingridients="coctail.ingredients" :time="coctail.timeInMins" :image="coctail.imageUrl" :label="coctail.title"
                 :to="{ name: 'recipe', params: { slug: coctail.slug } }"
             />

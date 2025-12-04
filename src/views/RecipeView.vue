@@ -76,6 +76,8 @@ export default {
   <div v-if="recipe">
     <ReceptCard  
       :name="recipe.title"
+      :categori="recipe.categories[0]"
+      :categorySlug="recipe.categorySlug"
       :description="recipe.description" 
       :rating="recipe.ratings" 
       :ingridients="recipe.ingredients" 

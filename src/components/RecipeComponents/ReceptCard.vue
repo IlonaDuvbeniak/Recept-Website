@@ -3,9 +3,9 @@
         <div class="recept-card">
             <div class="info-container">
                 <div class="text-wrapper">
-                    <!-- <router-link :to="{ name: 'category', params: { categorySlug: categorySlug } }" class="categori">
+                    <router-link :to="{ name: 'category', params: { categorySlug: categorySlug } }" class="categori">
                         {{ categori }}
-                    </router-link> -->
+                    </router-link>
                     <h1 class="recept-name">{{ name }}</h1>
                     <p class="description">{{ description }}</p>
                 </div>
@@ -38,9 +38,9 @@ export default {
         rating: Number,
         ingridients: Number,
         time: Number,
-        // categori: String,
+        categori: String,
         name: String,
-        // categorySlug: String,
+        categorySlug: String,
         description: String,
         image: String,
         to: [String, Object]
