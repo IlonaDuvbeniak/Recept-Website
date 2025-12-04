@@ -7,6 +7,8 @@ import CommentForm from '../components/CommentForm.vue';
 import CommentFormTryAndError from '../components/CommentFormTryAndError.vue';
 import ArrowButton from '@/components/ArrowButton.vue';
 import Footer from '@/components/Footer.vue';
+import Loading from '@/components/Loading.vue';
+import NotFound from '@/components/NotFound.vue';
 
 
 
@@ -20,7 +22,9 @@ export default {
     CommentForm,
     CommentFormTryAndError,
     ArrowButton,
-    Footer
+    Footer,
+    Loading,
+    NotFound
   },
 
   props: ['slug'],
@@ -28,13 +32,22 @@ export default {
   data() {
     return {
       recipe: null,
-      coctails: []
+      coctails: [],
+      loading: false
     }
   },
 
   async created() {
-      this.coctails = await fetchData();
-      this.updateRecipeSlug();
+      this.loading = true;
+
+      try {
+        this.coctails = await fetchData();
+        this.updateRecipeSlug();
+
+      } finally {
+        this.loading = false;
+      }
+
   },
 
 
@@ -73,27 +86,31 @@ export default {
       stroke="#A5D1D0" stroke-width="62" />
   </svg>
 
-  <div v-if="recipe">
-    <ReceptCard  
-      :name="recipe.title"
-      :categori="recipe.categories[0]"
-      :categorySlug="recipe.categorySlug"
-      :description="recipe.description" 
-      :rating="recipe.ratings" 
-      :ingridients="recipe.ingredients" 
-      :time="recipe.timeInMins"
-      :image="recipe.imageUrl" 
-    />
+  <div v-if="loading">
+    <Loading />
+  </div>
 
-    <HowToDo :items="recipe.ingredients" :steps="recipe.instructions" />
-    <RatingCard />
-    <CommentForm />
-    <CommentFormTryAndError />
-    <Footer />
+  <div v-else-if="recipe">
+      <ReceptCard  
+        :name="recipe.title"
+        :categori="recipe.categories[0]"
+        :categorySlug="recipe.categorySlug"
+        :description="recipe.description" 
+        :rating="recipe.ratings" 
+        :ingridients="recipe.ingredients" 
+        :time="recipe.timeInMins"
+        :image="recipe.imageUrl" 
+      />
+
+      <HowToDo :items="recipe.ingredients" :steps="recipe.instructions" />
+      <RatingCard />
+      <CommentForm />
+      <CommentFormTryAndError />
+      <Footer />
   </div>
 
   <div v-else>
-    <h2>Receptet hittades inte</h2>
+    <NotFound />
   </div>
 
 </template>
