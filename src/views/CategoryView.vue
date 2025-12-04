@@ -15,12 +15,12 @@ export default {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         },
         showMore() {
-            this.visibleCount += 6;
+            this.visibleCount += 9;
         }   
     },
     data() {
         return {
-            visibleCount: 6,
+            visibleCount: 9,
             total: 0
         }
     }
