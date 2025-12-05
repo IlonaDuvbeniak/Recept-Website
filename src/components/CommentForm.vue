@@ -332,6 +332,9 @@ async postCommentsToAPI() {
             v-bind:disabled="disableLeftButton"
             aria-label="To the left"
             >
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" >
+                <path d="M3.44062 16.0594C2.85469 15.4734 2.85469 14.5219 3.44062 13.9359L10.9406 6.43591C11.5266 5.84998 12.4781 5.84998 13.0641 6.43591C13.65 7.02185 13.65 7.97341 13.0641 8.55935L8.12344 13.5H25.5C26.3297 13.5 27 14.1703 27 15C27 15.8297 26.3297 16.5 25.5 16.5H8.12344L13.0641 21.4406C13.65 22.0265 13.65 22.9781 13.0641 23.564C12.4781 24.15 11.5266 24.15 10.9406 23.564L3.44062 16.064V16.0594Z"/>
+            </svg>
         </button>
 
         <button 
@@ -342,6 +345,9 @@ async postCommentsToAPI() {
             :disabled="disableRightButton"
             aria-label="To the right"
             >
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" >
+                <path d="M26.5594 16.0594C27.1453 15.4734 27.1453 14.5219 26.5594 13.9359L19.0594 6.43591C18.4734 5.84998 17.5219 5.84998 16.9359 6.43591C16.35 7.02185 16.35 7.97341 16.9359 8.55935L21.8766 13.5H4.5C3.67031 13.5 3 14.1703 3 15C3 15.8297 3.67031 16.5 4.5 16.5H21.8766L16.9359 21.4406C16.35 22.0265 16.35 22.9781 16.9359 23.564C17.5219 24.15 18.4734 24.15 19.0594 23.564L26.5594 16.064V16.0594Z"/>
+            </svg>
         </button>
     </div> 
 </div> 
@@ -374,7 +380,7 @@ button {
     border-radius: 50px;
     border-color: var(--red-color);
     box-shadow: none;
-    padding: 8px 35px 8px 35px;
+    padding: 8px;
 
 
     font-family: instrument-sans, sans-serif;
@@ -386,6 +392,9 @@ button {
 }
 
 .btn-carousel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     align-self: center;
     margin-bottom: 20px;
     width: 80px;
@@ -395,7 +404,7 @@ button {
     top: 40%;
     /* right: 45px; */
     border: 1px solid var(--red-color);
-    
+    fill: var(--white-color);
 
     transition: transform 0.2s ease;
     transform: scale(1);
@@ -426,7 +435,7 @@ button {
     color: var(--red-color);
     cursor: not-allowed;
     border: 1px solid  var(--red-color);
-
+    fill: var(--red-color);
     border-radius: 50%;
 }
 .disabled-btn:hover {
