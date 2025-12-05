@@ -27,6 +27,9 @@ export default {
             const categorySlug = this.$route.params.categorySlug
             const category = data.coctails.find(drink => drink.categorySlug === categorySlug)
             return category ? category.categori : ''
+        },
+        IsOnRecipesRoot() {
+            return this.$route.name === 'recepies';
         }
     }
 }
@@ -41,19 +44,19 @@ export default {
                 <span>
                     <img src="/img/arrow-bread-crumbs.svg" alt="arrow icon" />
                 </span>
-                <router-link to="/recipes">Recipes</router-link>
+                <router-link to="/recipes" :aria-current="IsOnRecipesRoot ? 'page' : null">Recipes</router-link>
             </li>
             <li v-if="IsShowingCategoryView">
                 <span>
                     <img src="/img/arrow-bread-crumbs.svg" alt="arrow icon" />
                 </span>
-                <span>{{ BreadCrumbCategoryName }}</span>
+                <span aria-current="page">{{ BreadCrumbCategoryName }}</span>
             </li>
             <li v-if="IsShowingRecipeView">
                 <span>
                     <img src="/img/arrow-bread-crumbs.svg" alt="arrow icon" />
                 </span>
-                <span>{{ BreadCrumbRecipeName }}</span>
+                <span aria-current="page">{{ BreadCrumbRecipeName }}</span>
             </li>
         </ul>
     </nav>
