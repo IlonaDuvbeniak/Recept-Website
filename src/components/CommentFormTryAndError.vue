@@ -1,17 +1,38 @@
 <script>
 import axios from "axios";
+// import { fetchData } from '@/FetchData.vue';
+// import CategoryNavigation from '@/components/CategoryNavigation.vue';
+// import Button from '@/components/Button.vue';
 
 export default {
+   name: "TryAndError",
+    components: {
+        // CategoryNavigation,
+        // Button
+    },
+    props: {
+    message: String,       // enkel typkontroll
+    count: Number
+  },
   data() {
     return {
-        allComments: [],   // här sparas datan från API
+        allComments: null,   // här sparas datan från API
         loading: true,   
         error: null,      
-        commentsArray: [], // återkopplar till hur jag gjorde innan, men får tänka om på den behövs
+        commentsArray: [], 
         name: "",
         title: "",
         writtenComment: "", 
-
+        recipes: [],
+        activeRecipePage: this.$route.params.slug, // this för tillfället
+        
+        
+        activeRecipe: "",
+        slugToRecipeIdInCommentsAPI:
+            [{slugName: "boozy-banshee-scream", recipeId: "79ace022-5a42-42a3-afac-094621ac6e7d"},  // this för tillfället, byts nästa branch. 
+            {slugName: "bitter-tears", recipeId: "a07a3046-89d1-4f53-9ec8-8326cf3d7271"}
+        ], //inte samma som id i Recept APIet. 
+        eachCommentLocalArray: "" 
 
       
     };
@@ -19,15 +40,32 @@ export default {
 
   async mounted() {
     // körs automatiskt när komponenten laddas
-    await this.fetchData();
+    await this.fetchComments();
+    // await this.loadRecipes();
   },
 
+
+  
+
   methods: {
-    async fetchData() {
+    
+       getRecipeId() { // this så länge, kommer byta det i nästa branch till att man fetchar efter id eller något. 
+           console.log(this.$route.params.slug) //jämföras nu mot lista med slug vs recept id. 
+           this.activeRecipe = this.$route.params.slug;
+           return activeRecipe;
+   },
+
+
+    //  async loadRecipes() {
+    //         this.recipes = await fetchData()
+    //         console.log("Recipes loaded in CommentSection:", this.recipes);
+    //     },
+
+
+    async fetchComments() { // this
       try {
-        const response = await axios.get   
-        ("https://recipes.bocs.se/api/v1/d4e5f6a7-b8c9-4d0e-1f2a-3b4c5d6e7f8a/recipes/79ace022-5a42-42a3-afac-094621ac6e7d/comments");
-        this.allComments = response.data; 
+        const response = await axios.get("https://recipes.bocs.se/api/v1/d4e5f6a7-b8c9-4d0e-1f2a-3b4c5d6e7f8a/recipes/c7721a9b-b3eb-4275-adee-b1f8c625bfb2/comments");
+        this.allComments = response.data;
       } catch (err) {
         this.error = "Kunde inte hämta data";
         console.error(err);
@@ -36,89 +74,45 @@ export default {
       }
     },
 
+
+
     logDescription() {
-        for (const eachComment of this.allComments) {
-
-
-            // Jag behöver lägga in något som kollar vilken sida man är inne på och visar kommentarer baserat på det. 
-            // Kolla vilket recept id och matcha med recept id. 
-            
-            const titleAndComment = eachComment.comment.split("*-+!");
-
-        console.log(
-            "id: ", eachComment.id, 
-            "namn: ", eachComment.name, 
-            "rubrik: ", titleAndComment[0],
-            "kommentaren: ", titleAndComment[1]
-            );
+      console.log("logDescription aktiverad");
         
-            this.id = eachComment.id;
-            this.name = eachComment.name;
-            this.title = splitString[0];
-            this.writtenComment = splitString[1]
+      for (const eachComment of this.allComments) { // this
+    
+         
+           const titleAndComment = eachComment.comment.split("*-+!"); // this
 
-            this.commentsArray.push(
+ 
+            if (this.activeRecipeOnPage === eachComment.recipeId) {
+              console.log ("hit kom jag"); // this. men lägg push här. 
+              console.log (eachComment.name, eachComment.comment);
+            } else {console.log("Senare är det här effekten av else: Inga recept på det här receptId... Inga recept pushades")}
+    
+           
+
+     
+        
+
+            this.commentsArray.push(    // this
                 {id: eachComment.id, 
                 name: eachComment.name, 
                 title: titleAndComment[0], 
                 writtenComment: titleAndComment[1], 
                 time: eachComment.createdAt});
             
-
-        }
-
+      }
         
     }
-  }
+  },
+
 };
 
  </script>
  
  <template>
-<br/>
-<br/>
-<br/>
-<br/>
 
-<h1>Här kommer fetch från API</h1>
-
-
-<div>
-    <div v-if="loading">Laddar...</div>
-
-    <div v-if="error">{{ error }}</div>
-
-    <ul v-if="!loading && !error">
-      <li v-for="eachComment in allComments" :key="eachComment.id">
-        <strong>{{ eachComment.name }}</strong><br>
-        {{ eachComment.comment }}
-  
-      </li>
-    </ul>
-  </div>
-
-  <button @click="logDescription"></button>
-  
-    <h1>Now now...</h1>
-    <p>{{ commentsArray }} </p>
-    <p> {{ name }} </p>
-    <p> {{ title }} </p>
-    <p>{{ writtenComment }} </p>
-
-
-    <h1>Annan variant</h1>
-    <ul v-if="!loading && !error">
-   <li v-for="showCom in commentsArray" :key="showCom.id">
-   <strong>{{ showCom.name }}</strong><br>
-        {{ showCom.title }}
-         {{ showCom.writtenComment }}
-          {{ showCom.time }}
-   </li>
-   </ul>
-
-  <br/>
-  <br/>
-  <br/>
 
  </template>
 
@@ -127,6 +121,10 @@ export default {
 
 
  <style scoped>
+
+ .testDiv {
+  border: 2px solid pink;
+ }
 
 .helpMsg {
     /* background: var(--baby-pink-color); */

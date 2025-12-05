@@ -113,6 +113,13 @@ export default {
     <NotFound />
   </div>
 
+  
+
+  <!-- test av Nat -->
+            <!-- <CommentFormTryAndError message="Hej från parent! ${this.recipe}" :count="5" />    -->
+  <!-- slut test av Nat -->
+
+
 </template>
 
 
