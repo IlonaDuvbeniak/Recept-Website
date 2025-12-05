@@ -5,9 +5,9 @@
                 <h2>Ingredienser</h2>
                 <ul>
                     <li v-for="item in items" :key="item">
-                        {{ item }}
+                        {{ displayIngredientAmount(item) }}
                     </li>
-                </ul>
+                </ul> 
             </div>
 
             <div class="steps-container">
@@ -28,9 +28,19 @@
     export default {
         props: {
             items: Array,
-            steps: Array  
+            steps: Array 
+        },
+        methods: {
+            displayIngredientAmount(item) {
+                if (item.amount === 0) {
+                    return item.name.charAt(0).toUpperCase() + item.name.slice(1);
+                } else {
+                    return `${item.amount} ${item.unit} ${item.name}`
+                }
+            }
         }
     }
+
 </script>
 
 <style scoped>

@@ -102,7 +102,7 @@ export default {
         <div v-else class="cards-container">
             <Card v-for="coctail in limitedCoctails" :key="coctail.id" :categori="coctail.categories[0]"
                 :categorySlug="coctail.slug" :name="coctail.title" :rating="coctail.ratings[0]"
-                :ingridients="coctail.ingredients" :time="coctail.timeInMins" :image="coctail.imageUrl"
+                :ingridients="coctail.ingredients.length" :time="coctail.timeInMins" :image="coctail.imageUrl"
                 :label="coctail.title" :to="{ name: 'recipe', params: { slug: coctail.slug } }" />
         </div>
     </div>
