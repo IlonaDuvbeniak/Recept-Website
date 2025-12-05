@@ -97,12 +97,14 @@ export default {
         :categorySlug="recipe.categorySlug"
         :description="recipe.description" 
         :rating="recipe.ratings" 
-        :ingridients="recipe.ingredients" 
+        :ingridients="recipe.ingredients.length" 
         :time="recipe.timeInMins"
         :image="recipe.imageUrl" 
       />
 
-      <HowToDo :items="recipe.ingredients" :steps="recipe.instructions" />
+      <HowToDo 
+        :items="recipe.ingredients"
+        :steps="recipe.instructions" />
       <RatingCard />
       <CommentForm />
       <CommentFormTryAndError />

@@ -1,5 +1,5 @@
 export function slugify(str) {
-  console.log("slugify called with:", str);
+  // console.log("slugify called with:", str);
 
   if (!str) {
     return "";
