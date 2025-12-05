@@ -12,12 +12,12 @@ export default {
             allComments: null,   // här sparas datan från API
             loading: true,   
             error: null,   
-        //     activeRecipePage: this.$route.params.slug, // this för tillfället
+            activeRecipePage: this.$route.params.slug, // this för tillfället
         //     activeRecipe: "",
-        //     slugToRecipeIdInCommentsAPI:
-        //         [{slugName: "boozy-banshee-scream", recipeId: "79ace022-5a42-42a3-afac-094621ac6e7d"},  // this för tillfället, byts nästa branch. 
-        //         {slugName: "bitter-tears", recipeId: "a07a3046-89d1-4f53-9ec8-8326cf3d7271"}
-        //         ], 
+            slugToRecipeIdInCommentsAPIlist:
+                [{slugName: "boozy-banshee-scream", recipeId: "79ace022-5a42-42a3-afac-094621ac6e7d"},  // this för tillfället, byts nästa branch. 
+                {slugName: "bitter-tears", recipeId: "a07a3046-89d1-4f53-9ec8-8326cf3d7271"}
+                ], 
             eachCommentLocalArray: "",
             
             
@@ -126,21 +126,73 @@ export default {
 
 // //______________KÄNNER AV RECEPTET PÅ PAGE____________________________________________________
 
-//         getRecipeId() { // this så länge, kommer byta det i nästa branch till att man fetchar efter id eller något. 
-//            console.log(this.$route.params.slug) //jämföras nu mot lista med slug vs recept id. 
-//            this.activeRecipe = this.$route.params.slug;
-//            return activeRecipe;
-//         },
+        // getRecipeId() { 
+        //    console.log(this.$route.params.slug)  
+        //    this.activeRecipe = this.$route.params.slug;
+        //    return activeRecipe;
+        // },
 
 //    // jämför något om receptid och slut etc... 
 
+        commentApiUrl () {
+            // om slug är boozy-banshee-scream returna den här:
+            // "https://recipes.bocs.se/api/v1/d4e5f6a7-b8c9-4d0e-1f2a-3b4c5d6e7f8a/recipes/c7721a9b-b3eb-4275-adee-b1f8c625bfb2/comments"
+            // om slug är bitter-bears returna den här: 
+            // "https://recipes.bocs.se/api/v1/d4e5f6a7-b8c9-4d0e-1f2a-3b4c5d6e7f8a/recipes/a07a3046-89d1-4f53-9ec8-8326cf3d7271/comments"
+            //                                                                              a07a3046-89d1-4f53-9ec8-8326cf3d7271
+            
+            // Jag hade kanske kunnat gjort en fetch som kollade vad det var för recept-id vi var inne på, 
+            // och sen skapat en generisk 
+            // "https://recipes.bocs.se/api/v1/d4e5f6a7-b8c9-4d0e-1f2a-3b4c5d6e7f8a/recipes/"
+            // som plussar på receptID
+            // plus /comments
+
+            // Grejen är, om jag hade vetat hur saker hamna på sidan. Det måste ju vara en fetch där. Om det hade kunnat... 
+            // Men jag vet inte... Känns som det är svårt att avsluta den tanken. 
+
+            // Jag hade velat fetcha recepten.... och därifrån tagit receptID... och sen klistrat in den i en generisk sån här url.... 
+            
+            // Men jag tänker också att jag inte ska behöva fetcha receptID för det ska redan vara fetchat... Jag vet bara inte var. 
+
+            // Ärsh, jag tar bara slug, kopplar det mot en lista med recept-idn. 
+            // Tar receptid och klistrar in i generisk url
+
+
+            // activeRecipePage: this.$route.params.slug
+            // const activeRecipePage = this.$route.params.slug;
+            
+
+            console.log ("Här kollar jag först så att slugToRecipeIdInCommentsAPIlist fungerar ", this.slugToRecipeIdInCommentsAPIlist);
+
+                const slugToRecipeIdInCommentsAPIlist2 =
+                [{slugName: "boozy-banshee-scream", recipeId: "79ace022-5a42-42a3-afac-094621ac6e7d"},  // this för tillfället, byts nästa branch. 
+                {slugName: "bitter-tears", recipeId: "a07a3046-89d1-4f53-9ec8-8326cf3d7271"}
+                ];
+
+             console.log ("Här kollar jag först så att slugToRecipeIdInCommentsAPIlist2 fungerar ", slugToRecipeIdInCommentsAPIlist2);
+
+
+
+            const findRecipeId = slugToRecipeIdInCommentsAPIlist2.find(p => p.slugName === this.activeRecipePage);
+            
+            console.log("Här under hittar vi receptId: ");
+            console.log(findRecipeId.recipeId);
+
+
+            // if slugToRecipeIdInCommentsAPI === ""
+
+            var testReceptId = "a07a3046-89d1-4f53-9ec8-8326cf3d7271"
+
+            console.log("https://recipes.bocs.se/api/v1/d4e5f6a7-b8c9-4d0e-1f2a-3b4c5d6e7f8a/recipes/" + testReceptId + "/comments")
+
+        },
 
 
 // //______________HÄMTNING AV KOMMENTARER FRÅN API____________________________________________________
 
         async fetchComments() { // this
             try {
-                const response = await axios.get("https://recipes.bocs.se/api/v1/d4e5f6a7-b8c9-4d0e-1f2a-3b4c5d6e7f8a/recipes/c7721a9b-b3eb-4275-adee-b1f8c625bfb2/comments");
+                const response = await axios.get(commentApiUrl);
                 this.allComments = response.data;
                 console.log("Hämting av API gjord");
             } catch (err) {
@@ -294,6 +346,10 @@ export default {
     </div> 
 </div> 
 
+<button @click="commentApiUrl">Test</button>
+{{ activeRecipePage }}
+
+{{ slugToRecipeIdInCommentsAPIlist }}
 
 
 
