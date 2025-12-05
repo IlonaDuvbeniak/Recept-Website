@@ -168,7 +168,7 @@ export default {
 /* ACTIVETED */
 .btn.filter.pressed {
     background-color: var(--blue-color);
-    color: var(--red-color);
+    color: var(--dark-red-color);
     border: 1px solid var(--blue-color);
 }
 </style>
