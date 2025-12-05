@@ -330,6 +330,7 @@ async postCommentsToAPI() {
             @click="showCommentsLeft"
             v-bind:class="{'disabled-btn': disableLeftButton}"
             v-bind:disabled="disableLeftButton"
+            aria-label="To the left"
             >
         </button>
 
@@ -339,6 +340,7 @@ async postCommentsToAPI() {
             @click="showCommentsRight"
             v-bind:class="{'disabled-btn': disableRightButton}"
             :disabled="disableRightButton"
+            aria-label="To the right"
             >
         </button>
     </div> 

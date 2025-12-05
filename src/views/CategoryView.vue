@@ -11,9 +11,6 @@ export default {
         Footer
     },
     methods: {
-        scrollToTop() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        },
         showMore() {
             this.visibleCount += 9;
         }   
@@ -28,7 +25,7 @@ export default {
 </script>
 
 <template>
-    <ArrowButton variant="to-top" @click="scrollToTop"/>
+    <ArrowButton />
     <div class="container">
         <CardsGrid :categorySlug="$route.params.categorySlug" :limit="visibleCount" @update:total="total = $event" />
         <Button v-if="visibleCount < total" btnText="Visa fler" variant="primary" :showArrow="true" :disabled="false" @event="showMore"></Button>
