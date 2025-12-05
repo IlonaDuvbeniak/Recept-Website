@@ -41,7 +41,7 @@ export default {
     <div class="hero-section">
         <video class="hero-movie" autoplay muted loop ref="heroVideo"
             aria-label="Looping background video of a girl sipping on a spooky drink. No audio.">
-            <source src="/videos/HeroMovie_desktop.mp4" type="video/mp4" />
+            <source src="/videos/HeroMovie.mp4" type="video/mp4" />
         </video>
         <button class="hero-video-toggle" @click="togglePlayPauseOnVideo"
             :aria-label="isPlaying ? 'Pause video' : 'Play video'">
