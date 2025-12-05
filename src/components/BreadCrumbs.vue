@@ -35,7 +35,7 @@ export default {
 }
 </script>
 <template>
-    <nav class="bread-crumbs" v-if="IsShowingRecipesView || IsShowingRecipeView">
+    <nav class="bread-crumbs" v-if="IsShowingRecipesView || IsShowingRecipeView" aria-label="Breadcrumb">
         <ul>
             <li>
                 <router-link to="/">Home</router-link>
