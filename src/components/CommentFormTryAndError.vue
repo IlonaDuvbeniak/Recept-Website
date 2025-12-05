@@ -16,7 +16,7 @@ export default {
   },
   data() {
     return {
-        allComments: [],   // här sparas datan från API
+        allComments: null,   // här sparas datan från API
         loading: true,   
         error: null,      
         commentsArray: [], // återkopplar till hur jag gjorde innan, men får tänka om på den behövs
@@ -67,9 +67,8 @@ export default {
 
     async fetchComments() {
       try {
-        const response = await axios.get   
-        ("https://recipes.bocs.se/api/v1/d4e5f6a7-b8c9-4d0e-1f2a-3b4c5d6e7f8a/recipes/79ace022-5a42-42a3-afac-094621ac6e7d/comments");
-        this.allComments = response.data; 
+        const response = await axios.get("https://recipes.bocs.se/api/v1/d4e5f6a7-b8c9-4d0e-1f2a-3b4c5d6e7f8a/recipes/c7721a9b-b3eb-4275-adee-b1f8c625bfb2/comments");
+        this.allComments = response.data;
       } catch (err) {
         this.error = "Kunde inte hämta data";
         console.error(err);
@@ -82,37 +81,43 @@ export default {
 
     logDescription() {
       console.log("logDescription aktiverad");
-        for (const eachComment of this.allComments) {
-          console.log(eachComment); 
-         }  
-
-            // if (this.activeRecipeOnPage === eachComment.recipeId) {
-            //   console.log ("hit kom jag");
-            //   console.log (eachComment.name, eachComment.comment);
-            // } else {console.log("Nah...")}
-    
-        //     const titleAndComment = eachComment.comment.split("*-+!");
-
-        // console.log(
-        //     "id: ", eachComment.id, 
-        //     "namn: ", eachComment.name, 
-        //     "rubrik: ", titleAndComment[0],
-        //     "kommentaren: ", titleAndComment[1]
-        //     );
         
-        //     this.id = eachComment.id;
-        //     this.name = eachComment.name;
-        //     this.title = splitString[0];
-        //     this.writtenComment = splitString[1]
+      for (const eachComment of this.allComments) {
+          console.log(eachComment); 
+         
+           const titleAndComment = eachComment.comment.split("*-+!");
 
-        //     this.commentsArray.push(
-        //         {id: eachComment.id, 
-        //         name: eachComment.name, 
-        //         title: titleAndComment[0], 
-        //         writtenComment: titleAndComment[1], 
-        //         time: eachComment.createdAt});
+            console.log(
+            "id: ", eachComment.id, 
+            "namn: ", eachComment.name, 
+            "rubrik: ", titleAndComment[0],
+            "kommentaren: ", titleAndComment[1]
+            );
+
+
+
+            if (this.activeRecipeOnPage === eachComment.recipeId) {
+              console.log ("hit kom jag");
+              console.log (eachComment.name, eachComment.comment);
+            } else {console.log("Nah...")}
+    
+           
+
+     
+        
+            this.id = eachComment.id;
+            this.name = eachComment.name;
+            this.title = titleAndComment[0],
+            this.writtenComment = titleAndComment[1]
+
+            this.commentsArray.push(
+                {id: eachComment.id, 
+                name: eachComment.name, 
+                title: titleAndComment[0], 
+                writtenComment: titleAndComment[1], 
+                time: eachComment.createdAt});
             
-
+      }
         
     }
   },
@@ -155,19 +160,7 @@ export default {
     <p>{{ writtenComment }} </p>
 
 
-    <h1>Annan variant</h1>
-    <ul v-if="!loading && !error">
-   <li v-for="showCom in commentsArray" :key="showCom.id">
-   <strong>{{ showCom.name }}</strong><br>
-        {{ showCom.title }}
-         {{ showCom.writtenComment }}
-          {{ showCom.time }}
-   </li>
-   </ul>
-
-
-
-      <!-- <p>Här är recept-id: {{ recipes }}</p> -->
+ 
 
 
 
