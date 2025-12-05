@@ -90,13 +90,18 @@ export default {
         submitAll () {
             // this.commentTime();
 
-            this.commentsArray.push(
-                {id: this.commentsArray.length + 1, 
-                name: this.newName, 
-                title: this.newTitle, 
-                writtenComment: this.newWrittenComment, 
-                // time: this.newTime
-                });
+            
+
+            this.postCommentsToAPI();
+
+
+            // this.commentsArray.push(
+            //     {id: this.commentsArray.length + 1, 
+            //     name: this.newName, 
+            //     title: this.newTitle, 
+            //     writtenComment: this.newWrittenComment, 
+            //     // time: this.newTime
+            //     });
 
             this.newName = "";
             this.newTitle = "";
@@ -107,6 +112,8 @@ export default {
             this.showComEnd = this.commentsArray.length
             this.disableRightButton = true;
             this.disableLeftButton= false;
+
+            this.fetchComments();
 
         },
                 
@@ -190,6 +197,29 @@ export default {
             }
                 
         },     
+
+
+// __________________POSTA!_______________________________________________________
+
+
+async postCommentsToAPI() {
+            try {
+                await axios.post(this.commentApiUrl(),
+                {
+                    comment: (this.newTitle + "*-+!" + this.newWrittenComment),
+                    name: this.newName    
+                });
+                console.log("Post till API gjord");
+            } catch (err) {
+                this.error = "Kunde inte skicka data";
+                console.error("Post error:", err);
+                console.log("Inget skickat");
+            } finally {
+                this.loading = false;
+            }
+
+        },
+
 
 
 
