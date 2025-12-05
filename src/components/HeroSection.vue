@@ -39,7 +39,8 @@ export default {
 <template>
     <Header class="header-component"></Header>
     <div class="hero-section">
-        <video class="hero-movie" autoplay muted loop ref="heroVideo" aria-label="Girl sipping on spooky drink">
+        <video class="hero-movie" autoplay muted loop ref="heroVideo"
+            aria-label="Looping background video of a girl sipping on a spooky drink. No audio.">
             <source src="/videos/HeroMovie_desktop.mp4" type="video/mp4" />
         </video>
         <button class="hero-video-toggle" @click="togglePlayPauseOnVideo"
