@@ -19,19 +19,20 @@ export default {
         allComments: null,   // här sparas datan från API
         loading: true,   
         error: null,      
-        commentsArray: [], // återkopplar till hur jag gjorde innan, men får tänka om på den behövs
+        commentsArray: [], 
         name: "",
         title: "",
         writtenComment: "", 
         recipes: [],
-        // activeRecipePage: this.$route.params.slug, // Funkar inte med slug för är inte samma som i API. Behöver sifferkombon. Den innan slug.
+        activeRecipePage: this.$route.params.slug, // this för tillfället
         
-        // activeRecipeOnPage: "79ace022-5a42-42a3-afac-094621ac6e7d",
+        
         activeRecipe: "",
-        slugToRecipeIdInCommentsAPI: 
-            [{slugName: "boozy-banshee-scream", recipeId: "79ace022-5a42-42a3-afac-094621ac6e7d"},
-            {}
-        ] //inte samma som id i Recept APIet. 
+        slugToRecipeIdInCommentsAPI:
+            [{slugName: "boozy-banshee-scream", recipeId: "79ace022-5a42-42a3-afac-094621ac6e7d"},  // this för tillfället, byts nästa branch. 
+            {slugName: "bitter-tears", recipeId: "a07a3046-89d1-4f53-9ec8-8326cf3d7271"}
+        ], //inte samma som id i Recept APIet. 
+        eachCommentLocalArray: "" 
 
       
     };
@@ -47,13 +48,9 @@ export default {
   
 
   methods: {
-
-      hej () {
-        console.log("hej");
-      },
     
-       getRecipeId() {
-           console.log(this.$route.params.slug) // slug ska sen jämföras mot lista med slug vs recept id. 
+       getRecipeId() { // this så länge, kommer byta det i nästa branch till att man fetchar efter id eller något. 
+           console.log(this.$route.params.slug) //jämföras nu mot lista med slug vs recept id. 
            this.activeRecipe = this.$route.params.slug;
            return activeRecipe;
    },
@@ -65,7 +62,7 @@ export default {
     //     },
 
 
-    async fetchComments() {
+    async fetchComments() { // this
       try {
         const response = await axios.get("https://recipes.bocs.se/api/v1/d4e5f6a7-b8c9-4d0e-1f2a-3b4c5d6e7f8a/recipes/c7721a9b-b3eb-4275-adee-b1f8c625bfb2/comments");
         this.allComments = response.data;
@@ -82,35 +79,23 @@ export default {
     logDescription() {
       console.log("logDescription aktiverad");
         
-      for (const eachComment of this.allComments) {
-          console.log(eachComment); 
+      for (const eachComment of this.allComments) { // this
+    
          
-           const titleAndComment = eachComment.comment.split("*-+!");
+           const titleAndComment = eachComment.comment.split("*-+!"); // this
 
-            console.log(
-            "id: ", eachComment.id, 
-            "namn: ", eachComment.name, 
-            "rubrik: ", titleAndComment[0],
-            "kommentaren: ", titleAndComment[1]
-            );
-
-
-
+ 
             if (this.activeRecipeOnPage === eachComment.recipeId) {
-              console.log ("hit kom jag");
+              console.log ("hit kom jag"); // this. men lägg push här. 
               console.log (eachComment.name, eachComment.comment);
-            } else {console.log("Nah...")}
+            } else {console.log("Senare är det här effekten av else: Inga recept på det här receptId... Inga recept pushades")}
     
            
 
      
         
-            this.id = eachComment.id;
-            this.name = eachComment.name;
-            this.title = titleAndComment[0],
-            this.writtenComment = titleAndComment[1]
 
-            this.commentsArray.push(
+            this.commentsArray.push(    // this
                 {id: eachComment.id, 
                 name: eachComment.name, 
                 title: titleAndComment[0], 
@@ -144,6 +129,7 @@ export default {
       <li v-for="eachComment in allComments" :key="eachComment.id">
         <strong>{{ eachComment.name }}</strong><br>
         {{ eachComment.comment }}
+
   
       </li>
     </ul>
@@ -151,13 +137,33 @@ export default {
 
   <button @click="logDescription">här</button>
 
-  <button @click="hej">hej</button>
-  
     <h1>Now now...</h1>
-    <p>{{ commentsArray }} </p>
-    <p> {{ name }} </p>
-    <p> {{ title }} </p>
-    <p>{{ writtenComment }} </p>
+
+
+    <!-- this -->
+<div>
+    <div class="testDiv" v-for="eachCommentLocalArray in commentsArray"> 
+        <div>
+            <p>{{ eachCommentLocalArray.name }}</p>
+            <p>{{ eachCommentLocalArray.title }}</p>
+            <p>{{ eachCommentLocalArray.writtenComment }}</p>
+            <button>Cool button that does nothing</button>
+        </div>
+    </div>
+</div>
+
+   
+
+
+
+
+
+
+
+
+
+
+
 
 
  
@@ -191,6 +197,10 @@ export default {
 
 
  <style scoped>
+
+ .testDiv {
+  border: 2px solid pink;
+ }
 
 .helpMsg {
     /* background: var(--baby-pink-color); */
