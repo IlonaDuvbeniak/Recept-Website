@@ -36,7 +36,7 @@ export default {
 </script>
 <template>
     <nav class="bread-crumbs" v-if="IsShowingRecipesView || IsShowingRecipeView" aria-label="Breadcrumb">
-        <ul>
+        <ol>
             <li>
                 <router-link to="/">Home</router-link>
             </li>
@@ -70,7 +70,7 @@ export default {
                 </span>
                 <span aria-current="page">{{ BreadCrumbRecipeName }}</span>
             </li>
-        </ul>
+        </ol>
     </nav>
 </template>
 <style scoped>
@@ -83,7 +83,7 @@ export default {
     margin: 24px 0 52px 0;
 }
 
-.bread-crumbs ul {
+.bread-crumbs ol {
     list-style: none;
     display: flex;
     justify-content: center
