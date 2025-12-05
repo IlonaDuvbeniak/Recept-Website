@@ -1,4 +1,5 @@
 <script>
+import axios from "axios";
 import Button from '@/components/Button.vue';
 
 export default {
@@ -8,6 +9,19 @@ export default {
     },
     data() {
         return {
+            allComments: null,   // här sparas datan från API
+            loading: true,   
+            error: null,   
+        //     activeRecipePage: this.$route.params.slug, // this för tillfället
+        //     activeRecipe: "",
+        //     slugToRecipeIdInCommentsAPI:
+        //         [{slugName: "boozy-banshee-scream", recipeId: "79ace022-5a42-42a3-afac-094621ac6e7d"},  // this för tillfället, byts nästa branch. 
+        //         {slugName: "bitter-tears", recipeId: "a07a3046-89d1-4f53-9ec8-8326cf3d7271"}
+        //         ], 
+            eachCommentLocalArray: "",
+            
+            
+
             newName: '',
             newTitle: '',
             newWrittenComment: '',
@@ -34,18 +48,40 @@ export default {
 
             x: window.matchMedia("(max-width: 600px)"),
         }
-
     },
+
+
+  async mounted() {
+    // körs automatiskt när komponenten laddas
+    await this.fetchComments();
+    // await this.loadRecipes();
+  },
+
+// //______________KÄNNER SIDSTORLEK____________________________________________________
+ 
+//         this.sizeDependentSlice(this.x);
+
+//         this.x.addEventListener("change", () => {
+//             this.sizeDependentSlice(this.x);
+//         });
+
+
     methods: {
+
+        
+        
+//______________POSTA KOMMENTAREN____________________________________________________
+
         submitAll () {
-            this.commentTime();
+            // this.commentTime();
 
             this.commentsArray.push(
                 {id: this.commentsArray.length + 1, 
                 name: this.newName, 
                 title: this.newTitle, 
                 writtenComment: this.newWrittenComment, 
-                time: this.newTime});
+                // time: this.newTime
+                });
 
             this.newName = "";
             this.newTitle = "";
@@ -59,15 +95,6 @@ export default {
 
         },
                 
-        commentTime() {
-        const dateOfComment = Date();
-        console.log(dateOfComment);
-        const splittedDate = dateOfComment.split(" ");
-        console.log(splittedDate[2], splittedDate[1], splittedDate[3]);
-        
-        this.newTime = `${splittedDate[2]} ${splittedDate[1]} ${splittedDate[3]}`;        
-        return this.newTime;
-        },
 
         handleClick() {
             if (this.newName.length < 2) {
@@ -96,6 +123,59 @@ export default {
             }
         },
 
+
+// //______________KÄNNER AV RECEPTET PÅ PAGE____________________________________________________
+
+//         getRecipeId() { // this så länge, kommer byta det i nästa branch till att man fetchar efter id eller något. 
+//            console.log(this.$route.params.slug) //jämföras nu mot lista med slug vs recept id. 
+//            this.activeRecipe = this.$route.params.slug;
+//            return activeRecipe;
+//         },
+
+//    // jämför något om receptid och slut etc... 
+
+
+
+// //______________HÄMTNING AV KOMMENTARER FRÅN API____________________________________________________
+
+        async fetchComments() { // this
+            try {
+                const response = await axios.get("https://recipes.bocs.se/api/v1/d4e5f6a7-b8c9-4d0e-1f2a-3b4c5d6e7f8a/recipes/c7721a9b-b3eb-4275-adee-b1f8c625bfb2/comments");
+                this.allComments = response.data;
+                console.log("Hämting av API gjord");
+            } catch (err) {
+                this.error = "Kunde inte hämta data";
+                console.error("Fetch error:", err);
+                console.log("Inget hämtat");
+            } finally {
+                this.loading = false;
+            }
+
+            this.addToLocalArray ();
+        },
+
+
+        addToLocalArray () {
+            for (const eachComment of this.allComments) {
+
+                const titleAndComment = eachComment.comment.split("*-+!"); // this
+
+                this.commentsArray.push(    // this
+                        {id: eachComment.id, 
+                        name: eachComment.name, 
+                        title: titleAndComment[0], 
+                        writtenComment: titleAndComment[1], 
+                        time: eachComment.createdAt});
+
+            }
+                
+        },     
+
+
+
+// //______________KARUSELLEN____________________________________________________
+
+
         showCommentsRight () {
             if (this.showComEnd === this.commentsArray.length) {
                 this.disableRightButton = true;
@@ -116,18 +196,25 @@ export default {
                 
             }
         },
+    
         
-       
-        sizeDependentSlice(x) {
-            if (this.x.matches) {
-                this.showComEnd = this.showComStart +1;
-            } else {
-                this.showComEnd = this.showComStart +3;
-            }
-        }
-},
+// //______________KÄNNER SIDSTORLEK____________________________________________________
 
+       
+//         sizeDependentSlice(x) {
+//             if (this.x.matches) {
+//                 this.showComEnd = this.showComStart +1;
+//             } else {
+//                 this.showComEnd = this.showComStart +3;
+//             };
+//         }
+    },
     computed: {
+
+// //______________HUR LÅNG ENS KOMMENTAR ÄR____________________________________________________
+
+
+
         characterCountName(){
             return this.newName.length;
         },
@@ -138,24 +225,17 @@ export default {
             return this.newWrittenComment.length;   
         }
 
-    },
+    }
    
 
 
-    mounted() {
  
-    this.sizeDependentSlice(this.x);
-
-    this.x.addEventListener("change", () => {
-        this.sizeDependentSlice(this.x);
-    });
-}
 }
 
 </script>
 
 <template>
-  <form @submit.prevent="handleClick">
+<form @submit.prevent="handleClick">
     <label>
         <div class="comment-form">
             <div class="comment-form-top">
@@ -184,16 +264,15 @@ export default {
 
 <div class="comment-cards-container">
     <div 
-        v-for="comment in commentsArray.slice(showComStart, showComEnd)" 
-        :key="comment.id" 
+        v-for="eachCommentLocalArray in commentsArray.slice(showComStart, showComEnd)" 
         class="comment-card">
         
         <div class="comment-cards-top">
-            <p class="commenter-name"><strong>{{ comment.name }}</strong></p>
-            <p class="p-time">{{ comment.time }}</p>
+            <p class="commenter-name"><strong>{{ eachCommentLocalArray.name }}</strong></p>
+            <p class="p-time">{{ eachCommentLocalArray.time }}</p>
         </div>
-        <h3 class="title-comment-cards">{{ comment.title }}</h3>
-        <p class="main-comment-text">{{ comment.writtenComment }}</p>
+        <h3 class="title-comment-cards">{{ eachCommentLocalArray.title }}</h3>
+        <p class="main-comment-text">{{ eachCommentLocalArray.writtenComment }}</p>
         
         <button 
             class="btn-carousel" 
@@ -214,6 +293,9 @@ export default {
         </button>
     </div> 
 </div> 
+
+
+
 
 </template>
 
