@@ -14,7 +14,12 @@ export default {
 <template>
     <div class="search">
         <form class="search-bar-container">
-            <img class="search-icon" src="/img/search-icon.svg">
+            <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"
+                fill="none">
+                <path
+                    d="M24.0002 13.6C24.0002 15.895 23.2552 18.015 22.0002 19.735L28.3302 26.07C28.9552 26.695 28.9552 27.71 28.3302 28.335C27.7052 28.96 26.6902 28.96 26.0652 28.335L19.7352 22C18.0152 23.255 15.8952 24 13.6002 24C7.8552 24 3.2002 19.345 3.2002 13.6C3.2002 7.855 7.8552 3.2 13.6002 3.2C19.3452 3.2 24.0002 7.855 24.0002 13.6ZM13.6002 20.8C17.5752 20.8 20.8002 17.575 20.8002 13.6C20.8002 9.625 17.5752 6.4 13.6002 6.4C9.6252 6.4 6.4002 9.625 6.4002 13.6C6.4002 17.575 9.6252 20.8 13.6002 20.8Z"
+                    fill="#D80A36" />
+            </svg>
             <label for="site-search"></label>
             <input type="search" id="site-search" placeholder="Search by vibe" name="q"
                 aria-label="Search through recipes" required minlength="1" maxlength="30" :value="value"
