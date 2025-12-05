@@ -141,6 +141,24 @@ export default {
         },
 
 
+// _______________________TEST GREJ____________________________________________________
+
+        changeComments() {
+            this.commentsArray = [    
+                            { id: 1, name: "Jul", title: "Korssss", writtenComment: "Sablaaaar", time: "17 Nov 2025" },
+                            { id: 2, name: "Moana", title: "Glass?", writtenComment: "Rolig att...", time: "18 Nov 2025" },
+                            { id: 3, name: "Alvaria", title: "Krisp?????????", writtenComment: "Krisp i den? :DDDDDDDDD", time: "19 Nov 2025" },
+                            { id: 4, name: "Måsennn", title: "Tjuuuuusigt", writtenComment: "Amazinggg", time: "19 Nov 2025" },
+                            { id: 5, name: "J.", title: "Jodå...", writtenComment: "Roligäldigt nyfikna så nbjuda på della", time: "20 Nov 2025" },
+                            { id: 6, name: "E.J.", title: "Allmän", writtenComment: "...tack.", time: "21 Nov 2025" },
+                        ];
+
+        },
+
+
+
+
+
 // //______________KÄNNER AV RECEPTET PÅ PAGE____________________________________________________
 
         // getRecipeId() { 
@@ -153,24 +171,11 @@ export default {
 
         commentApiUrl () {
 
-            console.log ("Här kollar jag först så att slugToRecipeIdInCommentsAPIlist fungerar ", this.slugToRecipeIdInCommentsAPIlist);
-
-
-
             const findRecipeId = this.slugToRecipeIdInCommentsAPIlist.find(p => p.slugName === this.activeRecipePage);
-            
-            console.log("Här under hittar vi receptId: ");
-            console.log(findRecipeId.recipeId);
 
-
-            // if slugToRecipeIdInCommentsAPI === ""
-
-            // var testReceptId = "a07a3046-89d1-4f53-9ec8-8326cf3d7271";
-
-            // gör funktion eller något av det här: 
             console.log("https://recipes.bocs.se/api/v1/d4e5f6a7-b8c9-4d0e-1f2a-3b4c5d6e7f8a/recipes/" + findRecipeId.recipeId + "/comments");
-            
-            return ("https://recipes.bocs.se/api/v1/d4e5f6a7-b8c9-4d0e-1f2a-3b4c5d6e7f8a/recipes/" + findRecipeId.recipeId + "/comments");
+            const urlForRecipe = ("https://recipes.bocs.se/api/v1/d4e5f6a7-b8c9-4d0e-1f2a-3b4c5d6e7f8a/recipes/" + findRecipeId.recipeId + "/comments");
+            return urlForRecipe;
         },
 
 
@@ -178,7 +183,7 @@ export default {
 
         async fetchComments() { // this
             try {
-                const response = await axios.get(commentApiUrl);
+                const response = await axios.get(this.commentApiUrl());
                 this.allComments = response.data;
                 console.log("Hämting av API gjord");
             } catch (err) {
@@ -333,6 +338,10 @@ export default {
 </div> 
 
 <button @click="commentApiUrl">Test</button>
+<button @click="changeComments">Test ändra array med knapptryckning</button>
+
+
+
 {{ activeRecipePage }}
 
 {{ slugToRecipeIdInCommentsAPIlist }}
