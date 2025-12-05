@@ -12,28 +12,26 @@ export default {
             allComments: null,   // här sparas datan från API
             loading: true,   
             error: null,   
-            activeRecipePage: this.$route.params.slug, // this för tillfället
+            activeRecipePage: this.$route.params.slug, 
         //     activeRecipe: "",
             slugToRecipeIdInCommentsAPIlist:
-                [{slugName: "boozy-banshee-scream", recipeId: "c7721a9b-b3eb-4275-adee-b1f8c625bfb2"},  // this för tillfället, byts nästa branch. 
-                {slugName: "bitter-tears", recipeId: "a07a3046-89d1-4f53-9ec8-8326cf3d7271"},
-                {slugName: "bye-bye-mary", recipeId: "a82062f9-221b-4657-820f-1d6dd41c995f"},
-                {slugName: "party-like-its-friday", recipeId: "26ed6192-86e4-4ef5-9b22-2973d1ff5cb2"},
-                {slugName: "Exorcism", recipeId: "6a34ec5c-5e4d-4f75-aa5c-39eee5be952b"},
-                {slugName: "Ghosted & Roasted", recipeId: "c6b7a179-d1b4-4abc-8542-43d37c0ead41"},
-                {slugName: "Ho-Ho-Hot Toddy", recipeId: "c7e986cb-0fe4-44f7-abab-55bac3c39647"},
-                {slugName: "Island Bye-Land", recipeId: "8d004646-0b8b-43bf-bfce-4c7474e87b8e"},
-                {slugName: "Jingle Juice", recipeId: "fb991d8b-6f6c-4b97-bc05-06495054a3f6"},
-                {slugName: "Mistle-Toasted", recipeId: "b55fb64b-8b9b-4d36-93f3-92366cecbcd9"},
-                {slugName: "Out of office", recipeId: "ff2c2211-d557-4d98-91cb-293d6a2cef61"},
-                {slugName: "Potion Notions", recipeId: "60ed746d-ea8d-468f-b61d-fd843c4e58b3"},
-                {slugName: "Santa’s Nightcap", recipeId: "62af4889-e4b3-4c99-99be-a654eeab4cfd"},
-                {slugName: "TGIFizz", recipeId: "5671469c-0c7b-41d9-9cf5-433d3afb0898"},
-                {slugName: "TGIFizz", recipeId: "eb194c77-137d-4d11-8aa6-f1adb4009755"},
-                {slugName: "Witch, Please!", recipeId: "092cc672-8840-4bc9-930c-19c404bb4ab7"}
-
-                        // Här hade jag velat göra en fetch.. jämfört slug namnet med name...
-                        // hämtat det id som var kopplat.
+                [
+                    {slugName: "boozy-banshee-scream", recipeId: "c7721a9b-b3eb-4275-adee-b1f8c625bfb2"},  // this för tillfället, kan bytas till API i framtiden. 
+                    {slugName: "bitter-tears", recipeId: "a07a3046-89d1-4f53-9ec8-8326cf3d7271"},
+                    {slugName: "bye-bye-mary", recipeId: "a82062f9-221b-4657-820f-1d6dd41c995f"},
+                    {slugName: "party-like-its-friday", recipeId: "26ed6192-86e4-4ef5-9b22-2973d1ff5cb2"},
+                    {slugName: "Exorcism", recipeId: "6a34ec5c-5e4d-4f75-aa5c-39eee5be952b"},
+                    {slugName: "Ghosted & Roasted", recipeId: "c6b7a179-d1b4-4abc-8542-43d37c0ead41"},
+                    {slugName: "Ho-Ho-Hot Toddy", recipeId: "c7e986cb-0fe4-44f7-abab-55bac3c39647"},
+                    {slugName: "Island Bye-Land", recipeId: "8d004646-0b8b-43bf-bfce-4c7474e87b8e"},
+                    {slugName: "Jingle Juice", recipeId: "fb991d8b-6f6c-4b97-bc05-06495054a3f6"},
+                    {slugName: "Mistle-Toasted", recipeId: "b55fb64b-8b9b-4d36-93f3-92366cecbcd9"},
+                    {slugName: "Out of office", recipeId: "ff2c2211-d557-4d98-91cb-293d6a2cef61"},
+                    {slugName: "Potion Notions", recipeId: "60ed746d-ea8d-468f-b61d-fd843c4e58b3"},
+                    {slugName: "Santa’s Nightcap", recipeId: "62af4889-e4b3-4c99-99be-a654eeab4cfd"},
+                    {slugName: "TGIFizz", recipeId: "5671469c-0c7b-41d9-9cf5-433d3afb0898"},
+                    {slugName: "TGIFizz", recipeId: "eb194c77-137d-4d11-8aa6-f1adb4009755"},
+                    {slugName: "Witch, Please!", recipeId: "092cc672-8840-4bc9-930c-19c404bb4ab7"}
                 ], 
             eachCommentLocalArray: "",
             
@@ -141,35 +139,14 @@ export default {
         },
 
 
-// _______________________TEST GREJ____________________________________________________
+// _______________SKAPAR EN URL BASERAT PÅ LISTA MED OBJEKT________________________________________
 
-        changeComments() {
-            this.commentsArray = [    
-                            { id: 1, name: "Jul", title: "Korssss", writtenComment: "Sablaaaar", time: "17 Nov 2025" },
-                            { id: 2, name: "Moana", title: "Glass?", writtenComment: "Rolig att...", time: "18 Nov 2025" },
-                            { id: 3, name: "Alvaria", title: "Krisp?????????", writtenComment: "Krisp i den? :DDDDDDDDD", time: "19 Nov 2025" },
-                            { id: 4, name: "Måsennn", title: "Tjuuuuusigt", writtenComment: "Amazinggg", time: "19 Nov 2025" },
-                            { id: 5, name: "J.", title: "Jodå...", writtenComment: "Roligäldigt nyfikna så nbjuda på della", time: "20 Nov 2025" },
-                            { id: 6, name: "E.J.", title: "Allmän", writtenComment: "...tack.", time: "21 Nov 2025" },
-                        ];
-
-        },
-
-
-
-
-
-// //______________KÄNNER AV RECEPTET PÅ PAGE____________________________________________________
-
-        // getRecipeId() { 
-        //    console.log(this.$route.params.slug)  
-        //    this.activeRecipe = this.$route.params.slug;
-        //    return activeRecipe;
-        // },
-
-//    // jämför något om receptid och slut etc... 
 
         commentApiUrl () {
+                        // Här hade jag velat göra en fetch istället för att ha en lista här.. 
+                        // Och i APIet jämfört slug namnet med name... 
+                        // Hade behövts omvandla tillbaka till orginalnamn innan.
+                        // Sen hämtat det id som var kopplat.
 
             const findRecipeId = this.slugToRecipeIdInCommentsAPIlist.find(p => p.slugName === this.activeRecipePage);
 
@@ -181,7 +158,7 @@ export default {
 
 // //______________HÄMTNING AV KOMMENTARER FRÅN API____________________________________________________
 
-        async fetchComments() { // this
+        async fetchComments() {
             try {
                 const response = await axios.get(this.commentApiUrl());
                 this.allComments = response.data;
@@ -201,9 +178,9 @@ export default {
         addToLocalArray () {
             for (const eachComment of this.allComments) {
 
-                const titleAndComment = eachComment.comment.split("*-+!"); // this
+                const titleAndComment = eachComment.comment.split("*-+!"); 
 
-                this.commentsArray.push(    // this
+                this.commentsArray.push(   
                         {id: eachComment.id, 
                         name: eachComment.name, 
                         title: titleAndComment[0], 
@@ -337,14 +314,11 @@ export default {
     </div> 
 </div> 
 
-<button @click="commentApiUrl">Test</button>
-<button @click="changeComments">Test ändra array med knapptryckning</button>
 
 
 
-{{ activeRecipePage }}
 
-{{ slugToRecipeIdInCommentsAPIlist }}
+
 
 
 
