@@ -1,3 +1,4 @@
+import "normalize.css";
 import "./assets/main.css";
 import "./assets/base.css";
 
