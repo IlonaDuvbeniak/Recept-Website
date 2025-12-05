@@ -208,8 +208,8 @@ h1 {
     }
 
     .hero-video-toggle {
-
-        top: 330px;
+        top: 110px;
+        right: 10px;
     }
 }
 </style>
