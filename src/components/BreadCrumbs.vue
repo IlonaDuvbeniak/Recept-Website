@@ -42,19 +42,31 @@ export default {
             </li>
             <li v-if="IsShowingRecipesView">
                 <span>
-                    <img src="/img/arrow-bread-crumbs.svg" alt="arrow icon" />
+                    <svg xmlns="http://www.w3.org/2000/svg" width="7" height="12" viewBox="0 0 7 12" fill="none">
+                        <path
+                            d="M6.7071 6.70597C7.09763 6.3155 7.09763 5.68137 6.7071 5.2909L1.70821 0.292854C1.31768 -0.0976181 0.683441 -0.0976181 0.292903 0.292854C-0.0976348 0.683327 -0.0976348 1.31745 0.292903 1.70793L3.58592 5.00039L4.62565 5.99985L3.58592 6.99961L0.292903 10.2921C-0.0976348 10.6825 -0.0976348 11.3167 0.292903 11.7071C0.683441 12.0976 1.31768 12.0976 1.70821 11.7071L6.7071 6.7091V6.70597Z"
+                            fill="#A5D1D0" />
+                    </svg>
                 </span>
                 <router-link to="/recipes" :aria-current="IsOnRecipesRoot ? 'page' : null">Recipes</router-link>
             </li>
             <li v-if="IsShowingCategoryView">
                 <span>
-                    <img src="/img/arrow-bread-crumbs.svg" alt="arrow icon" />
+                    <svg xmlns="http://www.w3.org/2000/svg" width="7" height="12" viewBox="0 0 7 12" fill="none">
+                        <path
+                            d="M6.7071 6.70597C7.09763 6.3155 7.09763 5.68137 6.7071 5.2909L1.70821 0.292854C1.31768 -0.0976181 0.683441 -0.0976181 0.292903 0.292854C-0.0976348 0.683327 -0.0976348 1.31745 0.292903 1.70793L3.58592 5.00039L4.62565 5.99985L3.58592 6.99961L0.292903 10.2921C-0.0976348 10.6825 -0.0976348 11.3167 0.292903 11.7071C0.683441 12.0976 1.31768 12.0976 1.70821 11.7071L6.7071 6.7091V6.70597Z"
+                            fill="#A5D1D0" />
+                    </svg>
                 </span>
                 <span aria-current="page">{{ BreadCrumbCategoryName }}</span>
             </li>
             <li v-if="IsShowingRecipeView">
                 <span>
-                    <img src="/img/arrow-bread-crumbs.svg" alt="arrow icon" />
+                    <svg xmlns="http://www.w3.org/2000/svg" width="7" height="12" viewBox="0 0 7 12" fill="none">
+                        <path
+                            d="M6.7071 6.70597C7.09763 6.3155 7.09763 5.68137 6.7071 5.2909L1.70821 0.292854C1.31768 -0.0976181 0.683441 -0.0976181 0.292903 0.292854C-0.0976348 0.683327 -0.0976348 1.31745 0.292903 1.70793L3.58592 5.00039L4.62565 5.99985L3.58592 6.99961L0.292903 10.2921C-0.0976348 10.6825 -0.0976348 11.3167 0.292903 11.7071C0.683441 12.0976 1.31768 12.0976 1.70821 11.7071L6.7071 6.7091V6.70597Z"
+                            fill="#A5D1D0" />
+                    </svg>
                 </span>
                 <span aria-current="page">{{ BreadCrumbRecipeName }}</span>
             </li>
