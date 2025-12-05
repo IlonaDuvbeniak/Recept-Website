@@ -15,8 +15,25 @@ export default {
             activeRecipePage: this.$route.params.slug, // this för tillfället
         //     activeRecipe: "",
             slugToRecipeIdInCommentsAPIlist:
-                [{slugName: "boozy-banshee-scream", recipeId: "79ace022-5a42-42a3-afac-094621ac6e7d"},  // this för tillfället, byts nästa branch. 
-                {slugName: "bitter-tears", recipeId: "a07a3046-89d1-4f53-9ec8-8326cf3d7271"}
+                [{slugName: "boozy-banshee-scream", recipeId: "c7721a9b-b3eb-4275-adee-b1f8c625bfb2"},  // this för tillfället, byts nästa branch. 
+                {slugName: "bitter-tears", recipeId: "a07a3046-89d1-4f53-9ec8-8326cf3d7271"},
+                {slugName: "bye-bye-mary", recipeId: "a82062f9-221b-4657-820f-1d6dd41c995f"},
+                {slugName: "party-like-its-friday", recipeId: "26ed6192-86e4-4ef5-9b22-2973d1ff5cb2"},
+                {slugName: "Exorcism", recipeId: "6a34ec5c-5e4d-4f75-aa5c-39eee5be952b"},
+                {slugName: "Ghosted & Roasted", recipeId: "c6b7a179-d1b4-4abc-8542-43d37c0ead41"},
+                {slugName: "Ho-Ho-Hot Toddy", recipeId: "c7e986cb-0fe4-44f7-abab-55bac3c39647"},
+                {slugName: "Island Bye-Land", recipeId: "8d004646-0b8b-43bf-bfce-4c7474e87b8e"},
+                {slugName: "Jingle Juice", recipeId: "fb991d8b-6f6c-4b97-bc05-06495054a3f6"},
+                {slugName: "Mistle-Toasted", recipeId: "b55fb64b-8b9b-4d36-93f3-92366cecbcd9"},
+                {slugName: "Out of office", recipeId: "ff2c2211-d557-4d98-91cb-293d6a2cef61"},
+                {slugName: "Potion Notions", recipeId: "60ed746d-ea8d-468f-b61d-fd843c4e58b3"},
+                {slugName: "Santa’s Nightcap", recipeId: "62af4889-e4b3-4c99-99be-a654eeab4cfd"},
+                {slugName: "TGIFizz", recipeId: "5671469c-0c7b-41d9-9cf5-433d3afb0898"},
+                {slugName: "TGIFizz", recipeId: "eb194c77-137d-4d11-8aa6-f1adb4009755"},
+                {slugName: "Witch, Please!", recipeId: "092cc672-8840-4bc9-930c-19c404bb4ab7"}
+
+                        // Här hade jag velat göra en fetch.. jämfört slug namnet med name...
+                        // hämtat det id som var kopplat.
                 ], 
             eachCommentLocalArray: "",
             
@@ -135,45 +152,12 @@ export default {
 //    // jämför något om receptid och slut etc... 
 
         commentApiUrl () {
-            // om slug är boozy-banshee-scream returna den här:
-            // "https://recipes.bocs.se/api/v1/d4e5f6a7-b8c9-4d0e-1f2a-3b4c5d6e7f8a/recipes/c7721a9b-b3eb-4275-adee-b1f8c625bfb2/comments"
-            // om slug är bitter-bears returna den här: 
-            // "https://recipes.bocs.se/api/v1/d4e5f6a7-b8c9-4d0e-1f2a-3b4c5d6e7f8a/recipes/a07a3046-89d1-4f53-9ec8-8326cf3d7271/comments"
-            //                                                                              a07a3046-89d1-4f53-9ec8-8326cf3d7271
-            
-            // Jag hade kanske kunnat gjort en fetch som kollade vad det var för recept-id vi var inne på, 
-            // och sen skapat en generisk 
-            // "https://recipes.bocs.se/api/v1/d4e5f6a7-b8c9-4d0e-1f2a-3b4c5d6e7f8a/recipes/"
-            // som plussar på receptID
-            // plus /comments
-
-            // Grejen är, om jag hade vetat hur saker hamna på sidan. Det måste ju vara en fetch där. Om det hade kunnat... 
-            // Men jag vet inte... Känns som det är svårt att avsluta den tanken. 
-
-            // Jag hade velat fetcha recepten.... och därifrån tagit receptID... och sen klistrat in den i en generisk sån här url.... 
-            
-            // Men jag tänker också att jag inte ska behöva fetcha receptID för det ska redan vara fetchat... Jag vet bara inte var. 
-
-            // Ärsh, jag tar bara slug, kopplar det mot en lista med recept-idn. 
-            // Tar receptid och klistrar in i generisk url
-
-
-            // activeRecipePage: this.$route.params.slug
-            // const activeRecipePage = this.$route.params.slug;
-            
 
             console.log ("Här kollar jag först så att slugToRecipeIdInCommentsAPIlist fungerar ", this.slugToRecipeIdInCommentsAPIlist);
 
-                const slugToRecipeIdInCommentsAPIlist2 =
-                [{slugName: "boozy-banshee-scream", recipeId: "79ace022-5a42-42a3-afac-094621ac6e7d"},  // this för tillfället, byts nästa branch. 
-                {slugName: "bitter-tears", recipeId: "a07a3046-89d1-4f53-9ec8-8326cf3d7271"}
-                ];
-
-             console.log ("Här kollar jag först så att slugToRecipeIdInCommentsAPIlist2 fungerar ", slugToRecipeIdInCommentsAPIlist2);
 
 
-
-            const findRecipeId = slugToRecipeIdInCommentsAPIlist2.find(p => p.slugName === this.activeRecipePage);
+            const findRecipeId = this.slugToRecipeIdInCommentsAPIlist.find(p => p.slugName === this.activeRecipePage);
             
             console.log("Här under hittar vi receptId: ");
             console.log(findRecipeId.recipeId);
@@ -181,10 +165,12 @@ export default {
 
             // if slugToRecipeIdInCommentsAPI === ""
 
-            var testReceptId = "a07a3046-89d1-4f53-9ec8-8326cf3d7271"
+            // var testReceptId = "a07a3046-89d1-4f53-9ec8-8326cf3d7271";
 
-            console.log("https://recipes.bocs.se/api/v1/d4e5f6a7-b8c9-4d0e-1f2a-3b4c5d6e7f8a/recipes/" + testReceptId + "/comments")
-
+            // gör funktion eller något av det här: 
+            console.log("https://recipes.bocs.se/api/v1/d4e5f6a7-b8c9-4d0e-1f2a-3b4c5d6e7f8a/recipes/" + findRecipeId.recipeId + "/comments");
+            
+            return ("https://recipes.bocs.se/api/v1/d4e5f6a7-b8c9-4d0e-1f2a-3b4c5d6e7f8a/recipes/" + findRecipeId.recipeId + "/comments");
         },
 
 
