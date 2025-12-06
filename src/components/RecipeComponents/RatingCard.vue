@@ -4,11 +4,22 @@
             <div class="info-container">
                 <div class="text-container">
                     <h3>Vad tyckte du om receptet?</h3>
-                    <p>Klick på glasen för att ge ditt betyg!</p>
+                    <p v-if="!sent">Klick på glasen för att ge ditt betyg!</p>
+                    <p v-else>Tack för ditt betyg!</p>
                 </div>
 
-                <RatingFunction/>
-                <Button btnText="Skicka betyg" variant="primary" :showArrow="true" :disabled="false"/>
+                
+                <RatingFunction 
+                    :recipeId="recipeId"
+                    @rating-changed="userRating = $event" 
+                />
+
+                <Button class="submit-btn"
+                        :btnText="sent ? 'Skickat!' : 'Skicka betyg'" 
+                        variant="primary" 
+                        :showArrow="true"
+                        @click="submitRating"
+                />
             </div>
 
             <div class="img-container">
@@ -20,18 +31,73 @@
 </template>
 
 <script>
-    import RatingFunction from './RatingFunction.vue';
-    import Button from '../Button.vue';
-    import BackgroundLines from './BackgroundLines.vue';
+import RatingFunction from './RatingFunction.vue';
+import Button from '../Button.vue';
+import BackgroundLines from './BackgroundLines.vue';
 
-    export default {
-        components: {
-            RatingFunction,
-            Button,
-            BackgroundLines
+export default {
+    components: {
+        RatingFunction,
+        Button,
+        BackgroundLines
+    },
+
+    props: {
+        recipeId: { type:String, required:true }
+    },
+
+    data() {
+        return {
+            userRating: 0,   
+            sent: false,      
+            maxRating: 5
+        };
+    },
+
+    emits: ["rating-updated"],
+
+    methods: {
+        async submitRating() { 
+            if (this.userRating < 1 || this.userRating > 5) {
+                alert("Betyg måste vara mellan 1 och 5");
+                return;
+            }
+
+            try {
+                await fetch(
+                    `https://recipes.bocs.se/api/v1/d4e5f6a7-b8c9-4d0e-1f2a-3b4c5d6e7f8a/recipes/${this.recipeId}/ratings`,
+                    {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                            "Accept": "*/*"
+                        },
+                        body: JSON.stringify(this.userRating)
+                    }
+                );
+
+                this.sent = true;
+
+                const res = await fetch(
+                    `https://recipes.bocs.se/api/v1/d4e5f6a7-b8c9-4d0e-1f2a-3b4c5d6e7f8a/recipes/${this.recipeId}/ratings`
+                );
+                const ratingList = await res.json();
+                const values = ratingList.filter(v => typeof v === "number");
+                
+                if (values.length === 0) return;
+                const avg = values.reduce((sum, n) => sum + n, 0) / values.length;
+                this.$emit("rating-updated", avg);
+
+            }   catch (err) {
+                console.error("POST Error:", err);
+            }
+        }
+
         }
     }
+
 </script>
+
 
 <style scoped>
     .wrapper {
@@ -98,17 +164,21 @@
         font-size: 20px;
         font-weight: 400;
         line-height: 24px; 
-    }
+    } 
 
-    @media (max-width: 991px) {
+    @media (max-width: 767px) {
         .wrapper {
-            padding: 80px 72px 40px 72px;
+            padding: 52px 52px 52px 52px;
             position: relative;
             align-items: normal;
         }
 
         .rating-card {
+            display: flex;
             flex-direction: column;
+            height:50rem;
+            padding-bottom: 4rem;
+            
         }
 
         .info-container {
@@ -117,6 +187,7 @@
             order: 2;
             height: 50%;
             justify-content: center;
+            padding: 0.8rem;
         }
 
         .img-container {
@@ -127,12 +198,32 @@
         }
 
         .rating-image {
-            right: 33%;
+            right: 30%;
             max-width: 300px;
+            padding-top: 52px;
         }
+
+        .text-container {
+            display: flex;
+            flex-direction: column;
+            padding-top: 20%;
+            align-items: center;
     }
 
-    @media (max-width: 767px) {
-        
+        .submit-btn.btn.primary{
+            display: flex;
+            margin: 0 auto;
+        } 
+
+    @media (max-width: 575px) {
+        .wrapper {
+            padding: 40px 24px 40px 24px;
+        }
+
+        .rating-image {
+            padding-top: 40px;
+        }
+    }
+    
     }
 </style>
