@@ -123,7 +123,7 @@ export default {
                 :categorySlug="coctail.slug"
                 :name="coctail.title"
                 :rating="coctail.averageRating"
-                :ingridients="coctail.ingredients"
+                :ingridients="coctail.ingredients.length"
                 :time="coctail.timeInMins"
                 :image="coctail.imageUrl"
                 :label="coctail.title"
