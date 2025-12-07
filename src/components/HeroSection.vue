@@ -76,7 +76,8 @@ export default {
                 </svg>
             </span>
         </button>
-        <button class="hero-video-captions-toggle" @click="toggleCaptions">
+        <button class="hero-video-captions-toggle" @click="toggleCaptions"
+            :aria-label="captionsOn ? 'Hide captions' : 'Show captions'">
             <span v-if="!captionsOn">
                 <svg xmlns="http://www.w3.org/2000/svg" width="31" height="27" viewBox="0 0 31 31" fill="none">
                     <g transform="translate(0, 4)">
