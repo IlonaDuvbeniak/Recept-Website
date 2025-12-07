@@ -243,6 +243,10 @@ export default {
             padding: 40px 24px;
         }
 
+        .element {
+            top: 70%;
+        }
+
         .info-container {
             padding: 40px 24px;
         }
