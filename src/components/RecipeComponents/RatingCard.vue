@@ -8,7 +8,6 @@
                     <p v-else>Tack för ditt betyg!</p>
                 </div>
 
-                
                 <RatingFunction 
                     :recipeId="recipeId"
                     @rating-changed="userRating = $event" 
@@ -206,38 +205,32 @@ export default {
         }
 
         .info-container {
+            display: flex;
+            align-items: stretch;
+            justify-content: center;
             width: 100%;
             border-right: none;
             order: 2;
-            height: 100%;
-            flex: 1;
-            display: flex;
-            align-items: stretch;
-            justify-content: center;
-            padding: 52px;
+            padding: 40px;
         }
 
         .img-container {
-            display: flex;
-            align-items: stretch;
-            justify-content: center;
-            flex: 2;
             width: 100%;
-            height: 100%;
+            height: 424px;
             order: 1;
             border-bottom: 1px solid var(--red-color);
         }
 
         .rating-image {
-            right: 30%;
+            right: 24%;
         }
 
         .text-container {
             display: flex;
             flex-direction: column;
-            padding-top: 20%;
             align-items: center;
-    }
+            text-align: center;
+        }
 
         .submit-btn.btn.primary{
             display: flex;
@@ -247,6 +240,10 @@ export default {
 
     @media (max-width: 575px) {
         .wrapper {
+            padding: 40px 24px;
+        }
+
+        .info-container {
             padding: 40px 24px;
         }
 
