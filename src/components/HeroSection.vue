@@ -55,7 +55,7 @@ export default {
         <video class="hero-movie" autoplay muted loop ref="heroVideo"
             aria-label="Looping background video of a girl sipping on a spooky drink. No audio.">
             <source src="/videos/HeroMovie.mp4" type="video/mp4" />
-            <track kind="captions" src="/videos/HeroMovie_captions.vtt" srclang="en" label="English captions" default />
+            <track kind="captions" src="/videos/HeroMovie_captions.vtt" srclang="en" label="English captions" />
         </video>
         <button class="hero-video-pause-toggle" @click="togglePlayPauseOnVideo"
             :aria-label="isPlaying ? 'Pause video' : 'Play video'">
@@ -77,8 +77,7 @@ export default {
             </span>
         </button>
         <button class="hero-video-captions-toggle" @click="toggleCaptions">
-            <span v-if="captionsOn">
-
+            <span v-if="!captionsOn">
                 <svg xmlns="http://www.w3.org/2000/svg" width="31" height="27" viewBox="0 0 31 31" fill="none">
                     <g transform="translate(0, 4)">
 
@@ -95,7 +94,9 @@ export default {
                         <path
                             d="M10.4071 5.99109C11.1304 5.9911 11.7848 6.13107 12.3661 6.41492L12.5839 6.52722C13.0796 6.80266 13.493 7.17263 13.8212 7.6366H13.8202C14.2074 8.15438 14.4505 8.76005 14.5526 9.4491L14.5868 9.67859H12.8329L12.8007 9.51843C12.6866 8.95961 12.4266 8.51 12.0214 8.16101C11.624 7.8188 11.104 7.64059 10.4442 7.6405C9.87861 7.6405 9.39763 7.77781 8.99405 8.04675C8.58806 8.31741 8.26827 8.70328 8.03702 9.21179C7.80629 9.71939 7.68741 10.3214 7.68741 11.0214C7.68745 11.7209 7.80565 12.3288 8.03702 12.8495C8.26886 13.3711 8.58997 13.7689 8.99698 14.0516C9.41316 14.3323 9.89881 14.4754 10.4618 14.4755C11.0965 14.4755 11.6134 14.3034 12.0253 13.9696C12.4411 13.6205 12.7057 13.1715 12.8192 12.6151L12.8515 12.455H14.6103L14.5712 12.6893C14.4703 13.2833 14.2608 13.8213 13.9423 14.3007L13.7987 14.5018C13.4125 15.0167 12.9287 15.4169 12.3495 15.7001C11.7688 15.9839 11.1263 16.1239 10.4257 16.1239C9.53474 16.1239 8.73187 15.907 8.02432 15.4696L8.02139 15.4677C7.33022 15.0197 6.78071 14.412 6.37393 13.6493L6.37198 13.6454C5.9767 12.8674 5.78121 11.9912 5.78116 11.0214C5.78116 10.0513 5.97715 9.18571 6.37393 8.43054L6.37491 8.42859C6.78215 7.67773 7.33169 7.08185 8.02335 6.64636L8.02432 6.64539C8.7314 6.20828 9.52785 5.99109 10.4071 5.99109Z"
                             fill="#D80A36" stroke="#D80A36" stroke-width="0.4" />
+
                     </g>
+
 
                 </svg>
             </span>
