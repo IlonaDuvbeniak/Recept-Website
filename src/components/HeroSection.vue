@@ -257,7 +257,7 @@ h1 {
     }
 
     .title-and-button {
-        left: 50%;
+        left: 45%;
     }
 
     .swirl-text {
