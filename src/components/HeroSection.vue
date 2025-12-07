@@ -263,9 +263,14 @@ h1 {
         margin-top: -0px;
     }
 
-    .hero-video-toggle {
+    .hero-video-pause-toggle {
 
         top: 100px;
+    }
+
+    .hero-video-captions-toggle {
+
+        top: 160px;
     }
 }
 
@@ -286,8 +291,13 @@ h1 {
         width: 170%
     }
 
-    .hero-video-toggle {
+    .hero-video-pause-toggle {
         top: 110px;
+        right: 10px;
+    }
+
+    .hero-video-captions-toggle {
+        top: 170px;
         right: 10px;
     }
 }
