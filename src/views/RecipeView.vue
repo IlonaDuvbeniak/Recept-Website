@@ -4,7 +4,6 @@ import ReceptCard from '@/components/RecipeComponents/ReceptCard.vue';
 import HowToDo from '@/components/RecipeComponents/HowToDo.vue';
 import RatingCard from '@/components/RecipeComponents/RatingCard.vue';
 import CommentForm from '../components/CommentForm.vue';
-import CommentFormTryAndError from '../components/CommentFormTryAndError.vue';
 import ArrowButton from '@/components/ArrowButton.vue';
 import Footer from '@/components/Footer.vue';
 import Loading from '@/components/Loading.vue';
@@ -20,7 +19,6 @@ export default {
     HowToDo,
     RatingCard,
     CommentForm,
-    CommentFormTryAndError,
     ArrowButton,
     Footer,
     Loading,
@@ -107,46 +105,46 @@ export default {
   </svg>
 
   <div v-if="loading">
-    <Loading />
+      <Loading />
   </div>
 
   <div v-else-if="recipe">
-
     <ReceptCard 
-    :name="recipe.title"
-    :categori="recipe.categories?.[0] || 'Uncategorized'"
-    :categorySlug="recipe.categories?.[0] || ''"
-    :description="recipe.description"
-    :rating="recipe.rating"
-    :ingridients="recipe.ingredients.length"
-    :time="recipe.timeInMins"
-    :image="recipe.imageUrl"
-  />
+      :name="recipe.title"
+      :categori="recipe.categories?.[0] || 'Uncategorized'"
+      :categorySlug="recipe.categories?.[0] || ''"
+      :description="recipe.description"
+      :rating="recipe.rating"
+      :ingridients="recipe.ingredients.length"
+      :time="recipe.timeInMins"
+      :image="recipe.imageUrl"
+    />
 
-  <HowToDo 
-    :items="recipe.ingredients"
-    :steps="recipe.instructions"
-  />
+    <HowToDo 
+      :items="recipe.ingredients"
+      :steps="recipe.instructions"
+    />
 
-  <RatingCard 
-    :recipeId="String(recipe.id || '')"
-    @rating-updated="updateRating"
-  />
-      <CommentForm />
-      <CommentFormTryAndError />
-      <Footer />
+    <RatingCard 
+      :recipeId="String(recipe.id || '')"
+      @rating-updated="updateRating"
+    />
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="1440" height="699" viewBox="0 0 1440 699" fill="none" class="element-comments">
+      <path d="M-40.1365 22.7296L29.0208 137.358C132.305 308.551 350.981 372.004 531.05 285.115C716.587 195.589 941.858 268.057 1037.84 450.336C1132.22 629.574 1349.99 704.137 1534.42 620.369L1708.35 541.376" stroke="#A5D1D0" stroke-width="88"/>
+    </svg>
+
+    <CommentForm />
+    <Footer />
   </div>
 
   <div v-else>
-    <NotFound />
+      <NotFound />
   </div>
-
-  
 
   <!-- test av Nat -->
             <!-- <CommentFormTryAndError message="Hej från parent! ${this.recipe}" :count="5" />    -->
   <!-- slut test av Nat -->
-
 
 </template>
 
@@ -160,6 +158,11 @@ export default {
     z-index: -1;
     overflow: visible;           
     pointer-events: none;
+  }
+
+  .element-comments {
+    position: absolute;
+    z-index: 0;
   }
 
   @media (max-width: 575px) {

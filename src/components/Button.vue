@@ -171,4 +171,10 @@ export default {
     color: var(--dark-red-color);
     border: 1px solid var(--blue-color);
 }
+
+@media (max-width: 575px) {
+    .btn {
+        width: 100%;
+    }
+}
 </style>

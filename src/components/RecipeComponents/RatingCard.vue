@@ -105,7 +105,7 @@ export default {
         align-items: center;
         justify-content: center;
         padding: 132px 120px 52px 120px;
-        height: 100%;
+        max-height: 100%;
         position: relative;
     }
 
@@ -126,7 +126,7 @@ export default {
         flex-direction: column;
         justify-content: center;
         gap: 48px;
-        padding: 100px 64px;
+        padding: 88px 64px;
         width: 50%;
         border-right: 1px solid var(--red-color);
     }
@@ -166,41 +166,56 @@ export default {
         line-height: 24px; 
     } 
 
+    @media (max-width: 991px) {
+        .wrapper {
+            padding: 72px;
+        }
+
+        .info-container {
+            padding: 72px 52px;
+        }
+
+        .rating-image {
+            right: 15%;
+            max-width: 332px;
+        }
+    }
+
     @media (max-width: 767px) {
         .wrapper {
-            padding: 52px 52px 52px 52px;
-            position: relative;
-            align-items: normal;
+            padding: 52px;
         }
 
         .rating-card {
             display: flex;
             flex-direction: column;
-            height:50rem;
-            padding-bottom: 4rem;
-            
         }
 
         .info-container {
             width: 100%;
             border-right: none;
             order: 2;
-            height: 50%;
+            height: 100%;
+            flex: 1;
+            display: flex;
+            align-items: stretch;
             justify-content: center;
-            padding: 0.8rem;
+            padding: 52px;
         }
 
         .img-container {
+            display: flex;
+            align-items: stretch;
+            justify-content: center;
+            flex: 2;
             width: 100%;
-            height: 50%;
+            height: 100%;
             order: 1;
             border-bottom: 1px solid var(--red-color);
         }
 
         .rating-image {
             right: 30%;
-            max-width: 300px;
-            padding-top: 52px;
         }
 
         .text-container {
@@ -214,16 +229,33 @@ export default {
             display: flex;
             margin: 0 auto;
         } 
+    }
 
     @media (max-width: 575px) {
         .wrapper {
-            padding: 40px 24px 40px 24px;
+            padding: 40px 24px;
+        }
+
+        .text-container {
+            gap: 32px;
         }
 
         .rating-image {
+            right: 15%;
+            max-width: 272px;
             padding-top: 40px;
         }
-    }
-    
+
+        h3 {
+            font-size: 24px;
+            line-height: 24px;
+            text-align: center;
+        }
+
+        p {
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 20px; 
+        }
     }
 </style>
