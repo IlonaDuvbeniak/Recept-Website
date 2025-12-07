@@ -27,6 +27,10 @@
                 <BackgroundLines/>
             </div>
         </div>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" width="1440" height="699" viewBox="0 0 1440 699" fill="none" class="element">
+            <path d="M-40.1365 22.7296L29.0208 137.358C132.305 308.551 350.981 372.004 531.05 285.115C716.587 195.589 941.858 268.057 1037.84 450.336C1132.22 629.574 1349.99 704.137 1534.42 620.369L1708.35 541.376" stroke="#A5D1D0" stroke-width="88"/>
+        </svg>
     </section>
 </template>
 
@@ -107,6 +111,16 @@ export default {
         padding: 132px 120px 52px 120px;
         max-height: 100%;
         position: relative;
+    }
+
+    .element {
+        position: absolute;
+        top: 54%;
+        left: 50%;                    
+        transform: translateX(-50%);                  
+        z-index: -1;
+        overflow: visible;           
+        pointer-events: none;
     }
 
     .rating-card {
