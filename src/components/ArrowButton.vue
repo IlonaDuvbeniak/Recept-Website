@@ -43,4 +43,10 @@
         background-color: var(--dark-red-color);
         fill: var(--white-color);
     }
+
+    @media (max-width: 575px) {
+        .btn {
+            display: none;
+        }
+    }
 </style>

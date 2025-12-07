@@ -1,5 +1,5 @@
 <template>
-    <section class="container">
+    <section class="wrapper">
         <div class="card">
             <div class="ingridient-container">
                 <h2>Ingredienser</h2>
@@ -44,7 +44,7 @@
 </script>
 
 <style scoped>
-    .container {
+    .wrapper {
         width: 100%;
         padding: 100px 120px;
         background-color: var(--baby-pink-color);
@@ -120,13 +120,13 @@
     }
 
     @media (max-width: 991px) {
-        .container {
+        .wrapper {
             padding: 72px;
         }
     }
 
     @media (max-width: 767px) {
-        .container {
+        .wrapper {
             padding: 52px;
         }
 
@@ -150,7 +150,7 @@
     }
 
     @media (max-width: 575px) {
-        .container {
+        .wrapper {
             padding: 40px 24px;
         }
 
