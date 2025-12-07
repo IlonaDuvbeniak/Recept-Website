@@ -153,6 +153,8 @@ export default {
     left: 50%;
     transform: translateX(-50%);
     width: 100%;
+    pointer-events: none;
+    z-index: 0;
 }
 
 h1 {
@@ -190,7 +192,7 @@ h1 {
     justify-content: center;
     margin: 20px;
     top: 0px;
-    z-index: 10;
+    z-index: 1;
 }
 
 .hero-video-captions-toggle {
@@ -206,7 +208,7 @@ h1 {
     justify-content: center;
     margin: 20px;
     top: 60px;
-    z-index: 10;
+    z-index: 1;
 }
 
 /* Viktigt för WCAG: tydlig focus-stil för tangentbordsanvändare */
