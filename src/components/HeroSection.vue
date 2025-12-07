@@ -169,6 +169,7 @@ h1 {
     position: relative;
     left: 60%;
     margin-top: 200px;
+    z-index: 1;
 }
 
 .header-component {
