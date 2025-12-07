@@ -27,6 +27,10 @@
                 <BackgroundLines/>
             </div>
         </div>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" width="1440" height="699" viewBox="0 0 1440 699" fill="none" class="element">
+            <path d="M-40.1365 22.7296L29.0208 137.358C132.305 308.551 350.981 372.004 531.05 285.115C716.587 195.589 941.858 268.057 1037.84 450.336C1132.22 629.574 1349.99 704.137 1534.42 620.369L1708.35 541.376" stroke="#A5D1D0" stroke-width="88"/>
+        </svg>
     </section>
 </template>
 
@@ -105,8 +109,18 @@ export default {
         align-items: center;
         justify-content: center;
         padding: 132px 120px 52px 120px;
-        height: 100%;
+        max-height: 100%;
         position: relative;
+    }
+
+    .element {
+        position: absolute;
+        top: 54%;
+        left: 50%;                    
+        transform: translateX(-50%);                  
+        z-index: -1;
+        overflow: visible;           
+        pointer-events: none;
     }
 
     .rating-card {
@@ -126,7 +140,7 @@ export default {
         flex-direction: column;
         justify-content: center;
         gap: 48px;
-        padding: 100px 64px;
+        padding: 88px 64px;
         width: 50%;
         border-right: 1px solid var(--red-color);
     }
@@ -166,41 +180,56 @@ export default {
         line-height: 24px; 
     } 
 
+    @media (max-width: 991px) {
+        .wrapper {
+            padding: 72px;
+        }
+
+        .info-container {
+            padding: 72px 52px;
+        }
+
+        .rating-image {
+            right: 15%;
+            max-width: 332px;
+        }
+    }
+
     @media (max-width: 767px) {
         .wrapper {
-            padding: 52px 52px 52px 52px;
-            position: relative;
-            align-items: normal;
+            padding: 52px;
         }
 
         .rating-card {
             display: flex;
             flex-direction: column;
-            height:50rem;
-            padding-bottom: 4rem;
-            
         }
 
         .info-container {
             width: 100%;
             border-right: none;
             order: 2;
-            height: 50%;
+            height: 100%;
+            flex: 1;
+            display: flex;
+            align-items: stretch;
             justify-content: center;
-            padding: 0.8rem;
+            padding: 52px;
         }
 
         .img-container {
+            display: flex;
+            align-items: stretch;
+            justify-content: center;
+            flex: 2;
             width: 100%;
-            height: 50%;
+            height: 100%;
             order: 1;
             border-bottom: 1px solid var(--red-color);
         }
 
         .rating-image {
             right: 30%;
-            max-width: 300px;
-            padding-top: 52px;
         }
 
         .text-container {
@@ -214,16 +243,33 @@ export default {
             display: flex;
             margin: 0 auto;
         } 
+    }
 
     @media (max-width: 575px) {
         .wrapper {
-            padding: 40px 24px 40px 24px;
+            padding: 40px 24px;
+        }
+
+        .text-container {
+            gap: 32px;
         }
 
         .rating-image {
+            right: 15%;
+            max-width: 272px;
             padding-top: 40px;
         }
-    }
-    
+
+        h3 {
+            font-size: 24px;
+            line-height: 24px;
+            text-align: center;
+        }
+
+        p {
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 20px; 
+        }
     }
 </style>

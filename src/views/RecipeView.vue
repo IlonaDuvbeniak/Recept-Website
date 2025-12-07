@@ -4,7 +4,6 @@ import ReceptCard from '@/components/RecipeComponents/ReceptCard.vue';
 import HowToDo from '@/components/RecipeComponents/HowToDo.vue';
 import RatingCard from '@/components/RecipeComponents/RatingCard.vue';
 import CommentForm from '../components/CommentForm.vue';
-import CommentFormTryAndError from '../components/CommentFormTryAndError.vue';
 import ArrowButton from '@/components/ArrowButton.vue';
 import Footer from '@/components/Footer.vue';
 import Loading from '@/components/Loading.vue';
@@ -20,7 +19,6 @@ export default {
     HowToDo,
     RatingCard,
     CommentForm,
-    CommentFormTryAndError,
     ArrowButton,
     Footer,
     Loading,
@@ -107,46 +105,43 @@ export default {
   </svg>
 
   <div v-if="loading">
-    <Loading />
+      <Loading />
   </div>
 
   <div v-else-if="recipe">
-
     <ReceptCard 
-    :name="recipe.title"
-    :categori="recipe.categories?.[0] || 'Uncategorized'"
-    :categorySlug="recipe.categories?.[0] || ''"
-    :description="recipe.description"
-    :rating="recipe.rating"
-    :ingridients="recipe.ingredients.length"
-    :time="recipe.timeInMins"
-    :image="recipe.imageUrl"
-  />
+      :name="recipe.title"
+      :categori="recipe.categories?.[0] || 'Uncategorized'"
+      :categorySlug="recipe.categories?.[0] || ''"
+      :description="recipe.description"
+      :rating="recipe.rating"
+      :ingridients="recipe.ingredients.length"
+      :time="recipe.timeInMins"
+      :image="recipe.imageUrl"
+    />
 
-  <HowToDo 
-    :items="recipe.ingredients"
-    :steps="recipe.instructions"
-  />
+    <HowToDo 
+      :items="recipe.ingredients"
+      :steps="recipe.instructions"
+    />
 
-  <RatingCard 
-    :recipeId="String(recipe.id || '')"
-    @rating-updated="updateRating"
-  />
-      <CommentForm />
-      <CommentFormTryAndError />
-      <Footer />
+    <RatingCard 
+      :recipeId="String(recipe.id || '')"
+      @rating-updated="updateRating"
+    />
+
+    <CommentForm />
+    
+    <Footer />
   </div>
 
   <div v-else>
-    <NotFound />
+      <NotFound />
   </div>
-
-  
 
   <!-- test av Nat -->
             <!-- <CommentFormTryAndError message="Hej från parent! ${this.recipe}" :count="5" />    -->
   <!-- slut test av Nat -->
-
 
 </template>
 
