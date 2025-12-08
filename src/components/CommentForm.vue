@@ -139,6 +139,9 @@ export default {
         },
 
 
+
+
+
 // _______________SKAPAR EN URL BASERAT PÅ LISTA MED OBJEKT________________________________________
 
 
@@ -179,6 +182,76 @@ export default {
             for (const eachComment of this.allComments) {
 
                 const titleAndComment = eachComment.comment.split("*-+!"); 
+
+                // let text = "12";
+                // let result = text.replace(/12/i, "Dec");
+
+                const apiTimeFormat = eachComment.createdAt.split("T");
+
+               
+
+
+                let dateFromApi = apiTimeFormat[0];
+
+
+
+                // Från det här:  2025-12-08T19:16:59.179376   till 8 Nov
+                
+
+                // datum
+                if ((dateFromApi[8]) == 0 ) {
+                    //nollan borttagen
+                    console.log(dateFromApi[9]);
+                } else {
+                    console.log(dateFromApi.slice(8, 10));
+                }
+
+
+                // månad
+                switch(dateFromApi.slice(5, 7)) {
+                    case "01":
+                            console.log("Jan");
+                        break;
+                    case "02":
+                            console.log("Feb");
+                        break;
+                    case "03":
+                        console.log("Mar");
+                        break;
+                    case "04":
+                        console.log("Apr");
+                        break;
+                    case "05":
+                            console.log("Maj");
+                        break;
+                    case "06":
+                            console.log("Jun");
+                        break;
+                    case "07":
+                        console.log("Jul");
+                        break;
+                    case "08":
+                        console.log("Aug");
+                        break;
+                    case "09":
+                            console.log("Sep");
+                        break;
+                    case "10":
+                            console.log("Okt");
+                        break;
+                    case "11":
+                        console.log("Nov");
+                        break;
+                    case "12":
+                        console.log("Dec");
+                        break;
+                    default:
+                            console.log("??");
+                    } 
+
+
+
+                
 
                 this.commentsArray.push(   
                         {id: eachComment.id, 
@@ -244,13 +317,13 @@ async postCommentsToAPI() {
 // //______________KÄNNER SIDSTORLEK____________________________________________________
 
        
-//         sizeDependentSlice(x) {
-//             if (this.x.matches) {
-//                 this.showComEnd = this.showComStart +1;
-//             } else {
-//                 this.showComEnd = this.showComStart +3;
-//             };
-//         }
+        sizeDependentSlice(x) {
+            if (this.x.matches) {
+                this.showComEnd = this.showComStart +1;
+            } else {
+                this.showComEnd = this.showComStart +3;
+            };
+        }
     },
     computed: {
 
@@ -308,7 +381,7 @@ async postCommentsToAPI() {
 <div class="comment-cards-container">
     <div 
         v-for="eachCommentLocalArray in commentsArray.slice(showComStart, showComEnd)" 
-        class="comment-card">
+        class="comment-card" :key="eachCommentLocalArray.id">
         
         <div class="comment-cards-top">
             <p class="commenter-name"><strong>{{ eachCommentLocalArray.name }}</strong></p>
@@ -357,7 +430,6 @@ async postCommentsToAPI() {
 
 <style scoped>
 .help-msg {
-    /* background: var(--baby-pink-color); */
     align-self: center;
     padding-left: 100px;
     padding-right: 100px;    
