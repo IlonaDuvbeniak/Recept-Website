@@ -43,14 +43,7 @@ export default {
             newTime: '',  
             id: 0,
             
-            commentsArray: [    
-                { id: 1, name: "Julia", title: "Kors i taket!", writtenComment: "Sablar var rolig sida! Den här ska jag testa!", time: "17 Nov 2025" },
-                { id: 2, name: "Moa", title: "Glassigt", writtenComment: "Rolig att ha till festen. De andra blev väldigt nyfikna så nästa gång ska jag nog bjuda på den till alla", time: "18 Nov 2025" },
-                { id: 3, name: "Alva", title: "Mer krisp?", writtenComment: "Väldigt god, men hade det inte varit kul med lite krisp i den? :D", time: "19 Nov 2025" },
-                { id: 4, name: "Måsen från Sigtuna", title: "Tjusigt!", writtenComment: "Amazing, just amzing, ni har lyckats igen!", time: "19 Nov 2025" },
-                { id: 5, name: "Johanna", title: "Jodå", writtenComment: "Rolig att ha till festen. De andra blev väldigt nyfikna så nästa gång ska jag nog bjuda på den till alla", time: "20 Nov 2025" },
-                { id: 6, name: "E. Jonsson", title: "Allmänt gott", writtenComment: "Jag gillar drinken, tack.", time: "21 Nov 2025" },
-            ],
+            commentsArray: [],
 
             message: '',
 
