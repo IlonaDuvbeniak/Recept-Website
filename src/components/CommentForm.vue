@@ -20,18 +20,20 @@ export default {
                     {slugName: "bitter-tears", recipeId: "a07a3046-89d1-4f53-9ec8-8326cf3d7271"},
                     {slugName: "bye-bye-mary", recipeId: "a82062f9-221b-4657-820f-1d6dd41c995f"},
                     {slugName: "party-like-its-friday", recipeId: "26ed6192-86e4-4ef5-9b22-2973d1ff5cb2"},
-                    {slugName: "Exorcism", recipeId: "6a34ec5c-5e4d-4f75-aa5c-39eee5be952b"},
-                    {slugName: "Ghosted & Roasted", recipeId: "c6b7a179-d1b4-4abc-8542-43d37c0ead41"},
-                    {slugName: "Ho-Ho-Hot Toddy", recipeId: "c7e986cb-0fe4-44f7-abab-55bac3c39647"},
-                    {slugName: "Island Bye-Land", recipeId: "8d004646-0b8b-43bf-bfce-4c7474e87b8e"},
-                    {slugName: "Jingle Juice", recipeId: "fb991d8b-6f6c-4b97-bc05-06495054a3f6"},
-                    {slugName: "Mistle-Toasted", recipeId: "b55fb64b-8b9b-4d36-93f3-92366cecbcd9"},
-                    {slugName: "Out of office", recipeId: "ff2c2211-d557-4d98-91cb-293d6a2cef61"},
-                    {slugName: "Potion Notions", recipeId: "60ed746d-ea8d-468f-b61d-fd843c4e58b3"},
-                    {slugName: "Santa’s Nightcap", recipeId: "62af4889-e4b3-4c99-99be-a654eeab4cfd"},
-                    {slugName: "TGIFizz", recipeId: "5671469c-0c7b-41d9-9cf5-433d3afb0898"},
-                    {slugName: "TGIFizz", recipeId: "eb194c77-137d-4d11-8aa6-f1adb4009755"},
-                    {slugName: "Witch, Please!", recipeId: "092cc672-8840-4bc9-930c-19c404bb4ab7"}
+                    {slugName: "exorcism", recipeId: "6a34ec5c-5e4d-4f75-aa5c-39eee5be952b"},
+                    {slugName: "ghosted-and-roasted", recipeId: "c6b7a179-d1b4-4abc-8542-43d37c0ead41"},
+                    {slugName: "ho-ho-hot-toddy", recipeId: "c7e986cb-0fe4-44f7-abab-55bac3c39647"},
+                    {slugName: "island-bye-land", recipeId: "8d004646-0b8b-43bf-bfce-4c7474e87b8e"},
+                    {slugName: "jingle-juice", recipeId: "fb991d8b-6f6c-4b97-bc05-06495054a3f6"},
+                    {slugName: "mistle-toasted", recipeId: "b55fb64b-8b9b-4d36-93f3-92366cecbcd9"},
+                    {slugName: "out-of-office", recipeId: "ff2c2211-d557-4d98-91cb-293d6a2cef61"},
+                    {slugName: "potion-notions", recipeId: "60ed746d-ea8d-468f-b61d-fd843c4e58b3"},
+                    {slugName: "santas-nightcap", recipeId: "62af4889-e4b3-4c99-99be-a654eeab4cfd"},
+                    {slugName: "tgifizz", recipeId: "5671469c-0c7b-41d9-9cf5-433d3afb0898"},
+                    {slugName: "tgifizz", recipeId: "eb194c77-137d-4d11-8aa6-f1adb4009755"},
+                    {slugName: "witch-please", recipeId: "092cc672-8840-4bc9-930c-19c404bb4ab7"},
+                    {slugName: "dancing-on-tables", recipeId: "26ed6192-86e4-4ef5-9b22-2973d1ff5cb2"}
+
                 ], 
             eachCommentLocalArray: "",
             
@@ -96,6 +98,13 @@ export default {
             //     // time: this.newTime
             //     });
 
+            //löser så att submittade kommentaren syns utan refresh.
+            this.commentsArray.push(   
+                {name: this.newName, 
+                title: this.newTitle, 
+                writtenComment: this.newWrittenComment, 
+                time: "Now"});
+
             this.newName = "";
             this.newTitle = "";
             this.newWrittenComment = "";
@@ -106,7 +115,9 @@ export default {
             this.disableRightButton = true;
             this.disableLeftButton= false;
 
-            this.fetchComments();
+            // this.fetchComments();
+
+            
 
         },
                 
@@ -181,18 +192,15 @@ export default {
         addToLocalArray () {
             for (const eachComment of this.allComments) {
 
-                const titleAndComment = eachComment.comment.split("*-+!"); 
+                const titleAndComment = eachComment.comment.split("*-+!");
 
-                // let text = "12";
-                // let result = text.replace(/12/i, "Dec");
-
+                
+                
+                
                 const apiTimeFormat = eachComment.createdAt.split("T");
 
                
-
-
                 let dateFromApi = apiTimeFormat[0];
-
 
 
                 // Från det här:  2025-12-08T19:16:59.179376   till 8 Nov
