@@ -24,7 +24,6 @@ export default {
             <input type="search" id="site-search" placeholder="Search by vibe" name="q"
                 aria-label="Search through recipes" required minlength="1" maxlength="30" :value="value"
                 @input="$emit('input', $event.target.value)">
-            </input>
         </form>
     </div>
 </template>
