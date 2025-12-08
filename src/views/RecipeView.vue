@@ -137,6 +137,7 @@ export default {
 
   <div v-else>
       <NotFound />
+      <Footer />
   </div>
 
   <!-- test av Nat -->
