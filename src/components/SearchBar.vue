@@ -18,7 +18,7 @@ export default {
                 fill="none" aria-hidden="true" focusable="false">
                 <path
                     d="M24.0002 13.6C24.0002 15.895 23.2552 18.015 22.0002 19.735L28.3302 26.07C28.9552 26.695 28.9552 27.71 28.3302 28.335C27.7052 28.96 26.6902 28.96 26.0652 28.335L19.7352 22C18.0152 23.255 15.8952 24 13.6002 24C7.8552 24 3.2002 19.345 3.2002 13.6C3.2002 7.855 7.8552 3.2 13.6002 3.2C19.3452 3.2 24.0002 7.855 24.0002 13.6ZM13.6002 20.8C17.5752 20.8 20.8002 17.575 20.8002 13.6C20.8002 9.625 17.5752 6.4 13.6002 6.4C9.6252 6.4 6.4002 9.625 6.4002 13.6C6.4002 17.575 9.6252 20.8 13.6002 20.8Z"
-                    fill="#D80A36" />
+                    fill="currentColor" />
             </svg>
             <label for="site-search"></label>
             <input type="search" id="site-search" placeholder="Search by vibe" name="q"
@@ -47,12 +47,27 @@ export default {
 }
 
 .search-bar-container:focus-within {
+    outline: 4px solid var(--blue-color);
+    outline-offset: -3px;
+}
+
+.search-bar-container:hover input::placeholder {
+    color: var(--dark-red-color);
+}
+
+.search-bar-container:hover {
     border-color: var(--dark-red-color);
+    color: var(--dark-red-color);
+}
+
+.search-bar-container:hover .search-icon {
+    color: var(--dark-red-color);
 }
 
 #site-search {
     padding-left: 10px;
     border: none;
+    flex: 1;
     color: var(--red-color);
     background-color: var(--white-color);
     font-family: "Instrument Sans";
@@ -61,7 +76,8 @@ export default {
     line-height: 24px;
     letter-spacing: 1.28px;
     outline: none;
-    max-width: 100%;
+    width: 100%;
+    border-radius: 50px;
 }
 
 input[type="search"]::-webkit-search-decoration,
@@ -75,6 +91,7 @@ input[type="search"]::-webkit-search-results-decoration {
     height: 30px;
     padding-left: 0px;
     margin: 10px;
+    color: var(--red-color)
 }
 
 ::placeholder {
