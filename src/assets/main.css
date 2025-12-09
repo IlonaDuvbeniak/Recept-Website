@@ -12,6 +12,10 @@ body {
   overflow-x: hidden;
 }
 
+:focus {
+  outline: 4px solid var(--blue-color);
+}
+
 ::selection {
   background: var(--blue-color);
 }
