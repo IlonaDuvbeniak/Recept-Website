@@ -76,6 +76,8 @@ export default {
     border: 3px solid transparent;
     padding: 9px 33px;
     color: var(--white-color);
+    position: relative;
+    min-width: 220px;
 }
 
 .btn.primary .btn-text {
@@ -97,7 +99,9 @@ export default {
 }
 
 .btn.primary:hover .btn-arrow {
-    transform: translateX(50%);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
     fill: var(--red-color);
 }
 
