@@ -31,11 +31,7 @@
                             </div>
             </div>
             <div class="footer-logo">
-                    <div class="logo-row">
-                        <img class="flower-logo" src="/img/flower-logo.svg" alt="Logo" />
-                        <span class="drinks-text">DRINKS</span>
-                        <img class="flower-logo" src="/img/flower-logo.svg" alt="Logo" />
-                    </div>
+                    <span class="drinks-text">*DRINKS*</span>
             </div>
 
            
@@ -97,6 +93,7 @@
         font-family: "Kalnia";
         color: var(--red-color);
         font-weight: bold;
+        font-size: 230px;
 
     }
 
@@ -109,13 +106,6 @@
         gap:1rem;
     }
 
-    .flower-logo {
-        width: auto;
-        height: 3rem;
-        object-fit:contain;
-        display:block;
-        transform: translateY(-3rem);
-    }
 
     .team-members {
         display: flex;
@@ -198,8 +188,9 @@
         .logo-row{
             font-size: 12rem;
         }
-        .flower-logo{
-            height: 2.5rem;
+
+        .footer-logo{
+            font-size:180px;
         }
     }
 
@@ -207,13 +198,13 @@
         .logo-row{
             font-size: 9rem;
         }
-        .flower-logo{
-            height: 2rem;
-            transform: translateY(-1.8rem);
-        }
         .team-member {
             padding-right: 0.3rem;
             padding-left: 0.3rem;
+        }
+
+        .footer-logo{
+            font-size:150px;
         }
     }
 
@@ -222,10 +213,6 @@
         .logo-row{
             font-size: 7rem;
             gap:0.5rem;
-        }
-        .flower-logo{
-            height: 1.8rem;
-            transform: translateY(-1.8rem);
         }
         .team-members {
             flex-direction: column;
@@ -238,6 +225,10 @@
         }
         .team-member {
             padding-bottom: 1.2rem;
+        }
+
+        .footer-logo{
+            font-size:110px;
         }
 
 
