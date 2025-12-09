@@ -30,7 +30,8 @@ const router = createRouter({
       name: "category",
       component: CategoryView,
       meta: { 
-        title: 'Category' 
+        title: 'Category',
+        description: 'Category page that shows only filtered recepies with the same category.'
       }
     },
     {
@@ -39,7 +40,8 @@ const router = createRouter({
       component: RecipeView,
       props: true,
       meta: { 
-        title: 'Recept' 
+        title: 'Recept',
+        description: 'Recepie page that shows all the details about the recipe. Ingridients, how to cook, has opportunity to sent a review or star-rating.'
       }
     },
   ],
@@ -48,16 +50,12 @@ const router = createRouter({
   }
 });
 
-router.beforeEach((to, from, next) => {
-  console.log("Setting title to:", to.meta?.title);
-  document.title = to.meta?.title;
-  next();
-});
 
 router.beforeEach((to, from, next) => {
   document.title = to.meta?.title;
   next();
 });
+
 
 router.afterEach((to) => {
 

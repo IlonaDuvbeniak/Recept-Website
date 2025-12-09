@@ -57,6 +57,7 @@ export default {
             },
             immediate: true
         },
+        
         filteredCoctails: {
             handler(val) {
                 this.$emit('update:total', val.length);
