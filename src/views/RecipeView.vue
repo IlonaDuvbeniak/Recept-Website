@@ -72,7 +72,8 @@ export default {
           this.recipe.rating = 0;
         }
 
-      },
+      }
+    },
 
     updateRating(newAverage) {
       if (!this.recipe) return;
