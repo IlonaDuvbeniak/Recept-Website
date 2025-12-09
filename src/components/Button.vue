@@ -45,9 +45,6 @@ export default {
             return this.to ? 'router-link' : 'button'
         }
     },
-    mounted() {
-        console.log('Button $attrs:', this.$attrs);
-    }
 }
 </script>
 
