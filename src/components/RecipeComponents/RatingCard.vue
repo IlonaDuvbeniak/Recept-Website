@@ -3,22 +3,27 @@
         <div class="rating-card">
             <div class="info-container">
                 <div class="text-container">
-                    <h3>Vad tyckte du om receptet?</h3>
+                    <h3 v-if="!sent">Vad tyckte du om receptet?</h3>
+                    <h3 v-else>Tack för ditt betyg!</h3>
+                    
                     <p v-if="!sent">Klick på glasen för att ge ditt betyg!</p>
-                    <p v-else>Tack för ditt betyg!</p>
                 </div>
 
                 <RatingFunction 
+                    v-show="!sent"
                     :recipeId="recipeId"
                     @rating-changed="userRating = $event" 
                 />
 
                 <Button class="submit-btn"
+                        v-show="!sent"
                         :btnText="sent ? 'Skickat!' : 'Skicka betyg'" 
                         variant="primary" 
                         :showArrow="true"
                         @click="submitRating"
                 />
+
+                <div v-show="sent" class="rating-placeholder"></div>
             </div>
 
             <div class="img-container">
@@ -179,19 +184,8 @@ export default {
         line-height: 24px; 
     } 
 
-    @media (max-width: 991px) {
-        .wrapper {
-            padding: 72px;
-        }
-
-        .info-container {
-            padding: 72px 52px;
-        }
-
-        .rating-image {
-            right: 15%;
-            max-width: 332px;
-        }
+    .rating-placeholder {
+        height: 140px;
     }
 
     @media (max-width: 767px) {
@@ -202,6 +196,9 @@ export default {
         .rating-card {
             display: flex;
             flex-direction: column;
+            height:50rem;
+            padding-bottom: 4rem;
+            
         }
 
         .info-container {
@@ -211,7 +208,10 @@ export default {
             width: 100%;
             border-right: none;
             order: 2;
-            padding: 40px;
+            height: 50%;
+            justify-content: center;
+            padding: 0.8rem;
+            padding: 120px 40px 0px 40px;
         }
 
         .img-container {
@@ -236,6 +236,10 @@ export default {
             display: flex;
             margin: 0 auto;
         } 
+
+        .rating-placeholder {
+            height: 0px;
+    }
     }
 
     @media (max-width: 575px) {
@@ -248,7 +252,7 @@ export default {
         }
 
         .info-container {
-            padding: 40px 24px;
+            padding: 120px 40px 24px;
         }
 
         .text-container {
@@ -272,5 +276,8 @@ export default {
             font-weight: 400;
             line-height: 20px; 
         }
+
+        .rating-placeholder {
+            height: 0px;}
     }
 </style>

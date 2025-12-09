@@ -48,6 +48,7 @@ export default {
             return this.to ? 'router-link' : 'button'
         }
     }
+
 }
 </script>
 
