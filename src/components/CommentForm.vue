@@ -16,7 +16,6 @@ export default {
             //     activeRecipe: "",
             slugToRecipeIdInCommentsAPIlist:
                 [
-
                     {slugName: "boozy-banshee-scream", recipeId: "c7721a9b-b3eb-4275-adee-b1f8c625bfb2"},  // this för tillfället, kan bytas till API i framtiden. 
                     {slugName: "bitter-tears", recipeId: "a07a3046-89d1-4f53-9ec8-8326cf3d7271"},
                     {slugName: "bye-bye-mary", recipeId: "a82062f9-221b-4657-820f-1d6dd41c995f"},
@@ -33,11 +32,14 @@ export default {
                     {slugName: "tgifizz", recipeId: "eb194c77-137d-4d11-8aa6-f1adb4009755"},
                     {slugName: "witch-please", recipeId: "092cc672-8840-4bc9-930c-19c404bb4ab7"},
                     {slugName: "dancing-on-tables", recipeId: "26ed6192-86e4-4ef5-9b22-2973d1ff5cb2"}
-
                 ], 
 
             eachCommentLocalArray: "",
 
+            prettyDate: "",
+            prettyMonth: "",
+            prettyDateAndMonth: "",
+            
 
 
             newName: '',
@@ -50,14 +52,19 @@ export default {
 
             message: '',
 
+            x: window.innerWidth,
             showComStart: 0,
-            showComEnd: 3,
+            showComEnd: 0,
+            // ändrade från 3 till 0, se om det funkar
 
 
             disableRightButton: false,
             disableLeftButton: true,
 
-            x: window.matchMedia("(max-width: 600px)"),
+            // x: window.matchMedia("(max-width: 600px)"),
+         
+
+           
         }
     },
 
@@ -66,19 +73,26 @@ export default {
         // körs automatiskt när komponenten laddas
         await this.fetchComments();
         // await this.loadRecipes();
-    },
+    
 
     // //______________KÄNNER SIDSTORLEK____________________________________________________
 
-    //         this.sizeDependentSlice(this.x);
+        this.sizeDependentSlice();
 
-    //         this.x.addEventListener("change", () => {
-    //             this.sizeDependentSlice(this.x);
-    //         });
+        window.addEventListener("resize", this.handleResize);
+        
 
 
+    },
+    beforeUnmount() {
+        window.removeEventListener("resize", this.handleResize);
+    },
     methods: {
-
+        
+        handleResize() {
+            this.x = window.innerWidth;
+            this.sizeDependentSlice();
+        },
 
 
         //______________POSTA KOMMENTAREN____________________________________________________
@@ -98,7 +112,7 @@ export default {
             this.newName = "";
             this.newTitle = "";
             this.newWrittenComment = "";
-            this.newTime = "";
+            // this.newTime = "";
 
             this.showComStart = this.commentsArray.length - 3
             this.showComEnd = this.commentsArray.length
@@ -111,31 +125,40 @@ export default {
             if (this.newName.length < 2) {
                 this.message = 'Namnet är för kort!'
             }
-            else if (this.newName.length > 30) {
-                this.message = 'Namnet är för långt!'
-            }
             else if (this.newTitle.length < 2) {
                 this.message = 'Rubriken är för kort!'
-            }
-            else if (this.newTitle.length > 25) {
-                this.message = 'Rubriken är för lång!'
             }
             else if (this.newWrittenComment.length < 10) {
                 this.message = 'Kommentaren är för kort!'
             }
-            else if (this.newWrittenComment.length > 200) {
-                this.message = 'Kommentaren är för lång!'
-            }
             else {
                 this.message = 'Din kommentar är skickad!'
 
-                console.log('Knappen fungerar som vanligt');
                 this.submitAll();
             }
         },
 
 
+// __________________POSTA TILL API_______________________________________________________
 
+
+        async postCommentsToAPI() {
+            try {
+                await axios.post(this.commentApiUrl(),
+                    {
+                        comment: (this.newTitle + "*-+!" + this.newWrittenComment),
+                        name: this.newName
+                    });
+                console.log("Post till API gjord");
+            } catch (err) {
+                this.error = "Kunde inte skicka data";
+                console.error("Post error:", err);
+                console.log("Inget skickat");
+            } finally {
+                this.loading = false;
+            }
+
+        },
 
 
         // _______________SKAPAR EN URL BASERAT PÅ LISTA MED OBJEKT________________________________________
@@ -180,11 +203,9 @@ export default {
                 const titleAndComment = eachComment.comment.split("*-+!");
 
 
-
-
                 const apiTimeFormat = eachComment.createdAt.split("T");
 
-
+        
                 let dateFromApi = apiTimeFormat[0];
 
 
@@ -194,92 +215,74 @@ export default {
                 // datum
                 if ((dateFromApi[8]) == 0) {
                     //nollan borttagen
-                    console.log(dateFromApi[9]);
+                    this.prettyDate = dateFromApi[9];
                 } else {
-                    console.log(dateFromApi.slice(8, 10));
+                    this.prettyDate = dateFromApi.slice(8, 10);
                 }
 
 
                 // månad
                 switch (dateFromApi.slice(5, 7)) {
                     case "01":
-                        console.log("Jan");
+                        this.prettyMonth = "Jan";
                         break;
                     case "02":
-                        console.log("Feb");
+                        this.prettyMonth = "Feb"
                         break;
                     case "03":
-                        console.log("Mar");
+                        this.prettyMonth = "Mar"
                         break;
                     case "04":
-                        console.log("Apr");
+                        this.prettyMonth = "Apr"
                         break;
                     case "05":
-                        console.log("Maj");
+                        this.prettyMonth = "Maj"
                         break;
                     case "06":
-                        console.log("Jun");
+                        this.prettyMonth = "Jun"
                         break;
                     case "07":
-                        console.log("Jul");
+                        this.prettyMonth = "Jul"
                         break;
                     case "08":
-                        console.log("Aug");
+                        this.prettyMonth = "Aug"
                         break;
                     case "09":
-                        console.log("Sep");
+                        this.prettyMonth = "Sep"
                         break;
                     case "10":
-                        console.log("Okt");
+                        this.prettyMonth = "Okt"
                         break;
                     case "11":
-                        console.log("Nov");
+                        this.prettyMonth = "Nov"
                         break;
                     case "12":
-                        console.log("Dec");
+                        this.prettyMonth = "Dec"
                         break;
                     default:
                         console.log("??");
                 }
 
 
+                this.prettyDateAndMonth = this.prettyDate + " " + this.prettyMonth;
+                console.log(this.prettyDateAndMonth);
 
-
-
+                
                 this.commentsArray.push(
-                    {
-                        id: eachComment.id,
-                        name: eachComment.name,
-                        title: titleAndComment[0],
-                        writtenComment: titleAndComment[1],
-                        time: eachComment.createdAt
-                    });
+                        {
+                            id: eachComment.id,
+                            name: eachComment.name,
+                            title: titleAndComment[0],
+                            writtenComment: titleAndComment[1],
+                            time: this.prettyDateAndMonth
+                        });
 
             }
 
         },
 
 
-        // __________________POSTA!_______________________________________________________
-
-
-        async postCommentsToAPI() {
-            try {
-                await axios.post(this.commentApiUrl(),
-                    {
-                        comment: (this.newTitle + "*-+!" + this.newWrittenComment),
-                        name: this.newName
-                    });
-                console.log("Post till API gjord");
-            } catch (err) {
-                this.error = "Kunde inte skicka data";
-                console.error("Post error:", err);
-                console.log("Inget skickat");
-            } finally {
-                this.loading = false;
-            }
-
-        },
+        
 
 
 
@@ -312,13 +315,17 @@ export default {
         // //______________KÄNNER SIDSTORLEK____________________________________________________
 
 
-        sizeDependentSlice(x) {
-            if (this.x.matches) {
+        sizeDependentSlice() {
+            if (this.x < 600) {
                 this.showComEnd = this.showComStart + 1;
+            } else if (this.x < 991 && this.x > 600) {
+                this.showComEnd = this.showComStart + 2;
             } else {
                 this.showComEnd = this.showComStart + 3;
-            };
-        }
+            }
+        },
+
+
     },
     computed: {
 
@@ -352,13 +359,13 @@ export default {
         <div class="comment-form">
             <div class="comment-form-top">
                 <h2 class="recept-name">Kommentar</h2>
-                <input v-model="newName" autocomplete="given-name" placeholder="Ditt namn" maxlength="25"> 
-                <p id="counter1">{{ characterCountName }}/25</p>
-                <p id="counter2">{{ characterCountTitle }}/25</p>
+                <input v-model="newName" autocomplete="given-name" placeholder="Ditt namn" maxlength="20"> 
+                <p id="counter1">{{ characterCountName }}/20</p>
+                <p id="counter2">{{ characterCountTitle }}/10</p>
                 <p id="counter3">{{ characterCountWrittenCom }}/200</p>
             </div>
          
-            <input v-model="newTitle" placeholder="Rubrik" class="input-form-end" maxlength="25">
+            <input v-model="newTitle" placeholder="Rubrik" class="input-form-end" maxlength="10">
             <textarea v-model="newWrittenComment" placeholder="Skriv din kommentar" class="input-form-end" maxlength="200"></textarea>
             
             <p class="help-msg">{{ message }}</p>
@@ -373,33 +380,49 @@ export default {
 
 
     <div class="comment-cards-container">
-        <div v-for="eachCommentLocalArray in commentsArray.slice(showComStart, showComEnd)" class="comment-card"
-            :key="eachCommentLocalArray.id">
+        <div 
+            v-for="eachCommentLocalArray in commentsArray.slice(showComStart, showComEnd)" 
+            class="comment-card"
+            :key="eachCommentLocalArray.id"
+        >
 
             <div class="comment-cards-top">
                 <p class="commenter-name"><strong>{{ eachCommentLocalArray.name }}</strong></p>
                 <p class="p-time">{{ eachCommentLocalArray.time }}</p>
             </div>
+
             <h3 class="title-comment-cards">{{ eachCommentLocalArray.title }}</h3>
             <p class="main-comment-text">{{ eachCommentLocalArray.writtenComment }}</p>
 
-            <button class="btn-carousel" id="btn-l-carousel" @click="showCommentsLeft"
-                v-bind:class="{ 'disabled-btn': disableLeftButton }" v-bind:disabled="disableLeftButton"
-                aria-label="To the left">
+            
+            <button 
+                @click="showCommentsLeft"
+                class="btn-carousel" 
+                id="btn-l-carousel" 
+                v-bind:class="{ 'disabled-btn': disableLeftButton }" 
+                v-bind:disabled="disableLeftButton"
+                aria-label="To the left"
+            >
                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
-                    <path
-                        d="M3.44062 16.0594C2.85469 15.4734 2.85469 14.5219 3.44062 13.9359L10.9406 6.43591C11.5266 5.84998 12.4781 5.84998 13.0641 6.43591C13.65 7.02185 13.65 7.97341 13.0641 8.55935L8.12344 13.5H25.5C26.3297 13.5 27 14.1703 27 15C27 15.8297 26.3297 16.5 25.5 16.5H8.12344L13.0641 21.4406C13.65 22.0265 13.65 22.9781 13.0641 23.564C12.4781 24.15 11.5266 24.15 10.9406 23.564L3.44062 16.064V16.0594Z" />
+                    <path d="M3.44062 16.0594C2.85469 15.4734 2.85469 14.5219 3.44062 13.9359L10.9406 6.43591C11.5266 5.84998 12.4781 5.84998 13.0641 6.43591C13.65 7.02185 13.65 7.97341 13.0641 8.55935L8.12344 13.5H25.5C26.3297 13.5 27 14.1703 27 15C27 15.8297 26.3297 16.5 25.5 16.5H8.12344L13.0641 21.4406C13.65 22.0265 13.65 22.9781 13.0641 23.564C12.4781 24.15 11.5266 24.15 10.9406 23.564L3.44062 16.064V16.0594Z" />
                 </svg>
+
             </button>
 
-            <button class="btn-carousel" id="btn-r-carousel" @click="showCommentsRight"
-                v-bind:class="{ 'disabled-btn': disableRightButton }" :disabled="disableRightButton"
-                aria-label="To the right">
+            <button 
+                @click="showCommentsRight"
+                class="btn-carousel" 
+                id="btn-r-carousel" 
+                v-bind:class="{ 'disabled-btn': disableRightButton }" 
+                :disabled="disableRightButton"
+                aria-label="To the right"
+            >
                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
-                    <path
-                        d="M26.5594 16.0594C27.1453 15.4734 27.1453 14.5219 26.5594 13.9359L19.0594 6.43591C18.4734 5.84998 17.5219 5.84998 16.9359 6.43591C16.35 7.02185 16.35 7.97341 16.9359 8.55935L21.8766 13.5H4.5C3.67031 13.5 3 14.1703 3 15C3 15.8297 3.67031 16.5 4.5 16.5H21.8766L16.9359 21.4406C16.35 22.0265 16.35 22.9781 16.9359 23.564C17.5219 24.15 18.4734 24.15 19.0594 23.564L26.5594 16.064V16.0594Z" />
+                    <path d="M26.5594 16.0594C27.1453 15.4734 27.1453 14.5219 26.5594 13.9359L19.0594 6.43591C18.4734 5.84998 17.5219 5.84998 16.9359 6.43591C16.35 7.02185 16.35 7.97341 16.9359 8.55935L21.8766 13.5H4.5C3.67031 13.5 3 14.1703 3 15C3 15.8297 3.67031 16.5 4.5 16.5H21.8766L16.9359 21.4406C16.35 22.0265 16.35 22.9781 16.9359 23.564C17.5219 24.15 18.4734 24.15 19.0594 23.564L26.5594 16.064V16.0594Z" />
                 </svg>
+
             </button>
+
         </div>
     </div>
 
@@ -524,7 +547,7 @@ button {
     line-height: 40px;
 
     transition: transform 1s ease, opacity 1s ease;
-    padding-bottom: 30px;
+    padding-bottom: 26px;
 }
 
 p {
@@ -541,8 +564,9 @@ p {
     font-size: 24px;
     line-height: 24px;
     font-weight: 600px;
-    ;
 }
+
+
 
 .main-comment-text {
     font-size: 16px;
@@ -564,7 +588,7 @@ textarea {
 
     font-style: normal;
     font-weight: 400;
-    padding: 8px 64px 8px 30px;
+    padding: 8px 73px 8px 30px;
     height: 50px;
     border-radius: 100px;
     border: 2px solid var(--red-color);
@@ -585,10 +609,10 @@ textarea:hover {
 
 .comment-card {
     background-color: var(--baby-pink-color);
-    padding: 42px;
-    padding-top: 22px;
+    padding: 38px;
+    padding-top: 20px;
     width: 30%;
-    padding-bottom: 60px;
+    padding-bottom: 42px;
     margin: 0 auto;
     aspect-ratio: 7 / 6;
 }
@@ -610,8 +634,8 @@ textarea:hover {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding-bottom: 35px;
-    padding-top: 25px;
+    padding-bottom: 20px;
+    padding-top: 20px;
     margin: none;
 }
 
@@ -667,6 +691,12 @@ textarea:hover {
 
 .input-form-end {
     width: 100%;
+}
+
+@media (max-width: 991px) {
+    .comment-card {
+        width:48%;
+    }
 }
 
 @media (max-width: 881px) {
