@@ -148,7 +148,7 @@ export default {
 .btn.filter:active {
     border: 1px solid var(--blue-color);
     background-color: var(--blue-color);
-    color: var(--red-color);
+    color: var(--dark-red-color);
 }
 
 /* FILTER BUTTON DISABLED */
@@ -170,5 +170,11 @@ export default {
     background-color: var(--blue-color);
     color: var(--dark-red-color);
     border: 1px solid var(--blue-color);
+}
+
+@media (max-width: 575px) {
+    .btn {
+        width: 100%;
+    }
 }
 </style>

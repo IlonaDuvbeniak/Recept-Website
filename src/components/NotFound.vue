@@ -34,12 +34,14 @@
     gap: 28px;
     justify-content: center;
     align-items: center;
+    margin-top: 100px;
   }
 
   .text {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 12px;
   }
 
   svg {
@@ -57,6 +59,7 @@
     font-style: normal;
     font-weight: 700;
     line-height: 200px; 
+    margin: 0;
   }
 
   h2 {
@@ -65,5 +68,22 @@
     font-weight: 500;
     font-size: 24px;
 
+  }
+
+  @media (max-width: 575px) {
+    .container {
+      padding: 0px 24px;
+    }
+
+    svg {
+      height: 100px;
+    }
+
+    h1 {
+      font-size: 152px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 152px;
+    }
   }
 </style>
