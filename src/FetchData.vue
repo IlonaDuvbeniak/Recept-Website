@@ -2,7 +2,14 @@
 import axios from 'axios';
 import { slugify } from '@/utils/slugify.js';
 
+let cachedRecipes = null;
+
 export async function fetchData() {
+
+    if (cachedRecipes) {
+        console.log("Returning recipes from cache");
+        return cachedRecipes;
+    }
     try {
         const response = await axios.get("https://recipes.bocs.se/api/v1/d4e5f6a7-b8c9-4d0e-1f2a-3b4c5d6e7f8a/recipes");
         const list = response.data;
@@ -21,7 +28,7 @@ export async function fetchData() {
                 };
             })
         );
-
+        cachedRecipes = detailedRecipes;
         return detailedRecipes;
 
     } catch (err) {
@@ -30,4 +37,3 @@ export async function fetchData() {
     }
 }
 </script>
-
