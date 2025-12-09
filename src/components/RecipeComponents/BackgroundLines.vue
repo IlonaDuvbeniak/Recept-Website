@@ -40,4 +40,14 @@
         background-color: var(--white-color);
     }
 
+    @media (max-width: 767px) {
+
+        .container {
+            display: flex;
+            height: 120%;
+            border-bottom: 1px solid var(--red-color);
+            
+        }
+
+    }
 </style>

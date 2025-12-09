@@ -179,7 +179,7 @@ export default {
         line-height: 24px; 
     } 
 
-    @media (max-width: 991px) {
+    @media (max-width: 767px) {
         .wrapper {
             padding: 72px;
         }
@@ -202,6 +202,9 @@ export default {
         .rating-card {
             display: flex;
             flex-direction: column;
+            height:50rem;
+            padding-bottom: 4rem;
+            
         }
 
         .info-container {
@@ -211,6 +214,9 @@ export default {
             width: 100%;
             border-right: none;
             order: 2;
+            height: 50%;
+            justify-content: center;
+            padding: 0.8rem;
             padding: 40px;
         }
 
