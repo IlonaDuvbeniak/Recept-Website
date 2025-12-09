@@ -97,6 +97,10 @@ export default {
         text-decoration: none;
     }
 
+    a:hover {
+        text-decoration: underline;
+    }
+
     h2 {
         color: var(--red-color);
         font-family: "Instrument Sans";

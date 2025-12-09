@@ -11,26 +11,38 @@ const router = createRouter({
       path: "/", 
       name: "home", 
       component: HomeView,
-      meta: { title: 'Drinks - Startsida' }
+      meta: { 
+        title: 'Drinks - Startsida',
+        description: 'First page that includes herosection, some recipes, search bar and category navigation.' 
+      }
     },
     { 
       path: "/recipes", 
       name: "recepies", // change mistake here
       component: RecepiesView,
-      meta: { title: 'Alla Recept' }
+      meta: { 
+        title: 'Alla Recept',
+        description: 'Page with all the recipes with mixed categories.' 
+      }
     },
     {
       path: "/recipes/category/:categorySlug",
       name: "category",
       component: CategoryView,
-      meta: { title: 'Category' }
+      meta: { 
+        title: 'Category',
+        description: 'Category page that shows only filtered recepies with the same category.'
+      }
     },
     {
       path: "/recipes/:slug",
       name: "recipe",
       component: RecipeView,
       props: true,
-      meta: { title: 'Recept' }
+      meta: { 
+        title: 'Recept',
+        description: 'Recepie page that shows all the details about the recipe. Ingridients, how to cook, has opportunity to sent a review or star-rating.'
+      }
     },
   ],
   scrollBehavior() {
@@ -38,9 +50,26 @@ const router = createRouter({
   }
 });
 
+
 router.beforeEach((to, from, next) => {
   document.title = to.meta?.title;
   next();
+});
+
+
+router.afterEach((to) => {
+
+  if (to.meta.description) {
+    let descriptionTag = document.querySelector('meta[name="description"]');
+
+    if (!descriptionTag) {
+      descriptionTag = document.createElement("meta");
+      descriptionTag.setAttribute("name", "description");
+      document.head.appendChild(descriptionTag);
+    }
+
+    descriptionTag.setAttribute("content", to.meta.description);
+  }
 });
 
 export default router;
