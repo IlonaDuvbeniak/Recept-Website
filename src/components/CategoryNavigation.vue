@@ -52,9 +52,9 @@ export default {
     },
 
     computed: {
-        allRecipes() {
+        totalNumberOfRecipes() {
             {
-                return this.recipes;
+                return this.recipes.length;
             }
         },
         isShowingAllRecipes() {
@@ -70,8 +70,8 @@ export default {
 
 <template>
     <div class="category-navigation">
-        <Button :to="{ name: 'recepies' }" :btnText="`Alla (${allRecipes.length})`" variant="filter" :showArrow="false"
-            :disabled="false" class="category-button" :pressed="isShowingAllRecipes"
+        <Button :to="{ name: 'recepies' }" :btnText="`Alla (${totalNumberOfRecipes})`" variant="filter"
+            :showArrow="false" :disabled="false" class="category-button" :pressed="isShowingAllRecipes"
             :aria-current="isShowingAllRecipes ? 'page' : null"></Button>
         <Button v-for="category in categories" :key="category.id"
             :to="`/recipes/category/${categorySlug(category.name)}`"

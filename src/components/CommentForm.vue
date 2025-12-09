@@ -16,6 +16,7 @@ export default {
             //     activeRecipe: "",
             slugToRecipeIdInCommentsAPIlist:
                 [
+
                     { slugName: "boozy-banshee-scream", recipeId: "c7721a9b-b3eb-4275-adee-b1f8c625bfb2" },  // this för tillfället, kan bytas till API i framtiden.
                     { slugName: "bitter-tears", recipeId: "a07a3046-89d1-4f53-9ec8-8326cf3d7271" },
                     { slugName: "bye-bye-mary", recipeId: "a82062f9-221b-4657-820f-1d6dd41c995f" },
@@ -29,12 +30,12 @@ export default {
                     { slugName: "out-of-office", recipeId: "ff2c2211-d557-4d98-91cb-293d6a2cef61" },
                     { slugName: "potion-notions", recipeId: "60ed746d-ea8d-468f-b61d-fd843c4e58b3" },
                     { slugName: "santas-nightcap", recipeId: "62af4889-e4b3-4c99-99be-a654eeab4cfd" },
-                    { slugName: "tgifizz", recipeId: "5671469c-0c7b-41d9-9cf5-433d3afb0898" },
                     { slugName: "tgifizz", recipeId: "eb194c77-137d-4d11-8aa6-f1adb4009755" },
                     { slugName: "witch-please", recipeId: "092cc672-8840-4bc9-930c-19c404bb4ab7" },
                     { slugName: "dancing-on-tables", recipeId: "26ed6192-86e4-4ef5-9b22-2973d1ff5cb2" }
 
                 ],
+
             eachCommentLocalArray: "",
 
 
@@ -83,20 +84,7 @@ export default {
         //______________POSTA KOMMENTAREN____________________________________________________
 
         submitAll() {
-            // this.commentTime();
-
-
-
             this.postCommentsToAPI();
-
-
-            // this.commentsArray.push(
-            //     {id: this.commentsArray.length + 1,
-            //     name: this.newName,
-            //     title: this.newTitle,
-            //     writtenComment: this.newWrittenComment,
-            //     // time: this.newTime
-            //     });
 
             //löser så att submittade kommentaren syns utan refresh.
             this.commentsArray.push(
@@ -104,7 +92,7 @@ export default {
                     name: this.newName,
                     title: this.newTitle,
                     writtenComment: this.newWrittenComment,
-                    time: "Now"
+                    time: "Just nu"
                 });
 
             this.newName = "";
@@ -116,11 +104,6 @@ export default {
             this.showComEnd = this.commentsArray.length
             this.disableRightButton = true;
             this.disableLeftButton = false;
-
-            // this.fetchComments();
-
-
-
         },
 
 
@@ -363,29 +346,28 @@ export default {
 </script>
 
 <template>
+
     <form @submit.prevent="handleClick">
         <label>
             <div class="comment-form">
                 <div class="comment-form-top">
                     <h2 class="recept-name">Kommentar</h2>
                     <input v-model="newName" autocomplete="given-name" placeholder="Ditt namn" maxlength="25">
+                    <p id="counter1">{{ characterCountName }}/25</p>
+                    <p id="counter2">{{ characterCountTitle }}/25</p>
+                    <p id="counter3">{{ characterCountWrittenCom }}/200</p>
                 </div>
-                <p class="counter">{{ characterCountName }}/25</p>
 
-                <input v-model="newTitle" placeholder="Rubrik max 12 tecken" class="input-form-end" maxlength="25">
-                <p class="counter">{{ characterCountTitle }}/25</p>
+                <input v-model="newTitle" placeholder="Rubrik" class="input-form-end" maxlength="25">
                 <textarea v-model="newWrittenComment" placeholder="Skriv din kommentar" class="input-form-end"
                     maxlength="200"></textarea>
-                <p class="counter">{{ characterCountWrittenCom }}/200</p>
+
                 <p class="help-msg">{{ message }}</p>
                 <Button btnText="Submit" variant="primary" :showArrow="true" :disabled="false"></Button>
 
             </div>
-
         </label>
     </form>
-
-
 
 
 
@@ -421,8 +403,6 @@ export default {
             </button>
         </div>
     </div>
-
-
 
 
 
@@ -475,7 +455,7 @@ button {
     border: 1px solid var(--red-color);
     fill: var(--white-color);
 
-    transition: transform 0.2s ease;
+    transition: transform 0.1s ease;
     transform: scale(1);
 
 
@@ -485,7 +465,9 @@ button {
     background-color: var(--red-color);
     color: var(--white-color);
 
-    transform: scale(1.8);
+
+    transform: scale(1.4);
+
 }
 
 #btn-r-carousel {
@@ -583,13 +565,21 @@ textarea {
 
     font-style: normal;
     font-weight: 400;
-    padding: 8px 0px 8px 35px;
+    padding: 8px 64px 8px 30px;
     height: 50px;
     border-radius: 100px;
-    border: 2px solid var(--red-color);
+    border-top: 1px solid var(--red-color);
+    border-left: 1px solid var(--red-color);
+    border-right: 3px solid var(--red-color);
+    border-bottom: 3px solid var(--red-color);
     background-color: var(--white-color);
     resize: none;
     box-sizing: border-box;
+}
+
+input:focus-within {
+    outline: 4px solid var(--blue-color);
+    outline-offset: -3px;
 }
 
 input:hover,
@@ -604,7 +594,8 @@ textarea:hover {
 
 .comment-card {
     background-color: var(--baby-pink-color);
-    padding: 22px;
+    padding: 42px;
+    padding-top: 22px;
     width: 30%;
     padding-bottom: 60px;
     margin: 0 auto;
@@ -643,12 +634,33 @@ textarea:hover {
     margin-top: 100px;
 }
 
+#counter1 {
+    position: absolute;
+    top: 42%;
+    right: 3%;
+    background-color: rgb(255, 255, 255);
+
+}
+
+#counter2 {
+    position: absolute;
+    top: 145%;
+    right: 3%;
+}
+
+#counter3 {
+    position: absolute;
+    top: 250%;
+    right: 3%;
+}
+
 
 .comment-form-top {
     display: flex;
     justify-content: space-between;
     gap: 24px;
     width: 100%;
+    position: relative;
 }
 
 .comment-form-top input {
@@ -666,9 +678,21 @@ textarea:hover {
     width: 100%;
 }
 
+.input-form-end:focus-within {
+    outline: 4px solid var(--blue-color);
+    outline-offset: -3px;
+}
+
+@media (max-width: 881px) {
+    .comment-form {
+        width: 90%;
+    }
+}
+
+
 @media (max-width: 780px) {
     .recept-name {
-        font-size: clamp(47px, 7vw, 56px);
+        font-size: clamp(44px, 7vw, 50px);
         margin: 0 auto;
         /* margin-bottom: 10px; */
     }
@@ -698,6 +722,11 @@ textarea:hover {
         flex-direction: column;
 
     }
+
+    .comment-form {
+        width: 90%;
+    }
+
 
 }
 
@@ -744,8 +773,9 @@ textarea:hover {
     }
 
     .recept-name {
-        font-size: clamp(41px, 7vw, 47px);
+        font-size: clamp(38px, 7vw, 44px);
     }
+
 }
 
 @media (max-width: 480px) {
@@ -809,8 +839,7 @@ textarea:hover {
 
     input,
     textarea {
-
-        padding: 8px 0px 8px 35px;
+        /* padding: 8px 0px 8px 35px; */
         width: 100%;
     }
 
@@ -840,6 +869,23 @@ textarea:hover {
     .comment-form h2 {
         width: 100%;
         text-align: center;
+    }
+
+    #counter1 {
+        top: 69%;
+        right: 3%;
+        background-color: rgb(255, 255, 255);
+
+    }
+
+    #counter2 {
+        top: 124%;
+        right: 3%;
+    }
+
+    #counter3 {
+        top: 176%;
+        right: 3%;
     }
 }
 
