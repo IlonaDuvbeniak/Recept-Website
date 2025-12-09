@@ -120,7 +120,7 @@ export default {
                 v-for="coctail in coctailsWithAverage"
                 :key="coctail.id"
                 :categori="coctail.categories[0]"
-                :categorySlug="coctail.slug"
+                :categorySlug="coctail.categorySlug"
                 :name="coctail.title"
                 :rating="coctail.averageRating"
                 :ingridients="coctail.ingredients.length"
