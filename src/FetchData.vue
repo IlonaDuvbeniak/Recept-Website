@@ -4,6 +4,7 @@ import { slugify } from '@/utils/slugify.js';
 
 let cachedRecipes = null;
 
+
 export async function fetchData() {
 
     if (cachedRecipes) {
