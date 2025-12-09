@@ -1,5 +1,5 @@
 <template>
-    <header :class="header">
+    <header class="header">
         <router-link :to="to">
             <div :class="['container', {'container-shrink': hideText}]">
                 <div :class="['text', { 'text-hide': hideText }]">
@@ -16,7 +16,6 @@
     export default {
         data() {
             return {
-                header: 'header',
                 hideText: false
             }
         },

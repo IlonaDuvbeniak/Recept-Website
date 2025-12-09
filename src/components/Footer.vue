@@ -31,14 +31,8 @@
                             </div>
             </div>
             <div class="footer-logo">
-                    <div class="logo-row">
-                        <img class="flower-logo" src="/img/flower-logo.svg" alt="Logo" />
-                        <span class="drinks-text">DRINKS</span>
-                        <img class="flower-logo" src="/img/flower-logo.svg" alt="Logo" />
-                    </div>
+                <h6>*DRINKS*</h6>
             </div>
-
-           
         </div>
 
         <div class="line-container">
@@ -48,14 +42,14 @@
             <div class="line white"></div>
             <div class="line blue"></div>
             <div class="line white"></div>
-            <div class="line blue"></div>
-            <div class="line white">
+            <div class="line blue hide"></div>
+            <div class="line white ">
                  <p class="copyright-text">@Copyright 2025</p>
             </div>
+            <div class="line white hide"></div>
+            <div class="line white hide"></div>
             <div class="line white"></div>
-            <div class="line white"></div>
-            <div class="line white"></div>
-            <div class="line blue"></div>
+            <div class="line blue hide"></div>
             <div class="line white"></div>
             <div class="line blue"></div>
             <div class="line white"></div>
@@ -76,12 +70,10 @@
 <style scoped>
     footer {
         background-color: var(--baby-pink-color);
-        padding-top:10px;
         margin-top: 152px;
     }
     .container {
         text-align: center;
-        margin-bottom: 10px;
     }
 
     .text {
@@ -90,14 +82,14 @@
         font-size: 24px;
         font-style: normal;
         font-weight: 700;
-        margin: 2rem;
+        padding: 52px 0px 32px 0px;
     }
 
-    .footer-logo {
+    h6 {
         font-family: "Kalnia";
         color: var(--red-color);
         font-weight: bold;
-
+        font-size: 264px;
     }
 
     .logo-row{
@@ -109,13 +101,6 @@
         gap:1rem;
     }
 
-    .flower-logo {
-        width: auto;
-        height: 3rem;
-        object-fit:contain;
-        display:block;
-        transform: translateY(-3rem);
-    }
 
     .team-members {
         display: flex;
@@ -195,11 +180,18 @@
     }
 
     @media (max-width: 991px) {
+        .team-members {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+        }
+
         .logo-row{
             font-size: 12rem;
         }
-        .flower-logo{
-            height: 2.5rem;
+
+        h6 {
+            font-size:180px;
         }
     }
 
@@ -207,40 +199,54 @@
         .logo-row{
             font-size: 9rem;
         }
-        .flower-logo{
-            height: 2rem;
-            transform: translateY(-1.8rem);
+
+        .team-members {
+            gap: 24px;
+            padding: 0px 52px;
         }
+
         .team-member {
             padding-right: 0.3rem;
             padding-left: 0.3rem;
+        }
+
+        h6 {
+            font-size:150px;
         }
     }
 
 
     @media (max-width: 575px) { 
+        footer {
+            margin-top: 92px;
+        }
+
         .logo-row{
             font-size: 7rem;
             gap:0.5rem;
         }
-        .flower-logo{
-            height: 1.8rem;
-            transform: translateY(-1.8rem);
-        }
         .team-members {
-            flex-direction: column;
+            grid-template-columns: repeat(1, 1fr);
             gap: 1rem;
             padding-left:3rem;
             font-size:1rem;
         }
         .text{
+            padding-left: 24px;
             text-align:left;
         }
         .team-member {
             padding-bottom: 1.2rem;
         }
 
+        h6 {
+            font-size: 80px;
+        }
 
+        .line.white.hide,
+        .line.blue.hide {
+            display: none;
+        }
     }
 
 </style>

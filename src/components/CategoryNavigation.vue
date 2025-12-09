@@ -1,6 +1,7 @@
 <script>
 import Button from '@/components/Button.vue';
 import { fetchData } from '@/FetchData.vue';
+import { fetchCategories } from '@/utils/fetchCategories.js';
 export default {
     name: "CategoryNavigation",
     components: {
@@ -10,22 +11,11 @@ export default {
         return { categories: [], recipes: [] };
     },
     methods: {
-        async fetchCategories() {
-            try {
-                console.log("Gets categories from API");
-                const response = await fetch('https://recipes.bocs.se/api/v1/d4e5f6a7-b8c9-4d0e-1f2a-3b4c5d6e7f8a/categories');
-                const data = await response.json();
-                // console.log(data)
-                // console.log(typeof data)
-                // console.log(Array.isArray(data))
-                // console.log(data[0]);
-
-                this.categories = data;
-            } catch (error) {
-                console.error('Error fetching categories:', error);
-            }
-
+        async loadCategories() {
+            this.categories = await fetchCategories();
+            console.log("Categories loaded in CategoryNavigation:", this.categories);
         },
+
         async loadRecipes() {
             this.recipes = await fetchData()
             console.log("Recipes loaded in CategoryNavigation:", this.recipes);
@@ -47,14 +37,14 @@ export default {
         },
     },
     mounted() {
-        this.fetchCategories();
+        this.loadCategories();
         this.loadRecipes();
     },
 
     computed: {
-        allRecipes() {
+        totalNumberOfRecipes() {
             {
-                return this.recipes;
+                return this.recipes.length;
             }
         },
         isShowingAllRecipes() {
@@ -70,8 +60,8 @@ export default {
 
 <template>
     <div class="category-navigation">
-        <Button :to="{ name: 'recepies' }" :btnText="`Alla (${allRecipes.length})`" variant="filter" :showArrow="false"
-            :disabled="false" class="category-button" :pressed="isShowingAllRecipes"
+        <Button :to="{ name: 'recepies' }" :btnText="`Alla (${totalNumberOfRecipes})`" variant="filter"
+            :showArrow="false" :disabled="false" class="category-button" :pressed="isShowingAllRecipes"
             :aria-current="isShowingAllRecipes ? 'page' : null"></Button>
         <Button v-for="category in categories" :key="category.id"
             :to="`/recipes/category/${categorySlug(category.name)}`"

@@ -16,6 +16,7 @@ export default {
             //     activeRecipe: "",
             slugToRecipeIdInCommentsAPIlist:
                 [
+
                     {slugName: "boozy-banshee-scream", recipeId: "c7721a9b-b3eb-4275-adee-b1f8c625bfb2"},  // this för tillfället, kan bytas till API i framtiden. 
                     {slugName: "bitter-tears", recipeId: "a07a3046-89d1-4f53-9ec8-8326cf3d7271"},
                     {slugName: "bye-bye-mary", recipeId: "a82062f9-221b-4657-820f-1d6dd41c995f"},
@@ -33,6 +34,7 @@ export default {
                     {slugName: "witch-please", recipeId: "092cc672-8840-4bc9-930c-19c404bb4ab7"},
                     {slugName: "dancing-on-tables", recipeId: "26ed6192-86e4-4ef5-9b22-2973d1ff5cb2"}
                 ], 
+                  
 
             eachCommentLocalArray: "",
 
@@ -379,6 +381,7 @@ export default {
 
 
 
+
     <div class="comment-cards-container">
         <div 
             v-for="eachCommentLocalArray in commentsArray.slice(showComStart, showComEnd)" 
@@ -429,9 +432,6 @@ export default {
 
 
 
-
-
-
 </template>
 
 <style scoped>
@@ -440,7 +440,6 @@ export default {
     padding-left: 100px;
     padding-right: 100px;
 }
-
 
 
 
@@ -487,8 +486,8 @@ button {
     background-color: var(--red-color);
     color: var(--white-color);
 
-    
-    transform: scale(1.4);  
+
+    transform: scale(1.4);
 
 }
 
@@ -591,10 +590,18 @@ textarea {
     padding: 8px 73px 8px 30px;
     height: 50px;
     border-radius: 100px;
-    border: 2px solid var(--red-color);
+    border-top: 1px solid var(--red-color);
+    border-left: 1px solid var(--red-color);
+    border-right: 3px solid var(--red-color);
+    border-bottom: 3px solid var(--red-color);
     background-color: var(--white-color);
     resize: none;
     box-sizing: border-box;
+}
+
+input:focus-within {
+    outline: 4px solid var(--blue-color);
+    outline-offset: -3px;
 }
 
 input:hover,
@@ -692,11 +699,17 @@ textarea:hover {
 .input-form-end {
     width: 100%;
 }
+  
+.input-form-end:focus-within {
+    outline: 4px solid var(--blue-color);
+    outline-offset: -3px;
+
 
 @media (max-width: 991px) {
     .comment-card {
         width:48%;
     }
+
 }
 
 @media (max-width: 881px) {
@@ -738,10 +751,11 @@ textarea:hover {
         flex-direction: column;
 
     }
+
     .comment-form {
         width: 90%;
     }
-    
+
 
 }
 
@@ -789,7 +803,7 @@ textarea:hover {
 
     .recept-name {
         font-size: clamp(38px, 7vw, 44px);
-}
+    }
 
 }
 
@@ -852,9 +866,10 @@ textarea:hover {
         font-size: 14px;
     }
 
-    input, textarea {       
-         /* padding: 8px 0px 8px 35px; */
-         width: 100%;
+    input,
+    textarea {
+        /* padding: 8px 0px 8px 35px; */
+        width: 100%;
     }
 
     .comment-card {
@@ -884,10 +899,11 @@ textarea:hover {
         width: 100%;
         text-align: center;
     }
+
     #counter1 {
-    top: 69%;
-    right: 3%;
-    background-color: rgb(255, 255, 255);
+        top: 69%;
+        right: 3%;
+        background-color: rgb(255, 255, 255);
 
     }
 
@@ -900,7 +916,7 @@ textarea:hover {
         top: 176%;
         right: 3%;
     }
-    }
+}
 
 @media (max-width: 393px) {
     #btn-r-carousel {

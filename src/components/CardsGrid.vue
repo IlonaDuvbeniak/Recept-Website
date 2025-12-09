@@ -52,11 +52,12 @@ export default {
                     this.categoryTitle = newTitle
                     document.title = `${this.categoryTitle} - Drinks`
                 } else {
-                    document.title = "Alla Recept - Drinks"
+                    this.categoryTitle = ""
                 }
             },
             immediate: true
         },
+        
         filteredCoctails: {
             handler(val) {
                 this.$emit('update:total', val.length);

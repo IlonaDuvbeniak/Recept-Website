@@ -36,66 +36,67 @@ export default {
   },
 
   async created() {
-      this.loading = true;
+    this.loading = true;
 
-      try {
-        this.coctails = await fetchData();
-        this.updateRecipeSlug();
+    try {
+      this.coctails = await fetchData();
+      this.updateRecipeSlug();
 
-      } finally {
-        this.loading = false;
-      }
+    } finally {
+      this.loading = false;
+    }
 
   },
 
 
   watch: {
     slug: {
-        immediate: true,
-        handler() {
-          this.updateRecipeSlug()
-        }
+      immediate: true,
+      handler() {
+        this.updateRecipeSlug()
       }
+    }
   },
 
   methods: {
-      updateRecipeSlug() {
-        this.recipe = this.coctails.find(c => c.slug === this.slug)
-        if (this.recipe) {
-          document.title = `${this.recipe.title} - Drinks`;
+    updateRecipeSlug() {
+      this.recipe = this.coctails.find(c => c.slug === this.slug)
+      if (this.recipe) {
+        document.title = `${this.recipe.title} - Drinks`;
 
-          if(Array.isArray(this.recipe.ratings) && this.recipe.ratings.length > 0) {
-            const values = this.recipe.ratings.filter(n => typeof n === "number");
-            const avg = values.reduce((a, b) => a + b, 0) / values.length;
-            this.recipe.rating = Math.round(avg * 10) / 10;
-          } else {
-            this.recipe.rating = 0;
-          }
+        if (Array.isArray(this.recipe.ratings) && this.recipe.ratings.length > 0) {
+          const values = this.recipe.ratings.filter(n => typeof n === "number");
+          const avg = values.reduce((a, b) => a + b, 0) / values.length;
+          this.recipe.rating = Math.round(avg * 10) / 10;
+        } else {
+          this.recipe.rating = 0;
         }
-      },
 
-      updateRating(newAverage) {
-          if (!this.recipe) return;
-
-          if (isNaN(newAverage) || newAverage == null) {
-            console.warn("Invalid average rating detected:", newAverage);
-            this.recipe.rating = 0;
-            return;
-          }
-
-          this.recipe.rating = Math.round(newAverage * 10) / 10;
-          },
-        
-        scrollToTop() {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
       }
+    },
+
+    updateRating(newAverage) {
+      if (!this.recipe) return;
+
+      if (isNaN(newAverage) || newAverage == null) {
+        console.warn("Invalid average rating detected:", newAverage);
+        this.recipe.rating = 0;
+        return;
+      }
+
+      this.recipe.rating = Math.round(newAverage * 10) / 10;
+    },
+
+    scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
+  }
 };
 
 </script>
 
 <template>
-  <ArrowButton variant="to-top" @click="scrollToTop"/>
+  <ArrowButton variant="to-top" @click="scrollToTop" />
 
   <svg xmlns="http://www.w3.org/2000/svg" width="1440" height="129" viewBox="0 0 1440 129" fill="none"
     class="element-header">
@@ -105,62 +106,49 @@ export default {
   </svg>
 
   <div v-if="loading">
-      <Loading />
+    <Loading />
   </div>
 
   <div v-else-if="recipe">
-    <ReceptCard 
-      :name="recipe.title"
-      :categori="recipe.categories?.[0] || 'Uncategorized'"
-      :categorySlug="recipe.categorySlug"
-      :description="recipe.description"
-      :rating="recipe.rating"
-      :ingridients="recipe.ingredients.length"
-      :time="recipe.timeInMins"
-      :image="recipe.imageUrl"
-    />
+    <ReceptCard :name="recipe.title" :categori="recipe.categories?.[0] || 'Uncategorized'"
+      :categorySlug="recipe.categorySlug" :description="recipe.description" :rating="recipe.rating"
+      :ingridients="recipe.ingredients.length" :time="recipe.timeInMins" :image="recipe.imageUrl" />
 
-    <HowToDo 
-      :items="recipe.ingredients"
-      :steps="recipe.instructions"
-    />
+    <HowToDo :items="recipe.ingredients" :steps="recipe.instructions" />
 
-    <RatingCard 
-      :recipeId="String(recipe.id || '')"
-      @rating-updated="updateRating"
-    />
+    <RatingCard :recipeId="String(recipe.id || '')" @rating-updated="updateRating" />
 
     <CommentForm />
-    
+
     <Footer />
   </div>
 
   <div v-else>
-      <NotFound />
-      <Footer />
+    <NotFound />
+    <Footer />
   </div>
 
   <!-- test av Nat -->
-            <!-- <CommentFormTryAndError message="Hej från parent! ${this.recipe}" :count="5" />    -->
+  <!-- <CommentFormTryAndError message="Hej från parent! ${this.recipe}" :count="5" />    -->
   <!-- slut test av Nat -->
 
 </template>
 
 
 <style scoped>
-  .element-header {
-    position: absolute;
-    top: 0;
-    left: 50%;                    
-    transform: translateX(-50%);                  
-    z-index: -1;
-    overflow: visible;           
-    pointer-events: none;
-  }
+.element-header {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: -1;
+  overflow: visible;
+  pointer-events: none;
+}
 
-  @media (max-width: 575px) {
-      .element-header {
-          display: none;
-      }
+@media (max-width: 575px) {
+  .element-header {
+    display: none;
   }
+}
 </style>
