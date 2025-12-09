@@ -15,10 +15,10 @@ export default {
                 console.log("Gets categories from API");
                 const response = await fetch('https://recipes.bocs.se/api/v1/d4e5f6a7-b8c9-4d0e-1f2a-3b4c5d6e7f8a/categories');
                 const data = await response.json();
-                console.log(data)
-                console.log(typeof data)
-                console.log(Array.isArray(data))
-                console.log(data[0]);
+                // console.log(data)
+                // console.log(typeof data)
+                // console.log(Array.isArray(data))
+                // console.log(data[0]);
 
                 this.categories = data;
             } catch (error) {
