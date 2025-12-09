@@ -86,7 +86,7 @@ export default {
           this.recipe.rating = Math.round(newAverage * 10) / 10;
           },
         
-        scrollToTop() {
+      scrollToTop() {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }
     }

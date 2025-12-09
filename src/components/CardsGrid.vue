@@ -52,7 +52,7 @@ export default {
                     this.categoryTitle = newTitle
                     document.title = `${this.categoryTitle} - Drinks`
                 } else {
-                    document.title = "Alla Recept - Drinks"
+                    this.categoryTitle = ""
                 }
             },
             immediate: true
