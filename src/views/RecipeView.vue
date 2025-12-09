@@ -112,7 +112,7 @@ export default {
     <ReceptCard 
       :name="recipe.title"
       :categori="recipe.categories?.[0] || 'Uncategorized'"
-      :categorySlug="recipe.categories?.[0] || ''"
+      :categorySlug="recipe.categorySlug"
       :description="recipe.description"
       :rating="recipe.rating"
       :ingridients="recipe.ingredients.length"
