@@ -17,24 +17,24 @@ export default {
             slugToRecipeIdInCommentsAPIlist:
                 [
 
-                    {slugName: "boozy-banshee-scream", recipeId: "c7721a9b-b3eb-4275-adee-b1f8c625bfb2"},  // this för tillfället, kan bytas till API i framtiden. 
-                    {slugName: "bitter-tears", recipeId: "a07a3046-89d1-4f53-9ec8-8326cf3d7271"},
-                    {slugName: "bye-bye-mary", recipeId: "a82062f9-221b-4657-820f-1d6dd41c995f"},
-                    {slugName: "party-like-its-friday", recipeId: "26ed6192-86e4-4ef5-9b22-2973d1ff5cb2"},
-                    {slugName: "exorcism", recipeId: "6a34ec5c-5e4d-4f75-aa5c-39eee5be952b"},
-                    {slugName: "ghosted-and-roasted", recipeId: "c6b7a179-d1b4-4abc-8542-43d37c0ead41"},
-                    {slugName: "ho-ho-hot-toddy", recipeId: "c7e986cb-0fe4-44f7-abab-55bac3c39647"},
-                    {slugName: "island-bye-land", recipeId: "8d004646-0b8b-43bf-bfce-4c7474e87b8e"},
-                    {slugName: "jingle-juice", recipeId: "fb991d8b-6f6c-4b97-bc05-06495054a3f6"},
-                    {slugName: "mistle-toasted", recipeId: "b55fb64b-8b9b-4d36-93f3-92366cecbcd9"},
-                    {slugName: "out-of-office", recipeId: "ff2c2211-d557-4d98-91cb-293d6a2cef61"},
-                    {slugName: "potion-notions", recipeId: "60ed746d-ea8d-468f-b61d-fd843c4e58b3"},
-                    {slugName: "santas-nightcap", recipeId: "62af4889-e4b3-4c99-99be-a654eeab4cfd"},
-                    {slugName: "tgifizz", recipeId: "eb194c77-137d-4d11-8aa6-f1adb4009755"},
-                    {slugName: "witch-please", recipeId: "092cc672-8840-4bc9-930c-19c404bb4ab7"},
-                    {slugName: "dancing-on-tables", recipeId: "26ed6192-86e4-4ef5-9b22-2973d1ff5cb2"}
+                    { slugName: "boozy-banshee-scream", recipeId: "c7721a9b-b3eb-4275-adee-b1f8c625bfb2" },  // this för tillfället, kan bytas till API i framtiden.
+                    { slugName: "bitter-tears", recipeId: "a07a3046-89d1-4f53-9ec8-8326cf3d7271" },
+                    { slugName: "bye-bye-mary", recipeId: "a82062f9-221b-4657-820f-1d6dd41c995f" },
+                    { slugName: "party-like-its-friday", recipeId: "26ed6192-86e4-4ef5-9b22-2973d1ff5cb2" },
+                    { slugName: "exorcism", recipeId: "6a34ec5c-5e4d-4f75-aa5c-39eee5be952b" },
+                    { slugName: "ghosted-and-roasted", recipeId: "c6b7a179-d1b4-4abc-8542-43d37c0ead41" },
+                    { slugName: "ho-ho-hot-toddy", recipeId: "c7e986cb-0fe4-44f7-abab-55bac3c39647" },
+                    { slugName: "island-bye-land", recipeId: "8d004646-0b8b-43bf-bfce-4c7474e87b8e" },
+                    { slugName: "jingle-juice", recipeId: "fb991d8b-6f6c-4b97-bc05-06495054a3f6" },
+                    { slugName: "mistle-toasted", recipeId: "b55fb64b-8b9b-4d36-93f3-92366cecbcd9" },
+                    { slugName: "out-of-office", recipeId: "ff2c2211-d557-4d98-91cb-293d6a2cef61" },
+                    { slugName: "potion-notions", recipeId: "60ed746d-ea8d-468f-b61d-fd843c4e58b3" },
+                    { slugName: "santas-nightcap", recipeId: "62af4889-e4b3-4c99-99be-a654eeab4cfd" },
+                    { slugName: "tgifizz", recipeId: "eb194c77-137d-4d11-8aa6-f1adb4009755" },
+                    { slugName: "witch-please", recipeId: "092cc672-8840-4bc9-930c-19c404bb4ab7" },
+                    { slugName: "dancing-on-tables", recipeId: "26ed6192-86e4-4ef5-9b22-2973d1ff5cb2" }
 
-                ], 
+                ],
 
             eachCommentLocalArray: "",
 
@@ -347,26 +347,27 @@ export default {
 
 <template>
 
-<form @submit.prevent="handleClick">
-    <label>
-        <div class="comment-form">
-            <div class="comment-form-top">
-                <h2 class="recept-name">Kommentar</h2>
-                <input v-model="newName" autocomplete="given-name" placeholder="Ditt namn" maxlength="25"> 
-                <p id="counter1">{{ characterCountName }}/25</p>
-                <p id="counter2">{{ characterCountTitle }}/25</p>
-                <p id="counter3">{{ characterCountWrittenCom }}/200</p>
+    <form @submit.prevent="handleClick">
+        <label>
+            <div class="comment-form">
+                <div class="comment-form-top">
+                    <h2 class="recept-name">Kommentar</h2>
+                    <input v-model="newName" autocomplete="given-name" placeholder="Ditt namn" maxlength="25">
+                    <p id="counter1">{{ characterCountName }}/25</p>
+                    <p id="counter2">{{ characterCountTitle }}/25</p>
+                    <p id="counter3">{{ characterCountWrittenCom }}/200</p>
+                </div>
+
+                <input v-model="newTitle" placeholder="Rubrik" class="input-form-end" maxlength="25">
+                <textarea v-model="newWrittenComment" placeholder="Skriv din kommentar" class="input-form-end"
+                    maxlength="200"></textarea>
+
+                <p class="help-msg">{{ message }}</p>
+                <Button btnText="Submit" variant="primary" :showArrow="true" :disabled="false"></Button>
+
             </div>
-         
-            <input v-model="newTitle" placeholder="Rubrik" class="input-form-end" maxlength="25">
-            <textarea v-model="newWrittenComment" placeholder="Skriv din kommentar" class="input-form-end" maxlength="200"></textarea>
-            
-            <p class="help-msg">{{ message }}</p>
-            <Button btnText="Submit" variant="primary" :showArrow="true" :disabled="false"></Button>
-            
-        </div>        
-    </label>
-  </form>
+        </label>
+    </form>
 
 
 
@@ -464,8 +465,8 @@ button {
     background-color: var(--red-color);
     color: var(--white-color);
 
-    
-    transform: scale(1.4);  
+
+    transform: scale(1.4);
 
 }
 
@@ -567,10 +568,18 @@ textarea {
     padding: 8px 64px 8px 30px;
     height: 50px;
     border-radius: 100px;
-    border: 2px solid var(--red-color);
+    border-top: 1px solid var(--red-color);
+    border-left: 1px solid var(--red-color);
+    border-right: 3px solid var(--red-color);
+    border-bottom: 3px solid var(--red-color);
     background-color: var(--white-color);
     resize: none;
     box-sizing: border-box;
+}
+
+input:focus-within {
+    outline: 4px solid var(--blue-color);
+    outline-offset: -3px;
 }
 
 input:hover,
@@ -669,6 +678,11 @@ textarea:hover {
     width: 100%;
 }
 
+.input-form-end:focus-within {
+    outline: 4px solid var(--blue-color);
+    outline-offset: -3px;
+}
+
 @media (max-width: 881px) {
     .comment-form {
         width: 90%;
@@ -708,10 +722,11 @@ textarea:hover {
         flex-direction: column;
 
     }
+
     .comment-form {
         width: 90%;
     }
-    
+
 
 }
 
@@ -759,7 +774,7 @@ textarea:hover {
 
     .recept-name {
         font-size: clamp(38px, 7vw, 44px);
-}
+    }
 
 }
 
@@ -822,9 +837,10 @@ textarea:hover {
         font-size: 14px;
     }
 
-    input, textarea {       
-         /* padding: 8px 0px 8px 35px; */
-         width: 100%;
+    input,
+    textarea {
+        /* padding: 8px 0px 8px 35px; */
+        width: 100%;
     }
 
     .comment-card {
@@ -854,10 +870,11 @@ textarea:hover {
         width: 100%;
         text-align: center;
     }
+
     #counter1 {
-    top: 69%;
-    right: 3%;
-    background-color: rgb(255, 255, 255);
+        top: 69%;
+        right: 3%;
+        background-color: rgb(255, 255, 255);
 
     }
 
@@ -870,7 +887,7 @@ textarea:hover {
         top: 176%;
         right: 3%;
     }
-    }
+}
 
 @media (max-width: 393px) {
     #btn-r-carousel {
