@@ -15,7 +15,7 @@ const router = createRouter({
     },
     { 
       path: "/recipes", 
-      name: "recepies", 
+      name: "recepies", // change mistake here
       component: RecepiesView,
       meta: { title: 'Alla Recept' }
     },
@@ -23,7 +23,7 @@ const router = createRouter({
       path: "/recipes/category/:categorySlug",
       name: "category",
       component: CategoryView,
-      meta: { title: 'Kategory' }
+      meta: { title: 'Category' }
     },
     {
       path: "/recipes/:slug",
