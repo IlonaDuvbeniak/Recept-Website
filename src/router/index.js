@@ -1,8 +1,4 @@
 import { createRouter, createWebHistory } from "vue-router";
-import HomeView from "../views/HomeView.vue";
-import RecepiesView from "../views/RecipesView.vue";
-import RecipeView from "../views/RecipeView.vue";
-import CategoryView from "@/views/CategoryView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -10,7 +6,7 @@ const router = createRouter({
     { 
       path: "/", 
       name: "home", 
-      component: HomeView,
+      component: () => import('../views/HomeView.vue'),
       meta: { 
         title: 'Drinks - Startsida',
         description: 'First page that includes herosection, some recipes, search bar and category navigation.' 
@@ -19,7 +15,7 @@ const router = createRouter({
     { 
       path: "/recipes", 
       name: "recepies", // change mistake here
-      component: RecepiesView,
+      component: () => import('../views/RecipesView.vue'),
       meta: { 
         title: 'Alla Recept',
         description: 'Page with all the recipes with mixed categories.' 
@@ -28,7 +24,7 @@ const router = createRouter({
     {
       path: "/recipes/category/:categorySlug",
       name: "category",
-      component: CategoryView,
+      component: () => import('../views/CategoryView.vue'),
       meta: { 
         title: 'Category',
         description: 'Category page that shows only filtered recepies with the same category.'
@@ -37,7 +33,7 @@ const router = createRouter({
     {
       path: "/recipes/:slug",
       name: "recipe",
-      component: RecipeView,
+      component: () => import('../views/RecipeView.vue'),
       props: true,
       meta: { 
         title: 'Recept',

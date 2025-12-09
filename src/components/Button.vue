@@ -77,7 +77,7 @@ export default {
     padding: 9px 33px;
     color: var(--white-color);
     position: relative;
-    min-width: 220px;
+    min-width: 230px;
 }
 
 .btn.primary .btn-text {
