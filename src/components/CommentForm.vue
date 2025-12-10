@@ -539,7 +539,7 @@ button {
 
 
 .title-comment-cards {
-    color: var(--red-color);
+    color: var(--dark-red-color);
     font-family: Kalnia;
     font-size: 36px;
     font-weight: 700;
@@ -703,7 +703,7 @@ textarea:hover {
 .input-form-end:focus-within {
     outline: 4px solid var(--blue-color);
     outline-offset: -3px;
-
+}
 
 @media (max-width: 991px) {
     .comment-card {
