@@ -362,7 +362,7 @@ export default {
             <div class="comment-form-top">
                 <h2 class="recept-name">Kommentar</h2>
                 <input v-model="newName" autocomplete="given-name" placeholder="Ditt namn" maxlength="20"> 
-                <p id="counter1">{{ characterCountName }}/20</p>
+                <p id="counter1">{{ characterCountName }}/10</p>
                 <p id="counter2">{{ characterCountTitle }}/10</p>
                 <p id="counter3">{{ characterCountWrittenCom }}/200</p>
             </div>
@@ -472,7 +472,6 @@ button {
     border-radius: 100px;
     position: absolute;
     top: 40%;
-    /* right: 45px; */
     border: 1px solid var(--red-color);
     fill: var(--white-color);
 
@@ -547,6 +546,7 @@ button {
 
     transition: transform 1s ease, opacity 1s ease;
     padding-bottom: 26px;
+    overflow-wrap: break-word;
 }
 
 p {
@@ -557,22 +557,29 @@ p {
     font-weight: 400;
     line-height: 24px;
     text-decoration: none;
+   
 }
 
 .commenter-name {
     font-size: 24px;
     line-height: 24px;
     font-weight: 600px;
+    overflow-wrap: break-word;
+    width: 75%;
 }
 
 
 
 .main-comment-text {
     font-size: 16px;
+    overflow-wrap: break-word;
 }
 
 .p-time {
     font-size: 14;
+    overflow-wrap: break-word;
+    width: 29%;
+    text-align: end;
 }
 
 
@@ -758,6 +765,7 @@ textarea:hover {
 
     .p-time {
         order: 1;
+        text-align: start;
     }
 
     .comment-cards-top {
