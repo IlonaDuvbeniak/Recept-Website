@@ -598,6 +598,9 @@ textarea {
     resize: none;
     box-sizing: border-box;
 }
+textarea {
+    padding-top: 10px;
+}
 
 input:focus-within {
     outline: 4px solid var(--blue-color);
@@ -686,7 +689,7 @@ textarea:hover {
 }
 
 .comment-form-top input {
-    width: 70%;
+    width: 63%;
     align-self: flex-end;
 }
 
@@ -715,15 +718,25 @@ textarea:hover {
 @media (max-width: 881px) {
     .comment-form {
         width: 90%;
+        
+    }
+    .recept-name {
+        font-size: clamp(55px, 7vw, 56px);
+        margin: 0 auto;
     }
 }
 
+@media (max-width: 829px) {
+    .recept-name {
+        font-size: clamp(50px, 7vw, 53px);
+        margin: 0 auto;
+    }
+}
 
 @media (max-width: 780px) {
     .recept-name {
         font-size: clamp(44px, 7vw, 50px);
         margin: 0 auto;
-        /* margin-bottom: 10px; */
     }
 
     .title-comment-cards {
@@ -802,12 +815,12 @@ textarea:hover {
     }
 
     .recept-name {
-        font-size: clamp(38px, 7vw, 44px);
+        font-size: clamp(40px, 7vw, 44px);
     }
 
 }
 
-@media (max-width: 480px) {
+@media (max-width: 550px) {
     .help-msg {
         padding-left: 0px;
         padding-right: 0px;
