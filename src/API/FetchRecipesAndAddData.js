@@ -1,4 +1,4 @@
-<script>
+
 import axios from 'axios';
 import { slugify } from '@/utils/slugify.js';
 
@@ -37,4 +37,4 @@ export async function fetchData() {
         return [];
     }
 }
-</script>
+

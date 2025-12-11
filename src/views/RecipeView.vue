@@ -1,5 +1,5 @@
 <script>
-import { fetchData } from '@/FetchData.vue';
+import { fetchData } from '@/API/FetchRecipesAndAddData';
 import ReceptCard from '@/components/RecipeComponents/ReceptCard.vue';
 import HowToDo from '@/components/RecipeComponents/HowToDo.vue';
 import RatingCard from '@/components/RecipeComponents/RatingCard.vue';

@@ -1,5 +1,5 @@
 <script>
-import { fetchData } from '@/FetchData.vue';
+import { fetchData } from '@/API/FetchRecipesAndAddData';
 import Card from '../components/Card.vue'
 import SearchBar from '@/components/SearchBar.vue';
 import CategoryNavigation from './CategoryNavigation.vue';
