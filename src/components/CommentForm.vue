@@ -53,6 +53,7 @@ export default {
             commentsArray: [],
 
             message: '',
+            noCommentsMsg: "",
 
             x: window.innerWidth,
             showComStart: 0,
@@ -195,7 +196,12 @@ export default {
                 this.loading = false;
             }
 
-            this.addToLocalArray();
+            if (this.allComments.length === 0) {
+                this.noCommentsMsg = "Inga kommentarer gjorda än, men du kanske blir vår första? ;)";
+            } else {
+                this.addToLocalArray();
+            }
+            
         },
 
 
@@ -283,8 +289,8 @@ export default {
 
         },
 
-
-        
+            
+     
 
 
 
@@ -383,6 +389,7 @@ export default {
 
 
     <div class="comment-cards-container">
+        
         <div 
             v-for="eachCommentLocalArray in commentsArray.slice(showComStart, showComEnd)" 
             class="comment-card"
@@ -428,13 +435,20 @@ export default {
 
         </div>
     </div>
-
+<p class="no-comments">{{ this.noCommentsMsg }}</p>
 
 
 
 </template>
 
 <style scoped>
+.no-comments {
+    text-align: center;
+    margin: 0 auto;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
 .help-msg {
     align-self: center;
     padding-left: 100px;
