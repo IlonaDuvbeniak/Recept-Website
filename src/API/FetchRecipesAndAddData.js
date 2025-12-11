@@ -8,7 +8,7 @@ let cachedRecipes = null;
 export async function fetchData() {
 
     if (cachedRecipes) {
-        console.log("Returning recipes from cache");
+        // console.log("Returning recipes from cache");
         return cachedRecipes;
     }
     try {
@@ -20,7 +20,7 @@ export async function fetchData() {
                 const detail = await axios.get(`https://recipes.bocs.se/api/v1/d4e5f6a7-b8c9-4d0e-1f2a-3b4c5d6e7f8a/recipes/${recipe.id}`);
 
                 const fullRecipe = detail.data;
-                console.log(fullRecipe)
+                // console.log(fullRecipe)
 
                 return {
                     ...fullRecipe,

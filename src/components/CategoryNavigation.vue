@@ -13,12 +13,12 @@ export default {
     methods: {
         async loadCategories() {
             this.categories = await fetchCategories();
-            console.log("Categories loaded in CategoryNavigation:", this.categories);
+            // console.log("Categories loaded in CategoryNavigation:", this.categories);
         },
 
         async loadRecipes() {
             this.recipes = await fetchData()
-            console.log("Recipes loaded in CategoryNavigation:", this.recipes);
+            // console.log("Recipes loaded in CategoryNavigation:", this.recipes);
         },
         numberOfRecipesInCategory(categoryName) {
             return this.recipes.filter(
@@ -28,7 +28,7 @@ export default {
         categorySlug(categoryName) {
 
             let categorySlug = categoryName.toLowerCase().replace(/&/g, 'and').replace(/ /g, '-').replace(/[^\w-]+/g, '')
-            console.log('slug for category', categoryName, '→', categorySlug);
+            // console.log('slug for category', categoryName, '→', categorySlug);
             return categorySlug
         },
         isCurrentCategory(categoryName) {
@@ -49,7 +49,7 @@ export default {
         },
         isShowingAllRecipes() {
             if (!this.$route.params.categorySlug) {
-                console.log(this.$route.params.categorySlug)
+                // console.log(this.$route.params.categorySlug)
                 return true;
             }
             return false;
