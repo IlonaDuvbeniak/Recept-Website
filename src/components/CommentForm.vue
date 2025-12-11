@@ -53,6 +53,7 @@ export default {
             commentsArray: [],
 
             message: '',
+            noCommentsMsg: "",
 
             x: window.innerWidth,
             showComStart: 0,
@@ -195,7 +196,12 @@ export default {
                 this.loading = false;
             }
 
-            this.addToLocalArray();
+            if (this.allComments.length === 0) {
+                this.noCommentsMsg = "Inga kommentarer gjorda än, men du kanske blir vår första? ;)";
+            } else {
+                this.addToLocalArray();
+            }
+            
         },
 
 
@@ -283,8 +289,8 @@ export default {
 
         },
 
-
-        
+            
+     
 
 
 
@@ -362,7 +368,7 @@ export default {
             <div class="comment-form-top">
                 <h2 class="recept-name">Kommentar</h2>
                 <input v-model="newName" autocomplete="given-name" placeholder="Ditt namn" maxlength="20"> 
-                <p id="counter1">{{ characterCountName }}/20</p>
+                <p id="counter1">{{ characterCountName }}/10</p>
                 <p id="counter2">{{ characterCountTitle }}/10</p>
                 <p id="counter3">{{ characterCountWrittenCom }}/200</p>
             </div>
@@ -383,6 +389,7 @@ export default {
 
 
     <div class="comment-cards-container">
+        
         <div 
             v-for="eachCommentLocalArray in commentsArray.slice(showComStart, showComEnd)" 
             class="comment-card"
@@ -428,13 +435,20 @@ export default {
 
         </div>
     </div>
-
+<p class="no-comments">{{ this.noCommentsMsg }}</p>
 
 
 
 </template>
 
 <style scoped>
+.no-comments {
+    text-align: center;
+    margin: 0 auto;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
 .help-msg {
     align-self: center;
     padding-left: 100px;
@@ -472,7 +486,6 @@ button {
     border-radius: 100px;
     position: absolute;
     top: 40%;
-    /* right: 45px; */
     border: 1px solid var(--red-color);
     fill: var(--white-color);
 
@@ -547,6 +560,7 @@ button {
 
     transition: transform 1s ease, opacity 1s ease;
     padding-bottom: 26px;
+    overflow-wrap: break-word;
 }
 
 p {
@@ -557,22 +571,29 @@ p {
     font-weight: 400;
     line-height: 24px;
     text-decoration: none;
+   
 }
 
 .commenter-name {
     font-size: 24px;
     line-height: 24px;
     font-weight: 600px;
+    overflow-wrap: break-word;
+    width: 75%;
 }
 
 
 
 .main-comment-text {
     font-size: 16px;
+    overflow-wrap: break-word;
 }
 
 .p-time {
     font-size: 14;
+    overflow-wrap: break-word;
+    width: 29%;
+    text-align: end;
 }
 
 
@@ -597,6 +618,9 @@ textarea {
     background-color: var(--white-color);
     resize: none;
     box-sizing: border-box;
+}
+textarea {
+    padding-top: 10px;
 }
 
 input:focus-within {
@@ -686,7 +710,7 @@ textarea:hover {
 }
 
 .comment-form-top input {
-    width: 70%;
+    width: 63%;
     align-self: flex-end;
 }
 
@@ -715,15 +739,25 @@ textarea:hover {
 @media (max-width: 881px) {
     .comment-form {
         width: 90%;
+        
+    }
+    .recept-name {
+        font-size: clamp(55px, 7vw, 56px);
+        margin: 0 auto;
     }
 }
 
+@media (max-width: 829px) {
+    .recept-name {
+        font-size: clamp(50px, 7vw, 53px);
+        margin: 0 auto;
+    }
+}
 
 @media (max-width: 780px) {
     .recept-name {
         font-size: clamp(44px, 7vw, 50px);
         margin: 0 auto;
-        /* margin-bottom: 10px; */
     }
 
     .title-comment-cards {
@@ -745,6 +779,7 @@ textarea:hover {
 
     .p-time {
         order: 1;
+        text-align: start;
     }
 
     .comment-cards-top {
@@ -802,12 +837,12 @@ textarea:hover {
     }
 
     .recept-name {
-        font-size: clamp(38px, 7vw, 44px);
+        font-size: clamp(40px, 7vw, 44px);
     }
 
 }
 
-@media (max-width: 480px) {
+@media (max-width: 550px) {
     .help-msg {
         padding-left: 0px;
         padding-right: 0px;
