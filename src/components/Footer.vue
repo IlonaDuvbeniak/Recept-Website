@@ -31,7 +31,7 @@
                             </div>
             </div>
             <div class="footer-logo">
-                <h6>*DRINKS*</h6>
+                <img src="/img/_DRINKS_.png" alt="*DRINKS*">
             </div>
         </div>
 
@@ -85,13 +85,6 @@
         padding: 52px 0px 32px 0px;
     }
 
-    h6 {
-        font-family: "Kalnia";
-        color: var(--red-color);
-        font-weight: bold;
-        font-size: 264px;
-    }
-
     .logo-row{
         display:flex;
         align-items:center;
@@ -111,6 +104,15 @@
         font-weight: 500;
         margin-top: 1.5rem;
         margin-bottom: 2rem;
+    }
+
+    .footer-logo {
+        padding: 52px 40px 24px 40px;
+    }
+
+    .footer-logo img {
+        width: 100%;
+        height: auto;
     }
 
     .team-member {
@@ -239,8 +241,8 @@
             padding-bottom: 1.2rem;
         }
 
-        h6 {
-            font-size: 80px;
+        .footer-logo {
+            padding: 0px 24px 32px 24px;
         }
 
         .line.white.hide,
