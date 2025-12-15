@@ -23,8 +23,10 @@
   <HeroSection />
   <div class="container">
     <CardsGrid :limit="6"/>
-    <Button :to="{ name: 'recepies' }" btnText="Visa fler" variant="primary" :showArrow="true"
-      :disabled="false"></Button>
+    <div class="btn-container">
+      <Button :to="{ name: 'recepies' }" btnText="Visa fler" variant="primary" :showArrow="true" :disabled="false"></Button>
+    </div>
+
   </div>
   <Footer />
 </template>
@@ -36,5 +38,10 @@
     align-items: center;
     justify-content: center;
     gap: 52px;
+  }
+
+  .btn-container {
+      width: 100%;
+      padding: 0px 24px;
   }
 </style>

@@ -242,7 +242,7 @@
         }
 
         .footer-logo {
-            padding: 0px 24px 24px 24px;
+            padding: 0px 24px 32px 24px;
         }
 
         .line.white.hide,
