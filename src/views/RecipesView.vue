@@ -47,8 +47,10 @@ export default {
         gap: 52px;
     }
 
-    .btn-container {
-        width: 100%;
-        padding: 0px 24px;
+    @media (max-width: 575px) {
+        .btn-container {
+            width: 100%;
+            padding: 0px 24px;
+        }
     }
 </style>
