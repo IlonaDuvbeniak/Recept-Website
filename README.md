@@ -23,7 +23,7 @@ Målet har varit att skapa en sida som känns **kul, underhållande, inspirerand
 Projektet har planerats och strukturerats i vårt planeringsverktyg:
 
 👉 **Länk till planeringsverktyg:**  
-[https://länk-till-ert-planeringsverktyg](https://länk-till-ert-planeringsverktyg)
+[[https://länk-till-ert-planeringsverktyg]([https://länk-till-ert-planeringsverktyg](https://github.com/users/IlonaDuvbeniak/projects/2)](https://github.com/users/IlonaDuvbeniak/projects/2))
 
 ---
 
