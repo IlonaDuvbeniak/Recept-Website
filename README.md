@@ -9,7 +9,7 @@ Målet har varit att skapa en sida som känns **kul, underhållande, inspirerand
 ---
 
 ## 👥 Team
-**Team X**  
+**Team D**  
 
 ### Teammedlemmar
 - Siri Prydz – GitHub: `@siriprydz`
@@ -51,6 +51,8 @@ Projektet är byggt med följande tekniker:
 - **Vue Router**
 - **REST API** med datahämtning från ett externt backend-API via Fetch
 - **Cypress** är installerat, men inga tester är implementerade i nuläget
+
+---
 
 ## Recommended IDE Setup
 
