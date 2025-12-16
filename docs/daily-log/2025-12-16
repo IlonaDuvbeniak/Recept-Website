@@ -1,0 +1,65 @@
+<!--
+Boiler Room Daily Log – mall för dokumentation
+Spara en kopia i mappen /docs/daily-log/ och döp filen till dagens datum, t.ex. 2025-10-21.md
+Skriv kort men tydligt vad ni gjorde, lärde er och vilka hinder som uppstod.
+En i teamet ansvarar för att loggen är uppdaterad innan dagens slut.
+-->
+
+# Boiler Room – Daily Log
+
+Datum: 2025-12-02
+
+## Team D
+
+- Siri Prydz
+- Natassja Berkan
+- Ilona Duvbeniak
+- Jia Sun
+
+---
+
+## 1. Planering (Stand-up)
+
+| Namn     | Vad gjorde jag senast?                                                                                | Vad ska jag göra idag?                             | Hinder?                                                                 |
+| -------- | ----------------------------------------------------------------------------------------------------- | -------------------------------------------------- | ----------------------------------------------------------------------- |
+| Siri     | Förberedde inför presentationen. Fixade så att sidan inte gör en ny fetch vid byte av view om det redan gjorts en fetch. | Fixa README-fil. Skriva på individuell reflektion. Lägga in anteckningar från vårt accessability-möte i docs. Titta på om någon funktion kan lyftas ut till en egen fil för att snygga till komponenter.|
+| Natassja | Förberedde inför presentationen. Fixade overflow på comments. La till så att det står att | Fixa README-fil. Skriva på individuell reflektion. Titta på om någon funktion kan lyftas ut till en egen fil för att snygga till komponenter. | 
+| Ilona    | Förberedde inför presentationen. Fixade responsivitet för t.ex. margins på buttons och footern. Checkade hur HTML-strukturen ser ut utan CSS. | Fixa README-fil. Skriva på individuell reflektion.                                                        
+| Jia      | Förberedde inför presentationen. Fixade med rating-systemet. | Fixa README-fil. Skriva på individuell reflektion. | Är på läkarbesök under dagen.                                                       
+
+**Dagens gemensamma mål:**
+
+- Fixa README-fil
+- Skriva på våra individuella reflektioner
+- Fixa lite småsaker för övningens skull (står specificerat ovan)
+
+---
+
+## 2. Under arbetet
+
+## **Vad vi fokuserade på:**
+
+- Jia fokuserade på 
+- Siri fokuserade på 
+- Natassja fokuserade på
+- Ilona fokuserade på
+
+## **Beslut eller ändringar i planering:**
+
+- 
+
+## **Nya insikter eller problem:**
+
+- 
+
+## 3. Review & Reflektion
+
+**Reflektera gemensamt i slutet av dagen:**
+
+
+
+**Vad vill vi ta upp med utbildaren?**
+
+- vi vill fråga om hur kan vi göra websidan snabbare.
+
+## 4. Övrigt / Anteckningar
