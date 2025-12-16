@@ -1,7 +1,7 @@
 <script>
 import Button from '@/components/Button.vue';
 import { fetchData } from '@/API/FetchRecipesAndAddData';
-import { fetchCategories } from '@/utils/fetchCategories.js';
+import { fetchCategories } from '@/API/fetchCategories.js';
 export default {
     name: "CategoryNavigation",
     components: {
