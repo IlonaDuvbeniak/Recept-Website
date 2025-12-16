@@ -12,10 +12,10 @@ Målet har varit att skapa en sida som känns **kul, underhållande, inspirerand
 **Team D**  
 
 ### Teammedlemmar
-- Siri Prydz – GitHub: `@siriprydz`
-- Ilona Duvbeniak – GitHub: `@IlonaDuvbeniak`
-- Natassja Berkan – GitHub: `@NatB-dev`
-- Jia Sun – GitHub: `@JIASUN90`
+- Siri Prydz – GitHub: `@siriprydz` https://github.com/siriprydz
+- Ilona Duvbeniak – GitHub: `@IlonaDuvbeniak` https://github.com/IlonaDuvbeniak
+- Natassja Berkan – GitHub: `@NatB-dev` https://github.com/NatB-dev
+- Jia Sun – GitHub: `@JIASUN90` https://github.com/JIASUN90
 
 ---
 
@@ -32,7 +32,7 @@ Webbsidan innehåller följande funktionalitet:
 
 - Inbjudande **hero section**
 - **Sökfält** för att hitta drinkar
-- **Filtrering** (t.ex. efter tema)
+- **Filtrering** (efter tema)
 - **Receptkort** som lockar användaren att klicka vidare
 - Knapp för att **ladda / visa fler recept**
 - **Receptsida** med:
