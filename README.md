@@ -4,7 +4,7 @@
 Detta projekt är en webbsida med recept på roliga och inspirerande drinkar för temafester och tjejkvällar.  
 Målgruppen är kvinnor i åldern **25–35 år** som gillar att bjuda över sina vänner, skapa stämning och ha olika teman på sina kvällar.
 
-Målet har varit att skapa en sida som känns **kul, underhållande, inspirerande och funky**, där användaren enkelt kan hitta drinkrecept som passar den twist eller det tema man vill ha på kvällen.
+Målet har varit att skapa en sida som känns **kul, underhållande, inspirerande och funky**, där användaren enkelt kan hitta drinkrecept som passar den twist eller det tema man vill ha under kvällen.
 
 ---
 
@@ -23,7 +23,7 @@ Målet har varit att skapa en sida som känns **kul, underhållande, inspirerand
 Projektet har planerats och strukturerats i vårt planeringsverktyg:
 
 👉 **Länk till planeringsverktyg:**  
-[[https://länk-till-ert-planeringsverktyg]([https://länk-till-ert-planeringsverktyg](https://github.com/users/IlonaDuvbeniak/projects/2)](https://github.com/users/IlonaDuvbeniak/projects/2))
+https://github.com/users/IlonaDuvbeniak/projects/2
 
 ---
 
