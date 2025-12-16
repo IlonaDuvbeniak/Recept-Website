@@ -12,7 +12,7 @@ Målet har varit att skapa en sida som känns **kul, underhållande, inspirerand
 **Team D**  
 
 ### Teammedlemmar
-- Siri Prydz – GitHub: [`@siriprydz`] (https://github.com/siriprydz)
+- Siri Prydz – GitHub: `@siriprydz` https://github.com/siriprydz
 - Ilona Duvbeniak – GitHub: `@IlonaDuvbeniak` https://github.com/IlonaDuvbeniak
 - Natassja Berkan – GitHub: `@NatB-dev` https://github.com/NatB-dev
 - Jia Sun – GitHub: `@JIASUN90` https://github.com/JIASUN90
