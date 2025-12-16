@@ -1,6 +1,56 @@
-# .
+# 🍹 Drinkrecept för Temakvällar
 
-This template should help get you started developing with Vue 3 in Vite.
+## 📌 Projektbeskrivning
+Detta projekt är en webbsida med recept på roliga och inspirerande drinkar för temafester och tjejkvällar.  
+Målgruppen är kvinnor i åldern **25–35 år** som gillar att bjuda över sina vänner, skapa stämning och ha olika teman på sina kvällar.
+
+Målet har varit att skapa en sida som känns **kul, underhållande, inspirerande och funky**, där användaren enkelt kan hitta drinkrecept som passar den twist eller det tema man vill ha på kvällen.
+
+---
+
+## 👥 Team
+**Team X**  
+
+### Teammedlemmar
+- Siri Prydz – GitHub: `@siriprydz`
+- Ilona Duvbeniak – GitHub: `@IlonaDuvbeniak`
+- Natassja Berkan – GitHub: `@NatB-dev`
+- Jia Sun – GitHub: `@JIASUN90`
+
+---
+
+## 🗂️ Planering
+Projektet har planerats och strukturerats i vårt planeringsverktyg:
+
+👉 **Länk till planeringsverktyg:**  
+[https://länk-till-ert-planeringsverktyg](https://länk-till-ert-planeringsverktyg)
+
+---
+
+## 🎯 Funktionella krav & innehåll
+Webbsidan innehåller följande funktionalitet:
+
+- Inbjudande **hero section**
+- **Sökfält** för att hitta drinkar
+- **Filtrering** (t.ex. efter tema)
+- **Receptkort** som lockar användaren att klicka vidare
+- Knapp för att **ladda / visa fler recept**
+- **Receptsida** med:
+  - Mer detaljerad information om receptet  
+  - Betygsättning  
+  - Kommentarsfält  
+- En **uttrycksfull footer**
+
+---
+
+## 🛠️ Tekniker & verktyg
+Projektet är byggt med följande tekniker:
+
+- **Vue (Options API)**
+- **Vite**
+- **Vue Router**
+- **REST API** med datahämtning från ett externt backend-API via Fetch
+- **Cypress** är installerat, men inga tester är implementerade i nuläget
 
 ## Recommended IDE Setup
 
