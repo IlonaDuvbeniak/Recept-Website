@@ -21,11 +21,11 @@ Under projektets gång genomförde vi ett tillgänglighetsmöte där varje grupp
 Web pages have titles that describe topic or purpose.
 
 **Success Criterion 2.4.3 Focus Order**
-(Level A)
+(Level A).
 If a web page can be navigated sequentially and the navigation sequences affect meaning or operation, focusable components receive focus in an order that preserves meaning and operability.
 
 **Success Criterion 2.4.4 Link Purpose (In Context)**
-(Level A)
+(Level A).
 The purpose of each link can be determined from the link text alone or from the link text together with its programmatically determined link context, except where the purpose of the link would be ambiguous to users in general.
 (tolkning: vi behöver lägga till någon slags label på våra kort-knappar så att det är tydligt var de navigerar)
 
@@ -34,11 +34,11 @@ The purpose of each link can be determined from the link text alone or from the 
 ### På sökfältet
 
 **Success Criterion 3.3.1 Error Identification**
-(Level A)
+(Level A).
 If an input error is automatically detected, the item that is in error is identified and the error is described to the user in text.
 
 **Success Criterion 3.3.3 Error Suggestion**
-(Level AA)
+(Level AA).
 If an input error is automatically detected and suggestions for correction are known, then the suggestions are provided to the user, unless it would jeopardize the security or purpose of the content.
 
 Autocompletion?
@@ -46,7 +46,7 @@ Autocompletion?
 ### På kommentarsfunktionen
 
 **Success Criterion 3.3.1 Error Identification**
-(Level A)
+(Level A).
 If an input error is automatically detected, the item that is in error is identified and the error is described to the user in text.
 
 - Autocompletion på namn rutan? (autocomplete="name")
@@ -57,7 +57,7 @@ If an input error is automatically detected, the item that is in error is identi
 ### På videon
 
 **Success Criterion 2.2.2 Pause, Stop, Hide**
-(Level A)
+(Level A).
 Moving, blinking, scrolling For any moving, blinking or scrolling information that (1) starts automatically, (2) lasts more than five seconds, and (3) is presented in parallel with other content, there is a mechanism for the user to pause, stop, or hide it unless the movement, blinking, or scrolling is part of an activity where it is essential; and
 
 Auto-updating For any auto-updating information that (1) starts automatically and (2) is presented in parallel with other content, there is a mechanism for the user to pause, stop, or hide it or to control the frequency of the update unless the auto-updating is part of an activity where it is essential.
@@ -67,6 +67,6 @@ Auto-updating For any auto-updating information that (1) starts automatically an
 ### På sidorna där recept-griden visas
 
 **Success Criterion 2.4.1 Bypass Blocks**
-(Level A)
+(Level A).
 A mechanism is available to bypass blocks of content that are repeated on multiple web pages.
 (Tolkning: man ska kunna tabba direkt förbi alla receptkort och komma till 2visa fler recept“-knappen utan att behöva gå igenom alla kort individuelt)
