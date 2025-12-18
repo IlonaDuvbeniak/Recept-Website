@@ -13,11 +13,10 @@ export default {
             loading: true,
             error: null,
             activeRecipePage: this.$route.params.slug,
-            //     activeRecipe: "",
             slugToRecipeIdInCommentsAPIlist:
                 [
 
-                    {slugName: "boozy-banshee-scream", recipeId: "c7721a9b-b3eb-4275-adee-b1f8c625bfb2"},  // this för tillfället, kan bytas till API i framtiden. 
+                    {slugName: "boozy-banshee-scream", recipeId: "c7721a9b-b3eb-4275-adee-b1f8c625bfb2"},  // det för tillfället, kan bytas till API i framtiden. 
                     {slugName: "bitter-tears", recipeId: "a07a3046-89d1-4f53-9ec8-8326cf3d7271"},
                     {slugName: "bye-bye-mary", recipeId: "a82062f9-221b-4657-820f-1d6dd41c995f"},
                     {slugName: "party-like-its-friday", recipeId: "26ed6192-86e4-4ef5-9b22-2973d1ff5cb2"},
@@ -63,10 +62,6 @@ export default {
 
             disableRightButton: false,
             disableLeftButton: true,
-
-            // x: window.matchMedia("(max-width: 600px)"),
-         
-
            
         }
     },
@@ -75,7 +70,7 @@ export default {
     async mounted() {
         // körs automatiskt när komponenten laddas
         await this.fetchComments();
-        // await this.loadRecipes();
+
     
 
     // //______________KÄNNER SIDSTORLEK____________________________________________________
@@ -168,10 +163,7 @@ export default {
 
 
         commentApiUrl() {
-            // Här hade jag velat göra en fetch istället för att ha en lista här..
-            // Och i APIet jämfört slug namnet med name...
-            // Hade behövts omvandla tillbaka till orginalnamn innan.
-            // Sen hämtat det id som var kopplat.
+            // Här hade jag velat göra en fetch istället för att ha en lista.
 
             const findRecipeId = this.slugToRecipeIdInCommentsAPIlist.find(p => p.slugName === this.activeRecipePage);
 
@@ -367,7 +359,7 @@ export default {
         <div class="comment-form">
             <div class="comment-form-top">
                 <h2 class="recept-name">Kommentar</h2>
-                <input v-model="newName" autocomplete="given-name" placeholder="Ditt namn" maxlength="20"> 
+                <input v-model="newName" autocomplete="given-name" placeholder="Ditt namn" maxlength="10"> 
                 <p id="counter1">{{ characterCountName }}/10</p>
                 <p id="counter2">{{ characterCountTitle }}/10</p>
                 <p id="counter3">{{ characterCountWrittenCom }}/200</p>
@@ -681,8 +673,6 @@ textarea:hover {
     position: absolute;
     top: 42%;
     right: 3%;
-    background-color: rgb(255, 255, 255);
-
 }
 
 #counter2 {
