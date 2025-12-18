@@ -217,6 +217,41 @@ h1 {
     outline: 2px solid black;
     outline-offset: 2px;
 } */
+@media (min-width: 3300px) {
+    .hero-section {
+        margin-bottom: 500px;
+    }
+}
+
+@media (max-width: 3299px) {
+    .hero-section {
+        margin-bottom: 300px;
+    }
+}
+
+@media (max-width: 3000px) {
+    .hero-section {
+        margin-bottom: 300px;
+    }
+}
+
+@media (max-width: 2600px) {
+    .hero-section {
+        margin-bottom: 200px;
+    }
+}
+
+@media (max-width: 2300px) {
+    .hero-section {
+        margin-bottom: 100px;
+    }
+}
+
+@media (max-width: 2000px) {
+    .hero-section {
+        margin-bottom: 40px;
+    }
+}
 
 @media (max-width: 1399px) {
     .title-and-button {
@@ -227,6 +262,18 @@ h1 {
 
     .swirl-text {
         margin-top: -50px;
+
+    }
+
+    .hero-section {
+        margin-bottom: 0px;
+    }
+
+    .hero-movie {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: auto;
     }
 }
 
